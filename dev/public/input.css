@@ -1,0 +1,153 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* src url 必须参考 tailwind 的输出文件, 不是input.css 文件 */
+@layer base {
+    @font-face {
+        font-family: 'pingfang';
+        src: url('../../fonts/PingFang.ttc');
+    }
+}
+
+.gongwei {
+    background-color: #ffffff;
+    box-shadow: 0px 3px 3px rgba(102, 102, 102, 0.25);
+    border-radius: 15px;
+    width: 165px;
+    height: 165px;
+}
+
+.default-shadow {
+    box-shadow: 0px 3px 3px rgba(102, 102, 102, 0.25);
+}
+
+.important {
+    color: red;
+    /* color: #0079FE; */
+}
+
+.rigan {
+    color: #0079FE;
+}
+
+#home-modal {
+    z-index: 10;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 500px;
+    height: 350px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(243 244 246 / 0.75);
+    justify-content: space-evenly;
+    align-items: center;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 500ms ease-in-out;
+    backdrop-filter: blur(4px);
+}
+
+#home-modal.active {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+#home-about-modal {
+    z-index: 10;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 350px;
+    height: 350px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(243 244 246 / 0.75);
+    justify-content: center;
+    align-items: center;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 500ms ease-in-out;
+    backdrop-filter: blur(4px);
+}
+
+#home-about-modal.active {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+#overlay {
+    z-index: 9;
+    position: fixed;
+    opacity: 0;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: white;
+    pointer-events: none;
+}
+
+#overlay.active {
+    pointer-events: all;
+}
+
+/* HAMBURGER MENU */
+.hamburger {
+    height: 40px;
+    width: 40px;
+    /* position: relative; */
+    cursor: pointer;
+    padding: 1rem;
+}
+
+.hamburger-top,
+.hamburger-middle,
+.hamburger-bottom {
+    width: 70%;
+    height: 3px;
+    background-color: rgb(0, 0, 0);
+    border-radius: 25px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: transform .6s, opacity .8s, top .6s;
+}
+
+.hamburger-top {
+    top: 25%;
+}
+
+.hamburger-bottom {
+    top: 75%;
+}
+
+.hamburger.active .hamburger-top {
+    transform: translate(-50%, -50%) rotate(-315deg);
+    top: 50%;
+}
+
+.hamburger.active .hamburger-middle {
+    opacity: 0;
+}
+
+.hamburger.active .hamburger-bottom {
+    transform: translate(-50%, -50%) rotate(-225deg);
+    top: 50%;
+}
+
+.menu {
+    position: fixed;
+    top: 0;
+    right: -75%;
+    height: 100vh;
+    transition: right .5s;
+}
+
+.menu.active {
+    right: 0;
+}
+
+/* HAMBURGER MENU */

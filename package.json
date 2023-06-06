@@ -1,24 +1,36 @@
 {
-    "name": "qimenpaipan",
+    "name": "qimen",
     "version": "1.0.0",
-    "description": "奇门鸣法排盘",
-    "main": "./dist/main.js",
+    "description": "奇门遁甲排盘",
+    "main": "./dev/main.js",
     "scripts": {
         "start": "electron .",
         "tswatch": "tsc -w",
-        "watch-render": "tsc --project src/render/tsconfig_for_render.json --watch",
-        "twwatch": "tailwindcss -i ./dist/public/input.css -o ./dist/public/css/index.css --watch",
+        "twwatch": "tailwindcss -i ./dev/public/input.css -o ./dev/public/css/index.css --watch",
         "dev": "nodemon --exec electron .",
-        "twbuild": "tailwindcss -i ./dist/public/input.css -o ./dist/public/css/index.css",
-        "package-mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=assets/neural.icns --prune=true --out=release-builds",
-        "package-win": "electron-packager . --overwrite --platform=win32 --arch=ia32 --icon=assets/neural.ico--prune=false --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"food delivery app\"",
-        "package-linux": "electron-packager .  --overwrite --asar=true --platform=linux --arch=x64 --icon=assets/neural.png --prune=true --out=release-builds"
+        "twbuild": "tailwindcss -i ./dev/public/input.css -o ./dev/public/css/index.css",
+        "build-win": "electron-builder --w",
+        "build-mac": "electron-builder --m"
     },
     "author": "Richard Ge",
     "license": "ISC",
     "devDependencies": {
         "electron": "^24.1.2",
+        "electron-packager": "^17.1.1",
         "nodemon": "^2.0.22",
         "tailwindcss": "^3.3.1"
+    },
+    "dependencies": {
+        "capture-electron": "^4.0.3",
+        "moment": "^2.29.4"
+    },
+    "build" : {
+        "appId": "com.dayandianxing.qimen",
+        "mac": {
+            "target": "dmg"
+        },
+        "win": {
+            "target": "zip"
+        }
     }
 }
