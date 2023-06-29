@@ -3,19 +3,22 @@ const { app, BrowserWindow, ipcMain, desktopCapturer } = require('electron');
 const path = require('path');
 const fs = require('fs');
 const moment = require('moment');
+
 // importing modules
 const { timeInfo } = require('./sizhu');
 const { paiFeiPan } = require('./feipan');
+
 // const { paiZhuanPan } = require('./zhuanpan');
 // const { paiFuShiZhuanPan } = require('./fushipan');
 
-process.env.NODE_ENV = 'production';
+process.env.NODE_ENV = 'dev';
+
 const isDev = process.env.NODE_ENV !== 'release' ? true : false;
 
 let mainWindow;
 
 ipcMain.on('正时起局', (e, data) => {
-    const time = timeInfo(data.timeInfo.date, data.timeInfo.hour, false); // 四柱信息
+    const time = timeInfo(data.timeInfo.date, data.timeInfo.hour, false);
     if (data.paipanMethod == '飞盘') {
         const paipan = paiFeiPan(time.jieqi, time.ri, time.shi);
         const paiPanResult = {
@@ -45,15 +48,15 @@ ipcMain.on('报数起局', (e, data) => {
         data.choosenTime.date,
         data.choosenTime.hour,
         data.choosenMethod,
-        data.choosenNumber
-    ); // 四柱信息
+        data.choosenNumber,
+    );
     if (data.paipanMethod == '飞盘') {
         const paipan = paiFeiPan(
             time.jieqi,
             time.ri,
             time.shi,
             data.choosenNumber,
-            data.choosenMethod
+            data.choosenMethod,
         );
         const paiPanResult = {
             time: time,
@@ -66,7 +69,7 @@ ipcMain.on('报数起局', (e, data) => {
             time.ri,
             time.shi,
             data.choosenNumber,
-            data.choosenMethod
+            data.choosenMethod,
         );
         const paiPanResult = {
             time: time,
@@ -79,7 +82,7 @@ ipcMain.on('报数起局', (e, data) => {
             time.ri,
             time.shi,
             data.choosenNumber,
-            data.choosenMethod
+            data.choosenMethod,
         );
         const paiPanResult = {
             time: time,
@@ -125,7 +128,7 @@ ipcMain.on('screenshot', (e, data) => {
     desktopCapturer
         .getSources({
             types: ['window'],
-            thumbnailSize: { width: 1000, height: 1000 },
+            thumbnailSize: { width: 7000, height: 7000 },
         })
         .then((sources) => {
             for (const source of sources) {
@@ -134,24 +137,17 @@ ipcMain.on('screenshot', (e, data) => {
                     const fileName = getFileName(data);
 
                     // Save the screenshot as a JPG file on the desktop
-                    const filePath = path.join(
-                        app.getPath('desktop'),
-                        `${fileName}.jpg`
-                    );
-                    fs.writeFile(
-                        filePath,
-                        source.thumbnail.toJPEG(100),
-                        (error) => {
-                            if (error) {
-                                // console.error(
-                                //     'Failed to save screenshot:',
-                                //     error
-                                // );
-                            } else {
-                                // console.log('Screenshot saved:', filePath);
-                            }
+                    const filePath = path.join(app.getPath('desktop'), `${fileName}.jpg`);
+                    fs.writeFile(filePath, source.thumbnail.toJPEG(100), (error) => {
+                        if (error) {
+                            // console.error(
+                            //     'Failed to save screenshot:',
+                            //     error
+                            // );
+                        } else {
+                            // console.log('Screenshot saved:', filePath);
                         }
-                    );
+                    });
                     break;
                 }
             }

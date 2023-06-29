@@ -4,36 +4,29 @@ const fileSystem = require('fs'); // 用来更新基础信息和主题
 const paipan = document.getElementById('paipan'); // 排盘页
 const returnBtn = document.getElementById('return'); // 排盘: 页返回按钮
 
-returnBtn.addEventListener('click', togglePage); // 排盘: 页面返回主页按钮
+returnBtn.addEventListener('click', toggleHomeAndPaipan); // 排盘: 页面返回主页按钮
 
 // 正时排盘按键跳转功能
 document.getElementById('zhengshi').addEventListener('click', () => {
     updateDefaultInformation();
     changeBaoshuRadioInput();
     clearPanJu();
-    let choosenTime = formatDateTime(
-        document.getElementById('date-time').value,
-    );
+    let choosenTime = formatDateTime(document.getElementById('date-time').value);
     const data = {
         paipanMethod: document.getElementById('home-paipanfangshi').value, // 排盘方式（飞盘，传统转盘，符使转盘）
         timeInfo: choosenTime,
     };
     ipcRenderer.send('正时起局', data); // 把时间参数发送至后台
-    togglePage(); // 切换页面
+    toggleHomeAndPaipan(); // 切换页面
     closeSideMenu();
 });
 
 document.getElementById('modal-btn').addEventListener('click', () => {
-    if (
-        document.getElementById('shuzi').value != '' &&
-        document.getElementById('shuzi').value > 0
-    ) {
+    if (document.getElementById('shuzi').value != '' && document.getElementById('shuzi').value > 0) {
         updateDefaultInformation();
         changeBaoshuRadioInput();
         clearPanJu();
-        let choosenTime = formatDateTime(
-            document.getElementById('date-time').value,
-        );
+        let choosenTime = formatDateTime(document.getElementById('date-time').value);
         let data = {
             paipanMethod: document.getElementById('home-paipanfangshi').value, // 排盘方式（飞盘，传统转盘，符使转盘）
             choosenTime: choosenTime,
@@ -48,7 +41,7 @@ document.getElementById('modal-btn').addEventListener('click', () => {
             data.choosenMethod = 'zhichou';
         }
         ipcRenderer.send('报数起局', data); // 把时间参数发送至后台
-        togglePage(); // 切换页面
+        toggleHomeAndPaipan(); // 切换页面
         closeModal(); // 关闭弹窗
         closeSideMenu();
     }
@@ -56,19 +49,13 @@ document.getElementById('modal-btn').addEventListener('click', () => {
 
 document.getElementById('shuzi').addEventListener('keypress', (e) => {
     if (e.key === 'Enter') {
-        if (
-            document.getElementById('shuzi').value != '' &&
-            document.getElementById('shuzi').value > 0
-        ) {
+        if (document.getElementById('shuzi').value != '' && document.getElementById('shuzi').value > 0) {
             updateDefaultInformation();
             changeBaoshuRadioInput();
             clearPanJu();
-            let choosenTime = formatDateTime(
-                document.getElementById('date-time').value,
-            );
+            let choosenTime = formatDateTime(document.getElementById('date-time').value);
             let data = {
-                paipanMethod:
-                    document.getElementById('home-paipanfangshi').value, // 排盘方式（飞盘，传统转盘，符使转盘）
+                paipanMethod: document.getElementById('home-paipanfangshi').value, // 排盘方式（飞盘，传统转盘，符使转盘）
                 choosenTime: choosenTime,
                 choosenMethod: '',
                 choosenNumber: document.getElementById('shuzi').value,
@@ -81,7 +68,7 @@ document.getElementById('shuzi').addEventListener('keypress', (e) => {
                 data.choosenMethod = 'zhichou';
             }
             ipcRenderer.send('报数起局', data); // 把时间参数发送至后台
-            togglePage(); // 切换页面
+            toggleHomeAndPaipan(); // 切换页面
             closeModal(); // 关闭弹窗
         }
     }
@@ -90,7 +77,7 @@ document.getElementById('shuzi').addEventListener('keypress', (e) => {
 /**
  * 页面更换
  */
-function togglePage() {
+function toggleHomeAndPaipan() {
     home.classList.toggle('hidden');
     paipan.classList.toggle('hidden');
     paipan.classList.toggle('flex');
@@ -124,12 +111,7 @@ function updateDefaultInformation() {
         theme: document.getElementById('theme').value,
     };
     const jsonData = JSON.stringify(updateInfo);
-    fileSystem.writeFile(
-        './dist/public/js/default.json',
-        jsonData,
-        'utf8',
-        () => {},
-    );
+    fileSystem.writeFile('./dist/public/js/default.json', jsonData, 'utf8', () => {});
 }
 
 function clearPanJu() {

@@ -15,37 +15,37 @@ ipcRenderer.on('飞盘排盘', (e, data) => {
         data.paipan.anganzhi,
         data.paipan.dun,
         data.paipan.dipangan,
-        data.paipan.xunshou,
+        data.paipan.xunshou
     );
     paiJiuXing(
         document.getElementById('shi').innerHTML,
         data.paipan.dipangan,
-        data.paipan.jiuxing,
+        data.paipan.jiuxing
     );
     paiBaMen(data.paipan.bamen, document.getElementById('shi').innerHTML);
     paiTianPanGan(
         document.getElementById('shi').innerHTML,
         data.paipan.dipangan,
         data.paipan.dun,
-        data.paipan.tianpangan,
+        data.paipan.tianpangan
     );
     paiTianPanShen(
         document.getElementById('shi').innerHTML,
         data.paipan.dun,
-        data.paipan.dipangan,
+        data.paipan.dipangan
     );
     paiDiPanShen(data.paipan.dun, data.paipan.xunshou, data.paipan.dipangan);
     paiKongWang(
         data.paipan.kongwang,
         document.querySelectorAll('[data-tianpangan]'),
-        document.querySelectorAll('[data-dipangan]'),
+        document.querySelectorAll('[data-dipangan]')
     );
     paiMaXing(data.paipan.maxing);
     wubuyushi();
     renderImportantColor(
         data.paipan.fushi.zhishi,
         document.getElementById('shi').innerHTML,
-        document.getElementById('ri').innerHTML,
+        document.getElementById('ri').innerHTML
     );
 });
 

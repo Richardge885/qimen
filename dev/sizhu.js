@@ -130,27 +130,29 @@ function timeInfo(date, hour, method = 'none', number = 0) {
                         case 11:
                             hour = 20;
                             shiganzhi = getShiZhu(riganzhi, hour.toString());
+                            break;
+                        case 0:
+                            hour = 22;
+                            shiganzhi = getShiZhu(riganzhi, hour.toString());
+                            break;
                     }
                 } else {
                     hour = 22;
                     shiganzhi = getShiZhu(riganzhi, hour.toString());
                 }
             } else if (method == 'zhichou') {
-                shiganzhi = liushijiazi[(number % 60) - 1];
+                if (number % 60 == 0) {
+                    shiganzhi = liushijiazi[59];
+                } else {
+                    shiganzhi = liushijiazi[(number % 60) - 1];
+                }
             } else {
                 shiganzhi = getShiZhu(riganzhi, hour.toString());
             }
             let jieqi = getSeason(i);
             return {
                 yangli: date,
-                sizhu:
-                    nianganzhi +
-                    ' ' +
-                    yueganzhi +
-                    ' ' +
-                    riganzhi +
-                    ' ' +
-                    shiganzhi,
+                sizhu: nianganzhi + ' ' + yueganzhi + ' ' + riganzhi + ' ' + shiganzhi,
                 nian: nianganzhi,
                 yue: yueganzhi,
                 ri: riganzhi,

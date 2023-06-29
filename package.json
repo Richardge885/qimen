@@ -1,14 +1,14 @@
 {
     "name": "qimen",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "奇门遁甲排盘",
     "main": "./dev/main.js",
     "scripts": {
         "start": "electron .",
         "tswatch": "tsc -w",
         "twwatch": "tailwindcss -i ./dev/public/input.css -o ./dev/public/css/index.css --watch",
-        "dev": "nodemon --exec electron .",
         "twbuild": "tailwindcss -i ./dev/public/input.css -o ./dev/public/css/index.css",
+        "dev": "nodemon --exec electron .",
         "build-win": "electron-builder --w",
         "build-mac": "electron-builder --m"
     },
@@ -24,7 +24,7 @@
         "capture-electron": "^4.0.3",
         "moment": "^2.29.4"
     },
-    "build" : {
+    "build": {
         "appId": "com.dayandianxing.qimen",
         "mac": {
             "target": "dmg"
