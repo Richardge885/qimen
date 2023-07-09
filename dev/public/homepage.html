@@ -49,7 +49,7 @@
 
         <!-- about modal -->
         <div id="home-about-modal" class="shadow-md shadow-shadow">
-            <div class="font-bold">奇门遁甲排盘 版本: 1.0.1</div>
+            <div class="font-bold">奇门遁甲排盘 版本: 1.0.2</div>
             <div class="font-bold">软件作者: Richard Ge</div>
             <div class="font-bold">软件设计: Zhang ZhiLan</div>
         </div>
@@ -115,9 +115,7 @@
     <!-- paipan page section -->
     <div id="paipan" class="w-screen h-screen hidden bg-[#eeeeee]">
         <!-- info modal -->
-        <div id='paipan-info-modal'>
-
-        </div>
+        <div id="paipan-info-modal"></div>
         <!-- 上放主信息区 -->
         <!-- 阳历和节气区 -->
         <div class="absolute h-[30px] left-[20px] top-[15px] font-pingfang text-[20px]">
@@ -360,30 +358,27 @@
         </button>
 
         <!-- for windows -->
-        <!-- <button -->
-        <!--     id="return" -->
-        <!--     class="absolute top-[703px] left-[475px] h-[122px] w-[55px] bg-btn text-white rounded-[12px] hover:bg-white hover:text-black duration-150 default-shadow" -->
-        <!-- > -->
-        <!--     返回 -->
-        <!-- </button> -->
+        <!-- <button id="return"
+            class="absolute top-[703px] left-[475px] h-[122px] w-[55px] bg-btn text-white rounded-[12px] hover:bg-white hover:text-black duration-150 default-shadow">
+            返回
+        </button> -->
     </div>
 
     <!-- 主页 js 文件 -->
-    <script src="js/home_getDefaultInformation.js"></script>
-    <script src="js/home_setCurrentTime.js"></script>
-    <script src="js/home_modal.js"></script>
-    <script src="js/home_menu.js"></script>
-    <script src="js/home_useDifferentScripts.js"></script>
+    <script type="module" src="js/home_getDefaultInformation.js"></script>
+    <script type="module" src="js/home_setCurrentTime.js"></script>
+    <script type="module" src="js/home_modal.js"></script>
+    <script type="module" src="js/home_useDifferentScripts.js"></script>
 
     <!-- 共用 js 文件 -->
-    <script src="js/navigation.js"></script>
-    <script src="js/saved_paipan_data.js"></script>
+    <script type="module" src="js/navigation.js"></script>
+    <script type="module" src="js/saved_paipan_data.js"></script>
     <!-- 排盘页 js 文件 -->
-    <script src="js/paipan_huanju.js"></script>
-    <script src="js/paipan_gongneixinxi.js"></script>
+    <script type="module" src="js/paipan_huanju.js"></script>
+    <script type="module" src="js/paipan_gongneixinxi.js"></script>
 
     <!-- mac only scripts -->
-    <script src="js/paipan_screenshot.js"></script>
+    <script type="module" src="js/paipan_screenshot.js"></script>
 </body>
 
 </html>

@@ -6,6 +6,17 @@ const returnBtn = document.getElementById('return'); // 排盘: 页返回按钮
 
 returnBtn.addEventListener('click', toggleHomeAndPaipan); // 排盘: 页面返回主页按钮
 
+function changeBaoshuRadioInput() {
+    if (document.getElementById('home-paipanfangshi').value == '飞盘') {
+        document.getElementById('jushu').setAttribute('checked', '');
+    } else if (
+        document.getElementById('home-paipanfangshi').value == '传统转盘' ||
+        document.getElementById('home-paipanfangshi').value == '符使转盘'
+    ) {
+        document.getElementById('shichen').setAttribute('checked', '');
+    }
+}
+
 // 正时排盘按键跳转功能
 document.getElementById('zhengshi').addEventListener('click', () => {
     updateDefaultInformation();
@@ -22,7 +33,10 @@ document.getElementById('zhengshi').addEventListener('click', () => {
 });
 
 document.getElementById('modal-btn').addEventListener('click', () => {
-    if (document.getElementById('shuzi').value != '' && document.getElementById('shuzi').value > 0) {
+    if (
+        document.getElementById('shuzi').value != '' &&
+        document.getElementById('shuzi').value > 0
+    ) {
         updateDefaultInformation();
         changeBaoshuRadioInput();
         clearPanJu();
@@ -49,7 +63,10 @@ document.getElementById('modal-btn').addEventListener('click', () => {
 
 document.getElementById('shuzi').addEventListener('keypress', (e) => {
     if (e.key === 'Enter') {
-        if (document.getElementById('shuzi').value != '' && document.getElementById('shuzi').value > 0) {
+        if (
+            document.getElementById('shuzi').value != '' &&
+            document.getElementById('shuzi').value > 0
+        ) {
             updateDefaultInformation();
             changeBaoshuRadioInput();
             clearPanJu();

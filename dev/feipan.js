@@ -221,8 +221,11 @@ function dingJuShu(jieqi, rizhu, liushijiazi, jieqiYuanShu) {
         case '立春':
             for (let i = 0; i < 60; i++) {
                 if (rizhu == liushijiazi[i]) {
-                    for (let j = i; j > 0; j--) {
-                        if (liushijiazi[j].charAt(0) == '甲' || liushijiazi[j].charAt(0) == '己') {
+                    for (let j = i; j >= 0; j--) {
+                        if (
+                            liushijiazi[j].charAt(0) == '甲' ||
+                            liushijiazi[j].charAt(0) == '己'
+                        ) {
                             if (
                                 liushijiazi[j].charAt(1) == '子' ||
                                 liushijiazi[j].charAt(1) == '午' ||
@@ -247,8 +250,11 @@ function dingJuShu(jieqi, rizhu, liushijiazi, jieqiYuanShu) {
         case '雨水':
             for (let i = 0; i < 60; i++) {
                 if (rizhu == liushijiazi[i]) {
-                    for (let j = i; j > 0; j--) {
-                        if (liushijiazi[j].charAt(0) == '甲' || liushijiazi[j].charAt(0) == '己') {
+                    for (let j = i; j >= 0; j--) {
+                        if (
+                            liushijiazi[j].charAt(0) == '甲' ||
+                            liushijiazi[j].charAt(0) == '己'
+                        ) {
                             if (
                                 liushijiazi[j].charAt(1) == '子' ||
                                 liushijiazi[j].charAt(1) == '午' ||
@@ -273,8 +279,11 @@ function dingJuShu(jieqi, rizhu, liushijiazi, jieqiYuanShu) {
         case '惊蛰':
             for (let i = 0; i < 60; i++) {
                 if (rizhu == liushijiazi[i]) {
-                    for (let j = i; j > 0; j--) {
-                        if (liushijiazi[j].charAt(0) == '甲' || liushijiazi[j].charAt(0) == '己') {
+                    for (let j = i; j >= 0; j--) {
+                        if (
+                            liushijiazi[j].charAt(0) == '甲' ||
+                            liushijiazi[j].charAt(0) == '己'
+                        ) {
                             if (
                                 liushijiazi[j].charAt(1) == '子' ||
                                 liushijiazi[j].charAt(1) == '午' ||
@@ -299,8 +308,11 @@ function dingJuShu(jieqi, rizhu, liushijiazi, jieqiYuanShu) {
         case '春分':
             for (let i = 0; i < 60; i++) {
                 if (rizhu == liushijiazi[i]) {
-                    for (let j = i; j > 0; j--) {
-                        if (liushijiazi[j].charAt(0) == '甲' || liushijiazi[j].charAt(0) == '己') {
+                    for (let j = i; j >= 0; j--) {
+                        if (
+                            liushijiazi[j].charAt(0) == '甲' ||
+                            liushijiazi[j].charAt(0) == '己'
+                        ) {
                             if (
                                 liushijiazi[j].charAt(1) == '子' ||
                                 liushijiazi[j].charAt(1) == '午' ||
@@ -325,8 +337,11 @@ function dingJuShu(jieqi, rizhu, liushijiazi, jieqiYuanShu) {
         case '清明':
             for (let i = 0; i < 60; i++) {
                 if (rizhu == liushijiazi[i]) {
-                    for (let j = i; j > 0; j--) {
-                        if (liushijiazi[j].charAt(0) == '甲' || liushijiazi[j].charAt(0) == '己') {
+                    for (let j = i; j >= 0; j--) {
+                        if (
+                            liushijiazi[j].charAt(0) == '甲' ||
+                            liushijiazi[j].charAt(0) == '己'
+                        ) {
                             if (
                                 liushijiazi[j].charAt(1) == '子' ||
                                 liushijiazi[j].charAt(1) == '午' ||
@@ -351,8 +366,11 @@ function dingJuShu(jieqi, rizhu, liushijiazi, jieqiYuanShu) {
         case '谷雨':
             for (let i = 0; i < 60; i++) {
                 if (rizhu == liushijiazi[i]) {
-                    for (let j = i; j > 0; j--) {
-                        if (liushijiazi[j].charAt(0) == '甲' || liushijiazi[j].charAt(0) == '己') {
+                    for (let j = i; j >= 0; j--) {
+                        if (
+                            liushijiazi[j].charAt(0) == '甲' ||
+                            liushijiazi[j].charAt(0) == '己'
+                        ) {
                             if (
                                 liushijiazi[j].charAt(1) == '子' ||
                                 liushijiazi[j].charAt(1) == '午' ||
@@ -377,8 +395,11 @@ function dingJuShu(jieqi, rizhu, liushijiazi, jieqiYuanShu) {
         case '立夏':
             for (let i = 0; i < 60; i++) {
                 if (rizhu == liushijiazi[i]) {
-                    for (let j = i; j > 0; j--) {
-                        if (liushijiazi[j].charAt(0) == '甲' || liushijiazi[j].charAt(0) == '己') {
+                    for (let j = i; j >= 0; j--) {
+                        if (
+                            liushijiazi[j].charAt(0) == '甲' ||
+                            liushijiazi[j].charAt(0) == '己'
+                        ) {
                             if (
                                 liushijiazi[j].charAt(1) == '子' ||
                                 liushijiazi[j].charAt(1) == '午' ||
@@ -403,8 +424,11 @@ function dingJuShu(jieqi, rizhu, liushijiazi, jieqiYuanShu) {
         case '小满':
             for (let i = 0; i < 60; i++) {
                 if (rizhu == liushijiazi[i]) {
-                    for (let j = i; j > 0; j--) {
-                        if (liushijiazi[j].charAt(0) == '甲' || liushijiazi[j].charAt(0) == '己') {
+                    for (let j = i; j >= 0; j--) {
+                        if (
+                            liushijiazi[j].charAt(0) == '甲' ||
+                            liushijiazi[j].charAt(0) == '己'
+                        ) {
                             if (
                                 liushijiazi[j].charAt(1) == '子' ||
                                 liushijiazi[j].charAt(1) == '午' ||
@@ -429,8 +453,11 @@ function dingJuShu(jieqi, rizhu, liushijiazi, jieqiYuanShu) {
         case '芒种':
             for (let i = 0; i < 60; i++) {
                 if (rizhu == liushijiazi[i]) {
-                    for (let j = i; j > 0; j--) {
-                        if (liushijiazi[j].charAt(0) == '甲' || liushijiazi[j].charAt(0) == '己') {
+                    for (let j = i; j >= 0; j--) {
+                        if (
+                            liushijiazi[j].charAt(0) == '甲' ||
+                            liushijiazi[j].charAt(0) == '己'
+                        ) {
                             if (
                                 liushijiazi[j].charAt(1) == '子' ||
                                 liushijiazi[j].charAt(1) == '午' ||
@@ -455,8 +482,11 @@ function dingJuShu(jieqi, rizhu, liushijiazi, jieqiYuanShu) {
         case '夏至':
             for (let i = 0; i < 60; i++) {
                 if (rizhu == liushijiazi[i]) {
-                    for (let j = i; j > 0; j--) {
-                        if (liushijiazi[j].charAt(0) == '甲' || liushijiazi[j].charAt(0) == '己') {
+                    for (let j = i; j >= 0; j--) {
+                        if (
+                            liushijiazi[j].charAt(0) == '甲' ||
+                            liushijiazi[j].charAt(0) == '己'
+                        ) {
                             if (
                                 liushijiazi[j].charAt(1) == '子' ||
                                 liushijiazi[j].charAt(1) == '午' ||
@@ -481,8 +511,11 @@ function dingJuShu(jieqi, rizhu, liushijiazi, jieqiYuanShu) {
         case '小暑':
             for (let i = 0; i < 60; i++) {
                 if (rizhu == liushijiazi[i]) {
-                    for (let j = i; j > 0; j--) {
-                        if (liushijiazi[j].charAt(0) == '甲' || liushijiazi[j].charAt(0) == '己') {
+                    for (let j = i; j >= 0; j--) {
+                        if (
+                            liushijiazi[j].charAt(0) == '甲' ||
+                            liushijiazi[j].charAt(0) == '己'
+                        ) {
                             if (
                                 liushijiazi[j].charAt(1) == '子' ||
                                 liushijiazi[j].charAt(1) == '午' ||
@@ -507,8 +540,11 @@ function dingJuShu(jieqi, rizhu, liushijiazi, jieqiYuanShu) {
         case '大暑':
             for (let i = 0; i < 60; i++) {
                 if (rizhu == liushijiazi[i]) {
-                    for (let j = i; j > 0; j--) {
-                        if (liushijiazi[j].charAt(0) == '甲' || liushijiazi[j].charAt(0) == '己') {
+                    for (let j = i; j >= 0; j--) {
+                        if (
+                            liushijiazi[j].charAt(0) == '甲' ||
+                            liushijiazi[j].charAt(0) == '己'
+                        ) {
                             if (
                                 liushijiazi[j].charAt(1) == '子' ||
                                 liushijiazi[j].charAt(1) == '午' ||
@@ -533,8 +569,11 @@ function dingJuShu(jieqi, rizhu, liushijiazi, jieqiYuanShu) {
         case '立秋':
             for (let i = 0; i < 60; i++) {
                 if (rizhu == liushijiazi[i]) {
-                    for (let j = i; j > 0; j--) {
-                        if (liushijiazi[j].charAt(0) == '甲' || liushijiazi[j].charAt(0) == '己') {
+                    for (let j = i; j >= 0; j--) {
+                        if (
+                            liushijiazi[j].charAt(0) == '甲' ||
+                            liushijiazi[j].charAt(0) == '己'
+                        ) {
                             if (
                                 liushijiazi[j].charAt(1) == '子' ||
                                 liushijiazi[j].charAt(1) == '午' ||
@@ -559,8 +598,11 @@ function dingJuShu(jieqi, rizhu, liushijiazi, jieqiYuanShu) {
         case '处暑':
             for (let i = 0; i < 60; i++) {
                 if (rizhu == liushijiazi[i]) {
-                    for (let j = i; j > 0; j--) {
-                        if (liushijiazi[j].charAt(0) == '甲' || liushijiazi[j].charAt(0) == '己') {
+                    for (let j = i; j >= 0; j--) {
+                        if (
+                            liushijiazi[j].charAt(0) == '甲' ||
+                            liushijiazi[j].charAt(0) == '己'
+                        ) {
                             if (
                                 liushijiazi[j].charAt(1) == '子' ||
                                 liushijiazi[j].charAt(1) == '午' ||
@@ -585,8 +627,11 @@ function dingJuShu(jieqi, rizhu, liushijiazi, jieqiYuanShu) {
         case '白露':
             for (let i = 0; i < 60; i++) {
                 if (rizhu == liushijiazi[i]) {
-                    for (let j = i; j > 0; j--) {
-                        if (liushijiazi[j].charAt(0) == '甲' || liushijiazi[j].charAt(0) == '己') {
+                    for (let j = i; j >= 0; j--) {
+                        if (
+                            liushijiazi[j].charAt(0) == '甲' ||
+                            liushijiazi[j].charAt(0) == '己'
+                        ) {
                             if (
                                 liushijiazi[j].charAt(1) == '子' ||
                                 liushijiazi[j].charAt(1) == '午' ||
@@ -611,8 +656,11 @@ function dingJuShu(jieqi, rizhu, liushijiazi, jieqiYuanShu) {
         case '秋分':
             for (let i = 0; i < 60; i++) {
                 if (rizhu == liushijiazi[i]) {
-                    for (let j = i; j > 0; j--) {
-                        if (liushijiazi[j].charAt(0) == '甲' || liushijiazi[j].charAt(0) == '己') {
+                    for (let j = i; j >= 0; j--) {
+                        if (
+                            liushijiazi[j].charAt(0) == '甲' ||
+                            liushijiazi[j].charAt(0) == '己'
+                        ) {
                             if (
                                 liushijiazi[j].charAt(1) == '子' ||
                                 liushijiazi[j].charAt(1) == '午' ||
@@ -637,8 +685,11 @@ function dingJuShu(jieqi, rizhu, liushijiazi, jieqiYuanShu) {
         case '寒露':
             for (let i = 0; i < 60; i++) {
                 if (rizhu == liushijiazi[i]) {
-                    for (let j = i; j > 0; j--) {
-                        if (liushijiazi[j].charAt(0) == '甲' || liushijiazi[j].charAt(0) == '己') {
+                    for (let j = i; j >= 0; j--) {
+                        if (
+                            liushijiazi[j].charAt(0) == '甲' ||
+                            liushijiazi[j].charAt(0) == '己'
+                        ) {
                             if (
                                 liushijiazi[j].charAt(1) == '子' ||
                                 liushijiazi[j].charAt(1) == '午' ||
@@ -663,8 +714,11 @@ function dingJuShu(jieqi, rizhu, liushijiazi, jieqiYuanShu) {
         case '霜降':
             for (let i = 0; i < 60; i++) {
                 if (rizhu == liushijiazi[i]) {
-                    for (let j = i; j > 0; j--) {
-                        if (liushijiazi[j].charAt(0) == '甲' || liushijiazi[j].charAt(0) == '己') {
+                    for (let j = i; j >= 0; j--) {
+                        if (
+                            liushijiazi[j].charAt(0) == '甲' ||
+                            liushijiazi[j].charAt(0) == '己'
+                        ) {
                             if (
                                 liushijiazi[j].charAt(1) == '子' ||
                                 liushijiazi[j].charAt(1) == '午' ||
@@ -689,8 +743,11 @@ function dingJuShu(jieqi, rizhu, liushijiazi, jieqiYuanShu) {
         case '立冬':
             for (let i = 0; i < 60; i++) {
                 if (rizhu == liushijiazi[i]) {
-                    for (let j = i; j > 0; j--) {
-                        if (liushijiazi[j].charAt(0) == '甲' || liushijiazi[j].charAt(0) == '己') {
+                    for (let j = i; j >= 0; j--) {
+                        if (
+                            liushijiazi[j].charAt(0) == '甲' ||
+                            liushijiazi[j].charAt(0) == '己'
+                        ) {
                             if (
                                 liushijiazi[j].charAt(1) == '子' ||
                                 liushijiazi[j].charAt(1) == '午' ||
@@ -715,8 +772,11 @@ function dingJuShu(jieqi, rizhu, liushijiazi, jieqiYuanShu) {
         case '小雪':
             for (let i = 0; i < 60; i++) {
                 if (rizhu == liushijiazi[i]) {
-                    for (let j = i; j > 0; j--) {
-                        if (liushijiazi[j].charAt(0) == '甲' || liushijiazi[j].charAt(0) == '己') {
+                    for (let j = i; j >= 0; j--) {
+                        if (
+                            liushijiazi[j].charAt(0) == '甲' ||
+                            liushijiazi[j].charAt(0) == '己'
+                        ) {
                             if (
                                 liushijiazi[j].charAt(1) == '子' ||
                                 liushijiazi[j].charAt(1) == '午' ||
@@ -741,8 +801,11 @@ function dingJuShu(jieqi, rizhu, liushijiazi, jieqiYuanShu) {
         case '大雪':
             for (let i = 0; i < 60; i++) {
                 if (rizhu == liushijiazi[i]) {
-                    for (let j = i; j > 0; j--) {
-                        if (liushijiazi[j].charAt(0) == '甲' || liushijiazi[j].charAt(0) == '己') {
+                    for (let j = i; j >= 0; j--) {
+                        if (
+                            liushijiazi[j].charAt(0) == '甲' ||
+                            liushijiazi[j].charAt(0) == '己'
+                        ) {
                             if (
                                 liushijiazi[j].charAt(1) == '子' ||
                                 liushijiazi[j].charAt(1) == '午' ||
@@ -767,8 +830,11 @@ function dingJuShu(jieqi, rizhu, liushijiazi, jieqiYuanShu) {
         case '冬至':
             for (let i = 0; i < 60; i++) {
                 if (rizhu == liushijiazi[i]) {
-                    for (let j = i; j > 0; j--) {
-                        if (liushijiazi[j].charAt(0) == '甲' || liushijiazi[j].charAt(0) == '己') {
+                    for (let j = i; j >= 0; j--) {
+                        if (
+                            liushijiazi[j].charAt(0) == '甲' ||
+                            liushijiazi[j].charAt(0) == '己'
+                        ) {
                             if (
                                 liushijiazi[j].charAt(1) == '子' ||
                                 liushijiazi[j].charAt(1) == '午' ||
@@ -793,8 +859,11 @@ function dingJuShu(jieqi, rizhu, liushijiazi, jieqiYuanShu) {
         case '小寒':
             for (let i = 0; i < 60; i++) {
                 if (rizhu == liushijiazi[i]) {
-                    for (let j = i; j > 0; j--) {
-                        if (liushijiazi[j].charAt(0) == '甲' || liushijiazi[j].charAt(0) == '己') {
+                    for (let j = i; j >= 0; j--) {
+                        if (
+                            liushijiazi[j].charAt(0) == '甲' ||
+                            liushijiazi[j].charAt(0) == '己'
+                        ) {
                             if (
                                 liushijiazi[j].charAt(1) == '子' ||
                                 liushijiazi[j].charAt(1) == '午' ||
@@ -818,9 +887,12 @@ function dingJuShu(jieqi, rizhu, liushijiazi, jieqiYuanShu) {
             }
         case '大寒':
             for (let i = 0; i < 60; i++) {
-                if (this.rizhu == liushijiazi[i]) {
-                    for (let j = i; j > 0; j--) {
-                        if (liushijiazi[j].charAt(0) == '甲' || liushijiazi[j].charAt(0) == '己') {
+                if (rizhu == liushijiazi[i]) {
+                    for (let j = i; j >= 0; j--) {
+                        if (
+                            liushijiazi[j].charAt(0) == '甲' ||
+                            liushijiazi[j].charAt(0) == '己'
+                        ) {
                             if (
                                 liushijiazi[j].charAt(1) == '子' ||
                                 liushijiazi[j].charAt(1) == '午' ||
@@ -1078,17 +1150,77 @@ function dingfushi(dipangan, xunshou) {
  */
 function paiAnGanZhi(xunshou) {
     if (xunshou == '甲子') {
-        return ['癸酉', '乙丑', '丙寅', '丁卯', '戊辰', '己巳', '庚午', '辛未', '壬申'];
+        return [
+            '癸酉',
+            '乙丑',
+            '丙寅',
+            '丁卯',
+            '戊辰',
+            '己巳',
+            '庚午',
+            '辛未',
+            '壬申',
+        ];
     } else if (xunshou == '甲戌') {
-        return ['癸未', '乙亥', '丙子', '丁丑', '戊寅', '己卯', '庚辰', '辛巳', '壬午'];
+        return [
+            '癸未',
+            '乙亥',
+            '丙子',
+            '丁丑',
+            '戊寅',
+            '己卯',
+            '庚辰',
+            '辛巳',
+            '壬午',
+        ];
     } else if (xunshou == '甲申') {
-        return ['癸巳', '乙酉', '丙戌', '丁亥', '戊子', '己丑', '庚寅', '辛卯', '壬辰'];
+        return [
+            '癸巳',
+            '乙酉',
+            '丙戌',
+            '丁亥',
+            '戊子',
+            '己丑',
+            '庚寅',
+            '辛卯',
+            '壬辰',
+        ];
     } else if (xunshou == '甲午') {
-        return ['癸卯', '乙未', '丙申', '丁酉', '戊戌', '己亥', '庚子', '辛丑', '壬寅'];
+        return [
+            '癸卯',
+            '乙未',
+            '丙申',
+            '丁酉',
+            '戊戌',
+            '己亥',
+            '庚子',
+            '辛丑',
+            '壬寅',
+        ];
     } else if (xunshou == '甲辰') {
-        return ['癸丑', '乙巳', '丙午', '丁未', '戊申', '己酉', '庚戌', '辛亥', '壬子'];
+        return [
+            '癸丑',
+            '乙巳',
+            '丙午',
+            '丁未',
+            '戊申',
+            '己酉',
+            '庚戌',
+            '辛亥',
+            '壬子',
+        ];
     } else if (xunshou == '甲寅') {
-        return ['癸亥', '乙卯', '丙辰', '丁巳', '戊午', '己未', '庚申', '辛酉', '壬戌'];
+        return [
+            '癸亥',
+            '乙卯',
+            '丙辰',
+            '丁巳',
+            '戊午',
+            '己未',
+            '庚申',
+            '辛酉',
+            '壬戌',
+        ];
     }
 }
 
@@ -1097,23 +1229,113 @@ function paiAnGanZhi(xunshou) {
  */
 function paiJiuXing(shizhu, dipangan, zhifu) {
     if (zhifu == '天蓬') {
-        return ['天蓬', '天芮', '天冲', '天辅', '天禽', '天心', '天柱', '天任', '天英'];
+        return [
+            '天蓬',
+            '天芮',
+            '天冲',
+            '天辅',
+            '天禽',
+            '天心',
+            '天柱',
+            '天任',
+            '天英',
+        ];
     } else if (zhifu == '天芮') {
-        return ['天芮', '天冲', '天辅', '天禽', '天心', '天柱', '天任', '天英', '天蓬'];
+        return [
+            '天芮',
+            '天冲',
+            '天辅',
+            '天禽',
+            '天心',
+            '天柱',
+            '天任',
+            '天英',
+            '天蓬',
+        ];
     } else if (zhifu == '天冲') {
-        return ['天冲', '天辅', '天禽', '天心', '天柱', '天任', '天英', '天蓬', '天芮'];
+        return [
+            '天冲',
+            '天辅',
+            '天禽',
+            '天心',
+            '天柱',
+            '天任',
+            '天英',
+            '天蓬',
+            '天芮',
+        ];
     } else if (zhifu == '天辅') {
-        return ['天辅', '天禽', '天心', '天柱', '天任', '天英', '天蓬', '天芮', '天冲'];
+        return [
+            '天辅',
+            '天禽',
+            '天心',
+            '天柱',
+            '天任',
+            '天英',
+            '天蓬',
+            '天芮',
+            '天冲',
+        ];
     } else if (zhifu == '天禽') {
-        return ['天禽', '天心', '天柱', '天任', '天英', '天蓬', '天芮', '天冲', '天辅'];
+        return [
+            '天禽',
+            '天心',
+            '天柱',
+            '天任',
+            '天英',
+            '天蓬',
+            '天芮',
+            '天冲',
+            '天辅',
+        ];
     } else if (zhifu == '天心') {
-        return ['天心', '天柱', '天任', '天英', '天蓬', '天芮', '天冲', '天辅', '天禽'];
+        return [
+            '天心',
+            '天柱',
+            '天任',
+            '天英',
+            '天蓬',
+            '天芮',
+            '天冲',
+            '天辅',
+            '天禽',
+        ];
     } else if (zhifu == '天柱') {
-        return ['天柱', '天任', '天英', '天蓬', '天芮', '天冲', '天辅', '天禽', '天心'];
+        return [
+            '天柱',
+            '天任',
+            '天英',
+            '天蓬',
+            '天芮',
+            '天冲',
+            '天辅',
+            '天禽',
+            '天心',
+        ];
     } else if (zhifu == '天任') {
-        return ['天任', '天英', '天蓬', '天芮', '天冲', '天辅', '天禽', '天心', '天柱'];
+        return [
+            '天任',
+            '天英',
+            '天蓬',
+            '天芮',
+            '天冲',
+            '天辅',
+            '天禽',
+            '天心',
+            '天柱',
+        ];
     } else if (zhifu == '天英') {
-        return ['天英', '天蓬', '天芮', '天冲', '天辅', '天禽', '天心', '天柱', '天任'];
+        return [
+            '天英',
+            '天蓬',
+            '天芮',
+            '天冲',
+            '天辅',
+            '天禽',
+            '天心',
+            '天柱',
+            '天任',
+        ];
     }
 }
 
@@ -1123,23 +1345,113 @@ function paiJiuXing(shizhu, dipangan, zhifu) {
 function paiBaMen(zhishi) {
     switch (zhishi) {
         case '休门':
-            return ['休门', '死门', '伤门', '杜门', '中门', '开门', '惊门', '生门', '景门'];
+            return [
+                '休门',
+                '死门',
+                '伤门',
+                '杜门',
+                '中门',
+                '开门',
+                '惊门',
+                '生门',
+                '景门',
+            ];
         case '死门':
-            return ['死门', '伤门', '杜门', '中门', '开门', '惊门', '生门', '景门', '休门'];
+            return [
+                '死门',
+                '伤门',
+                '杜门',
+                '中门',
+                '开门',
+                '惊门',
+                '生门',
+                '景门',
+                '休门',
+            ];
         case '伤门':
-            return ['伤门', '杜门', '中门', '开门', '惊门', '生门', '景门', '休门', '死门'];
+            return [
+                '伤门',
+                '杜门',
+                '中门',
+                '开门',
+                '惊门',
+                '生门',
+                '景门',
+                '休门',
+                '死门',
+            ];
         case '杜门':
-            return ['杜门', '中门', '开门', '惊门', '生门', '景门', '休门', '死门', '伤门'];
+            return [
+                '杜门',
+                '中门',
+                '开门',
+                '惊门',
+                '生门',
+                '景门',
+                '休门',
+                '死门',
+                '伤门',
+            ];
         case '中门':
-            return ['中门', '开门', '惊门', '生门', '景门', '休门', '死门', '伤门', '杜门'];
+            return [
+                '中门',
+                '开门',
+                '惊门',
+                '生门',
+                '景门',
+                '休门',
+                '死门',
+                '伤门',
+                '杜门',
+            ];
         case '开门':
-            return ['开门', '惊门', '生门', '景门', '休门', '死门', '伤门', '杜门', '中门'];
+            return [
+                '开门',
+                '惊门',
+                '生门',
+                '景门',
+                '休门',
+                '死门',
+                '伤门',
+                '杜门',
+                '中门',
+            ];
         case '惊门':
-            return ['惊门', '生门', '景门', '休门', '死门', '伤门', '杜门', '中门', '开门'];
+            return [
+                '惊门',
+                '生门',
+                '景门',
+                '休门',
+                '死门',
+                '伤门',
+                '杜门',
+                '中门',
+                '开门',
+            ];
         case '生门':
-            return ['生门', '景门', '休门', '死门', '伤门', '杜门', '中门', '开门', '惊门'];
+            return [
+                '生门',
+                '景门',
+                '休门',
+                '死门',
+                '伤门',
+                '杜门',
+                '中门',
+                '开门',
+                '惊门',
+            ];
         case '景门':
-            return ['景门', '休门', '死门', '伤门', '杜门', '中门', '开门', '惊门', '生门'];
+            return [
+                '景门',
+                '休门',
+                '死门',
+                '伤门',
+                '杜门',
+                '中门',
+                '开门',
+                '惊门',
+                '生门',
+            ];
     }
 }
 
@@ -1183,11 +1495,23 @@ function dingKongWang(xunshou) {
     }
 }
 function dingMaXing(shizhu) {
-    if (shizhu.charAt(1) == '申' || shizhu.charAt(1) == '子' || shizhu.charAt(1) == '辰') {
+    if (
+        shizhu.charAt(1) == '申' ||
+        shizhu.charAt(1) == '子' ||
+        shizhu.charAt(1) == '辰'
+    ) {
         return 7;
-    } else if (shizhu.charAt(1) == '寅' || shizhu.charAt(1) == '午' || shizhu.charAt(1) == '戌') {
+    } else if (
+        shizhu.charAt(1) == '寅' ||
+        shizhu.charAt(1) == '午' ||
+        shizhu.charAt(1) == '戌'
+    ) {
         return 1;
-    } else if (shizhu.charAt(1) == '巳' || shizhu.charAt(1) == '酉' || shizhu.charAt(1) == '丑') {
+    } else if (
+        shizhu.charAt(1) == '巳' ||
+        shizhu.charAt(1) == '酉' ||
+        shizhu.charAt(1) == '丑'
+    ) {
         return 5;
     } else {
         return 3;

@@ -140,12 +140,7 @@ ipcMain.on('screenshot', (e, data) => {
                     const filePath = path.join(app.getPath('desktop'), `${fileName}.jpg`);
                     fs.writeFile(filePath, source.thumbnail.toJPEG(100), (error) => {
                         if (error) {
-                            // console.error(
-                            //     'Failed to save screenshot:',
-                            //     error
-                            // );
-                        } else {
-                            // console.log('Screenshot saved:', filePath);
+                            console.error('Failed to save screenshot:', error);
                         }
                     });
                     break;
