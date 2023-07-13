@@ -69,21 +69,31 @@ document.querySelectorAll('[data-gongwei-overlay]').forEach((overlay, index) => 
             document.querySelectorAll('[data-dipanshen]')[index].innerHTML == '值符'
         ) {
             document.getElementById('paipan-jiamu-info').classList.remove('hidden');
+            document.getElementById('paipan-gongwei-info').classList.remove('rounded-bl-[15px]');
+            document.getElementById('paipan-gongwei-info').classList.add('gongwei-info-on-bottom');
             getCurrentGongweiInfo(index); // 提取被点击的宫位信息并且把宫内信息加载到侧边栏中
             changeFocusItem('geju', true, true);
             openInfoWindow();
         } else if (document.querySelectorAll('[data-tianpanshen]')[index].innerHTML == '值符') {
             document.getElementById('paipan-jiamu-info').classList.remove('hidden');
+            document.getElementById('paipan-gongwei-info').classList.remove('rounded-bl-[15px]');
+            document.getElementById('paipan-gongwei-info').classList.add('gongwei-info-on-bottom');
             getCurrentGongweiInfo(index); // 提取被点击的宫位信息并且把宫内信息加载到侧边栏中
             changeFocusItem('geju', true, false);
             openInfoWindow();
         } else if (document.querySelectorAll('[data-dipanshen]')[index].innerHTML == '值符') {
             document.getElementById('paipan-jiamu-info').classList.remove('hidden');
+            document.getElementById('paipan-gongwei-info').classList.remove('rounded-bl-[15px]');
+            document.getElementById('paipan-gongwei-info').classList.add('gongwei-info-on-bottom');
             getCurrentGongweiInfo(index); // 提取被点击的宫位信息并且把宫内信息加载到侧边栏中
             changeFocusItem('geju', false, true);
             openInfoWindow();
         } else {
             document.getElementById('paipan-jiamu-info').classList.add('hidden');
+            document.getElementById('paipan-gongwei-info').classList.add('rounded-bl-[15px]');
+            document
+                .getElementById('paipan-gongwei-info')
+                .classList.remove('gongwei-info-on-bottom');
             getCurrentGongweiInfo(index); // 提取被点击的宫位信息并且把宫内信息加载到侧边栏中
             changeFocusItem('geju', false, false);
             openInfoWindow();
@@ -478,19 +488,42 @@ function updateGejuInfo(tianpangan, dipangan, gong, tianpanjia = false, dipanjia
                     '<br>' +
                     getZhengGe(tianpangan, '甲') +
                     '<br>' +
-                    getZhengGe('甲', dipangan);
-            }
-            if (tianpanjia == true) {
-                result = result + getZhengGe('甲', dipangan) + '<br>';
+                    getZhengGe('甲', dipangan) +
+                    '<br>' +
+                    getFuGe(tianpangan, gong) +
+                    '<br><br>' +
+                    getFuGe('甲', gong);
+            } else if (tianpanjia == true) {
+                result =
+                    result +
+                    getZhengGe('甲', dipangan) +
+                    '<br>' +
+                    getFuGe(tianpangan, gong) +
+                    '<br><br>' +
+                    getFuGe(dipangan, gong) +
+                    '<br><br>' +
+                    getFuGe('甲', gong);
             } else if (dipanjia == true) {
-                result = result + getZhengGe(tianpangan, '甲') + '<br>';
+                result =
+                    result +
+                    getZhengGe(tianpangan, '甲') +
+                    '<br>' +
+                    getFuGe(tianpangan, gong) +
+                    '<br><br>' +
+                    getFuGe(dipangan, gong) +
+                    '<br><br>' +
+                    getFuGe('甲', gong);
             }
         } else {
             result =
                 getZhangSheng(tianpangan, gong) +
                 getZhangSheng(dipangan, gong) +
                 '<br>' +
-                getZhengGe(tianpangan, dipangan);
+                getZhengGe(tianpangan, dipangan) +
+                '<br>' +
+                getFuGe(tianpangan, gong) +
+                '<br><br>' +
+                getFuGe(dipangan, gong);
         }
     } else {
         for (let i = 0; i < 9; i++) {
@@ -536,19 +569,42 @@ function updateGejuInfo(tianpangan, dipangan, gong, tianpanjia = false, dipanjia
                             '<br>' +
                             getZhengGe(tianpangan, '甲') +
                             '<br>' +
-                            getZhengGe('甲', dipangan);
-                    }
-                    if (tianpanjia == true) {
-                        result = result + getZhengGe('甲', dipangan) + '<br>';
+                            getZhengGe('甲', dipangan) +
+                            '<br>' +
+                            getFuGe(tianpangan, '中') +
+                            '<br><br>' +
+                            getFuGe('甲', '中');
+                    } else if (tianpanjia == true) {
+                        result =
+                            result +
+                            getZhengGe('甲', dipangan) +
+                            '<br>' +
+                            getFuGe(tianpangan, '中') +
+                            '<br><br>' +
+                            getFuGe(dipangan, '中') +
+                            '<br><br>' +
+                            getFuGe('甲', '中');
                     } else if (dipanjia == true) {
-                        result = result + getZhengGe(tianpangan, '甲') + '<br>';
+                        result =
+                            result +
+                            getZhengGe(tianpangan, '甲') +
+                            '<br>' +
+                            getFuGe(tianpangan, '中') +
+                            '<br><br>' +
+                            getFuGe(dipangan, '中') +
+                            '<br><br>' +
+                            getFuGe('甲', '中');
                     }
                 } else {
                     result =
                         getZhangSheng(tianpangan, gong) +
                         getZhangSheng(dipangan, gong) +
                         '<br>' +
-                        getZhengGe(tianpangan, dipangan);
+                        getZhengGe(tianpangan, dipangan) +
+                        '<br>' +
+                        getFuGe(tianpangan, '中') +
+                        '<br><br>' +
+                        getFuGe(dipangan, '中');
                 }
             }
         }
@@ -1051,6 +1107,434 @@ function getZhengGe(tianpangan, dipangan) {
             break;
     }
     return output;
+}
+function getFuGe(tiangan, gong) {
+    const jiedang = '凡事必须聚伙成群而始能有成，不然则需要等待时机';
+    const deli = '凡事必须得他人周济而始能有成，不然也需要等待时机';
+    const shili = '凡事必须耗我心力，威服他人而始能有成，不然则有伤害于他人';
+    const cuican = '凡事必须伏服于他人之下，卑躬折节而始能有成，不然则会受到他人迫害';
+    const pojing = '主凡事必须辅佐他人，保护同伴而始能有成，不然则要破财伤身';
+    if (tiangan == '甲' || tiangan == '乙') {
+        switch (gong) {
+            case '乾':
+                return (
+                    tiangan +
+                    '在' +
+                    gong +
+                    '<br>' +
+                    '<span style="color:#0079FE">摧残格：</span>' +
+                    cuican
+                );
+            case '兑':
+                return (
+                    tiangan +
+                    '在' +
+                    gong +
+                    '<br>' +
+                    '<span style="color:#0079FE">摧残格：</span>' +
+                    cuican
+                );
+            case '坎':
+                return (
+                    tiangan +
+                    '在' +
+                    gong +
+                    '<br>' +
+                    '<span style="color:#0079FE">得力格：</span>' +
+                    deli
+                );
+            case '离':
+                return (
+                    tiangan +
+                    '在' +
+                    gong +
+                    '<br>' +
+                    '<span style="color:#0079FE">破精格：</span>' +
+                    pojing
+                );
+            case '震':
+                return (
+                    tiangan +
+                    '在' +
+                    gong +
+                    '<br>' +
+                    '<span style="color:#0079FE">结党格：</span>' +
+                    jiedang
+                );
+            case '巽':
+                return (
+                    tiangan +
+                    '在' +
+                    gong +
+                    '<br>' +
+                    '<span style="color:#0079FE">结党格：</span>' +
+                    jiedang
+                );
+            case '坤':
+                return (
+                    tiangan +
+                    '在' +
+                    gong +
+                    '<br>' +
+                    '<span style="color:#0079FE">失利格：</span>' +
+                    shili
+                );
+            case '艮':
+                return (
+                    tiangan +
+                    '在' +
+                    gong +
+                    '<br>' +
+                    '<span style="color:#0079FE">失利格：</span>' +
+                    shili
+                );
+            case '中':
+                return (
+                    tiangan +
+                    '在' +
+                    gong +
+                    '<br>' +
+                    '<span style="color:#0079FE">失利格：</span>' +
+                    shili
+                );
+        }
+    } else if (tiangan == '丙' || tiangan == '丁') {
+        switch (gong) {
+            case '乾':
+                return (
+                    tiangan +
+                    '在' +
+                    gong +
+                    '<br>' +
+                    '<span style="color:#0079FE">失利格：</span>' +
+                    shili
+                );
+            case '兑':
+                return (
+                    tiangan +
+                    '在' +
+                    gong +
+                    '<br>' +
+                    '<span style="color:#0079FE">失利格：</span>' +
+                    shili
+                );
+            case '坎':
+                return (
+                    tiangan +
+                    '在' +
+                    gong +
+                    '<br>' +
+                    '<span style="color:#0079FE">摧残格：</span>' +
+                    cuican
+                );
+            case '离':
+                return (
+                    tiangan +
+                    '在' +
+                    gong +
+                    '<br>' +
+                    '<span style="color:#0079FE">结党格：</span>' +
+                    jiedang
+                );
+            case '震':
+                return (
+                    tiangan +
+                    '在' +
+                    gong +
+                    '<br>' +
+                    '<span style="color:#0079FE">得力格：</span>' +
+                    deli
+                );
+            case '巽':
+                return (
+                    tiangan +
+                    '在' +
+                    gong +
+                    '<br>' +
+                    '<span style="color:#0079FE">得力格：</span>' +
+                    deli
+                );
+            case '坤':
+                return (
+                    tiangan +
+                    '在' +
+                    gong +
+                    '<br>' +
+                    '<span style="color:#0079FE">破精格：</span>' +
+                    pojing
+                );
+            case '艮':
+                return (
+                    tiangan +
+                    '在' +
+                    gong +
+                    '<br>' +
+                    '<span style="color:#0079FE">破精格：</span>' +
+                    pojing
+                );
+            case '中':
+                return (
+                    tiangan +
+                    '在' +
+                    gong +
+                    '<br>' +
+                    '<span style="color:#0079FE">破精格：</span>' +
+                    pojing
+                );
+        }
+    } else if (tiangan == '戊' || tiangan == '己') {
+        switch (gong) {
+            case '乾':
+                return (
+                    tiangan +
+                    '在' +
+                    gong +
+                    '<br>' +
+                    '<span style="color:#0079FE">破精格：</span>' +
+                    pojing
+                );
+            case '兑':
+                return (
+                    tiangan +
+                    '在' +
+                    gong +
+                    '<br>' +
+                    '<span style="color:#0079FE">破精格：</span>' +
+                    pojing
+                );
+            case '坎':
+                return (
+                    tiangan +
+                    '在' +
+                    gong +
+                    '<br>' +
+                    '<span style="color:#0079FE">失利格：</span>' +
+                    shili
+                );
+            case '离':
+                return (
+                    tiangan +
+                    '在' +
+                    gong +
+                    '<br>' +
+                    '<span style="color:#0079FE">得力格：</span>' +
+                    deli
+                );
+            case '震':
+                return (
+                    tiangan +
+                    '在' +
+                    gong +
+                    '<br>' +
+                    '<span style="color:#0079FE">摧残格：</span>' +
+                    cuican
+                );
+            case '巽':
+                return (
+                    tiangan +
+                    '在' +
+                    gong +
+                    '<br>' +
+                    '<span style="color:#0079FE">摧残格：</span>' +
+                    cuican
+                );
+            case '坤':
+                return (
+                    tiangan +
+                    '在' +
+                    gong +
+                    '<br>' +
+                    '<span style="color:#0079FE">结党格：</span>' +
+                    jiedang
+                );
+            case '艮':
+                return (
+                    tiangan +
+                    '在' +
+                    gong +
+                    '<br>' +
+                    '<span style="color:#0079FE">结党格：</span>' +
+                    jiedang
+                );
+            case '中':
+                return (
+                    tiangan +
+                    '在' +
+                    gong +
+                    '<br>' +
+                    '<span style="color:#0079FE">结党格：</span>' +
+                    jiedang
+                );
+        }
+    } else if (tiangan == '庚' || tiangan == '辛') {
+        switch (gong) {
+            case '乾':
+                return (
+                    tiangan +
+                    '在' +
+                    gong +
+                    '<br>' +
+                    '<span style="color:#0079FE">结党格：</span>' +
+                    jiedang
+                );
+            case '兑':
+                return (
+                    tiangan +
+                    '在' +
+                    gong +
+                    '<br>' +
+                    '<span style="color:#0079FE">结党格：</span>' +
+                    jiedang
+                );
+            case '坎':
+                return (
+                    tiangan +
+                    '在' +
+                    gong +
+                    '<br>' +
+                    '<span style="color:#0079FE">破精格：</span>' +
+                    pojing
+                );
+            case '离':
+                return (
+                    tiangan +
+                    '在' +
+                    gong +
+                    '<br>' +
+                    '<span style="color:#0079FE">摧残格：</span>' +
+                    cuican
+                );
+            case '震':
+                return (
+                    tiangan +
+                    '在' +
+                    gong +
+                    '<br>' +
+                    '<span style="color:#0079FE">失利格：</span>' +
+                    shili
+                );
+            case '巽':
+                return (
+                    tiangan +
+                    '在' +
+                    gong +
+                    '<br>' +
+                    '<span style="color:#0079FE">失利格：</span>' +
+                    shili
+                );
+            case '坤':
+                return (
+                    tiangan +
+                    '在' +
+                    gong +
+                    '<br>' +
+                    '<span style="color:#0079FE">得力格：</span>' +
+                    deli
+                );
+            case '艮':
+                return (
+                    tiangan +
+                    '在' +
+                    gong +
+                    '<br>' +
+                    '<span style="color:#0079FE">得力格：</span>' +
+                    deli
+                );
+            case '中':
+                return (
+                    tiangan +
+                    '在' +
+                    gong +
+                    '<br>' +
+                    '<span style="color:#0079FE">得力格：</span>' +
+                    deli
+                );
+        }
+    } else if (tiangan == '壬' || tiangan == '癸') {
+        switch (gong) {
+            case '乾':
+                return (
+                    tiangan +
+                    '在' +
+                    gong +
+                    '<br>' +
+                    '<span style="color:#0079FE">得力格：</span>' +
+                    deli
+                );
+            case '兑':
+                return (
+                    tiangan +
+                    '在' +
+                    gong +
+                    '<br>' +
+                    '<span style="color:#0079FE">得力格：</span>' +
+                    deli
+                );
+            case '坎':
+                return (
+                    tiangan +
+                    '在' +
+                    gong +
+                    '<br>' +
+                    '<span style="color:#0079FE">结党格：</span>' +
+                    jiedang
+                );
+            case '离':
+                return (
+                    tiangan +
+                    '在' +
+                    gong +
+                    '<br>' +
+                    '<span style="color:#0079FE">失利格：</span>' +
+                    shili
+                );
+            case '震':
+                return (
+                    tiangan +
+                    '在' +
+                    gong +
+                    '<br>' +
+                    '<span style="color:#0079FE">破精格：</span>' +
+                    pojing
+                );
+            case '巽':
+                return (
+                    tiangan +
+                    '在' +
+                    gong +
+                    '<br>' +
+                    '<span style="color:#0079FE">破精格：</span>' +
+                    pojing
+                );
+            case '坤':
+                return (
+                    tiangan +
+                    '在' +
+                    gong +
+                    '<br>' +
+                    '<span style="color:#0079FE">摧残格：</span>' +
+                    cuican
+                );
+            case '艮':
+                return (
+                    tiangan +
+                    '在' +
+                    gong +
+                    '<br>' +
+                    '<span style="color:#0079FE">摧残格：</span>' +
+                    cuican
+                );
+            case '中':
+                return (
+                    tiangan +
+                    '在' +
+                    gong +
+                    '<br>' +
+                    '<span style="color:#0079FE">摧残格：</span>' +
+                    cuican
+                );
+        }
+    }
 }
 function getZhangSheng(tiangan, gongwei) {
     const zhangsheng = '<span style="color:red">长生</span>';
