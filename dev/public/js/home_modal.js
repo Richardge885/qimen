@@ -34,6 +34,7 @@ function closeSideMenu() {
 
 function openBaoshuModal() {
     closeSideMenu();
+    document.getElementById('shuzi').value = '';
     homeModal.classList.add('active');
     overlay.classList.add('active');
     document.getElementById('shuzi').focus();

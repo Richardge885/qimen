@@ -5,99 +5,21 @@
 /* src url 必须参考 tailwind 的输出文件, 不是input.css 文件 */
 @layer base {
     @font-face {
-        font-family: "pingfang";
-        src: url("../../fonts/PingFang.ttc");
+        font-family: 'pingfang';
+        src: url('../../fonts/PingFang.ttc');
     }
 }
 
-.gongwei {
-    background-color: #ffffff;
-    box-shadow: 0px 3px 3px rgba(102, 102, 102, 0.25);
-    border-radius: 15px;
-    width: 165px;
-    height: 165px;
-}
-
-.default-shadow {
-    box-shadow: 0px 3px 3px rgba(102, 102, 102, 0.25);
-}
-
-.important {
-    color: red;
-    /* color: #0079FE; */
-}
-
-.rigan {
-    color: #0079fe;
-}
-
-#home-modal {
-    z-index: 10;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    width: 500px;
-    height: 350px;
-    border-radius: 15px;
-    display: flex;
-    flex-direction: column;
-    background-color: rgb(243 244 246 / 0.75);
-    justify-content: space-evenly;
-    align-items: center;
-    transform: translate(-50%, -50%) scale(0);
-    transition: 500ms ease-in-out;
-    backdrop-filter: blur(4px);
-}
-
-#home-modal.active {
-    transform: translate(-50%, -50%) scale(1);
-}
-
-#home-about-modal {
-    z-index: 10;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    width: 350px;
-    height: 350px;
-    border-radius: 15px;
-    display: flex;
-    flex-direction: column;
-    background-color: rgb(243 244 246 / 0.75);
-    justify-content: center;
-    align-items: center;
-    transform: translate(-50%, -50%) scale(0);
-    transition: 500ms ease-in-out;
-    backdrop-filter: blur(4px);
-}
-
-#home-about-modal.active {
-    transform: translate(-50%, -50%) scale(1);
-}
-
-#overlay {
-    z-index: 9;
-    position: fixed;
-    opacity: 0;
-    height: 100vh;
-    width: 100vw;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    background-color: white;
-    pointer-events: none;
-}
-
-#overlay.active {
-    pointer-events: all;
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+    /* make scrollbar transparent */
 }
 
 /* HAMBURGER MENU */
 .hamburger {
     height: 40px;
     width: 40px;
-    /* position: relative; */
     cursor: pointer;
     padding: 1rem;
 }
@@ -151,3 +73,143 @@
 }
 
 /* HAMBURGER MENU */
+
+.gongwei {
+    background-color: #ffffff;
+    box-shadow: 0px 3px 3px rgba(102, 102, 102, 0.25);
+    border-radius: 15px;
+    width: 165px;
+    height: 165px;
+}
+
+.default-shadow {
+    box-shadow: 0px 3px 3px rgba(102, 102, 102, 0.25);
+}
+
+.important {
+    color: red;
+    /* color: #0079FE; */
+}
+
+.rigan {
+    color: #0079fe;
+}
+
+#home-modal {
+    z-index: 10;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 500px;
+    height: 350px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(243 244 246 / 0.75);
+    justify-content: space-evenly;
+    align-items: center;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 400ms ease-in-out;
+    backdrop-filter: blur(4px);
+}
+
+#home-modal.active {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+#home-about-modal {
+    z-index: 10;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 350px;
+    height: 350px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(243 244 246 / 0.75);
+    justify-content: center;
+    align-items: center;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 400ms ease-in-out;
+    backdrop-filter: blur(4px);
+}
+
+#home-about-modal.active {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+#overlay {
+    z-index: 9;
+    position: fixed;
+    opacity: 0;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: white;
+    pointer-events: none;
+}
+
+#overlay.active {
+    pointer-events: all;
+}
+
+#paipan-overlay {
+    background-color: #000;
+    opacity: 30%;
+    z-index: 9;
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    pointer-events: none;
+    display: none;
+}
+
+#paipan-overlay.active {
+    pointer-events: all;
+    display: block;
+}
+
+#paipan-info-modal {
+    z-index: 10;
+    position: fixed;
+    padding-left: 15px;
+    padding-right: 0;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    height: ;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    background-color: rgb(243 244 246 / 0.75);
+    transform: translate(-50%, -50%) scale(0);
+    transition: 300ms ease-in-out;
+    backdrop-filter: blur(4px);
+}
+
+#paipan-info-modal.active {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.paipan-gongwei-info-items {
+    background: white;
+    width: 70px;
+    height: 50px;
+    text-align: center;
+    padding-top: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.focused-item {
+    background: none;
+}

@@ -199,3 +199,19 @@ function clearPanJu() {
         element.classList.remove('important');
     });
 }
+
+function closeSideMenu() {
+    const menuBtn = document.getElementById('home-hamburger-menu');
+    const menu = document.getElementById('menu');
+    menuBtn.classList.remove('active');
+    menu.classList.remove('active');
+}
+
+function closeModal() {
+    const homeModal = document.getElementById('home-modal'); // 主页: 报数弹窗
+    const overlay = document.getElementById('overlay'); // 主页: 包数弹窗背景
+    const aboutModal = document.getElementById('home-about-modal');
+    homeModal.classList.remove('active');
+    aboutModal.classList.remove('active');
+    overlay.classList.remove('active');
+}

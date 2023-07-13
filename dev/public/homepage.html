@@ -115,8 +115,20 @@
     <!-- paipan page section -->
     <div id="paipan" class="w-screen h-screen hidden bg-[#eeeeee]">
         <!-- info modal -->
-        <div id="paipan-info-modal"></div>
-        <!-- 上放主信息区 -->
+        <div id="paipan-info-modal" class=''>
+            <div id='paipan-modal-info-section' class='overflow-scroll text-lg mt-[15px] w-[320px]'></div>
+            <div id="paipan-gongwei-info-items" class='flex flex-col text-lg pl-[5px]'>
+                <div class='paipan-gongwei-info-items rounded-tr-[15px]' id='paipan-geju-info'>格局</div>
+                <div class='paipan-gongwei-info-items' id='paipan-tianpanshen-info'></div>
+                <div class='paipan-gongwei-info-items' id='paipan-xing-info'></div>
+                <div class='paipan-gongwei-info-items' id='paipan-men-info'></div>
+                <div class='paipan-gongwei-info-items' id='paipan-tianpangan-info'></div>
+                <div class='paipan-gongwei-info-items' id='paipan-dipangan-info'></div>
+                <div class='paipan-gongwei-info-items hidden' id='paipan-jiamu-info'>甲</div>
+                <div class='paipan-gongwei-info-items rounded-bl-[15px]' id='paipan-gongwei-info'></div>
+            </div>
+        </div>
+        <div id="paipan-overlay"></div>
         <!-- 阳历和节气区 -->
         <div class="absolute h-[30px] left-[20px] top-[15px] font-pingfang text-[20px]">
             <span id="year-number"></span><span>年</span><span id="month-number"></span><span>月</span><span
@@ -156,7 +168,8 @@
                 class="font-bold w-[48px] h-[30px] text-[#666666] text-center text-xl border-b-[1px] border-b-gray-300 font-pingfang">
                 时
                 <div id="shi"
-                    class="font-normal pt-[5px] text-black text-3xl text-center h-[82px] w-[48px] font-pingfang"></div>
+                    class="font-normal pt-[5px] text-black text-3xl text-center h-[82px] w-[48px] font-pingfang">
+                </div>
             </div>
         </div>
 
@@ -179,14 +192,10 @@
             class="absolute bg-transparent cursor-default pointer-events-auto w-[550px] h-[170px]"></div>
 
         <!-- 换局按钮 -->
-        <!-- <button
-                id="paipan-next"
-                class="absolute top-[135px] left-[490px] h-[40px] w-[40px] bg-btn text-2xl text-white rounded-[12px] hover:bg-white hover:text-black duration-150 default-shadow cursor-pointer z-10"
-            >&#x2192</button>
-            <button
-                id="paipan-previous"
-                class="absolute top-[135px] left-[440px] h-[40px] w-[40px] bg-btn text-2xl text-white rounded-[12px] hover:bg-white hover:text-black duration-150 default-shadow cursor-pointer z-10"
-            >&#x2190</button> -->
+        <!-- <button id="paipan-next"
+            class="absolute top-[135px] left-[490px] h-[40px] w-[40px] bg-btn text-2xl text-white rounded-[12px] hover:bg-white hover:text-black duration-150 default-shadow cursor-pointer z-5">&#x2192</button>
+        <button id="paipan-previous"
+            class="absolute top-[135px] left-[440px] h-[40px] w-[40px] bg-btn text-2xl text-white rounded-[12px] hover:bg-white hover:text-black duration-150 default-shadow cursor-pointer z-5">&#x2190</button> -->
 
         <!-- feipan 飞盘排盘区 -->
         <div id="gongwei-1" class="absolute font-pingfang gongwei top-[524px] left-[192px]">
@@ -198,11 +207,14 @@
             <div data-anganzhi class="absolute top-[46px] w-[24px] left-[26px] text-[24px] font-light"></div>
             <div data-dipanshen class="absolute top-[125px] left-[60px] text-[24px] font-light"></div>
             <div data-maxing class="absolute top-[14px] left-[20px] font-normal text-[18px] text-[#666666]"></div>
-            <div data-kongwang class="absolute top-[14px] left-[132px] font-normal text-[18px] text-[#666666]"></div>
-            <div data-wangshuai class="absolute top-[130px] left-[132px] font-normal text-[18px] text-[#666666]"></div>
+            <div data-kongwang class="absolute top-[14px] left-[132px] font-normal text-[18px] text-[#666666]">
+            </div>
+            <div data-wangshuai class="absolute top-[130px] left-[132px] font-normal text-[18px] text-[#666666]">
+            </div>
             <div data-tianpanyikong class="absolute top-[51px] left-[144px] font-normal text-[18px] text-[#666666]">
             </div>
-            <div data-dipanyikong class="absolute top-[92px] left-[144px] font-normal text-[18px] text-[#666666]"></div>
+            <div data-dipanyikong class="absolute top-[92px] left-[144px] font-normal text-[18px] text-[#666666]">
+            </div>
             <div data-gongwei-overlay class="bg-white opacity-0 z-50 cursor-pointer w-[165px] h-[165px] rounded-[15px]">
             </div>
         </div>
@@ -215,11 +227,14 @@
             <div data-anganzhi class="absolute top-[46px] w-[24px] left-[26px] text-[24px] font-normal"></div>
             <div data-dipanshen class="absolute top-[125px] left-[60px] text-[24px] font-normal"></div>
             <div data-maxing class="absolute top-[14px] left-[20px] font-normal text-[18px] text-[#666666]"></div>
-            <div data-kongwang class="absolute top-[14px] left-[132px] font-normal text-[18px] text-[#666666]"></div>
-            <div data-wangshuai class="absolute top-[130px] left-[132px] font-normal text-[18px] text-[#666666]"></div>
+            <div data-kongwang class="absolute top-[14px] left-[132px] font-normal text-[18px] text-[#666666]">
+            </div>
+            <div data-wangshuai class="absolute top-[130px] left-[132px] font-normal text-[18px] text-[#666666]">
+            </div>
             <div data-tianpanyikong class="absolute top-[51px] left-[144px] font-normal text-[18px] text-[#666666]">
             </div>
-            <div data-dipanyikong class="absolute top-[92px] left-[144px] font-normal text-[18px] text-[#666666]"></div>
+            <div data-dipanyikong class="absolute top-[92px] left-[144px] font-normal text-[18px] text-[#666666]">
+            </div>
             <div data-gongwei-overlay class="bg-white opacity-0 z-50 cursor-pointer w-[165px] h-[165px] rounded-[15px]">
             </div>
         </div>
@@ -232,11 +247,14 @@
             <div data-anganzhi class="absolute top-[46px] w-[24px] left-[26px] text-[24px] font-normal"></div>
             <div data-dipanshen class="absolute top-[125px] left-[60px] text-[24px] font-normal"></div>
             <div data-maxing class="absolute top-[14px] left-[20px] font-normal text-[18px] text-[#666666]"></div>
-            <div data-kongwang class="absolute top-[14px] left-[132px] font-normal text-[18px] text-[#666666]"></div>
-            <div data-wangshuai class="absolute top-[130px] left-[132px] font-normal text-[18px] text-[#666666]"></div>
+            <div data-kongwang class="absolute top-[14px] left-[132px] font-normal text-[18px] text-[#666666]">
+            </div>
+            <div data-wangshuai class="absolute top-[130px] left-[132px] font-normal text-[18px] text-[#666666]">
+            </div>
             <div data-tianpanyikong class="absolute top-[51px] left-[144px] font-normal text-[18px] text-[#666666]">
             </div>
-            <div data-dipanyikong class="absolute top-[92px] left-[144px] font-normal text-[18px] text-[#666666]"></div>
+            <div data-dipanyikong class="absolute top-[92px] left-[144px] font-normal text-[18px] text-[#666666]">
+            </div>
             <div data-gongwei-overlay class="bg-white opacity-0 z-50 cursor-pointer w-[165px] h-[165px] rounded-[15px]">
             </div>
         </div>
@@ -249,11 +267,14 @@
             <div data-anganzhi class="absolute top-[46px] w-[24px] left-[26px] text-[24px] font-normal"></div>
             <div data-dipanshen class="absolute top-[125px] left-[60px] text-[24px] font-normal"></div>
             <div data-maxing class="absolute top-[14px] left-[20px] font-normal text-[18px] text-[#666666]"></div>
-            <div data-kongwang class="absolute top-[14px] left-[132px] font-normal text-[18px] text-[#666666]"></div>
-            <div data-wangshuai class="absolute top-[130px] left-[132px] font-normal text-[18px] text-[#666666]"></div>
+            <div data-kongwang class="absolute top-[14px] left-[132px] font-normal text-[18px] text-[#666666]">
+            </div>
+            <div data-wangshuai class="absolute top-[130px] left-[132px] font-normal text-[18px] text-[#666666]">
+            </div>
             <div data-tianpanyikong class="absolute top-[51px] left-[144px] font-normal text-[18px] text-[#666666]">
             </div>
-            <div data-dipanyikong class="absolute top-[92px] left-[144px] font-normal text-[18px] text-[#666666]"></div>
+            <div data-dipanyikong class="absolute top-[92px] left-[144px] font-normal text-[18px] text-[#666666]">
+            </div>
             <div data-gongwei-overlay class="bg-white opacity-0 z-50 cursor-pointer w-[165px] h-[165px] rounded-[15px]">
             </div>
         </div>
@@ -266,11 +287,14 @@
             <div data-anganzhi class="absolute top-[46px] w-[24px] left-[26px] text-[24px] font-normal"></div>
             <div data-dipanshen class="absolute top-[125px] left-[60px] text-[24px] font-normal"></div>
             <div data-maxing class="absolute top-[14px] left-[20px] font-normal text-[18px] text-[#666666]"></div>
-            <div data-kongwang class="absolute top-[14px] left-[132px] font-normal text-[18px] text-[#666666]"></div>
-            <div data-wangshuai class="absolute top-[130px] left-[132px] font-normal text-[18px] text-[#666666]"></div>
+            <div data-kongwang class="absolute top-[14px] left-[132px] font-normal text-[18px] text-[#666666]">
+            </div>
+            <div data-wangshuai class="absolute top-[130px] left-[132px] font-normal text-[18px] text-[#666666]">
+            </div>
             <div data-tianpanyikong class="absolute top-[51px] left-[144px] font-normal text-[18px] text-[#666666]">
             </div>
-            <div data-dipanyikong class="absolute top-[92px] left-[144px] font-normal text-[18px] text-[#666666]"></div>
+            <div data-dipanyikong class="absolute top-[92px] left-[144px] font-normal text-[18px] text-[#666666]">
+            </div>
             <div data-gongwei-overlay class="bg-white opacity-0 z-50 cursor-pointer w-[165px] h-[165px] rounded-[15px]">
             </div>
         </div>
@@ -283,11 +307,14 @@
             <div data-anganzhi class="absolute top-[46px] w-[24px] left-[26px] text-[24px] font-normal"></div>
             <div data-dipanshen class="absolute top-[125px] left-[60px] text-[24px] font-normal"></div>
             <div data-maxing class="absolute top-[14px] left-[20px] font-normal text-[18px] text-[#666666]"></div>
-            <div data-kongwang class="absolute top-[14px] left-[132px] font-normal text-[18px] text-[#666666]"></div>
-            <div data-wangshuai class="absolute top-[130px] left-[132px] font-normal text-[18px] text-[#666666]"></div>
+            <div data-kongwang class="absolute top-[14px] left-[132px] font-normal text-[18px] text-[#666666]">
+            </div>
+            <div data-wangshuai class="absolute top-[130px] left-[132px] font-normal text-[18px] text-[#666666]">
+            </div>
             <div data-tianpanyikong class="absolute top-[51px] left-[144px] font-normal text-[18px] text-[#666666]">
             </div>
-            <div data-dipanyikong class="absolute top-[92px] left-[144px] font-normal text-[18px] text-[#666666]"></div>
+            <div data-dipanyikong class="absolute top-[92px] left-[144px] font-normal text-[18px] text-[#666666]">
+            </div>
             <div data-gongwei-overlay class="bg-white opacity-0 z-50 cursor-pointer w-[165px] h-[165px] rounded-[15px]">
             </div>
         </div>
@@ -300,11 +327,14 @@
             <div data-anganzhi class="absolute top-[46px] w-[24px] left-[26px] text-[24px] font-normal"></div>
             <div data-dipanshen class="absolute top-[125px] left-[60px] text-[24px] font-normal"></div>
             <div data-maxing class="absolute top-[14px] left-[20px] font-normal text-[18px] text-[#666666]"></div>
-            <div data-kongwang class="absolute top-[14px] left-[132px] font-normal text-[18px] text-[#666666]"></div>
-            <div data-wangshuai class="absolute top-[130px] left-[132px] font-normal text-[18px] text-[#666666]"></div>
+            <div data-kongwang class="absolute top-[14px] left-[132px] font-normal text-[18px] text-[#666666]">
+            </div>
+            <div data-wangshuai class="absolute top-[130px] left-[132px] font-normal text-[18px] text-[#666666]">
+            </div>
             <div data-tianpanyikong class="absolute top-[51px] left-[144px] font-normal text-[18px] text-[#666666]">
             </div>
-            <div data-dipanyikong class="absolute top-[92px] left-[144px] font-normal text-[18px] text-[#666666]"></div>
+            <div data-dipanyikong class="absolute top-[92px] left-[144px] font-normal text-[18px] text-[#666666]">
+            </div>
             <div data-gongwei-overlay class="bg-white opacity-0 z-50 cursor-pointer w-[165px] h-[165px] rounded-[15px]">
             </div>
         </div>
@@ -317,11 +347,14 @@
             <div data-anganzhi class="absolute top-[46px] w-[24px] left-[26px] text-[24px] font-normal"></div>
             <div data-dipanshen class="absolute top-[125px] left-[60px] text-[24px] font-normal"></div>
             <div data-maxing class="absolute top-[14px] left-[20px] font-normal text-[18px] text-[#666666]"></div>
-            <div data-kongwang class="absolute top-[14px] left-[132px] font-normal text-[18px] text-[#666666]"></div>
-            <div data-wangshuai class="absolute top-[130px] left-[132px] font-normal text-[18px] text-[#666666]"></div>
+            <div data-kongwang class="absolute top-[14px] left-[132px] font-normal text-[18px] text-[#666666]">
+            </div>
+            <div data-wangshuai class="absolute top-[130px] left-[132px] font-normal text-[18px] text-[#666666]">
+            </div>
             <div data-tianpanyikong class="absolute top-[51px] left-[144px] font-normal text-[18px] text-[#666666]">
             </div>
-            <div data-dipanyikong class="absolute top-[92px] left-[144px] font-normal text-[18px] text-[#666666]"></div>
+            <div data-dipanyikong class="absolute top-[92px] left-[144px] font-normal text-[18px] text-[#666666]">
+            </div>
             <div data-gongwei-overlay class="bg-white opacity-0 z-50 cursor-pointer w-[165px] h-[165px] rounded-[15px]">
             </div>
         </div>
@@ -334,11 +367,14 @@
             <div data-anganzhi class="absolute top-[46px] w-[24px] left-[26px] text-[24px] font-normal"></div>
             <div data-dipanshen class="absolute top-[125px] left-[60px] text-[24px] font-normal"></div>
             <div data-maxing class="absolute top-[14px] left-[20px] font-normal text-[18px] text-[#666666]"></div>
-            <div data-kongwang class="absolute top-[14px] left-[132px] font-normal text-[18px] text-[#666666]"></div>
-            <div data-wangshuai class="absolute top-[130px] left-[132px] font-normal text-[18px] text-[#666666]"></div>
+            <div data-kongwang class="absolute top-[14px] left-[132px] font-normal text-[18px] text-[#666666]">
+            </div>
+            <div data-wangshuai class="absolute top-[130px] left-[132px] font-normal text-[18px] text-[#666666]">
+            </div>
             <div data-tianpanyikong class="absolute top-[51px] left-[144px] font-normal text-[18px] text-[#666666]">
             </div>
-            <div data-dipanyikong class="absolute top-[92px] left-[144px] font-normal text-[18px] text-[#666666]"></div>
+            <div data-dipanyikong class="absolute top-[92px] left-[144px] font-normal text-[18px] text-[#666666]">
+            </div>
             <div data-gongwei-overlay class="bg-white opacity-0 z-50 cursor-pointer w-[165px] h-[165px] rounded-[15px]">
             </div>
         </div>
@@ -347,9 +383,8 @@
         <textarea id="paipan-pizhu"
             class="absolute top-[703px] left-[20px] resize-none text-lg border-[1px] rounded-[15px] h-[122px] w-[430px] text-md p-4 default-shadow font-pingfang"></textarea>
         <!-- for mac -->
-        <button
-            class="absolute top-[703px] left-[475px] h-[55px] w-[55px] bg-btn text-white rounded-[12px] hover:bg-white hover:text-black duration-150 default-shadow"
-            onclick="takeScreenshot()">
+        <button id='screenshot-btn'
+            class="absolute top-[703px] left-[475px] h-[55px] w-[55px] bg-btn text-white rounded-[12px] hover:bg-white hover:text-black duration-150 default-shadow">
             截图
         </button>
         <button id="return"

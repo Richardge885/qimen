@@ -92,6 +92,9 @@ ipcMain.on('报数起局', (e, data) => {
     }
 });
 
+ipcMain.on('下一局', (e, data) => {});
+ipcMain.on('上一局', (e, data) => {});
+
 function createMainWindow() {
     mainWindow = new BrowserWindow({
         width: 550,
