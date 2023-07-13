@@ -1,419 +1,882 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <title>奇门遁甲</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta
+            http-equiv="Content-Security-Policy"
+            content="default-src 'self' 'unsafe-inline'"
+        />
+        <link href="./css/index.css" rel="stylesheet" />
+    </head>
 
-<head>
-    <title>奇门遁甲</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline'" />
-    <link href="./css/index.css" rel="stylesheet" />
-</head>
-
-<body>
-    <!-- 查阅记录 page -->
-    <div id="saved-info-section" class="w-screen h-screen hidden bg-[#eeeeee]">
-        <button onclick="fromInfoToHome()" id="info-return-btn"
-            class="h-[55px] w-[55px] bg-btn text-white rounded-[12px] hover:bg-white hover:text-black duration-150 default-shadow">
-            返回
-        </button>
-    </div>
-
-    <!-- home page section -->
-    <div id="home" class="flex flex-col w-screen h-screen">
-        <div id="home-hamburger-menu" class="hamburger z-[50] absolute ml-[500px]">
-            <div class="hamburger-top"></div>
-            <div class="hamburger-middle"></div>
-            <div class="hamburger-bottom"></div>
-        </div>
-        <div id="menu" class="menu bg-[#eeeeee] w-[50%] flex flex-col justify-center gap-[30px] items-center z-[40]">
-            <div id="home-show-saved-data"
-                class="text-xl text-center hover:text-btn hover:underline cursor-pointer font-pingfang w-[275px]"
-                onclick="fromHomeToInfo()">
-                查阅记录
-            </div>
-            <hr class="bg-[#d1d1d1d5] h-[2px] w-[265px]" />
-            <select id="theme" class="font-pingfang text-xl font-normal text-center w-[200px]" size="1">
-                <option value="默认">默认</option>
-                <!-- <option value="五行颜色">五行颜色</option> -->
-            </select>
-            <hr class="bg-[#d1d1d1d5] h-[2px] w-[265px]" />
-            <div id="home-guanyu"
-                class="text-xl text-center hover:text-btn hover:underline cursor-pointer font-pingfang w-[275px]">
-                关于
-            </div>
-        </div>
-
-        <!-- 弹窗代码 -->
-        <!-- 弹窗灰色背景 -->
-        <div id="overlay"></div>
-
-        <!-- about modal -->
-        <div id="home-about-modal" class="shadow-md shadow-shadow">
-            <div class="font-bold">奇门遁甲排盘 版本: 2.0.0</div>
-            <div class="font-bold">软件作者: Richard Ge</div>
-            <div class="font-bold">软件设计: Zhang ZhiLan</div>
-        </div>
-
-        <!-- 报数弹窗 -->
-        <div id="home-modal" class="shadow-md shadow-shadow">
-            <div class="font-pingfang font-bold text-2xl">制筹起局</div>
-            <div class="flex flex-row justify-evenly w-[450px]">
-                <label class="text-xl font-pingfang">十二时辰
-                    <input type="radio" name="zhichouqiju" id="shichen" class="w-[15px] h-[15px] font-pingfang" />
-                </label>
-                <label class="text-xl font-pingfang">局数
-                    <input type="radio" name="zhichouqiju" id="jushu" class="w-[15px] h-[15px] font-pingfang" checked />
-                </label>
-                <label class="text-xl font-pingfang">传统制筹
-                    <input type="radio" name="zhichouqiju" id="zhichou" class="w-[15px] h-[15px] font-pingfang" />
-                </label>
-            </div>
-            <label class="text-lg font-pingfang">报数:
-                <input id="shuzi" type="number" min="1" step="1"
-                    class="border-gray-400 text-xl text-center w-[100px] border-[1px] rounded-[7px] font-pingfang" />
-            </label>
-            <button id="modal-btn"
-                class="bg-blue-500 text-white hover:bg-blue-700 duration-200 w-[150px] h-[50px] rounded-[15px] default-shadow font-pingfang">
-                确认
+    <body>
+        <!-- 查阅记录 page -->
+        <div
+            id="saved-info-section"
+            class="w-screen h-screen hidden bg-[#eeeeee]"
+        >
+            <button
+                onclick="fromInfoToHome()"
+                id="info-return-btn"
+                class="h-[55px] w-[55px] bg-btn text-white rounded-[12px] hover:bg-white hover:text-black duration-150 default-shadow"
+            >
+                返回
             </button>
         </div>
-        <!-- 主要内容 -->
 
-        <div class="flex flex-col items-center justify-evenly h-screen pt-[120px] pb-[100px]">
-            <img src="qimenmingfa.png" class="h-auto w-[460px] z-0" />
-            <img src="./阴阳图.jpg" class="h-auto w-[120px] opacity-60" />
+        <!-- home page section -->
+        <div id="home" class="flex flex-col w-screen h-screen">
+            <div
+                id="home-hamburger-menu"
+                class="hamburger z-[50] absolute ml-[500px]"
+            >
+                <div class="hamburger-top"></div>
+                <div class="hamburger-middle"></div>
+                <div class="hamburger-bottom"></div>
+            </div>
+            <div
+                id="menu"
+                class="menu bg-[#eeeeee] w-[50%] flex flex-col justify-center gap-[30px] items-center z-[40]"
+            >
+                <div
+                    id="home-show-saved-data"
+                    class="text-xl text-center hover:text-btn hover:underline cursor-pointer font-pingfang w-[275px]"
+                    onclick="fromHomeToInfo()"
+                >
+                    查阅记录
+                </div>
+                <hr class="bg-[#d1d1d1d5] h-[2px] w-[265px]" />
+                <select
+                    id="theme"
+                    class="font-pingfang text-xl font-normal text-center w-[200px]"
+                    size="1"
+                >
+                    <option value="默认">默认</option>
+                    <!-- <option value="五行颜色">五行颜色</option> -->
+                </select>
+                <hr class="bg-[#d1d1d1d5] h-[2px] w-[265px]" />
+                <div
+                    id="home-guanyu"
+                    class="text-xl text-center hover:text-btn hover:underline cursor-pointer font-pingfang w-[275px]"
+                >
+                    关于
+                </div>
+            </div>
 
-            <select id="home-paipanfangshi" size="1"
-                class="font-pingfang text-lg font-normal border-[1px] border-[#e0e0e0] rounded-[7px] text-center">
-                <option value="飞盘">飞盘</option>
-                <!-- <option value="传统转盘">传统转盘</option>
+            <!-- 弹窗代码 -->
+            <!-- 弹窗灰色背景 -->
+            <div id="overlay"></div>
+
+            <!-- about modal -->
+            <div id="home-about-modal" class="shadow-md shadow-shadow">
+                <div class="font-bold">奇门遁甲排盘 版本: 2.0.0</div>
+                <div class="font-bold">软件作者: Richard Ge</div>
+                <div class="font-bold">软件设计: Zhang ZhiLan</div>
+            </div>
+
+            <!-- 报数弹窗 -->
+            <div id="home-modal" class="shadow-md shadow-shadow">
+                <div class="font-pingfang font-bold text-2xl">制筹起局</div>
+                <div class="flex flex-row justify-evenly w-[450px]">
+                    <label class="text-xl font-pingfang"
+                        >十二时辰
+                        <input
+                            type="radio"
+                            name="zhichouqiju"
+                            id="shichen"
+                            class="w-[15px] h-[15px] font-pingfang"
+                        />
+                    </label>
+                    <label class="text-xl font-pingfang"
+                        >局数
+                        <input
+                            type="radio"
+                            name="zhichouqiju"
+                            id="jushu"
+                            class="w-[15px] h-[15px] font-pingfang"
+                            checked
+                        />
+                    </label>
+                    <label class="text-xl font-pingfang"
+                        >传统制筹
+                        <input
+                            type="radio"
+                            name="zhichouqiju"
+                            id="zhichou"
+                            class="w-[15px] h-[15px] font-pingfang"
+                        />
+                    </label>
+                </div>
+                <label class="text-lg font-pingfang"
+                    >报数:
+                    <input
+                        id="shuzi"
+                        type="number"
+                        min="1"
+                        step="1"
+                        class="border-gray-400 text-xl text-center w-[100px] border-[1px] rounded-[7px] font-pingfang"
+                    />
+                </label>
+                <button
+                    id="modal-btn"
+                    class="bg-blue-500 text-white hover:bg-blue-700 duration-200 w-[150px] h-[50px] rounded-[15px] default-shadow font-pingfang"
+                >
+                    确认
+                </button>
+            </div>
+            <!-- 主要内容 -->
+
+            <div
+                class="flex flex-col items-center justify-evenly h-screen pt-[120px] pb-[100px]"
+            >
+                <img src="qimenmingfa.png" class="h-auto w-[460px] z-0" />
+                <img src="./阴阳图.jpg" class="h-auto w-[120px] opacity-60" />
+
+                <select
+                    id="home-paipanfangshi"
+                    size="1"
+                    class="font-pingfang text-lg font-normal border-[1px] border-[#e0e0e0] rounded-[7px] text-center"
+                >
+                    <option value="飞盘">飞盘</option>
+                    <!-- <option value="传统转盘">传统转盘</option>
                     <option value="符使转盘">符使转盘</option> -->
-            </select>
-            <div class="flex w-[248px] justify-between">
-                <input id="date-time" type="datetime-local"
-                    class="font-pingfang h-[40px] w-[180px] rounded-[10px] p-[3px] default-shadow border-[1.5px] border-[#e0e0e0] cursor-pointer" />
+                </select>
+                <div class="flex w-[248px] justify-between">
+                    <input
+                        id="date-time"
+                        type="datetime-local"
+                        class="font-pingfang h-[40px] w-[180px] rounded-[10px] p-[3px] default-shadow border-[1.5px] border-[#e0e0e0] cursor-pointer"
+                    />
+                    <div></div>
+                    <button
+                        id="setCurrentTime"
+                        class="h-[40px] w-[55px] bg-btn text-white rounded-[10px] hover:bg-white hover:text-black duration-150 default-shadow font-pingfang"
+                    >
+                        现在
+                    </button>
+                </div>
                 <div></div>
-                <button id="setCurrentTime"
-                    class="h-[40px] w-[55px] bg-btn text-white rounded-[10px] hover:bg-white hover:text-black duration-150 default-shadow font-pingfang">
-                    现在
-                </button>
-            </div>
-            <div></div>
-            <div class="flex flex-col justify-between h-48">
-                <button id="baoshu"
-                    class="bg-btn text-white h-[80px] w-[180px] rounded-[15px] hover:bg-white hover:text-black duration-150 default-shadow font-pingfang">
-                    制筹起局
-                </button>
-                <button id="zhengshi"
-                    class="bg-btn text-white h-[80px] w-[180px] rounded-[15px] hover:bg-white hover:text-black duration-150 default-shadow font-pingfang">
-                    正时起局
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- paipan page section -->
-    <div id="paipan" class="w-screen h-screen hidden bg-[#eeeeee]">
-        <!-- info modal -->
-        <div id="paipan-info-modal" class=''>
-            <div id='paipan-modal-info-section' class='overflow-scroll text-lg mt-[15px] w-[320px]'></div>
-            <div id="paipan-gongwei-info-items" class='flex flex-col text-lg pl-[5px]'>
-                <div class='paipan-gongwei-info-items rounded-tr-[15px]' id='paipan-geju-info'>格局</div>
-                <div class='paipan-gongwei-info-items' id='paipan-tianpanshen-info'></div>
-                <div class='paipan-gongwei-info-items' id='paipan-xing-info'></div>
-                <div class='paipan-gongwei-info-items' id='paipan-men-info'></div>
-                <div class='paipan-gongwei-info-items' id='paipan-tianpangan-info'></div>
-                <div class='paipan-gongwei-info-items' id='paipan-dipangan-info'></div>
-                <div class='paipan-gongwei-info-items hidden' id='paipan-jiamu-info'>甲</div>
-                <div class='paipan-gongwei-info-items rounded-bl-[15px]' id='paipan-gongwei-info'></div>
-            </div>
-        </div>
-        <div id="paipan-overlay"></div>
-        <!-- 阳历和节气区 -->
-        <div class="absolute h-[30px] left-[20px] top-[15px] font-pingfang text-[20px]">
-            <span id="year-number"></span><span>年</span><span id="month-number"></span><span>月</span><span
-                id="date-number"></span><span>日</span><span id="time-number"></span><span>时</span>
-        </div>
-        <div class="absolute h-[36px] left-[405px] top-[15px] font-pingfang font-[200px] text-[20px]">
-            节气:
-            <span id="jieqi"></span>
-        </div>
-
-        <!-- 四柱与四柱右侧信息区 -->
-        <!-- 四柱区 -->
-        <div
-            class="absolute top-[56px] left-[20px] flex justify-between w-[200px] h-[110px] rounded-[15px] shadow-sm shadow-[#666666] border-[2px] border-[#eeeeee]">
-            <div
-                class="w-[48px] h-[30px] text-[#666666] text-center font-bold text-xl border-r-gray-300 border-r-[1px] border-b-[1px] border-b-gray-300 font-pingfang">
-                年
-                <div id="nian"
-                    class="pt-[5px] text-black font-normal text-3xl text-center h-[82px] w-[48px] border-r-gray-300 border-r-[1px] font-pingfang">
-                </div>
-            </div>
-            <div
-                class="font-bold w-[48px] h-[30px] text-[#666666] text-center text-xl border-r-gray-300 border-b-[1px] border-b-gray-300 border-r-[1px] font-pingfang">
-                月
-                <div id="yue"
-                    class="pt-[5px] font-normal text-black text-3xl text-center h-[82px] w-[48px] border-r-gray-300 border-r-[1px] font-pingfang">
-                </div>
-            </div>
-            <div
-                class="font-bold w-[48px] h-[30px] text-[#666666] text-center text-xl border-r-gray-300 border-b-[1px] border-b-gray-300 border-r-[1px] font-pingfang">
-                日
-                <div id="ri"
-                    class="font-normal pt-[5px] text-black text-3xl text-center h-[82px] w-[48px] border-r-gray-300 border-r-[1px] font-pingfang">
-                </div>
-            </div>
-            <div
-                class="font-bold w-[48px] h-[30px] text-[#666666] text-center text-xl border-b-[1px] border-b-gray-300 font-pingfang">
-                时
-                <div id="shi"
-                    class="font-normal pt-[5px] text-black text-3xl text-center h-[82px] w-[48px] font-pingfang">
+                <div class="flex flex-col justify-between h-48">
+                    <button
+                        id="baoshu"
+                        class="bg-btn text-white h-[80px] w-[180px] rounded-[15px] hover:bg-white hover:text-black duration-150 default-shadow font-pingfang"
+                    >
+                        制筹起局
+                    </button>
+                    <button
+                        id="zhengshi"
+                        class="bg-btn text-white h-[80px] w-[180px] rounded-[15px] hover:bg-white hover:text-black duration-150 default-shadow font-pingfang"
+                    >
+                        正时起局
+                    </button>
                 </div>
             </div>
         </div>
 
-        <!-- 符使与阴阳遁区 -->
-        <div id="paipan-yinyangdun" class="absolute top-[52px] left-[256px] font-pingfang text-[25px] font-[400px]">
-            <span id="paipan-dun"></span><span id="paipan-jushu"></span>局
-        </div>
-        <div class="absolute top-[52px] left-[405px] font-pingfang text-[25px] font-[400px]">
-            <span id="paipan-xunshou"></span>旬
-        </div>
-        <div class="absolute top-[97px] left-[256px] font-pingfang text-[25px] font-[400px]">
-            值符: <span id="paipan-zhifu"></span>
-        </div>
-        <div class="absolute top-[97px] left-[405px] font-pingfang text-[25px] font-[400px]">
-            值使: <span id="paipan-zhishi"></span>
-        </div>
-        <div class="absolute top-[138px] left-[256px] text-[#505050] font-pingfang text-[19px] font-[400px]"
-            id="paipan-wubuyushi"></div>
-        <div id="paipan-info-section-overlay"
-            class="absolute bg-transparent cursor-default pointer-events-auto w-[550px] h-[170px]"></div>
+        <!-- paipan page section -->
+        <div id="paipan" class="w-screen h-screen hidden bg-[#eeeeee]">
+            <!-- info modal -->
+            <div id="paipan-info-modal" class="">
+                <div
+                    id="paipan-modal-info-section"
+                    class="overflow-scroll text-lg mt-[15px] w-[320px]"
+                ></div>
+                <div
+                    id="paipan-gongwei-info-items"
+                    class="flex flex-col text-lg pl-[5px]"
+                >
+                    <div
+                        class="paipan-gongwei-info-items rounded-tr-[15px]"
+                        id="paipan-geju-info"
+                    >
+                        格局
+                    </div>
+                    <div
+                        class="paipan-gongwei-info-items"
+                        id="paipan-tianpanshen-info"
+                    ></div>
+                    <div
+                        class="paipan-gongwei-info-items"
+                        id="paipan-xing-info"
+                    ></div>
+                    <div
+                        class="paipan-gongwei-info-items"
+                        id="paipan-men-info"
+                    ></div>
+                    <div
+                        class="paipan-gongwei-info-items"
+                        id="paipan-tianpangan-info"
+                    ></div>
+                    <div
+                        class="paipan-gongwei-info-items"
+                        id="paipan-dipangan-info"
+                    ></div>
+                    <div
+                        class="paipan-gongwei-info-items hidden"
+                        id="paipan-jiamu-info"
+                    >
+                        甲
+                    </div>
+                    <div
+                        class="paipan-gongwei-info-items rounded-bl-[15px]"
+                        id="paipan-gongwei-info"
+                    ></div>
+                </div>
+            </div>
+            <div id="paipan-overlay"></div>
+            <!-- 阳历和节气区 -->
+            <div
+                class="absolute h-[30px] left-[20px] top-[15px] font-pingfang text-[20px]"
+            >
+                <span id="year-number"></span><span>年</span
+                ><span id="month-number"></span><span>月</span
+                ><span id="date-number"></span><span>日</span
+                ><span id="time-number"></span><span>时</span>
+            </div>
+            <div
+                class="absolute h-[36px] left-[405px] top-[15px] font-pingfang font-[200px] text-[20px]"
+            >
+                节气:
+                <span id="jieqi"></span>
+            </div>
 
-        <!-- 换局按钮 -->
-        <!-- <button id="paipan-next"
+            <!-- 四柱与四柱右侧信息区 -->
+            <!-- 四柱区 -->
+            <div
+                class="absolute top-[56px] left-[20px] flex justify-between w-[200px] h-[110px] rounded-[15px] shadow-sm shadow-[#666666] border-[2px] border-[#eeeeee]"
+            >
+                <div
+                    class="w-[48px] h-[30px] text-[#666666] text-center font-bold text-xl border-r-gray-300 border-r-[1px] border-b-[1px] border-b-gray-300 font-pingfang"
+                >
+                    年
+                    <div
+                        id="nian"
+                        class="pt-[5px] text-black font-normal text-3xl text-center h-[82px] w-[48px] border-r-gray-300 border-r-[1px] font-pingfang"
+                    ></div>
+                </div>
+                <div
+                    class="font-bold w-[48px] h-[30px] text-[#666666] text-center text-xl border-r-gray-300 border-b-[1px] border-b-gray-300 border-r-[1px] font-pingfang"
+                >
+                    月
+                    <div
+                        id="yue"
+                        class="pt-[5px] font-normal text-black text-3xl text-center h-[82px] w-[48px] border-r-gray-300 border-r-[1px] font-pingfang"
+                    ></div>
+                </div>
+                <div
+                    class="font-bold w-[48px] h-[30px] text-[#666666] text-center text-xl border-r-gray-300 border-b-[1px] border-b-gray-300 border-r-[1px] font-pingfang"
+                >
+                    日
+                    <div
+                        id="ri"
+                        class="font-normal pt-[5px] text-black text-3xl text-center h-[82px] w-[48px] border-r-gray-300 border-r-[1px] font-pingfang"
+                    ></div>
+                </div>
+                <div
+                    class="font-bold w-[48px] h-[30px] text-[#666666] text-center text-xl border-b-[1px] border-b-gray-300 font-pingfang"
+                >
+                    时
+                    <div
+                        id="shi"
+                        class="font-normal pt-[5px] text-black text-3xl text-center h-[82px] w-[48px] font-pingfang"
+                    ></div>
+                </div>
+            </div>
+
+            <!-- 符使与阴阳遁区 -->
+            <div
+                id="paipan-yinyangdun"
+                class="absolute top-[52px] left-[256px] font-pingfang text-[25px] font-[400px]"
+            >
+                <span id="paipan-dun"></span><span id="paipan-jushu"></span>局
+            </div>
+            <div
+                class="absolute top-[52px] left-[405px] font-pingfang text-[25px] font-[400px]"
+            >
+                <span id="paipan-xunshou"></span>旬
+            </div>
+            <div
+                class="absolute top-[97px] left-[256px] font-pingfang text-[25px] font-[400px]"
+            >
+                值符: <span id="paipan-zhifu"></span>
+            </div>
+            <div
+                class="absolute top-[97px] left-[405px] font-pingfang text-[25px] font-[400px]"
+            >
+                值使: <span id="paipan-zhishi"></span>
+            </div>
+            <div
+                class="absolute top-[138px] left-[256px] text-[#505050] font-pingfang text-[19px] font-[400px]"
+                id="paipan-wubuyushi"
+            ></div>
+            <div
+                id="paipan-info-section-overlay"
+                class="absolute bg-transparent cursor-default pointer-events-auto w-[550px] h-[170px]"
+            ></div>
+
+            <!-- 换局按钮 -->
+            <!-- <button id="paipan-next"
             class="absolute top-[135px] left-[490px] h-[40px] w-[40px] bg-btn text-2xl text-white rounded-[12px] hover:bg-white hover:text-black duration-150 default-shadow cursor-pointer z-5">&#x2192</button>
         <button id="paipan-previous"
             class="absolute top-[135px] left-[440px] h-[40px] w-[40px] bg-btn text-2xl text-white rounded-[12px] hover:bg-white hover:text-black duration-150 default-shadow cursor-pointer z-5">&#x2190</button> -->
 
-        <!-- feipan 飞盘排盘区 -->
-        <div id="gongwei-1" class="absolute font-pingfang gongwei top-[524px] left-[192px]">
-            <div data-tianpanshen class="absolute top-[5px] left-[60px] text-[24px] font-light"></div>
-            <div data-xing class="absolute top-[46px] left-[60px] text-[24px] font-light"></div>
-            <div data-tianpangan class="absolute top-[46px] left-[120px] text-[24px] font-light"></div>
-            <div data-men class="absolute top-[86px] left-[60px] text-[24px] font-light"></div>
-            <div data-dipangan class="absolute top-[86px] left-[120px] text-[24px] font-light"></div>
-            <div data-anganzhi class="absolute top-[46px] w-[24px] left-[26px] text-[24px] font-light"></div>
-            <div data-dipanshen class="absolute top-[125px] left-[60px] text-[24px] font-light"></div>
-            <div data-maxing class="absolute top-[14px] left-[20px] font-normal text-[18px] text-[#666666]"></div>
-            <div data-kongwang class="absolute top-[14px] left-[132px] font-normal text-[18px] text-[#666666]">
+            <!-- feipan 飞盘排盘区 -->
+            <div
+                id="gongwei-1"
+                class="absolute font-pingfang gongwei top-[524px] left-[192px]"
+            >
+                <div
+                    data-tianpanshen
+                    class="absolute top-[5px] left-[60px] text-[24px] font-light"
+                ></div>
+                <div
+                    data-xing
+                    class="absolute top-[46px] left-[60px] text-[24px] font-light"
+                ></div>
+                <div
+                    data-tianpangan
+                    class="absolute top-[46px] left-[120px] text-[24px] font-light"
+                ></div>
+                <div
+                    data-men
+                    class="absolute top-[86px] left-[60px] text-[24px] font-light"
+                ></div>
+                <div
+                    data-dipangan
+                    class="absolute top-[86px] left-[120px] text-[24px] font-light"
+                ></div>
+                <div
+                    data-anganzhi
+                    class="absolute top-[46px] w-[24px] left-[26px] text-[24px] font-light"
+                ></div>
+                <div
+                    data-dipanshen
+                    class="absolute top-[125px] left-[60px] text-[24px] font-light"
+                ></div>
+                <div
+                    data-maxing
+                    class="absolute top-[14px] left-[20px] font-normal text-[18px] text-[#666666]"
+                ></div>
+                <div
+                    data-kongwang
+                    class="absolute top-[14px] left-[132px] font-normal text-[18px] text-[#666666]"
+                ></div>
+                <div
+                    data-wangshuai
+                    class="absolute top-[130px] left-[132px] font-normal text-[18px] text-[#666666]"
+                ></div>
+                <div
+                    data-tianpanyikong
+                    class="absolute top-[51px] left-[144px] font-normal text-[18px] text-[#666666]"
+                ></div>
+                <div
+                    data-dipanyikong
+                    class="absolute top-[92px] left-[144px] font-normal text-[18px] text-[#666666]"
+                ></div>
+                <div
+                    data-gongwei-overlay
+                    class="bg-white opacity-0 z-50 cursor-pointer w-[165px] h-[165px] rounded-[15px]"
+                ></div>
             </div>
-            <div data-wangshuai class="absolute top-[130px] left-[132px] font-normal text-[18px] text-[#666666]">
+            <div
+                id="gongwei-2"
+                class="absolute font-pingfang gongwei top-[178px] left-[365px]"
+            >
+                <div
+                    data-tianpanshen
+                    class="absolute top-[5px] left-[60px] text-[24px] font-normal"
+                ></div>
+                <div
+                    data-xing
+                    class="absolute top-[46px] left-[60px] text-[24px] font-normal"
+                ></div>
+                <div
+                    data-tianpangan
+                    class="absolute top-[46px] left-[120px] text-[24px] font-normal"
+                ></div>
+                <div
+                    data-men
+                    class="absolute top-[86px] left-[60px] text-[24px] font-normal"
+                ></div>
+                <div
+                    data-dipangan
+                    class="absolute top-[86px] left-[120px] text-[24px] font-normal"
+                ></div>
+                <div
+                    data-anganzhi
+                    class="absolute top-[46px] w-[24px] left-[26px] text-[24px] font-normal"
+                ></div>
+                <div
+                    data-dipanshen
+                    class="absolute top-[125px] left-[60px] text-[24px] font-normal"
+                ></div>
+                <div
+                    data-maxing
+                    class="absolute top-[14px] left-[20px] font-normal text-[18px] text-[#666666]"
+                ></div>
+                <div
+                    data-kongwang
+                    class="absolute top-[14px] left-[132px] font-normal text-[18px] text-[#666666]"
+                ></div>
+                <div
+                    data-wangshuai
+                    class="absolute top-[130px] left-[132px] font-normal text-[18px] text-[#666666]"
+                ></div>
+                <div
+                    data-tianpanyikong
+                    class="absolute top-[51px] left-[144px] font-normal text-[18px] text-[#666666]"
+                ></div>
+                <div
+                    data-dipanyikong
+                    class="absolute top-[92px] left-[144px] font-normal text-[18px] text-[#666666]"
+                ></div>
+                <div
+                    data-gongwei-overlay
+                    class="bg-white opacity-0 z-50 cursor-pointer w-[165px] h-[165px] rounded-[15px]"
+                ></div>
             </div>
-            <div data-tianpanyikong class="absolute top-[51px] left-[144px] font-normal text-[18px] text-[#666666]">
+            <div
+                id="gongwei-3"
+                class="absolute font-pingfang gongwei top-[351px] left-[20px]"
+            >
+                <div
+                    data-tianpanshen
+                    class="absolute top-[5px] left-[60px] text-[24px] font-normal"
+                ></div>
+                <div
+                    data-xing
+                    class="absolute top-[46px] left-[60px] text-[24px] font-normal"
+                ></div>
+                <div
+                    data-tianpangan
+                    class="absolute top-[46px] left-[120px] text-[24px] font-normal"
+                ></div>
+                <div
+                    data-men
+                    class="absolute top-[86px] left-[60px] text-[24px] font-normal"
+                ></div>
+                <div
+                    data-dipangan
+                    class="absolute top-[86px] left-[120px] text-[24px] font-normal"
+                ></div>
+                <div
+                    data-anganzhi
+                    class="absolute top-[46px] w-[24px] left-[26px] text-[24px] font-normal"
+                ></div>
+                <div
+                    data-dipanshen
+                    class="absolute top-[125px] left-[60px] text-[24px] font-normal"
+                ></div>
+                <div
+                    data-maxing
+                    class="absolute top-[14px] left-[20px] font-normal text-[18px] text-[#666666]"
+                ></div>
+                <div
+                    data-kongwang
+                    class="absolute top-[14px] left-[132px] font-normal text-[18px] text-[#666666]"
+                ></div>
+                <div
+                    data-wangshuai
+                    class="absolute top-[130px] left-[132px] font-normal text-[18px] text-[#666666]"
+                ></div>
+                <div
+                    data-tianpanyikong
+                    class="absolute top-[51px] left-[144px] font-normal text-[18px] text-[#666666]"
+                ></div>
+                <div
+                    data-dipanyikong
+                    class="absolute top-[92px] left-[144px] font-normal text-[18px] text-[#666666]"
+                ></div>
+                <div
+                    data-gongwei-overlay
+                    class="bg-white opacity-0 z-50 cursor-pointer w-[165px] h-[165px] rounded-[15px]"
+                ></div>
             </div>
-            <div data-dipanyikong class="absolute top-[92px] left-[144px] font-normal text-[18px] text-[#666666]">
+            <div
+                id="gongwei-4"
+                class="absolute font-pingfang gongwei top-[178px] left-[20px]"
+            >
+                <div
+                    data-tianpanshen
+                    class="absolute top-[5px] left-[60px] text-[24px] font-normal"
+                ></div>
+                <div
+                    data-xing
+                    class="absolute top-[46px] left-[60px] text-[24px] font-normal"
+                ></div>
+                <div
+                    data-tianpangan
+                    class="absolute top-[46px] left-[120px] text-[24px] font-normal"
+                ></div>
+                <div
+                    data-men
+                    class="absolute top-[86px] left-[60px] text-[24px] font-normal"
+                ></div>
+                <div
+                    data-dipangan
+                    class="absolute top-[86px] left-[120px] text-[24px] font-normal"
+                ></div>
+                <div
+                    data-anganzhi
+                    class="absolute top-[46px] w-[24px] left-[26px] text-[24px] font-normal"
+                ></div>
+                <div
+                    data-dipanshen
+                    class="absolute top-[125px] left-[60px] text-[24px] font-normal"
+                ></div>
+                <div
+                    data-maxing
+                    class="absolute top-[14px] left-[20px] font-normal text-[18px] text-[#666666]"
+                ></div>
+                <div
+                    data-kongwang
+                    class="absolute top-[14px] left-[132px] font-normal text-[18px] text-[#666666]"
+                ></div>
+                <div
+                    data-wangshuai
+                    class="absolute top-[130px] left-[132px] font-normal text-[18px] text-[#666666]"
+                ></div>
+                <div
+                    data-tianpanyikong
+                    class="absolute top-[51px] left-[144px] font-normal text-[18px] text-[#666666]"
+                ></div>
+                <div
+                    data-dipanyikong
+                    class="absolute top-[92px] left-[144px] font-normal text-[18px] text-[#666666]"
+                ></div>
+                <div
+                    data-gongwei-overlay
+                    class="bg-white opacity-0 z-50 cursor-pointer w-[165px] h-[165px] rounded-[15px]"
+                ></div>
             </div>
-            <div data-gongwei-overlay class="bg-white opacity-0 z-50 cursor-pointer w-[165px] h-[165px] rounded-[15px]">
+            <div
+                id="gongwei-5"
+                class="absolute font-pingfang gongwei top-[351px] left-[192px]"
+            >
+                <div
+                    data-tianpanshen
+                    class="absolute top-[5px] left-[60px] text-[24px] font-normal"
+                ></div>
+                <div
+                    data-xing
+                    class="absolute top-[46px] left-[60px] text-[24px] font-normal"
+                ></div>
+                <div
+                    data-tianpangan
+                    class="absolute top-[46px] left-[120px] text-[24px] font-normal"
+                ></div>
+                <div
+                    data-men
+                    class="absolute top-[86px] left-[60px] text-[24px] font-normal"
+                ></div>
+                <div
+                    data-dipangan
+                    class="absolute top-[86px] left-[120px] text-[24px] font-normal"
+                ></div>
+                <div
+                    data-anganzhi
+                    class="absolute top-[46px] w-[24px] left-[26px] text-[24px] font-normal"
+                ></div>
+                <div
+                    data-dipanshen
+                    class="absolute top-[125px] left-[60px] text-[24px] font-normal"
+                ></div>
+                <div
+                    data-maxing
+                    class="absolute top-[14px] left-[20px] font-normal text-[18px] text-[#666666]"
+                ></div>
+                <div
+                    data-kongwang
+                    class="absolute top-[14px] left-[132px] font-normal text-[18px] text-[#666666]"
+                ></div>
+                <div
+                    data-wangshuai
+                    class="absolute top-[130px] left-[132px] font-normal text-[18px] text-[#666666]"
+                ></div>
+                <div
+                    data-tianpanyikong
+                    class="absolute top-[51px] left-[144px] font-normal text-[18px] text-[#666666]"
+                ></div>
+                <div
+                    data-dipanyikong
+                    class="absolute top-[92px] left-[144px] font-normal text-[18px] text-[#666666]"
+                ></div>
+                <div
+                    data-gongwei-overlay
+                    class="bg-white opacity-0 z-50 cursor-pointer w-[165px] h-[165px] rounded-[15px]"
+                ></div>
             </div>
-        </div>
-        <div id="gongwei-2" class="absolute font-pingfang gongwei top-[178px] left-[365px]">
-            <div data-tianpanshen class="absolute top-[5px] left-[60px] text-[24px] font-normal"></div>
-            <div data-xing class="absolute top-[46px] left-[60px] text-[24px] font-normal"></div>
-            <div data-tianpangan class="absolute top-[46px] left-[120px] text-[24px] font-normal"></div>
-            <div data-men class="absolute top-[86px] left-[60px] text-[24px] font-normal"></div>
-            <div data-dipangan class="absolute top-[86px] left-[120px] text-[24px] font-normal"></div>
-            <div data-anganzhi class="absolute top-[46px] w-[24px] left-[26px] text-[24px] font-normal"></div>
-            <div data-dipanshen class="absolute top-[125px] left-[60px] text-[24px] font-normal"></div>
-            <div data-maxing class="absolute top-[14px] left-[20px] font-normal text-[18px] text-[#666666]"></div>
-            <div data-kongwang class="absolute top-[14px] left-[132px] font-normal text-[18px] text-[#666666]">
+            <div
+                id="gongwei-6"
+                class="absolute font-pingfang gongwei top-[524px] left-[365px]"
+            >
+                <div
+                    data-tianpanshen
+                    class="absolute top-[5px] left-[60px] text-[24px] font-normal"
+                ></div>
+                <div
+                    data-xing
+                    class="absolute top-[46px] left-[60px] text-[24px] font-normal"
+                ></div>
+                <div
+                    data-tianpangan
+                    class="absolute top-[46px] left-[120px] text-[24px] font-normal"
+                ></div>
+                <div
+                    data-men
+                    class="absolute top-[86px] left-[60px] text-[24px] font-normal"
+                ></div>
+                <div
+                    data-dipangan
+                    class="absolute top-[86px] left-[120px] text-[24px] font-normal"
+                ></div>
+                <div
+                    data-anganzhi
+                    class="absolute top-[46px] w-[24px] left-[26px] text-[24px] font-normal"
+                ></div>
+                <div
+                    data-dipanshen
+                    class="absolute top-[125px] left-[60px] text-[24px] font-normal"
+                ></div>
+                <div
+                    data-maxing
+                    class="absolute top-[14px] left-[20px] font-normal text-[18px] text-[#666666]"
+                ></div>
+                <div
+                    data-kongwang
+                    class="absolute top-[14px] left-[132px] font-normal text-[18px] text-[#666666]"
+                ></div>
+                <div
+                    data-wangshuai
+                    class="absolute top-[130px] left-[132px] font-normal text-[18px] text-[#666666]"
+                ></div>
+                <div
+                    data-tianpanyikong
+                    class="absolute top-[51px] left-[144px] font-normal text-[18px] text-[#666666]"
+                ></div>
+                <div
+                    data-dipanyikong
+                    class="absolute top-[92px] left-[144px] font-normal text-[18px] text-[#666666]"
+                ></div>
+                <div
+                    data-gongwei-overlay
+                    class="bg-white opacity-0 z-50 cursor-pointer w-[165px] h-[165px] rounded-[15px]"
+                ></div>
             </div>
-            <div data-wangshuai class="absolute top-[130px] left-[132px] font-normal text-[18px] text-[#666666]">
+            <div
+                id="gongwei-7"
+                class="absolute font-pingfang gongwei top-[351px] left-[365px]"
+            >
+                <div
+                    data-tianpanshen
+                    class="absolute top-[5px] left-[60px] text-[24px] font-normal"
+                ></div>
+                <div
+                    data-xing
+                    class="absolute top-[46px] left-[60px] text-[24px] font-normal"
+                ></div>
+                <div
+                    data-tianpangan
+                    class="absolute top-[46px] left-[120px] text-[24px] font-normal"
+                ></div>
+                <div
+                    data-men
+                    class="absolute top-[86px] left-[60px] text-[24px] font-normal"
+                ></div>
+                <div
+                    data-dipangan
+                    class="absolute top-[86px] left-[120px] text-[24px] font-normal"
+                ></div>
+                <div
+                    data-anganzhi
+                    class="absolute top-[46px] w-[24px] left-[26px] text-[24px] font-normal"
+                ></div>
+                <div
+                    data-dipanshen
+                    class="absolute top-[125px] left-[60px] text-[24px] font-normal"
+                ></div>
+                <div
+                    data-maxing
+                    class="absolute top-[14px] left-[20px] font-normal text-[18px] text-[#666666]"
+                ></div>
+                <div
+                    data-kongwang
+                    class="absolute top-[14px] left-[132px] font-normal text-[18px] text-[#666666]"
+                ></div>
+                <div
+                    data-wangshuai
+                    class="absolute top-[130px] left-[132px] font-normal text-[18px] text-[#666666]"
+                ></div>
+                <div
+                    data-tianpanyikong
+                    class="absolute top-[51px] left-[144px] font-normal text-[18px] text-[#666666]"
+                ></div>
+                <div
+                    data-dipanyikong
+                    class="absolute top-[92px] left-[144px] font-normal text-[18px] text-[#666666]"
+                ></div>
+                <div
+                    data-gongwei-overlay
+                    class="bg-white opacity-0 z-50 cursor-pointer w-[165px] h-[165px] rounded-[15px]"
+                ></div>
             </div>
-            <div data-tianpanyikong class="absolute top-[51px] left-[144px] font-normal text-[18px] text-[#666666]">
+            <div
+                id="gongwei-8"
+                class="absolute font-pingfang gongwei top-[524px] left-[20px]"
+            >
+                <div
+                    data-tianpanshen
+                    class="absolute top-[5px] left-[60px] text-[24px] font-normal"
+                ></div>
+                <div
+                    data-xing
+                    class="absolute top-[46px] left-[60px] text-[24px] font-normal"
+                ></div>
+                <div
+                    data-tianpangan
+                    class="absolute top-[46px] left-[120px] text-[24px] font-normal"
+                ></div>
+                <div
+                    data-men
+                    class="absolute top-[86px] left-[60px] text-[24px] font-normal"
+                ></div>
+                <div
+                    data-dipangan
+                    class="absolute top-[86px] left-[120px] text-[24px] font-normal"
+                ></div>
+                <div
+                    data-anganzhi
+                    class="absolute top-[46px] w-[24px] left-[26px] text-[24px] font-normal"
+                ></div>
+                <div
+                    data-dipanshen
+                    class="absolute top-[125px] left-[60px] text-[24px] font-normal"
+                ></div>
+                <div
+                    data-maxing
+                    class="absolute top-[14px] left-[20px] font-normal text-[18px] text-[#666666]"
+                ></div>
+                <div
+                    data-kongwang
+                    class="absolute top-[14px] left-[132px] font-normal text-[18px] text-[#666666]"
+                ></div>
+                <div
+                    data-wangshuai
+                    class="absolute top-[130px] left-[132px] font-normal text-[18px] text-[#666666]"
+                ></div>
+                <div
+                    data-tianpanyikong
+                    class="absolute top-[51px] left-[144px] font-normal text-[18px] text-[#666666]"
+                ></div>
+                <div
+                    data-dipanyikong
+                    class="absolute top-[92px] left-[144px] font-normal text-[18px] text-[#666666]"
+                ></div>
+                <div
+                    data-gongwei-overlay
+                    class="bg-white opacity-0 z-50 cursor-pointer w-[165px] h-[165px] rounded-[15px]"
+                ></div>
             </div>
-            <div data-dipanyikong class="absolute top-[92px] left-[144px] font-normal text-[18px] text-[#666666]">
+            <div
+                id="gongwei-9"
+                class="absolute font-pingfang gongwei top-[178px] left-[192px]"
+            >
+                <div
+                    data-tianpanshen
+                    class="absolute top-[5px] left-[60px] text-[24px] font-normal"
+                ></div>
+                <div
+                    data-xing
+                    class="absolute top-[46px] left-[60px] text-[24px] font-normal"
+                ></div>
+                <div
+                    data-tianpangan
+                    class="absolute top-[46px] left-[120px] text-[24px] font-normal"
+                ></div>
+                <div
+                    data-men
+                    class="absolute top-[86px] left-[60px] text-[24px] font-normal"
+                ></div>
+                <div
+                    data-dipangan
+                    class="absolute top-[86px] left-[120px] text-[24px] font-normal"
+                ></div>
+                <div
+                    data-anganzhi
+                    class="absolute top-[46px] w-[24px] left-[26px] text-[24px] font-normal"
+                ></div>
+                <div
+                    data-dipanshen
+                    class="absolute top-[125px] left-[60px] text-[24px] font-normal"
+                ></div>
+                <div
+                    data-maxing
+                    class="absolute top-[14px] left-[20px] font-normal text-[18px] text-[#666666]"
+                ></div>
+                <div
+                    data-kongwang
+                    class="absolute top-[14px] left-[132px] font-normal text-[18px] text-[#666666]"
+                ></div>
+                <div
+                    data-wangshuai
+                    class="absolute top-[130px] left-[132px] font-normal text-[18px] text-[#666666]"
+                ></div>
+                <div
+                    data-tianpanyikong
+                    class="absolute top-[51px] left-[144px] font-normal text-[18px] text-[#666666]"
+                ></div>
+                <div
+                    data-dipanyikong
+                    class="absolute top-[92px] left-[144px] font-normal text-[18px] text-[#666666]"
+                ></div>
+                <div
+                    data-gongwei-overlay
+                    class="bg-white opacity-0 z-50 cursor-pointer w-[165px] h-[165px] rounded-[15px]"
+                ></div>
             </div>
-            <div data-gongwei-overlay class="bg-white opacity-0 z-50 cursor-pointer w-[165px] h-[165px] rounded-[15px]">
-            </div>
-        </div>
-        <div id="gongwei-3" class="absolute font-pingfang gongwei top-[351px] left-[20px]">
-            <div data-tianpanshen class="absolute top-[5px] left-[60px] text-[24px] font-normal"></div>
-            <div data-xing class="absolute top-[46px] left-[60px] text-[24px] font-normal"></div>
-            <div data-tianpangan class="absolute top-[46px] left-[120px] text-[24px] font-normal"></div>
-            <div data-men class="absolute top-[86px] left-[60px] text-[24px] font-normal"></div>
-            <div data-dipangan class="absolute top-[86px] left-[120px] text-[24px] font-normal"></div>
-            <div data-anganzhi class="absolute top-[46px] w-[24px] left-[26px] text-[24px] font-normal"></div>
-            <div data-dipanshen class="absolute top-[125px] left-[60px] text-[24px] font-normal"></div>
-            <div data-maxing class="absolute top-[14px] left-[20px] font-normal text-[18px] text-[#666666]"></div>
-            <div data-kongwang class="absolute top-[14px] left-[132px] font-normal text-[18px] text-[#666666]">
-            </div>
-            <div data-wangshuai class="absolute top-[130px] left-[132px] font-normal text-[18px] text-[#666666]">
-            </div>
-            <div data-tianpanyikong class="absolute top-[51px] left-[144px] font-normal text-[18px] text-[#666666]">
-            </div>
-            <div data-dipanyikong class="absolute top-[92px] left-[144px] font-normal text-[18px] text-[#666666]">
-            </div>
-            <div data-gongwei-overlay class="bg-white opacity-0 z-50 cursor-pointer w-[165px] h-[165px] rounded-[15px]">
-            </div>
-        </div>
-        <div id="gongwei-4" class="absolute font-pingfang gongwei top-[178px] left-[20px]">
-            <div data-tianpanshen class="absolute top-[5px] left-[60px] text-[24px] font-normal"></div>
-            <div data-xing class="absolute top-[46px] left-[60px] text-[24px] font-normal"></div>
-            <div data-tianpangan class="absolute top-[46px] left-[120px] text-[24px] font-normal"></div>
-            <div data-men class="absolute top-[86px] left-[60px] text-[24px] font-normal"></div>
-            <div data-dipangan class="absolute top-[86px] left-[120px] text-[24px] font-normal"></div>
-            <div data-anganzhi class="absolute top-[46px] w-[24px] left-[26px] text-[24px] font-normal"></div>
-            <div data-dipanshen class="absolute top-[125px] left-[60px] text-[24px] font-normal"></div>
-            <div data-maxing class="absolute top-[14px] left-[20px] font-normal text-[18px] text-[#666666]"></div>
-            <div data-kongwang class="absolute top-[14px] left-[132px] font-normal text-[18px] text-[#666666]">
-            </div>
-            <div data-wangshuai class="absolute top-[130px] left-[132px] font-normal text-[18px] text-[#666666]">
-            </div>
-            <div data-tianpanyikong class="absolute top-[51px] left-[144px] font-normal text-[18px] text-[#666666]">
-            </div>
-            <div data-dipanyikong class="absolute top-[92px] left-[144px] font-normal text-[18px] text-[#666666]">
-            </div>
-            <div data-gongwei-overlay class="bg-white opacity-0 z-50 cursor-pointer w-[165px] h-[165px] rounded-[15px]">
-            </div>
-        </div>
-        <div id="gongwei-5" class="absolute font-pingfang gongwei top-[351px] left-[192px]">
-            <div data-tianpanshen class="absolute top-[5px] left-[60px] text-[24px] font-normal"></div>
-            <div data-xing class="absolute top-[46px] left-[60px] text-[24px] font-normal"></div>
-            <div data-tianpangan class="absolute top-[46px] left-[120px] text-[24px] font-normal"></div>
-            <div data-men class="absolute top-[86px] left-[60px] text-[24px] font-normal"></div>
-            <div data-dipangan class="absolute top-[86px] left-[120px] text-[24px] font-normal"></div>
-            <div data-anganzhi class="absolute top-[46px] w-[24px] left-[26px] text-[24px] font-normal"></div>
-            <div data-dipanshen class="absolute top-[125px] left-[60px] text-[24px] font-normal"></div>
-            <div data-maxing class="absolute top-[14px] left-[20px] font-normal text-[18px] text-[#666666]"></div>
-            <div data-kongwang class="absolute top-[14px] left-[132px] font-normal text-[18px] text-[#666666]">
-            </div>
-            <div data-wangshuai class="absolute top-[130px] left-[132px] font-normal text-[18px] text-[#666666]">
-            </div>
-            <div data-tianpanyikong class="absolute top-[51px] left-[144px] font-normal text-[18px] text-[#666666]">
-            </div>
-            <div data-dipanyikong class="absolute top-[92px] left-[144px] font-normal text-[18px] text-[#666666]">
-            </div>
-            <div data-gongwei-overlay class="bg-white opacity-0 z-50 cursor-pointer w-[165px] h-[165px] rounded-[15px]">
-            </div>
-        </div>
-        <div id="gongwei-6" class="absolute font-pingfang gongwei top-[524px] left-[365px]">
-            <div data-tianpanshen class="absolute top-[5px] left-[60px] text-[24px] font-normal"></div>
-            <div data-xing class="absolute top-[46px] left-[60px] text-[24px] font-normal"></div>
-            <div data-tianpangan class="absolute top-[46px] left-[120px] text-[24px] font-normal"></div>
-            <div data-men class="absolute top-[86px] left-[60px] text-[24px] font-normal"></div>
-            <div data-dipangan class="absolute top-[86px] left-[120px] text-[24px] font-normal"></div>
-            <div data-anganzhi class="absolute top-[46px] w-[24px] left-[26px] text-[24px] font-normal"></div>
-            <div data-dipanshen class="absolute top-[125px] left-[60px] text-[24px] font-normal"></div>
-            <div data-maxing class="absolute top-[14px] left-[20px] font-normal text-[18px] text-[#666666]"></div>
-            <div data-kongwang class="absolute top-[14px] left-[132px] font-normal text-[18px] text-[#666666]">
-            </div>
-            <div data-wangshuai class="absolute top-[130px] left-[132px] font-normal text-[18px] text-[#666666]">
-            </div>
-            <div data-tianpanyikong class="absolute top-[51px] left-[144px] font-normal text-[18px] text-[#666666]">
-            </div>
-            <div data-dipanyikong class="absolute top-[92px] left-[144px] font-normal text-[18px] text-[#666666]">
-            </div>
-            <div data-gongwei-overlay class="bg-white opacity-0 z-50 cursor-pointer w-[165px] h-[165px] rounded-[15px]">
-            </div>
-        </div>
-        <div id="gongwei-7" class="absolute font-pingfang gongwei top-[351px] left-[365px]">
-            <div data-tianpanshen class="absolute top-[5px] left-[60px] text-[24px] font-normal"></div>
-            <div data-xing class="absolute top-[46px] left-[60px] text-[24px] font-normal"></div>
-            <div data-tianpangan class="absolute top-[46px] left-[120px] text-[24px] font-normal"></div>
-            <div data-men class="absolute top-[86px] left-[60px] text-[24px] font-normal"></div>
-            <div data-dipangan class="absolute top-[86px] left-[120px] text-[24px] font-normal"></div>
-            <div data-anganzhi class="absolute top-[46px] w-[24px] left-[26px] text-[24px] font-normal"></div>
-            <div data-dipanshen class="absolute top-[125px] left-[60px] text-[24px] font-normal"></div>
-            <div data-maxing class="absolute top-[14px] left-[20px] font-normal text-[18px] text-[#666666]"></div>
-            <div data-kongwang class="absolute top-[14px] left-[132px] font-normal text-[18px] text-[#666666]">
-            </div>
-            <div data-wangshuai class="absolute top-[130px] left-[132px] font-normal text-[18px] text-[#666666]">
-            </div>
-            <div data-tianpanyikong class="absolute top-[51px] left-[144px] font-normal text-[18px] text-[#666666]">
-            </div>
-            <div data-dipanyikong class="absolute top-[92px] left-[144px] font-normal text-[18px] text-[#666666]">
-            </div>
-            <div data-gongwei-overlay class="bg-white opacity-0 z-50 cursor-pointer w-[165px] h-[165px] rounded-[15px]">
-            </div>
-        </div>
-        <div id="gongwei-8" class="absolute font-pingfang gongwei top-[524px] left-[20px]">
-            <div data-tianpanshen class="absolute top-[5px] left-[60px] text-[24px] font-normal"></div>
-            <div data-xing class="absolute top-[46px] left-[60px] text-[24px] font-normal"></div>
-            <div data-tianpangan class="absolute top-[46px] left-[120px] text-[24px] font-normal"></div>
-            <div data-men class="absolute top-[86px] left-[60px] text-[24px] font-normal"></div>
-            <div data-dipangan class="absolute top-[86px] left-[120px] text-[24px] font-normal"></div>
-            <div data-anganzhi class="absolute top-[46px] w-[24px] left-[26px] text-[24px] font-normal"></div>
-            <div data-dipanshen class="absolute top-[125px] left-[60px] text-[24px] font-normal"></div>
-            <div data-maxing class="absolute top-[14px] left-[20px] font-normal text-[18px] text-[#666666]"></div>
-            <div data-kongwang class="absolute top-[14px] left-[132px] font-normal text-[18px] text-[#666666]">
-            </div>
-            <div data-wangshuai class="absolute top-[130px] left-[132px] font-normal text-[18px] text-[#666666]">
-            </div>
-            <div data-tianpanyikong class="absolute top-[51px] left-[144px] font-normal text-[18px] text-[#666666]">
-            </div>
-            <div data-dipanyikong class="absolute top-[92px] left-[144px] font-normal text-[18px] text-[#666666]">
-            </div>
-            <div data-gongwei-overlay class="bg-white opacity-0 z-50 cursor-pointer w-[165px] h-[165px] rounded-[15px]">
-            </div>
-        </div>
-        <div id="gongwei-9" class="absolute font-pingfang gongwei top-[178px] left-[192px]">
-            <div data-tianpanshen class="absolute top-[5px] left-[60px] text-[24px] font-normal"></div>
-            <div data-xing class="absolute top-[46px] left-[60px] text-[24px] font-normal"></div>
-            <div data-tianpangan class="absolute top-[46px] left-[120px] text-[24px] font-normal"></div>
-            <div data-men class="absolute top-[86px] left-[60px] text-[24px] font-normal"></div>
-            <div data-dipangan class="absolute top-[86px] left-[120px] text-[24px] font-normal"></div>
-            <div data-anganzhi class="absolute top-[46px] w-[24px] left-[26px] text-[24px] font-normal"></div>
-            <div data-dipanshen class="absolute top-[125px] left-[60px] text-[24px] font-normal"></div>
-            <div data-maxing class="absolute top-[14px] left-[20px] font-normal text-[18px] text-[#666666]"></div>
-            <div data-kongwang class="absolute top-[14px] left-[132px] font-normal text-[18px] text-[#666666]">
-            </div>
-            <div data-wangshuai class="absolute top-[130px] left-[132px] font-normal text-[18px] text-[#666666]">
-            </div>
-            <div data-tianpanyikong class="absolute top-[51px] left-[144px] font-normal text-[18px] text-[#666666]">
-            </div>
-            <div data-dipanyikong class="absolute top-[92px] left-[144px] font-normal text-[18px] text-[#666666]">
-            </div>
-            <div data-gongwei-overlay class="bg-white opacity-0 z-50 cursor-pointer w-[165px] h-[165px] rounded-[15px]">
-            </div>
-        </div>
 
-        <!-- 下方信息取 -->
-        <textarea id="paipan-pizhu"
-            class="absolute top-[703px] left-[20px] resize-none text-lg border-[1px] rounded-[15px] h-[122px] w-[430px] text-md p-4 default-shadow font-pingfang"></textarea>
-        <!-- for mac -->
-        <button id='screenshot-btn'
-            class="absolute top-[703px] left-[475px] h-[55px] w-[55px] bg-btn text-white rounded-[12px] hover:bg-white hover:text-black duration-150 default-shadow">
-            截图
-        </button>
-        <button id="return"
-            class="absolute top-[770px] left-[475px] h-[55px] w-[55px] bg-btn text-white rounded-[12px] hover:bg-white hover:text-black duration-150 default-shadow">
-            返回
-        </button>
+            <!-- 下方信息取 -->
+            <textarea
+                id="paipan-pizhu"
+                class="absolute top-[703px] left-[20px] resize-none text-lg border-[1px] rounded-[15px] h-[122px] w-[430px] text-md p-4 default-shadow font-pingfang"
+            ></textarea>
+            <!-- for mac -->
+            <button
+                id="screenshot-btn"
+                class="absolute top-[703px] left-[475px] h-[55px] w-[55px] bg-btn text-white rounded-[12px] hover:bg-white hover:text-black duration-150 default-shadow"
+            >
+                截图
+            </button>
+            <button
+                id="return"
+                class="absolute top-[770px] left-[475px] h-[55px] w-[55px] bg-btn text-white rounded-[12px] hover:bg-white hover:text-black duration-150 default-shadow"
+            >
+                返回
+            </button>
 
-        <!-- for windows -->
-        <!-- <button id="return"
+            <!-- for windows -->
+            <!-- <button id="return"
             class="absolute top-[703px] left-[475px] h-[122px] w-[55px] bg-btn text-white rounded-[12px] hover:bg-white hover:text-black duration-150 default-shadow">
             返回
         </button> -->
-    </div>
+        </div>
 
-    <!-- 主页 js 文件 -->
-    <script type="module" src="js/home_getDefaultInformation.js"></script>
-    <script type="module" src="js/home_setCurrentTime.js"></script>
-    <script type="module" src="js/home_modal.js"></script>
-    <script type="module" src="js/home_useDifferentScripts.js"></script>
+        <!-- 主页 js 文件 -->
+        <script type="module" src="js/home_getDefaultInformation.js"></script>
+        <script type="module" src="js/home_setCurrentTime.js"></script>
+        <script type="module" src="js/home_modal.js"></script>
+        <script type="module" src="js/home_useDifferentScripts.js"></script>
 
-    <!-- 共用 js 文件 -->
-    <script type="module" src="js/navigation.js"></script>
-    <script type="module" src="js/saved_paipan_data.js"></script>
-    <!-- 排盘页 js 文件 -->
-    <script type="module" src="js/paipan_huanju.js"></script>
-    <script type="module" src="js/paipan_gongneixinxi.js"></script>
+        <!-- 共用 js 文件 -->
+        <script type="module" src="js/navigation.js"></script>
+        <script type="module" src="js/saved_paipan_data.js"></script>
+        <!-- 排盘页 js 文件 -->
+        <script type="module" src="js/paipan_huanju.js"></script>
+        <script type="module" src="js/paipan_gongneixinxi.js"></script>
 
-    <!-- mac only scripts -->
-    <script type="module" src="js/paipan_screenshot.js"></script>
-</body>
-
+        <!-- mac only scripts -->
+        <script type="module" src="js/paipan_screenshot.js"></script>
+    </body>
 </html>

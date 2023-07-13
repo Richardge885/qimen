@@ -13,13 +13,13 @@ const info = {
     men: {
         休: '<span style="color:#0079FE">五行：</span>水<br><span style="color:#0079FE">意：</span>修养，休闲，聚会，娱乐，喜庆，休养生息、休闲、懒散、旅游、休息、漫不经心、调养、调理、整理、美容、美发、死亡<br><span style="color:#0079FE">事：</span>婚姻，收益进财，贵人相助<br><span style="color:#0079FE">人：</span>品质高贵之人、美容美发、白领、护士、护理人员、离退休人员、清闲休闲之人、懒散之人、睡觉者、死人<br><span style="color:#0079FE">性情：</span>安然、漫不经心、懒散倦怠、性情温顺、没有活力<br><span style="color:#0079FE">形态：</span>漂亮、美丽、气质好、语音偏低、语速偏慢、着装宽松、休闲、半睁着眼的人、不慌不忙<br><span style="color:#0079FE">物品：</span>饮料、酒、油、盐、酱油、醋、调料、水、油器、汽油、煤油、柴油、润滑油等液体物质，布匹、绳索、衣物、棉花海绵等松软物质，船、汽车、火车、自行车、 电瓶车、摩托车等运输工具，钟表、风扇、洗衣机、空调等能动的家电<br><span style="color:#0079FE">动物：</span>金鱼、毛虫、蜗牛、水牛、黄牛等性情温顺、动作缓慢的动物、水中动物、 栖息在沼泽中的动物、喜水的动',
         死: '<span style="color:#0079FE"></span>五行：</span>土<br><span style="color:#0079FE">意：</span>执着、不灵活、没有变化、丧失生命、没有生命、不可调和、固定不变、不可周转、断了念头<br><span style="color:#0079FE">事：</span>主死丧、刑狱，田土，坟墓，疾病，凶灾之事，运气凝滞<br><span style="color:#0079FE">人：</span>死人、执着的人、不灵活的人、死板的人、不能变通的人、固执的人、 行刑之人、屠夫<br><span style="color:#0079FE">性情：</span>固执迟钝、稳重保守、死心眼、死气沉沉、死不认账、一条路走到黑、不灵活<br><span style="color:#0079FE">形态：</span>脸色呆板、木纳、不灵活、死板<br><span style="color:#0079FE">物品：</span>雕塑、木偶、死人照片、凶器、绳索、枷锁、医疗器械、墓碑、俑<br><span style="color:#0079FE">动物：</span>牛、羊、动物的尸体',
-        伤: '<span style="color:#0079FE">五行：</span>木<br><span style="color:#0079FE">意：</span>震动、伤残、争斗，变动，鲁蒜，冲动，巨响，损害，消耗，抓捕<br><span style="color:#0079FE">事：</span>争斗，失物，捕捉盗贼，运输赌博，伤心，讨债<br><span style="color:#0079FE">人：</span>公安、军警、斗殴者、讨债人、竞争对手、伤心人、驾驶员、手术医生、受伤者<br><span style="color:#0079FE">性情：</span>性情直爽、不拐弯抹角、雷厉风行、易怒、暴躁、粗野<br><span style="color:#0079FE">形态：</span>威严、恐惧、难看、丑陋、长方脸、面部少有笑容，健壮<br><span style="color:#0079FE">物品：</span>刀、剑、剪子、针、枪、炮、子弹、弓箭、锐器、炸药、武器、毒药、毒气、等一切使人伤亡的物质；破裂不完整的物质<br><span style="color:#0079FE">动物：</span>狮子、老虎、狗、鹰、豹子、蚊子、跳蚤、马蜂等一切能够伤人和骚扰人的<br>',
+        伤: '<span style="color:#0079FE">五行：</span>木<br><span style="color:#0079FE">意：</span>震动、伤残、争斗，变动，鲁莽，冲动，巨响，损害，消耗，抓捕<br><span style="color:#0079FE">事：</span>争斗，失物，捕捉盗贼，运输赌博，伤心，讨债<br><span style="color:#0079FE">人：</span>公安、军警、斗殴者、讨债人、竞争对手、伤心人、驾驶员、手术医生、受伤者<br><span style="color:#0079FE">性情：</span>性情直爽、不拐弯抹角、雷厉风行、易怒、暴躁、粗野<br><span style="color:#0079FE">形态：</span>威严、恐惧、难看、丑陋、长方脸、面部少有笑容，健壮<br><span style="color:#0079FE">物品：</span>刀、剑、剪子、针、枪、炮、子弹、弓箭、锐器、炸药、武器、毒药、毒气、等一切使人伤亡的物质；破裂不完整的物质<br><span style="color:#0079FE">动物：</span>狮子、老虎、狗、鹰、豹子、蚊子、跳蚤、马蜂等一切能够伤人和骚扰人的<br>',
         杜: '<span style="color:#0079FE">五行：</span>木<br><span style="color:#0079FE">意：</span>阻塞、阻止、困难、限制、闭塞、隐藏、覆盖、遮掩、关闭、断绝、技术、 艺技、体会到的、感觉到的<br><span style="color:#0079FE">事：</span>保密，躲藏，出行避难等<br><span style="color:#0079FE">人：</span>技术人员、理论工作者、管理学者，公检法、安全保密人员、狱警、军人、聋哑人<br><span style="color:#0079FE">性情：</span>不爱言语、心平气和、文静内向<br><span style="color:#0079FE">形态：</span>晦涩、呆滞、深色安然<br><span style="color:#0079FE">物品：</span>书籍、报刊、门窗、瓶塞、瓶盖、衣物、被子、窗帘、内衣、胸罩<br><span style="color:#0079FE">动物：</span>夜行动物，黄鼠狼、老鼠、猫、狗、猫头鹰、<br>',
         中: '<span style="color:#0079FE">五行：</span>无<br><span style="color:#0079FE">意：</span>无路可走，无所适从，不知所措<br><span style="color:#0079FE">事：</span>谋求动静，不知所措，寻求帮助，寻求答案<br><span style="color:#0079FE">人：</span>中间人<br>',
         开: '<span style="color:#0079FE">五行：</span>金<br><span style="color:#0079FE">意：</span>公开、暴露、开放、开创、开始、开明、公开、开朗、打开、 手术、顺利、通畅、经营、经济、升迁、出行、贸易 ，分手，分开，离婚<br><span style="color:#0079FE">事：</span>主动身远出，功名词公，工作事业，者试升迁、开业等<br><span style="color:#0079FE">人：</span>领导、公务员、白领、公众人物、公司企业老板、创业者、法官、检察官、生意人<br><span style="color:#0079FE">性情：</span>豁达爽朗、谈吐不凡、坦诚无私、性情愉快、无所拘束、意志活跃、思想开放、通情达理、容易沟通、讲情重义、自尊心强、勤奋好学<br><span style="color:#0079FE">形态：</span>脸方顶圆、鼻正口方、上身长直、不怒而威<br><span style="color:#0079FE">物品：</span>金银饰品、贵重物品、圆形物品<br><span style="color:#0079FE">动物：</span>虎、狮、豹、马、天鹅、龙',
         惊: '<span style="color:#0079FE">五行：</span>金<br><span style="color:#0079FE">意：</span>惊恐、奇怪、刺激、吃惊、诧异、惊慌、恐慌、声音、官非、口舌是非、抖 讼、忧疑、音乐、响声<br><span style="color:#0079FE">事：</span>主口舌争执，宫讼是非，欺诈怪异，虚惊恐惧等<br><span style="color:#0079FE">人：</span>律师、教师、音乐家，歌星、纪检监察人员<br><span style="color:#0079FE">性情：</span>惊恐不安、担惊受怕、忐忑不安、心事重重<br><span style="color:#0079FE">形态：</span>瞠目结舌状、大眼睛、嘴闭不上、呆若木鸡状<br><span style="color:#0079FE">物品：</span>风铃、音响、电视、电话、钟表、乐器、鞭炮、一切能发声的物体<br><span style="color:#0079FE">动物：</span>蝉、蛙、蝈蝈、蟋蟀、黄鹂、麻雀、等一切善于鸣叫的生物',
         生: '<span style="color:#0079FE">五行：</span>土<br><span style="color:#0079FE">意：</span>有发生安闲、财帛、生机、生长、生意、生产、生命、家宅、压盛之意<br><span style="color:#0079FE">事：</span>建造，生意，求生，耕种，贸易求财<br><span style="color:#0079FE">人：</span>工作者、生产者、生意人、孕妇、从事金融机构者、经理、律师，医生<br><span style="color:#0079FE">性情：</span>忠厚、守时、诚恳、乐观、稳重<br><span style="color:#0079FE">形态：</span>方脸、厚唇、鼻子方直、乐观向上<br><span style="color:#0079FE">物品：</span>利于人们生活所需的一切物品，贵重物品，值钱物品<br><span style="color:#0079FE">动物：</span>泛指一切动物。植物：泛指一切植物',
-        景: '<span style="color:#0079FE">五行：</span>火<br><span style="color:#0079FE">意：</span>张大虚花，发扬振作、实破、学习、文化、文书、证件，书信、火电，计划、谋划<br><span style="color:#0079FE">事：</span>主音信行人，文书华鬆，酒食宴会，或有小喜而不久，先吉后凶，及考试，血光之事<br><span style="color:#0079FE">人：</span>作家，老师，演员，美容师，知识分子，广告、饭划，传媒，美工<br><span style="color:#0079FE">性情：</span>心直口快、脾气急躁、虚心处事、知书达理<br><span style="color:#0079FE">形态：</span>漂亮、红脸、脸尖形、身体偏瘦<br><span style="color:#0079FE">物品：</span>图书、图画、照片、图片、灯光、艺术品、首饰、时装、文件、合同、证 书、颜料、油漆、美容美发用品、书画用品、书籍、烟火爆竹、霓虹灯、电影机、电视 机、投影机<br><span style="color:#0079FE">动物：</span>雉鸡、孔雀、雄鹰、鸟类、观赏鱼、观赏动物等一切漂亮的生物',
+        景: '<span style="color:#0079FE">五行：</span>火<br><span style="color:#0079FE">意：</span>张大虚花，发扬振作、实破、学习、文化、文书、证件，书信、火电，计划、谋划<br><span style="color:#0079FE">事：</span>主音信行人，文书华彩，酒食宴会，或有小喜而不久，先吉后凶，及考试，血光之事<br><span style="color:#0079FE">人：</span>作家，老师，演员，美容师，知识分子，广告、饭划，传媒，美工<br><span style="color:#0079FE">性情：</span>心直口快、脾气急躁、虚心处事、知书达理<br><span style="color:#0079FE">形态：</span>漂亮、红脸、脸尖形、身体偏瘦<br><span style="color:#0079FE">物品：</span>图书、图画、照片、图片、灯光、艺术品、首饰、时装、文件、合同、证 书、颜料、油漆、美容美发用品、书画用品、书籍、烟火爆竹、霓虹灯、电影机、电视 机、投影机<br><span style="color:#0079FE">动物：</span>雉鸡、孔雀、雄鹰、鸟类、观赏鱼、观赏动物等一切漂亮的生物',
     },
     shen: {
         值符: '<span style="color:#0079FE">五行：</span>木（用的时候当做火来用）<br><span style="color:#0079FE">意：</span>元首，领导，尊长，有权利的人，贵重的物品，贵人，靠山，重要的，有名望的<br><span style="color:#0079FE">事：</span>高攀接贵，财帛收益<br><span style="color:#0079FE">人：</span>名人、明星、领袖、领导、教授、老板、经理、管理者、负责人、长辈<br><span style="color:#0079FE">形态：</span>方脸、粗眉、重发、鼻子直大、嘴唇方而有棱角、唇线清晰、身材长直、敦厚<br><span style="color:#0079FE">地利：</span>首都、首府、古建筑、庙宇、高档场所、首饰店、古董行、金矿、珠宝、煤矿、油矿<br><span style="color:#0079FE">物品：</span>任何重要或贵重物品',
@@ -614,15 +614,15 @@ function updateGejuInfo(tianpangan, dipangan, gong, tianpanjia = false, dipanjia
 function getZhengGe(tianpangan, dipangan) {
     // todo 重构代码，把所有的格局全部变成单独的 const 从而更加方便后期修改
     const group = tianpangan + dipangan;
+    const jinruge =
+        '<span style="color:#0079FE">进茹格：</span>凡谋为等事，不论吉凶，以进步为吉。欲穷千里目，要更上一层楼。但如测病反而不利<br>';
     let output = `${tianpangan} + ${dipangan}：<br>`;
     switch (group) {
         case '甲甲':
             output = output + '<span style="color:#0079FE">伏吟格</span><br>';
             break;
         case '甲乙':
-            output =
-                output +
-                '<span style="color:#0079FE">进茹格：</span>凡谋为等事，不论吉凶，以进步为吉。欲穷千里目，要更上一层楼。但如测病反而不利<br>';
+            output = output + jinruge;
             break;
         case '甲丙':
             output =
@@ -728,9 +728,7 @@ function getZhengGe(tianpangan, dipangan) {
             output = output + '<span style="color:#0079FE">伏吟格</span><br>';
             break;
         case '丙丁':
-            output =
-                output +
-                '<span style="color:#0079FE">进茹格：凡谋为等事，不论吉凶，以进步为吉。欲穷千里目，要更上一层楼。但如测病反而不利</span><br>';
+            output = output + jinruge;
             break;
         case '丙戊':
             output =
@@ -944,9 +942,7 @@ function getZhengGe(tianpangan, dipangan) {
             output = output + '<span style="color:#0079FE">伏吟格</span><br>';
             break;
         case '庚辛':
-            output =
-                output +
-                '<span style="color:#0079FE">进茹格：凡谋为等事，不论吉凶，以进步为吉。欲穷千里目，要更上一层楼。但如测病反而不利</span><br>';
+            output = output + jinruge;
             break;
         case '庚壬':
             output =
@@ -1052,9 +1048,7 @@ function getZhengGe(tianpangan, dipangan) {
             output = output + '<span style="color:#0079FE">伏吟格</span><br>';
             break;
         case '壬癸':
-            output =
-                output +
-                '<span style="color:#0079FE">进茹格：凡谋为等事，不论吉凶，以进步为吉。欲穷千里目，要更上一层楼。但如测病反而不利</span><br>';
+            output = output + jinruge;
             break;
 
         case '癸甲':
