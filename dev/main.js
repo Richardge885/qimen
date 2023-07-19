@@ -91,8 +91,8 @@ function createMainWindow() {
         webPreferences: {
             nodeIntegration: true,
             contextIsolation: false,
-            // devTools: true,//todo change this when building
-            devTools: false,
+            devTools: true, //todo change this when building
+            // devTools: false,
         },
     });
     mainWindow.loadFile('./dev/public/homepage.html');

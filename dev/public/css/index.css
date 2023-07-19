@@ -428,6 +428,12 @@ video {
   src: url('../../fonts/PingFang.ttc');
 }
 
+@font-face {
+  font-family: 'lishu';
+
+  src: url('../../fonts/LiShuZiTi.ttf');
+}
+
 *, ::before, ::after {
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;
@@ -945,6 +951,10 @@ video {
   text-align: center;
 }
 
+.font-lishu {
+  font-family: lishu;
+}
+
 .font-pingfang {
   font-family: pingfang;
 }
@@ -979,6 +989,30 @@ video {
 .text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem;
+}
+
+.text-\[5rem\] {
+  font-size: 5rem;
+}
+
+.text-\[6rem\] {
+  font-size: 6rem;
+}
+
+.text-\[6\.5rem\] {
+  font-size: 6.5rem;
+}
+
+.text-\[7rem\] {
+  font-size: 7rem;
+}
+
+.text-\[8rem\] {
+  font-size: 8rem;
+}
+
+.text-\[7\.5rem\] {
+  font-size: 7.5rem;
 }
 
 .font-\[200px\] {

@@ -5,6 +5,7 @@ module.exports = {
         extend: {
             fontFamily: {
                 pingfang: 'pingfang',
+                lishu: 'lishu',
             },
             colors: {
                 btn: '#0079FE',

@@ -10,6 +10,13 @@
     }
 }
 
+@layer base {
+    @font-face {
+        font-family: 'lishu';
+        src: url('../../fonts/LiShuZiTi.ttf');
+    }
+}
+
 * {
     font-family: pingfang;
 }
