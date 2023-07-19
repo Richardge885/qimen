@@ -1,5 +1,5 @@
 // System requirements
-const { app, BrowserWindow, ipcMain, desktopCapturer } = require('electron');
+const { app, BrowserWindow, ipcMain, desktopCapturer, screen } = require('electron');
 const path = require('path');
 const fs = require('fs');
 const moment = require('moment');
@@ -7,13 +7,7 @@ const moment = require('moment');
 // importing modules
 const { timeInfo } = require('./sizhu');
 const { paiFeiPan } = require('./feipan');
-
-// const { paiZhuanPan } = require('./zhuanpan');
-// const { paiFuShiZhuanPan } = require('./fushipan');
-
-process.env.NODE_ENV = 'dev';
-
-const isDev = process.env.NODE_ENV !== 'release' ? true : false;
+const { paiZhuanPan } = require('./zhuanpan');
 
 let mainWindow;
 
@@ -24,22 +18,17 @@ ipcMain.on('正时起局', (e, data) => {
         const paiPanResult = {
             time: time,
             paipan: paipan,
+            hour: data.timeInfo.hour,
         };
         e.reply('飞盘排盘', paiPanResult);
-    } else if (data.paipanMethod == '传统转盘') {
-        const paipan = paiFeiPan(time.jieqi, time.ri, time.shi);
+    } else if (data.paipanMethod == '转盘') {
+        const paipan = paiZhuanPan(time.jieqi, time.ri, time.shi);
         const paiPanResult = {
             time: time,
             paipan: paipan,
+            hour: data.timeInfo.hour,
         };
         e.reply('传统转盘排盘', paiPanResult);
-    } else {
-        const paipan = paiFeiPan(time.jieqi, time.ri, time.shi);
-        const paiPanResult = {
-            time: time,
-            paipan: paipan,
-        };
-        e.reply('符使转盘排盘', paiPanResult);
     }
 });
 
@@ -61,10 +50,11 @@ ipcMain.on('报数起局', (e, data) => {
         const paiPanResult = {
             time: time,
             paipan: paipan,
+            hour: data.timeInfo.hour,
         };
         e.reply('飞盘排盘', paiPanResult);
-    } else if (data.paipanMethod == '传统转盘') {
-        const paipan = paiFeiPan(
+    } else if (data.paipanMethod == '转盘') {
+        const paipan = paiZhuanPan(
             time.jieqi,
             time.ri,
             time.shi,
@@ -74,6 +64,7 @@ ipcMain.on('报数起局', (e, data) => {
         const paiPanResult = {
             time: time,
             paipan: paipan,
+            hour: data.timeInfo.hour,
         };
         e.reply('传统转盘排盘', paiPanResult);
     } else {
@@ -92,9 +83,6 @@ ipcMain.on('报数起局', (e, data) => {
     }
 });
 
-ipcMain.on('下一局', (e, data) => {});
-ipcMain.on('上一局', (e, data) => {});
-
 function createMainWindow() {
     mainWindow = new BrowserWindow({
         width: 550,
@@ -103,7 +91,8 @@ function createMainWindow() {
         webPreferences: {
             nodeIntegration: true,
             contextIsolation: false,
-            devTools: isDev ? true : false,
+            // devTools: true,//todo change this when building
+            devTools: false,
         },
     });
     mainWindow.loadFile('./dev/public/homepage.html');
@@ -128,10 +117,12 @@ app.on('window-all-closed', () => {
 });
 
 ipcMain.on('screenshot', (e, data) => {
+    const { width, height } = screen.getPrimaryDisplay().workAreaSize;
     desktopCapturer
         .getSources({
             types: ['window'],
-            thumbnailSize: { width: 7000, height: 7000 },
+            // thumbnailSize: { width: 7000, height: 7000 },
+            thumbnailSize: { width: width, height: height },
         })
         .then((sources) => {
             for (const source of sources) {

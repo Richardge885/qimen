@@ -10,6 +10,124 @@
     }
 }
 
+* {
+    font-family: pingfang;
+}
+
+/* 飞盘九宫排版 */
+.tianpanshen {
+    position: absolute;
+    top: 5px;
+    left: 60px;
+    font-size: 24px;
+    font-weight: 300;
+}
+
+.xing {
+    position: absolute;
+    top: 46px;
+    left: 60px;
+    font-size: 24px;
+    font-weight: 300;
+}
+
+.men {
+    position: absolute;
+    top: 86px;
+    left: 60px;
+    font-size: 24px;
+    font-weight: 300;
+}
+
+.dipanshen {
+    position: absolute;
+    top: 125px;
+    left: 60px;
+    font-size: 24px;
+    font-weight: 300;
+}
+
+.anganzhi {
+    /* absolute top-[46px] w-[24px] left-[21px] text-[24px] font-light */
+    position: absolute;
+    top: 46px;
+    left: 26px;
+    width: 24px;
+    font-size: 24px;
+    font-weight: 300;
+}
+
+.tianpangan {
+    /* absolute top-[46px] left-[115px] text-[24px] font-light */
+    position: absolute;
+    top: 46px;
+    left: 120px;
+    font-weight: 300;
+    font-size: 24px;
+}
+
+.dipangan {
+    /* absolute top-[86px] left-[115px] text-[24px] font-light */
+    position: absolute;
+    top: 86px;
+    left: 120px;
+    font-weight: 300;
+    font-size: 24px;
+}
+
+.tianpanyikong {
+    /* absolute top-[51px] left-[144px] font-normal text-[18px] text-[#666666] */
+    position: absolute;
+    top: 48px;
+    left: 142px;
+    font-weight: 300;
+    font-size: 22px;
+    color: #666666;
+}
+
+.dipanyikong {
+    /* absolute top-[92px] left-[144px] font-normal text-[18px] text-[#666666] */
+    position: absolute;
+    top: 88px;
+    left: 142px;
+    font-weight: 300;
+    font-size: 22px;
+    color: #666666;
+}
+
+.maxing {
+    /* absolute top-[14px] left-[20px] font-normal text-[18px] text-[#666666] */
+    position: absolute;
+    top: 14px;
+    left: 20px;
+    font-weight: 400;
+    color: #666666;
+    font-size: 18px;
+}
+
+.kongwang {
+    /* absolute top-[14px] left-[132px] font-normal text-[18px] text-[#666666] */
+    position: absolute;
+    top: 14px;
+    left: 132px;
+    font-weight: 400;
+    color: #666666;
+    font-size: 18px;
+}
+
+/* 旺衰 */
+.wangshuai {
+    /* absolute top-[130px] left-[127px] font-normal text-[18px] text-[#666666] */
+    position: absolute;
+    top: 130px;
+    left: 132px;
+    font-weight: 400;
+    font-size: 18px;
+    color: #666666;
+}
+
+/* 飞盘九宫排版 */
+
 ::-webkit-scrollbar {
     width: 0px;
     background: transparent;
@@ -86,14 +204,6 @@
     box-shadow: 0px 3px 3px rgba(102, 102, 102, 0.25);
 }
 
-.important {
-    color: red;
-    /* color: #0079FE; */
-}
-
-.rigan {
-    color: #0079fe;
-}
 
 #home-modal {
     z-index: 10;
@@ -216,4 +326,121 @@
 
 .focused-item {
     background: none;
+}
+
+/* 转盘九宫排版 */
+
+.zhuanpan-tianpanshen {
+    position: absolute;
+    top: 30px;
+    left: 48px;
+    font-size: 24px;
+    font-weight: 300;
+}
+
+.zhuanpan-xing {
+    position: absolute;
+    top: 71px;
+    left: 48px;
+    font-size: 24px;
+    font-weight: 300;
+}
+
+.zhuanpan-men {
+    position: absolute;
+    top: 111px;
+    left: 48px;
+    font-size: 24px;
+    font-weight: 300;
+}
+
+.zhuanpan-dipanshen {
+    position: absolute;
+    top: 115px;
+    left: 17px;
+    font-size: 20px;
+    font-weight: 300;
+    color: #666666;
+}
+
+.zhuanpan-anganzhi {
+    position: absolute;
+    top: 16px;
+    left: 17px;
+    width: 24px;
+    font-size: 20px;
+    font-weight: 300;
+    color: #666666;
+}
+
+.zhuanpan-tianpangan {
+    position: absolute;
+    top: 71px;
+    left: 110px;
+    font-weight: 300;
+    font-size: 24px;
+}
+
+.zhuanpan-dipangan {
+    position: absolute;
+    top: 111px;
+    left: 110px;
+    font-weight: 300;
+    font-size: 24px;
+}
+
+.zhuanpan-tianpanyikong {
+    position: absolute;
+    top: 71px;
+    left: 136px;
+    font-weight: 300;
+    font-size: 23px;
+    color: #666666;
+}
+
+.zhuanpan-dipanyikong {
+    position: absolute;
+    top: 111px;
+    left: 136px;
+    font-weight: 300;
+    font-size: 23px;
+    color: #666666
+}
+
+.zhuanpan-maxing {
+    position: absolute;
+    top: 16.5px;
+    left: 110px;
+    font-weight: 400;
+    color: #666666;
+    font-size: 18px;
+}
+
+.zhuanpan-kongwang {
+    position: absolute;
+    top: 16.5px;
+    left: 132px;
+    font-weight: 400;
+    color: #666666;
+    font-size: 18px;
+}
+
+/* 旺衰 */
+.zhuanpan-wangshuai {
+    display: none;
+    position: absolute;
+    top: 130px;
+    left: 132px;
+    font-weight: 400;
+    font-size: 18px;
+    color: #666666;
+}
+
+/* 转盘九宫排版 */
+.rigan {
+    color: #0079fe;
+}
+
+.important {
+    color: red;
 }

@@ -1,4 +1,4 @@
-const fileSystem = require('fs'); // 用来更新基础信息和主题
+const { ipcRenderer } = require('electron');
 
 // 排盘页内容
 const paipan = document.getElementById('paipan'); // 排盘页
@@ -21,7 +21,7 @@ function changeBaoshuRadioInput() {
 document.getElementById('zhengshi').addEventListener('click', () => {
     updateDefaultInformation();
     changeBaoshuRadioInput();
-    clearPanJu();
+    clearPanJu(); // 清空盘面
     let choosenTime = formatDateTime(document.getElementById('date-time').value);
     const data = {
         paipanMethod: document.getElementById('home-paipanfangshi').value, // 排盘方式（飞盘，传统转盘，符使转盘）
@@ -39,7 +39,7 @@ document.getElementById('modal-btn').addEventListener('click', () => {
     ) {
         updateDefaultInformation();
         changeBaoshuRadioInput();
-        clearPanJu();
+        clearPanJu(); // 清空盘面
         let choosenTime = formatDateTime(document.getElementById('date-time').value);
         let data = {
             paipanMethod: document.getElementById('home-paipanfangshi').value, // 排盘方式（飞盘，传统转盘，符使转盘）
@@ -120,15 +120,14 @@ function formatDateTime(dateTimeString) {
 }
 
 /**
- * 更新主题本地主题样式跟排盘方式
+ * 更新默认主题跟排盘方式
  */
 function updateDefaultInformation() {
     const updateInfo = {
         paipanMethod: document.getElementById('home-paipanfangshi').value,
         theme: document.getElementById('theme').value,
     };
-    const jsonData = JSON.stringify(updateInfo);
-    fileSystem.writeFile('./dist/public/js/default.json', jsonData, 'utf8', () => {});
+    localStorage.setItem('defaultInfo', JSON.stringify(updateInfo));
 }
 
 function clearPanJu() {
@@ -193,10 +192,12 @@ function clearPanJu() {
     tianpanyikong.forEach((element) => {
         element.innerHTML = '';
         element.classList.remove('important');
+        element.classList.remove('rigan');
     });
     dipanyikong.forEach((element) => {
         element.innerHTML = '';
         element.classList.remove('important');
+        element.classList.remove('rigan');
     });
 }
 

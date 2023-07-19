@@ -1,3 +1,4 @@
+const { ipcRenderer } = require('electron');
 // Function to take a screenshot and save it as a JPG file
 document.getElementById('screenshot-btn').addEventListener('click', takeScreenshot);
 async function takeScreenshot() {

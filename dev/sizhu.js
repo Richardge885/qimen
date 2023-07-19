@@ -71,7 +71,7 @@ function timeInfo(date, hour, method = 'none', number = 0) {
         '壬戌',
         '癸亥',
     ];
-    let i = 19248;
+    let i = 0;
     while (true) {
         if (date == data[i].公历日期) {
             if (hour == '23') {

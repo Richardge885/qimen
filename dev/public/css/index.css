@@ -528,24 +528,12 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
-.pointer-events-auto {
-  pointer-events: auto;
-}
-
 .absolute {
   position: absolute;
 }
 
-.left-\[120px\] {
-  left: 120px;
-}
-
-.left-\[132px\] {
-  left: 132px;
-}
-
-.left-\[144px\] {
-  left: 144px;
+.relative {
+  position: relative;
 }
 
 .left-\[192px\] {
@@ -558,10 +546,6 @@ video {
 
 .left-\[256px\] {
   left: 256px;
-}
-
-.left-\[26px\] {
-  left: 26px;
 }
 
 .left-\[365px\] {
@@ -584,28 +568,12 @@ video {
   left: 490px;
 }
 
-.left-\[60px\] {
-  left: 60px;
-}
-
-.top-\[125px\] {
-  top: 125px;
-}
-
-.top-\[130px\] {
-  top: 130px;
-}
-
 .top-\[135px\] {
   top: 135px;
 }
 
 .top-\[138px\] {
   top: 138px;
-}
-
-.top-\[14px\] {
-  top: 14px;
 }
 
 .top-\[15px\] {
@@ -620,14 +588,6 @@ video {
   top: 351px;
 }
 
-.top-\[46px\] {
-  top: 46px;
-}
-
-.top-\[51px\] {
-  top: 51px;
-}
-
 .top-\[524px\] {
   top: 524px;
 }
@@ -640,24 +600,12 @@ video {
   top: 56px;
 }
 
-.top-\[5px\] {
-  top: 5px;
-}
-
 .top-\[703px\] {
   top: 703px;
 }
 
 .top-\[770px\] {
   top: 770px;
-}
-
-.top-\[86px\] {
-  top: 86px;
-}
-
-.top-\[92px\] {
-  top: 92px;
 }
 
 .top-\[97px\] {
@@ -678,6 +626,10 @@ video {
 
 .z-\[50\] {
   z-index: 50;
+}
+
+.z-\[8\] {
+  z-index: 8;
 }
 
 .ml-\[500px\] {
@@ -714,10 +666,6 @@ video {
 
 .h-\[165px\] {
   height: 165px;
-}
-
-.h-\[170px\] {
-  height: 170px;
 }
 
 .h-\[2px\] {
@@ -792,10 +740,6 @@ video {
   width: 248px;
 }
 
-.w-\[24px\] {
-  width: 24px;
-}
-
 .w-\[265px\] {
   width: 265px;
 }
@@ -832,20 +776,12 @@ video {
   width: 50%;
 }
 
-.w-\[550px\] {
-  width: 550px;
-}
-
 .w-\[55px\] {
   width: 55px;
 }
 
 .w-screen {
   width: 100vw;
-}
-
-.cursor-default {
-  cursor: default;
 }
 
 .cursor-pointer {
@@ -976,10 +912,6 @@ video {
   background-color: rgb(0 121 254 / var(--tw-bg-opacity));
 }
 
-.bg-transparent {
-  background-color: transparent;
-}
-
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
@@ -1027,20 +959,12 @@ video {
   line-height: 2.25rem;
 }
 
-.text-\[18px\] {
-  font-size: 18px;
-}
-
 .text-\[19px\] {
   font-size: 19px;
 }
 
 .text-\[20px\] {
   font-size: 20px;
-}
-
-.text-\[24px\] {
-  font-size: 24px;
 }
 
 .text-\[25px\] {
@@ -1067,10 +991,6 @@ video {
 
 .font-bold {
   font-weight: 700;
-}
-
-.font-light {
-  font-weight: 300;
 }
 
 .font-normal {
@@ -1136,6 +1056,126 @@ video {
 }
 
 /* src url 必须参考 tailwind 的输出文件, 不是input.css 文件 */
+
+* {
+  font-family: pingfang;
+}
+
+/* 飞盘九宫排版 */
+
+.tianpanshen {
+  position: absolute;
+  top: 5px;
+  left: 60px;
+  font-size: 24px;
+  font-weight: 300;
+}
+
+.xing {
+  position: absolute;
+  top: 46px;
+  left: 60px;
+  font-size: 24px;
+  font-weight: 300;
+}
+
+.men {
+  position: absolute;
+  top: 86px;
+  left: 60px;
+  font-size: 24px;
+  font-weight: 300;
+}
+
+.dipanshen {
+  position: absolute;
+  top: 125px;
+  left: 60px;
+  font-size: 24px;
+  font-weight: 300;
+}
+
+.anganzhi {
+  /* absolute top-[46px] w-[24px] left-[21px] text-[24px] font-light */
+  position: absolute;
+  top: 46px;
+  left: 26px;
+  width: 24px;
+  font-size: 24px;
+  font-weight: 300;
+}
+
+.tianpangan {
+  /* absolute top-[46px] left-[115px] text-[24px] font-light */
+  position: absolute;
+  top: 46px;
+  left: 120px;
+  font-weight: 300;
+  font-size: 24px;
+}
+
+.dipangan {
+  /* absolute top-[86px] left-[115px] text-[24px] font-light */
+  position: absolute;
+  top: 86px;
+  left: 120px;
+  font-weight: 300;
+  font-size: 24px;
+}
+
+.tianpanyikong {
+  /* absolute top-[51px] left-[144px] font-normal text-[18px] text-[#666666] */
+  position: absolute;
+  top: 48px;
+  left: 142px;
+  font-weight: 300;
+  font-size: 22px;
+  color: #666666;
+}
+
+.dipanyikong {
+  /* absolute top-[92px] left-[144px] font-normal text-[18px] text-[#666666] */
+  position: absolute;
+  top: 88px;
+  left: 142px;
+  font-weight: 300;
+  font-size: 22px;
+  color: #666666;
+}
+
+.maxing {
+  /* absolute top-[14px] left-[20px] font-normal text-[18px] text-[#666666] */
+  position: absolute;
+  top: 14px;
+  left: 20px;
+  font-weight: 400;
+  color: #666666;
+  font-size: 18px;
+}
+
+.kongwang {
+  /* absolute top-[14px] left-[132px] font-normal text-[18px] text-[#666666] */
+  position: absolute;
+  top: 14px;
+  left: 132px;
+  font-weight: 400;
+  color: #666666;
+  font-size: 18px;
+}
+
+/* 旺衰 */
+
+.wangshuai {
+  /* absolute top-[130px] left-[127px] font-normal text-[18px] text-[#666666] */
+  position: absolute;
+  top: 130px;
+  left: 132px;
+  font-weight: 400;
+  font-size: 18px;
+  color: #666666;
+}
+
+/* 飞盘九宫排版 */
 
 ::-webkit-scrollbar {
   width: 0px;
@@ -1212,15 +1252,6 @@ video {
 
 .default-shadow {
   box-shadow: 0px 3px 3px rgba(102, 102, 102, 0.25);
-}
-
-.important {
-  color: red;
-  /* color: #0079FE; */
-}
-
-.rigan {
-  color: #0079fe;
 }
 
 #home-modal {
@@ -1347,6 +1378,125 @@ video {
 
 .focused-item {
   background: none;
+}
+
+/* 转盘九宫排版 */
+
+.zhuanpan-tianpanshen {
+  position: absolute;
+  top: 30px;
+  left: 48px;
+  font-size: 24px;
+  font-weight: 300;
+}
+
+.zhuanpan-xing {
+  position: absolute;
+  top: 71px;
+  left: 48px;
+  font-size: 24px;
+  font-weight: 300;
+}
+
+.zhuanpan-men {
+  position: absolute;
+  top: 111px;
+  left: 48px;
+  font-size: 24px;
+  font-weight: 300;
+}
+
+.zhuanpan-dipanshen {
+  position: absolute;
+  top: 115px;
+  left: 17px;
+  font-size: 20px;
+  font-weight: 300;
+  color: #666666;
+}
+
+.zhuanpan-anganzhi {
+  position: absolute;
+  top: 16px;
+  left: 17px;
+  width: 24px;
+  font-size: 20px;
+  font-weight: 300;
+  color: #666666;
+}
+
+.zhuanpan-tianpangan {
+  position: absolute;
+  top: 71px;
+  left: 110px;
+  font-weight: 300;
+  font-size: 24px;
+}
+
+.zhuanpan-dipangan {
+  position: absolute;
+  top: 111px;
+  left: 110px;
+  font-weight: 300;
+  font-size: 24px;
+}
+
+.zhuanpan-tianpanyikong {
+  position: absolute;
+  top: 71px;
+  left: 136px;
+  font-weight: 300;
+  font-size: 23px;
+  color: #666666;
+}
+
+.zhuanpan-dipanyikong {
+  position: absolute;
+  top: 111px;
+  left: 136px;
+  font-weight: 300;
+  font-size: 23px;
+  color: #666666
+}
+
+.zhuanpan-maxing {
+  position: absolute;
+  top: 16.5px;
+  left: 110px;
+  font-weight: 400;
+  color: #666666;
+  font-size: 18px;
+}
+
+.zhuanpan-kongwang {
+  position: absolute;
+  top: 16.5px;
+  left: 132px;
+  font-weight: 400;
+  color: #666666;
+  font-size: 18px;
+}
+
+/* 旺衰 */
+
+.zhuanpan-wangshuai {
+  display: none;
+  position: absolute;
+  top: 130px;
+  left: 132px;
+  font-weight: 400;
+  font-size: 18px;
+  color: #666666;
+}
+
+/* 转盘九宫排版 */
+
+.rigan {
+  color: #0079fe;
+}
+
+.important {
+  color: red;
 }
 
 .hover\:bg-blue-700:hover {

@@ -1,58 +1,43 @@
 const { ipcRenderer } = require('electron');
-// 正时排盘
 ipcRenderer.on('飞盘排盘', (e, data) => {
-    const [year, month, day] = data.time.yangli
-        .split('/')
-        .map((str) => parseInt(str));
-    updateTimeInfo(data, year, month, day);
+    const [year, month, day] = data.time.yangli.split('/').map((str) => parseInt(str));
+    updateTimeInfo(data, year, month, day, data.hour);
     updateXunShou(data.paipan.xunshou);
     updateDun(data.paipan.dun);
     updateJushu(data.paipan.jushu);
     paiDiPanGan(data.paipan.dipangan);
     updateFuShi(data.paipan.fushi.zhifu, data.paipan.fushi.zhishi);
     updateWangShuai(data.paipan.wangshuai, data.paipan.dun);
-    paiAnGanZhi(
-        data.paipan.anganzhi,
-        data.paipan.dun,
-        data.paipan.dipangan,
-        data.paipan.xunshou
-    );
-    paiJiuXing(
-        document.getElementById('shi').innerHTML,
-        data.paipan.dipangan,
-        data.paipan.jiuxing
-    );
+    paiAnGanZhi(data.paipan.anganzhi, data.paipan.dun, data.paipan.dipangan, data.paipan.xunshou);
+    paiJiuXing(document.getElementById('shi').innerHTML, data.paipan.dipangan, data.paipan.jiuxing);
     paiBaMen(data.paipan.bamen, document.getElementById('shi').innerHTML);
     paiTianPanGan(
         document.getElementById('shi').innerHTML,
         data.paipan.dipangan,
         data.paipan.dun,
-        data.paipan.tianpangan
+        data.paipan.tianpangan,
     );
-    paiTianPanShen(
-        document.getElementById('shi').innerHTML,
-        data.paipan.dun,
-        data.paipan.dipangan
-    );
+    paiTianPanShen(document.getElementById('shi').innerHTML, data.paipan.dun, data.paipan.dipangan);
     paiDiPanShen(data.paipan.dun, data.paipan.xunshou, data.paipan.dipangan);
     paiKongWang(
         data.paipan.kongwang,
         document.querySelectorAll('[data-tianpangan]'),
-        document.querySelectorAll('[data-dipangan]')
+        document.querySelectorAll('[data-dipangan]'),
     );
     paiMaXing(data.paipan.maxing);
     wubuyushi();
     renderImportantColor(
         data.paipan.fushi.zhishi,
         document.getElementById('shi').innerHTML,
-        document.getElementById('ri').innerHTML
+        document.getElementById('ri').innerHTML,
     );
+    feipan_info(info);
 });
 
 /**
  * 更新四柱等信息
  */
-function updateTimeInfo(data, year, month, day) {
+function updateTimeInfo(data, year, month, day, hour) {
     document.getElementById('nian').innerHTML = data.time.nian;
     document.getElementById('yue').innerHTML = data.time.yue;
     document.getElementById('ri').innerHTML = data.time.ri;
@@ -61,9 +46,9 @@ function updateTimeInfo(data, year, month, day) {
     document.getElementById('month-number').innerHTML = month;
     document.getElementById('date-number').innerHTML = day;
     document.getElementById('jieqi').innerHTML = data.time.jieqi;
-    let updateHour = new Date(document.getElementById('date-time').value);
-    updateHour = `${updateHour.getHours()}:${updateHour.getMinutes()}`;
-    document.getElementById('time-number').innerHTML = updateHour;
+    let index = document.getElementById('date-time').value.indexOf(':');
+    hour = hour + document.getElementById('date-time').value.slice(index);
+    document.getElementById('time-number').innerHTML = hour;
 }
 
 function updateXunShou(xunshou) {
@@ -276,34 +261,14 @@ function paiTianPanShen(shigan, dun, dipangan) {
         }
     }
     if (dun == '阳') {
-        const shen = [
-            '值符',
-            '螣蛇',
-            '太阴',
-            '六合',
-            '勾陈',
-            '太常',
-            '朱雀',
-            '九地',
-            '九天',
-        ];
+        const shen = ['值符', '螣蛇', '太阴', '六合', '勾陈', '太常', '朱雀', '九地', '九天'];
         for (let i = 0; i < array.length; i++) {
             const index = (i + start) % array.length;
             array[index].innerHTML = shen[count];
             count++;
         }
     } else {
-        const shen = [
-            '值符',
-            '螣蛇',
-            '太阴',
-            '六合',
-            '白虎',
-            '太常',
-            '玄武',
-            '九地',
-            '九天',
-        ];
+        const shen = ['值符', '螣蛇', '太阴', '六合', '白虎', '太常', '玄武', '九地', '九天'];
         start++;
         for (let i = array.length - 1; i >= 0; i--) {
             const index = (i + start) % array.length;
@@ -355,34 +320,14 @@ function paiDiPanShen(dun, xunshou, dipangan) {
     }
     let count = 0;
     if (dun == '阳') {
-        const shen = [
-            '值符',
-            '螣蛇',
-            '太阴',
-            '六合',
-            '勾陈',
-            '太常',
-            '朱雀',
-            '九地',
-            '九天',
-        ];
+        const shen = ['值符', '螣蛇', '太阴', '六合', '勾陈', '太常', '朱雀', '九地', '九天'];
         for (let i = 0; i < array.length; i++) {
             const index = (i + start) % array.length;
             array[index].innerHTML = shen[count];
             count++;
         }
     } else {
-        const shen = [
-            '值符',
-            '螣蛇',
-            '太阴',
-            '六合',
-            '白虎',
-            '太常',
-            '玄武',
-            '九地',
-            '九天',
-        ];
+        const shen = ['值符', '螣蛇', '太阴', '六合', '白虎', '太常', '玄武', '九地', '九天'];
         start++;
         for (let i = array.length - 1; i >= 0; i--) {
             const index = (i + start) % array.length;
@@ -411,28 +356,25 @@ function paiKongWang(kongwang, tianpangan, dipangan) {
         gongwei[kongwang.gongwei[1]].innerHTML = '〇';
         for (let i = 0; i < 9; i++) {
             if (tianpangan[i].innerHTML == kongwang.liuyi) {
-                document.querySelectorAll('[data-tianpanyikong]')[i].innerHTML =
-                    '&#9826';
+                // document.querySelectorAll('[data-tianpanyikong]')[i].innerHTML = '&#9826';
+                document.querySelectorAll('[data-tianpanyikong]')[i].innerHTML = '&#9826';
             }
         }
         for (let i = 0; i < 9; i++) {
             if (dipangan[i].innerHTML == kongwang.liuyi) {
-                document.querySelectorAll('[data-dipanyikong]')[i].innerHTML =
-                    '&#9826';
+                document.querySelectorAll('[data-dipanyikong]')[i].innerHTML = '&#9826';
             }
         }
     } else {
         gongwei[kongwang.gongwei[0]].innerHTML = '〇';
         for (let i = 0; i < 9; i++) {
             if (tianpangan[i].innerHTML == kongwang.liuyi) {
-                document.querySelectorAll('[data-tianpanyikong]')[i].innerHTML =
-                    '&#9826';
+                document.querySelectorAll('[data-tianpanyikong]')[i].innerHTML = '&#9826';
             }
         }
         for (let i = 0; i < 9; i++) {
             if (dipangan[i].innerHTML == kongwang.liuyi) {
-                document.querySelectorAll('[data-dipanyikong]')[i].innerHTML =
-                    '&#9826';
+                document.querySelectorAll('[data-dipanyikong]')[i].innerHTML = '&#9826';
             }
         }
     }
