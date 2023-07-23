@@ -50,7 +50,7 @@ ipcMain.on('报数起局', (e, data) => {
         const paiPanResult = {
             time: time,
             paipan: paipan,
-            hour: data.timeInfo.hour,
+            hour: data.choosenTime.hour,
         };
         e.reply('飞盘排盘', paiPanResult);
     } else if (data.paipanMethod == '转盘') {
@@ -64,7 +64,7 @@ ipcMain.on('报数起局', (e, data) => {
         const paiPanResult = {
             time: time,
             paipan: paipan,
-            hour: data.timeInfo.hour,
+            hour: data.choosenTime.hour,
         };
         e.reply('传统转盘排盘', paiPanResult);
     } else {
@@ -78,6 +78,7 @@ ipcMain.on('报数起局', (e, data) => {
         const paiPanResult = {
             time: time,
             paipan: paipan,
+            hour: data.choosenTime.hour,
         };
         e.reply('符使转盘排盘', paiPanResult);
     }
@@ -117,12 +118,10 @@ app.on('window-all-closed', () => {
 });
 
 ipcMain.on('screenshot', (e, data) => {
-    const { width, height } = screen.getPrimaryDisplay().workAreaSize;
     desktopCapturer
         .getSources({
             types: ['window'],
-            // thumbnailSize: { width: 7000, height: 7000 },
-            thumbnailSize: { width: width, height: height },
+            thumbnailSize: { width: 7000, height: 7000 },
         })
         .then((sources) => {
             for (const source of sources) {
