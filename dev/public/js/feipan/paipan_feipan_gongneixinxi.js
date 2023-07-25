@@ -193,14 +193,6 @@ function feipan_info(info) {
         document.getElementById('paipan-tianpangan-info').innerText = tianpangan;
         document.getElementById('paipan-dipangan-info').innerText = dipangan;
         document.getElementById('paipan-gongwei-info').innerText = bagua;
-        // return {
-        //     tianpanshen: tianpanshen,
-        //     xing: xing,
-        //     men: men,
-        //     tianpangan: tianpangan,
-        //     dipangan: dipangan,
-        //     bagua: bagua,
-        // };
     }
     function changeFocusItem(item, tianpanjia = false, dipanjia = false) {
         switch (item) {
@@ -623,24 +615,67 @@ function feipan_info(info) {
         return result;
     }
     function getZhengGe(tianpangan, dipangan) {
-        // todo 重构代码，把所有的格局全部变成单独的 const 从而更加方便后期修改
         const group = tianpangan + dipangan;
+        const fuyinge = '<span style="color:#0079FE">伏吟格</span><br>';
         const jinruge =
             '<span style="color:#0079FE">进茹格：</span>凡谋为等事，不论吉凶，以进步为吉。欲穷千里目，要更上一层楼。但如测病反而不利<br>';
         const tuiruge =
             '<span style="color:#0079FE">退茹格：</span>凡谋为等事，无论吉凶，以退步为美。退一步海阔天空，不宜争先斗狠。但也有例外，比如进茹但是逢空，为进空，所以不宜前进，反而应该抽身退守：同理如果退茹遇到空亡，为退空，则应该积极进取为好<br>';
         const qianjiange =
             '<span style="color:#0079FE">前间格：</span>主我欲前进，而中途有人阳隔，欲进不能之象。阻隔之人事，可以看中间所间隔之干及其落宫，察其具体状态及原因<br>';
+        const houjiange =
+            '<span style="color:#0079FE">后间格：</span>主我欲后退，而当中有人催促于我，欲退不能之象。阻隔之人事也可看中间所间隔之千及它的落宫，察其具体状态及原因<br>';
         const haoqige =
             '<span style="color:#0079FE">耗气格：</span>我之财务不周全。主我帮助他人，而伤了我的骨血，脱耗我的精华<br>';
         const jiaoyinge =
             '<span style="color:#0079FE">交阴格：</span>事情存在阴谋，与不为人知的信息或事情<br>';
         const jiaoyangge =
             '<span style="color:#0079FE">交阳格：</span>事情存在阴谋，与不为人知的信息或事情<br>';
+        const shanghege =
+            '<span style="color:#0079FE">上合格：</span>上亲下之象，领导，长辈关心下属，晚辈<br>';
+        const xiahege =
+            '<span style="color:#0079FE">下合格：</span>下敬上之象，下属，晚辈主动向在上者表示恭敬<br>';
+        const huofuge =
+            '<span style="color:#0079FE">获父格：</span>有椿萱并茂之象，主有长上之人恩重于我<br>';
+        const demuge =
+            '<span style="color:#0079FE">得母格：</span>有椿萱并茂之象，主有长上之人恩重于我<br>';
+        const chengquange =
+            '<span style="color:#0079FE">乘权格：</span>主他人尽力帮助于我，而获其资助、增我神气<br>';
+        const duoquange =
+            '<span style="color:#0079FE">夺权格：</span>我之财务不周全。主我帮助他人，而伤了我的骨血，脱耗我的精华<br>';
+        const yishige =
+            '<span style="color:#0079FE">倚势格：</span>主他人尽力帮助于我，而获其资助、增我神气<br>';
+        const beichongge =
+            '<span style="color:#0079FE">背冲格：</span>背地受损，损伤多从内部来<br>';
+        const zhengchongge = '<span style="color:#0079FE">正冲格：</span>正面冲突<br>';
+        const zhipoge =
+            '<span style="color:#0079FE">支破格：</span>支破无成灾祸息，谋为难就有冲突<br>';
+        const waihaige =
+            '<span style="color:#0079FE">外害格：</span>主事从外入，需防外人欺凌，外人主动来找我。';
+        const neihaige =
+            '<span style="color:#0079FE">内害格：</span>主事从内起，需防内人刑害，为我主动去找人<br>';
+        const wailuange =
+            '<span style="color:#0079FE">外乱格：</span>主事从外入，需防外人欺凌，外人主动来找我。<br>';
+        const neiluange =
+            '<span style="color:#0079FE">内乱格：</span>主事从内起，需防内人刑害，为我主动去找人<br>';
+        const waizhige =
+            '<span style="color:#0079FE">外制格：</span>主事从外入，需防外人欺凌，外人主动来找我。<br>';
+        const neizhige =
+            '<span style="color:#0079FE">内制格：</span>主事从内起，需防内人刑害，为我主动去找人<br>';
+        const waiqinge =
+            '<span style="color:#0079FE">外侵格：</span>主事从外入，需防外人欺凌，外人主动来找我<br>';
+        const neiqinge =
+            '<span style="color:#0079FE">内侵格：</span>主事从内起，需防内人刑害，为我主动去找人<br>';
+        const jinmu = '金木相加：主官事，口舌斗争。<br>';
+        const shuihuo = '水火相乘：主惊恐，妇女不安。<br>';
+        const tushui = '土水相克：主遗财患病，争竞家园。<br>';
+        const mutu = '木土相犯：主牢狱口舌，争财夺利。<br>';
+        const huojin = '火金相见：主怪异血光，突发灾难。<br>';
+
         let output = `${tianpangan} + ${dipangan}：<br>`;
         switch (group) {
             case '甲甲':
-                output = output + '<span style="color:#0079FE">伏吟格</span><br>';
+                output = output + fuyinge;
                 break;
             case '甲乙':
                 output = output + jinruge;
@@ -652,356 +687,485 @@ function feipan_info(info) {
                 output = output + jiaoyinge;
                 break;
             case '甲戊':
-                output =
-                    output +
-                    '<span style="color:#0079FE">外制格：</span>主事从外入，需防外人欺凌，外人主动来找我。木土相犯，牢狱口舌，争财夺利<br>';
+                output = output + waizhige + mutu;
                 break;
             case '甲己':
-                output =
-                    output +
-                    '<span style="color:#0079FE">上合格：</span>上亲下之象，领导，长辈关心下属，晚辈<br><span style="color:#0079FE">外侵格：</span>主事从外入，需防外人欺凌，外人主动来找我<br>';
+                output = output + shanghege + waiqinge + mutu;
                 break;
             case '甲庚':
-                output =
-                    output +
-                    '<span style="color:#0079FE">背冲格：</span>背地受损，损伤多从内部来<br><span style="color:#0079FE">内制格：</span>主事从内起，需防内人刑害，为我主动去找人<br>';
+                output = output + beichongge + neizhige + jinmu;
                 break;
             case '甲辛':
-                output =
-                    output +
-                    '<span style="color:#0079FE">内害格：</span>主事从内起，需防内人刑害，为我主动去找人<br>';
+                output = output + neihaige + jinmu;
                 break;
             case '甲壬':
-                output =
-                    output +
-                    '<span style="color:#0079FE">后间格：</span>主我欲后退，而当中有人催促于我，欲退不能之象。阻隔之人事也可看中间所间隔之千及它的落宫，察其具体状态及原因<br><span style="color:#0079FE">乘权格：</span>主他人尽力帮助于我，而获其资助、增我神气<br>';
+                output = output + houjiange + chengquange;
                 break;
             case '甲癸':
-                output =
-                    output +
-                    +'<span style="color:#0079FE">得母格：</span>有椿萱并茂之象，主有长上之人恩重于我<br>';
+                output = output + demuge;
                 break;
 
             case '乙甲':
                 output = output + tuiruge;
                 break;
             case '乙乙':
-                output = output + '<span style="color:#0079FE">伏吟格</span><br>';
+                output =
+                    output +
+                    fuyinge +
+                    '<span style="color:#0079FE">日奇伏吟：</span>不宜见上级领导、贵人；求名求利及进取事不可求，只宜安分守己。利主，宜静不宜动，宜守不宜进。<br>';
                 break;
             case '乙丙':
-                output = output + jinruge + jiaoyangge;
+                output =
+                    output +
+                    jinruge +
+                    jiaoyangge +
+                    '<span style="color:#0079FE">奇仪顺遂：</span>吉星加官尽职，凶星夫妻反目离别。临吉星谋事多吉；临凶星求谋不顺，特别是不利于婚姻。<br>';
                 break;
             case '乙丁':
                 output =
                     output +
                     qianjiange +
-                    '<span style="color:#0079FE">夺权格：</span>我之财务不周全。主我帮助他人，而伤了我的骨血，脱耗我的精华<br>';
+                    duoquange +
+                    '<span style="color:#0079FE">奇仪相佐：</span>最利文书、考试，百事可为。<br>';
                 break;
             case '乙戊':
                 output =
                     output +
-                    '<span style="color:#0079FE">外害格：</span>主事从外入，需防外人欺凌，外人主动来找我。木土相犯，牢狱口舌，争财夺利<br>';
+                    waihaige +
+                    mutu +
+                    '<span style="color:#0079FE">阴害阳门：</span>利于阴人阴事，不利于阳人阳事。<br>';
                 break;
             case '乙己':
                 output =
                     output +
-                    '<span style="color:#0079FE">外乱格：</span>主事从外入，需防外人欺凌，外人主动来找我。木土相犯，牢狱口舌，争财夺利<br>';
+                    neiluange +
+                    mutu +
+                    '<span style="color:#0079FE">日奇入墓：</span>被土暗昧、门凶事必凶。<br>';
                 break;
             case '乙庚':
                 output =
                     output +
-                    '<span style="color:#0079FE">上合格：</span>上亲下之象，领导，长辈关心下属，晚辈<br><span style="color:#0079FE">内侵格：</span>主事从内起，需防内人刑害，为我主动去找人<br>';
+                    shanghege +
+                    neiqinge +
+                    jinmu +
+                    '<span style="color:#0079FE">日奇被刑：</span>有争讼，各怀私意。<br>';
                 break;
             case '乙辛':
                 output =
                     output +
-                    '<span style="color:#0079FE">背冲格：</span>背地受损，损伤多从内部来<br><span style="color:#0079FE">内乱格：</span>主事从内起，需防内人刑害，为我主动去找人<br>';
+                    beichongge +
+                    neiluange +
+                    jinmu +
+                    '<span style="color:#0079FE">青龙逃走：</span>人亡财破，奴仆拐带，六畜皆伤。<br>';
                 break;
             case '乙壬':
                 output =
                     output +
-                    '<span style="color:#0079FE">获父格：</span>有椿萱并茂之象，主有长上之人恩重于我<br>';
+                    huofuge +
+                    '<span style="color:#0079FE">日奇入天罗：</span>尊婢悖乱，官讼是非，有人谋害之事。<br>';
                 break;
             case '乙癸':
                 output =
                     output +
-                    '<span style="color:#0079FE">后间格：</span>主我欲后退，而当中有人催促于我，欲退不能之象。阻隔之人事也可看中间所间隔之千及它的落宫，察其具体状态及原因<br><span style="color:#0079FE">倚势格：</span>主他人尽力帮助于我，而获其资助、增我神气<br>';
+                    houjiange +
+                    yishige +
+                    '<span style="color:#0079FE">日奇入地网：</span>宜退不宜进，隐匿藏形，躲灾避难为吉，此格局不利于进 攻。<br>';
                 break;
 
             case '丙甲':
-                output =
-                    output +
-                    '<span style="color:#0079FE">后间格：</span>主我欲后退，而当中有人催促于我，欲退不能之象。阻隔之人事也可看中间所间隔之千及它的落宫，察其具体状态及原因<br><span style="color:#0079FE">乘权格：</span>主他人尽力帮助于我，而获其资助、增我神气<br>';
+                output = output + houjiange + chengquange;
                 break;
             case '丙乙':
                 output =
                     output +
                     tuiruge +
-                    '<span style="color:#0079FE">得母格：</span>有椿萱并茂之象，主有长上之人恩重于我<br>';
+                    demuge +
+                    '<span style="color:#0079FE">日月并行：</span>公谋私为皆为吉。<br>';
                 break;
             case '丙丙':
-                output = output + '<span style="color:#0079FE">伏吟格</span><br>';
+                output =
+                    output +
+                    fuyinge +
+                    '<span style="color:#0079FE">月奇悖师：</span>文书逼迫，破耗遗失。<br>';
                 break;
             case '丙丁':
-                output = output + jinruge;
+                output =
+                    output +
+                    jinruge +
+                    '<span style="color:#0079FE">星奇朱雀：</span>贵人文书吉利，常人平静安乐。<br>';
                 break;
             case '丙戊':
-                output = output + qianjiange + haoqige;
+                output =
+                    output +
+                    qianjiange +
+                    haoqige +
+                    '<span style="color:#0079FE">飞鸟跌穴：</span>事业可为，可谋大事，对好事大吉大利，如求婚、求财、考试、求官等，不用费多大力气，就能成功。求财遇此格，财来了，到财库了。<br>';
                 break;
             case '丙己':
-                output = output + jiaoyinge;
+                output =
+                    output +
+                    jiaoyinge +
+                    '<span style="color:#0079FE">火悖入刑：</span>囚人刑杖，文书不行，吉门得吉，凶门转凶。<br>';
                 break;
             case '丙庚':
                 output =
                     output +
-                    '<span style="color:#0079FE">外制格：</span>主事从外入，需防外人欺凌，外人主动来找我。火金相见，怪异血光，突发灾难<br>';
+                    waizhige +
+                    huojin +
+                    '<span style="color:#0079FE">荧入太白：</span>賊必去。门户破败，盗贼耗失，事业亦凶。<br>';
                 break;
             case '丙辛':
                 output =
                     output +
-                    '<span style="color:#0079FE">上合格：</span>上亲下之象，领导，长辈关心下属，晚辈<br><span style="color:#0079FE">外侵格：</span>主事从外入，需防外人欺凌，外人主动来找我<br>';
+                    shanghege +
+                    waiqinge +
+                    huojin +
+                    '<span style="color:#0079FE">日月相会：</span>谋事成就，病人不凶。<br>';
                 break;
             case '丙壬':
                 output =
                     output +
-                    '<span style="color:#0079FE">背冲格：</span>背地受损，损伤多从内部来<br><span style="color:#0079FE">内制格：</span>主事从内起，需防内人刑害，为我主动去找人<br>';
+                    beichongge +
+                    neizhige +
+                    shuihuo +
+                    '<span style="color:#0079FE">火入天罗：</span>为客不利，是非颇多。<br>';
                 break;
             case '丙癸':
                 output =
                     output +
-                    '<span style="color:#0079FE">内害格：</span>主事从内起，需防内人刑害，为我主动去找人<br>';
+                    neihaige +
+                    shuihuo +
+                    '<span style="color:#0079FE">月奇地网：</span>阴人害事，灾祸频生，凡事暗昧不明。<br>';
                 break;
 
             case '丁甲':
-                output =
-                    output +
-                    '<span style="color:#0079FE">获父格：</span>有椿萱并茂之象，主有长上之人恩重于我<br>';
+                output = output + huofuge;
                 break;
             case '丁乙':
                 output =
                     output +
-                    '<span style="color:#0079FE">后间格：</span>主我欲后退，而当中有人催促于我，欲退不能之象。阻隔之人事也可看中间所间隔之千及它的落宫，察其具体状态及原因<br><span style="color:#0079FE">倚势格：</span>主他人尽力帮助于我，而获其资助、增我神气<br>';
+                    houjiange +
+                    yishige +
+                    '<span style="color:#0079FE">玉女奇生：</span>也为人遁吉格，贵人加官进爵，常人婚姻财帛有喜<br>';
                 break;
             case '丁丙':
-                output = output + tuiruge;
+                output =
+                    output +
+                    tuiruge +
+                    '<span style="color:#0079FE">星随月转：</span>贵人越级高升，常人乐极生悲，要忍，不然因小的不忍，而引起大的不幸。<br>';
                 break;
             case '丁丁':
-                output = output + '<span style="color:#0079FE">伏吟格</span><br>';
+                output =
+                    output +
+                    fuyinge +
+                    '<span style="color:#0079FE">星奇入太阴：</span>文书证件即至，喜事从心、万事如意。<br>';
                 break;
             case '丁戊':
-                output = output + jinruge + jiaoyangge;
+                output =
+                    output +
+                    jinruge +
+                    jiaoyangge +
+                    '<span style="color:#0079FE">青龙转光：</span>官人升迁，常人威昌。无论遇到多大困难，将来都会出现转机。<br>';
                 break;
             case '丁己':
                 output =
                     output +
                     qianjiange +
-                    '<span style="color:#0079FE">夺权格：</span>我之财务不周全。主我帮助他人，而伤了我的骨血，脱耗我的精华<br>';
+                    duoquange +
+                    '<span style="color:#0079FE">火入勾陈：</span>奸私仇怨，事因女人。<br>';
                 break;
             case '丁庚':
                 output =
                     output +
-                    '<span style="color:#0079FE">外害格：</span>主事从外入，需防外人欺凌，外人主动来找我。火金相见，怪异血光，突发灾难<br>';
+                    waihaige +
+                    huojin +
+                    '<span style="color:#0079FE">星奇受阻：</span>文书阻隔，行人必归。<br>';
                 break;
             case '丁辛':
                 output =
                     output +
-                    '<span style="color:#0079FE">外乱格：</span>主事从外入，需防外人欺凌，外人主动来找我。火金相见，怪异血光，突发灾难<br>';
+                    wailuange +
+                    huojin +
+                    '<span style="color:#0079FE">朱雀入狱：</span>罪人失囚，官人失位。<br>';
                 break;
             case '丁壬':
                 output =
                     output +
-                    '<span style="color:#0079FE">上合格：</span>上亲下之象，领导，长辈关心下属，晚辈<br><span style="color:#0079FE">内侵格：</span>主事从内起，需防内人刑害，为我主动去找人<br>';
+                    shanghege +
+                    neiqinge +
+                    shuihuo +
+                    '<span style="color:#0079FE">奇仪相合：</span>贵人恩诏，诉狱公平。<br>';
                 break;
             case '丁癸':
                 output =
                     output +
-                    '<span style="color:#0079FE">背冲格：</span>背地受损，损伤多从内部来<br><span style="color:#0079FE">内乱格：</span>主事从内起，需防内人刑害，为我主动去找人<br>';
+                    beichongge +
+                    neiluange +
+                    shuihuo +
+                    '<span style="color:#0079FE">朱雀投江：</span>文书口舌是非，经官动府、词诉不利，音信沉溺不到。<br>';
                 break;
 
             case '戊甲':
-                output =
-                    output +
-                    '<span style="color:#0079FE">内制格：</span>主事从内起，需防内人刑害，为我主动去找人<br>';
+                output = output + neizhige + mutu;
                 break;
             case '戊乙':
                 output =
                     output +
-                    '<span style="color:#0079FE">内害格：</span>主事从内起，需防内人刑害，为我主动去找人<br>';
+                    neihaige +
+                    mutu +
+                    '<span style="color:#0079FE">青龙和会：</span>门吉事吉，门凶事也凶。<br>';
                 break;
             case '戊丙':
                 output =
                     output +
-                    '<span style="color:#0079FE">后间格：</span>主我欲后退，而当中有人催促于我，欲退不能之象。阻隔之人事也可看中间所间隔之千及它的落宫，察其具体状态及原因<br><span style="color:#0079FE">乘权格：</span>主他人尽力帮助于我，而获其资助、增我神气<br>';
+                    houjiange +
+                    chengquange +
+                    '<span style="color:#0079FE">青龙返首：</span>，动作大吉，但若逢门迫、入墓、击刑，则吉事成凶。<br>';
                 break;
             case '戊丁':
                 output =
                     output +
                     tuiruge +
-                    '<span style="color:#0079FE">得母格：</span>有椿萱并茂之象，主有长上之人恩重于我<br>';
+                    demuge +
+                    '<span style="color:#0079FE">青龙耀明：</span>宜见上级领导、贵人、求功名，为事吉利，若值墓迫，招惹是非。<br>';
                 break;
             case '戊戊':
-                output = output + '<span style="color:#0079FE">伏吟格</span><br>';
+                output =
+                    output +
+                    fuyinge +
+                    '<span style="color:#0079FE">伏吟：</span>凡事不利，道路闭塞，以守为好。<br>';
                 break;
             case '戊己':
-                output = output + jinruge;
+                output =
+                    output +
+                    jinruge +
+                    '<span style="color:#0079FE">贵人入狱：</span>公私皆不利。<br>';
                 break;
             case '戊庚':
-                output = output + qianjiange + haoqige;
+                output =
+                    output +
+                    qianjiange +
+                    haoqige +
+                    '<span style="color:#0079FE">值符飞宫：</span>吉事不吉，凶事更凶，求财没利益，测病也主凶。<br>';
                 break;
             case '戊辛':
                 output =
                     output +
                     jiaoyinge +
-                    '<span style="color:#0079FE">支破格：</span>支破无成灾祸息，谋为难就有冲突<br>';
+                    zhipoge +
+                    '<span style="color:#0079FE">青龙折足：</span>，吉门有生助，尚能谋事；若逢凶门，主招灾，失财或有足疾、折伤。<br>';
                 break;
             case '戊壬':
                 output =
                     output +
-                    '<span style="color:#0079FE">外制格：</span>主事从外入，需防外人欺凌，外人主动来找我。土水相克，遗财患病，争竞家园<br>';
+                    waizhige +
+                    tushui +
+                    '<span style="color:#0079FE">青龙入天牢：</span>凡阴阳事皆不吉利。<br>';
                 break;
             case '戊癸':
                 output =
                     output +
-                    '<span style="color:#0079FE">上合格：</span>上亲下之象，领导，长辈关心下属，晚辈<br><span style="color:#0079FE">外侵格：</span>主事从外入，需防外人欺凌，外人主动来找我<br>';
+                    shanghege +
+                    waiqinge +
+                    tushui +
+                    '<span style="color:#0079FE">青龙华盖：</span>逢吉门为吉，可招福临门；逢凶门，事多不利，为凶。<br>';
                 break;
 
             case '己甲':
-                output =
-                    output +
-                    '<span style="color:#0079FE">下合格：</span>下敬上之象，下属，晚辈主动向在上者表示恭敬<br><span style="color:#0079FE">内侵格：</span>主事从内起，需防内人刑害，为我主动去找人<br>';
+                output = output + xiahege + neiqinge;
                 break;
             case '己乙':
                 output =
                     output +
-                    '<span style="color:#0079FE">内乱格：</span>主事从内起，需防内人刑害，为我主动去找人<br>';
+                    neiluange +
+                    mutu +
+                    '<span style="color:#0079FE">墓神不明：</span>墓神不明，地户逢星，宜遁迹隐形为利。<br>';
                 break;
             case '己丙':
                 output =
                     output +
-                    '<span style="color:#0079FE">获父格：</span>有椿萱并茂之象，主有长上之人恩重于我<br>';
+                    huofuge +
+                    '<span style="color:#0079FE">火悖地户：</span>男人冤冤相害；女人必致淫污。<br>';
                 break;
             case '己丁':
                 output =
                     output +
-                    '<span style="color:#0079FE">后间格：</span>主我欲后退，而当中有人催促于我，欲退不能之象。阻隔之人事也可看中间所间隔之千及它的落宫，察其具体状态及原因<br><span style="color:#0079FE">倚势格：</span>主他人尽力帮助于我，而获其资助、增我神气<br>';
+                    houjiange +
+                    yishige +
+                    '<span style="color:#0079FE">朱雀入狱：</span>文书词讼，先曲后直<br>';
                 break;
             case '己戊':
-                output = output + tuiruge;
+                output =
+                    output +
+                    tuiruge +
+                    '<span style="color:#0079FE">犬遇青龙：</span>门吉为谋望遂意，上人见喜。若门凶，枉费心机。<br>';
                 break;
             case '己己':
-                output = output + '<span style="color:#0079FE">伏吟格</span><br>';
+                output =
+                    output +
+                    fuyinge +
+                    '<span style="color:#0079FE">地户逢鬼：</span>病者发凶或必死，百事不遂，暂不谋为，谋为则凶。<br>';
                 break;
             case '己庚':
-                output = output + jinruge + jiaoyangge;
+                output =
+                    output +
+                    jinruge +
+                    jiaoyangge +
+                    '<span style="color:#0079FE">刑格返名：</span>词讼先动者不利，如临阴星（凶星）则有谋害之情。<br>';
                 break;
             case '己辛':
                 output =
                     output +
                     qianjiange +
-                    '<span style="color:#0079FE">夺权格：</span>我之财务不周全。主我帮助他人，而伤了我的骨血，脱耗我的精华<br>';
+                    duoquange +
+                    '<span style="color:#0079FE">游魂入墓：</span>易招阴邪鬼魅作祟。<br>';
                 break;
             case '己壬':
                 output =
                     output +
-                    '<span style="color:#0079FE">外害格：</span>主事从外入，需防外人欺凌，外人主动来找我。土水相克，遗财患病，争竞家园<br>';
+                    waihaige +
+                    tushui +
+                    '<span style="color:#0079FE">地网高张：</span>狡童佚女，奸情伤杀，凡事不吉，谋为不利。<br>';
                 break;
             case '己癸':
                 output =
                     output +
-                    '<span style="color:#0079FE">外乱格：</span>主事从外入，需防外人欺凌，外人主动来找我。土水相克，遗财患病，争竞家园<br>';
+                    wailuange +
+                    tushui +
+                    '<span style="color:#0079FE">地刑玄武：</span>男女疾病垂危，有囚狱词讼之灾。<br>';
                 break;
 
             case '庚甲':
-                output =
-                    output +
-                    '<span style="color:#0079FE">外制格：</span>主事从外入，需防外人欺凌，外人主动来找我。金木相加，官事，口舌争斗<br><span style="color:#0079FE">正冲格：</span>正面冲突<br>';
+                output = output + zhengchongge + waizhige + jinmu;
                 break;
             case '庚乙':
                 output =
                     output +
-                    '<span style="color:#0079FE">下合格：</span>下敬上之象，下属，晚辈主动向在上者表示恭敬<br><span style="color:#0079FE">外侵格：</span>主事从外入，需防外人欺凌，外人主动来找我。<br>';
+                    xiahege +
+                    waiqinge +
+                    jinmu +
+                    '<span style="color:#0079FE">太白逢星：</span>退吉进凶，谋为不利。<br>';
                 break;
             case '庚丙':
                 output =
                     output +
-                    '<span style="color:#0079FE">内制格：</span>主事从内起，需防内人刑害，为我主动去找人<br>';
+                    neizhige +
+                    huojin +
+                    '<span style="color:#0079FE">太白入荧：</span>贼必来，为客进利，为主破财。<br>';
                 break;
             case '庚丁':
                 output =
                     output +
-                    '<span style="color:#0079FE">内害格：</span>主事从内起，需防内人刑害，为我主动去找人<br>';
+                    neiqinge +
+                    huojin +
+                    '<span style="color:#0079FE">亭亭之格：</span>因私匿或男女关系起官司是非，门吉有救；门凶，事必凶。<br>';
                 break;
             case '庚戊':
                 output =
                     output +
-                    '<span style="color:#0079FE">后间格：</span>主我欲后退，而当中有人催促于我，欲退不能之象。阻隔之人事也可看中间所间隔之千及它的落宫，察其具体状态及原因<br><span style="color:#0079FE">乘权格：</span>主他人尽力帮助于我，而获其资助、增我神气<br>';
+                    houjiange +
+                    chengquange +
+                    '<span style="color:#0079FE">天乙伏宫：</span>百事不可谋，大凶。<br>';
                 break;
             case '庚己':
                 output =
                     output +
                     tuiruge +
-                    '<span style="color:#0079FE">得母格：</span>有椿萱并茂之象，主有长上之人恩重于我<br>';
+                    demuge +
+                    '<span style="color:#0079FE">官府刑格：</span>主有官司口舌，因官讼被判刑，住牢狱更凶，百事不利。<br>';
                 break;
             case '庚庚':
-                output = output + '<span style="color:#0079FE">伏吟格</span><br>';
+                output =
+                    output +
+                    fuyinge +
+                    '<span style="color:#0079FE">太白同宫：</span>官灾横祸。<br>';
                 break;
             case '庚辛':
-                output = output + jinruge;
+                output =
+                    output +
+                    jinruge +
+                    '<span style="color:#0079FE">白虎干格：</span>不宜远行，远行车折马伤，求财更为大凶，诸事有灾殃，时间越长越凶。<br>';
                 break;
             case '庚壬':
-                output = output + qianjiange + haoqige;
+                output =
+                    output +
+                    qianjiange +
+                    haoqige +
+                    '<span style="color:#0079FE">太白退位：</span>也为小格，金化水流，主远行迷失道路，男女音信难 通、变动、外出。<br>';
                 break;
             case '庚癸':
                 output =
                     output +
                     jiaoyinge +
-                    '<span style="color:#0079FE">支破格：</span>支破无成灾祸息，谋为难就有冲突<br>';
+                    zhipoge +
+                    '<span style="color:#0079FE">太白冲刑：</span>也为大格，主车祸，行人不至，官事不止，生育母子俱伤，大凶。<br>';
                 break;
 
             case '辛甲':
-                output =
-                    output +
-                    '<span style="color:#0079FE">外害格：</span>主事从外入，需防外人欺凌，外人主动来找我。金木相加，官事，口舌争斗<br>';
+                output = output + waihaige + jinmu;
                 break;
             case '辛乙':
                 output =
                     output +
-                    '<span style="color:#0079FE">外乱格：</span>主事从外入，需防外人欺凌，外人主动来找我。金木相加，官事，口舌争斗<br><span style="color:#0079FE">正冲格：</span>正面冲突<br>';
+                    zhengchongge +
+                    wailuange +
+                    jinmu +
+                    '<span style="color:#0079FE">白虎猖狂：</span>家败人亡（分家、婚散、破产），出行有惊恐，远行多灾殃，尊长不喜，车船俱伤。<br>';
                 break;
             case '辛丙':
                 output =
                     output +
-                    '<span style="color:#0079FE">下合格：</span>下敬上之象，下属，晚辈主动向在上者表示恭敬<br><span style="color:#0079FE">内侵格：</span>主事从内起，需防内人刑害，为我主动去找人<br>';
+                    xiahege +
+                    neiqinge +
+                    huojin +
+                    '<span style="color:#0079FE">干合悖师：</span>荧惑出现，占雨无，占晴旱，占事必因财致讼。<br>';
                 break;
             case '辛丁':
                 output =
                     output +
-                    '<span style="color:#0079FE">内乱格：</span>主事从内起，需防内人刑害，为我主动去找人<br>';
+                    neiluange +
+                    huojin +
+                    '<span style="color:#0079FE">狱神得奇：</span>经商求财获利倍增，囚人逢天赦释免，办其他事，也会有意外的收获。<br>';
                 break;
             case '辛戊':
                 output =
                     output +
-                    '<span style="color:#0079FE">获父格：</span>有椿萱并茂之象，主有长上之人恩重于我<br><span style="color:#0079FE">支破格：</span>支破无成灾祸息，谋为难就有冲突<br>';
+                    huofuge +
+                    zhipoge +
+                    '<span style="color:#0079FE">困龙被伤：</span>主官司破财，屈抑守分尚可，妄动则带来祸殃。<br>';
                 break;
             case '辛己':
                 output =
                     output +
-                    '<span style="color:#0079FE">后间格：</span>主我欲后退，而当中有人催促于我，欲退不能之象。阻隔之人事也可看中间所间隔之千及它的落宫，察其具体状态及原因<br><span style="color:#0079FE">倚势格：</span>主他人尽力帮助于我，而获其资助、增我神气<br>';
+                    houjiange +
+                    yishige +
+                    '<span style="color:#0079FE">入狱自刑：</span>故为入狱自刑，主奴仆背主，有苦诉讼难伸。<br>';
                 break;
             case '辛庚':
-                output = output + tuiruge;
+                output =
+                    output +
+                    tuiruge +
+                    '<span style="color:#0079FE">白虎出力：</span>刀刃相交，主客相残，逊让退步则安，强进血溅衣衫。<br>';
                 break;
             case '辛辛':
-                output = output + '<span style="color:#0079FE">伏吟格</span><br>';
+                output =
+                    output +
+                    fuyinge +
+                    '<span style="color:#0079FE">伏吟天庭：</span>公废私就，讼狱自羅罪名。<br>';
                 break;
             case '辛壬':
-                output = output + jinruge + jiaoyangge;
+                output =
+                    output +
+                    jinruge +
+                    jiaoyangge +
+                    '<span style="color:#0079FE">凶蛇入狱：</span>两男争女，一货售两 家、讼狱不息，先动失理，利主不利客。<br>';
                 break;
             case '辛癸':
                 output =
                     output +
                     qianjiange +
-                    '<span style="color:#0079FE">夺权格：</span>我之财务不周全。主我帮助他人，而伤了我的骨血，脱耗我的精华<br>';
+                    duoquange +
+                    '<span style="color:#0079FE">天牢华盖：</span>日月失明，误入天网，动止乖张。<br>';
                 break;
 
             case '壬甲':
@@ -1010,44 +1174,65 @@ function feipan_info(info) {
             case '壬乙':
                 output =
                     output +
-                    '<span style="color:#0079FE">内害格：</span>主事从内起，需防内人刑害，为我主动去找人<br><span style="color:#0079FE">支破格：</span>支破无成灾祸息，谋为难就有冲突<br>';
+                    jiaoyinge +
+                    '<span style="color:#0079FE">小蛇得势：</span>女人柔顺，男人通达。<br>';
                 break;
             case '壬丙':
                 output =
                     output +
-                    '<span style="color:#0079FE">外制格：</span>主事从外入，需防外人欺凌，外人主动来找我。水火相乘，惊恐，妇女不安<br><span style="color:#0079FE">正冲格：</span>正面冲突<br>';
+                    zhengchongge +
+                    waizhige +
+                    shuihuo +
+                    '<span style="color:#0079FE">水蛇入火：</span>两败俱伤，为客不利。<br>';
                 break;
             case '壬丁':
                 output =
                     output +
-                    '<span style="color:#0079FE">下合格：</span>下敬上之象，下属，晚辈主动向在上者表示恭敬<br><span style="color:#0079FE">外侵格：</span>主事从外入，需防外人欺凌，外人主动来找我。<br>';
+                    xiahege +
+                    waiqinge +
+                    shuihuo +
+                    '<span style="color:#0079FE">干合蛇刑：</span>文书牵连，贵人匆匆，男吉女凶。<br>';
                 break;
             case '壬戊':
                 output =
                     output +
-                    '<span style="color:#0079FE">内制格：</span>主事从内起，需防内人刑害，为我主动去找人<br>';
+                    neizhige +
+                    tushui +
+                    '<span style="color:#0079FE">小蛇化龙：</span>男人发达，女产婴童，做事要防耗散。<br>';
                 break;
             case '壬己':
                 output =
                     output +
-                    '<span style="color:#0079FE">内害格：</span>主事从内起，需防内人刑害，为我主动去找人<br><span style="color:#0079FE">支破格：</span>支破无成灾祸息，谋为难就有冲突<br>';
+                    zhipoge +
+                    neihaige +
+                    tushui +
+                    '<span style="color:#0079FE">反吟蛇刑：</span>主官司败诉，大祸将至，顺守为吉，妄动必凶。<br>';
                 break;
             case '壬庚':
                 output =
                     output +
-                    '<span style="color:#0079FE">后间格：</span>主我欲后退，而当中有人催促于我，欲退不能之象。阻隔之人事也可看中间所间隔之千及它的落宫，察其具体状态及原因<br><span style="color:#0079FE">乘权格：</span>主他人尽力帮助于我，而获其资助、增我神气<br>';
+                    houjiange +
+                    chengquange +
+                    '<span style="color:#0079FE">太白擒蛇：</span>刑狱公平，立判邪正，这是对于词讼之类来讲的。<br>';
                 break;
             case '壬辛':
                 output =
                     output +
                     tuiruge +
-                    '<span style="color:#0079FE">得母格：</span>有椿萱并茂之象，主有长上之人恩重于我<br>';
+                    demuge +
+                    '<span style="color:#0079FE">腾蛇相缠：</span>纵得吉门，亦不能安。<br>';
                 break;
             case '壬壬':
-                output = output + '<span style="color:#0079FE">伏吟格</span><br>';
+                output =
+                    output +
+                    fuyinge +
+                    '<span style="color:#0079FE">天狱自刑/蛇入地罗：</span>求谋无成，祸患起于内部，诸事主破败，外人缠绕，内事索索。<br>';
                 break;
             case '壬癸':
-                output = output + jinruge;
+                output =
+                    output +
+                    jinruge +
+                    '<span style="color:#0079FE">幼女奸淫：</span>主有家丑外扬之事发生；门吉星凶，反福为祸。<br>';
                 break;
 
             case '癸甲':
@@ -1057,43 +1242,64 @@ function feipan_info(info) {
                 output =
                     output +
                     qianjiange +
-                    '<span style="color:#0079FE">夺权格：</span>我之财务不周全。主我帮助他人，而伤了我的骨血，脱耗我的精华<br>';
+                    duoquange +
+                    '<span style="color:#0079FE">华盖逢星：</span>贵人禄位，常人平安。<br>';
                 break;
             case '癸丙':
                 output =
                     output +
-                    '<span style="color:#0079FE">外害格：</span>主事从外入，需防外人欺凌，外人主动来找我。水火相乘，惊恐，妇女不安<br>';
+                    waihaige +
+                    shuihuo +
+                    '<span style="color:#0079FE">华盖悖师：</span>贵贱逢之皆不利，唯上人见喜。<br>';
                 break;
             case '癸丁':
                 output =
                     output +
-                    '<span style="color:#0079FE">外乱格：</span>主事从外入，需防外人欺凌，外人主动来找我。水火相乘，惊恐，妇女不安<br><span style="color:#0079FE">正冲格：</span>正面冲突<br>';
+                    zhengchongge +
+                    wailuan +
+                    shuihuo +
+                    '<span style="color:#0079FE">腾蛇夭矫：</span>文书官司，火焚也逃不掉，虚惊不宁。<br>';
                 break;
             case '癸戊':
                 output =
                     output +
-                    '<span style="color:#0079FE">下合格：</span>下敬上之象，下属，晚辈主动向在上者表示恭敬<br><span style="color:#0079FE">内侵格：</span>主事从内起，需防内人刑害，为我主动去找人<br>';
+                    xiahege +
+                    waiqinge +
+                    tushui +
+                    '<span style="color:#0079FE">天乙合会：</span>吉门宜求财，婚姻喜美，吉人赞助成合。<br>';
                 break;
             case '癸己':
                 output =
                     output +
-                    '<span style="color:#0079FE">内乱格：</span>主事从内起，需防内人刑害，为我主动去找人<br>';
+                    neiluange +
+                    tushui +
+                    '<span style="color:#0079FE">华盖地户：</span>男女测之，音信皆阻，躲灾避难方为吉。<br>';
                 break;
             case '癸庚':
                 output =
                     output +
-                    '<span style="color:#0079FE">获父格：</span>有椿萱并茂之象，主有长上之人恩重于我<br><span style="color:#0079FE">支破格：</span>支破无成灾祸息，谋为难就有冲突<br>';
+                    huofuge +
+                    zhipoge +
+                    '<span style="color:#0079FE">太白入网：</span>以暴力争讼，自邏罪责。<br>';
                 break;
             case '癸辛':
                 output =
                     output +
-                    '<span style="color:#0079FE">后间格：</span>主我欲后退，而当中有人催促于我，欲退不能之象。阻隔之人事也可看中间所间隔之千及它的落宫，察其具体状态及原因<br><span style="color:#0079FE">倚势格：</span>主他人尽力帮助于我，而获其资助、增我神气<br>';
+                    houjiange +
+                    yishige +
+                    '<span style="color:#0079FE">网盖天牢：</span>官司败诉，死罪难逃。<br>';
                 break;
             case '癸壬':
-                output = output + tuiruge;
+                output =
+                    output +
+                    tuiruge +
+                    '<span style="color:#0079FE">复见腾蛇：</span>嫁娶重婚，后嫁无子，不保年华。<br>';
                 break;
             case '癸癸':
-                output = output + '<span style="color:#0079FE">伏吟格</span><br>';
+                output =
+                    output +
+                    fuyinge +
+                    '<span style="color:#0079FE">天网四张：</span>主行人失伴，病讼皆伤。<br>';
                 break;
         }
         return output;
