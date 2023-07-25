@@ -1,6 +1,6 @@
 {
     "name": "qimen",
-    "version": "3.0.1",
+    "version": "3.0.2",
     "description": "奇门遁甲排盘",
     "main": "./dev/main.js",
     "scripts": {

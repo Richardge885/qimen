@@ -248,7 +248,10 @@ function feipan_info(info) {
                 document.getElementById('paipan-jiamu-info').classList.remove('focused-item');
                 document.getElementById('paipan-dipangan-info').classList.remove('focused-item');
                 document.getElementById('paipan-gongwei-info').classList.remove('focused-item');
-                updateMenInfo(document.getElementById('paipan-men-info').innerText);
+                updateMenInfo(
+                    document.getElementById('paipan-men-info').innerText,
+                    document.getElementById('paipan-gongwei-info').innerText,
+                );
                 break;
             case 'tianpangan':
                 document.getElementById('paipan-modal-info-section').innerHTML = '';
@@ -332,72 +335,84 @@ function feipan_info(info) {
         }
     }
     function updateMenInfo(men) {
+        let result = '';
         switch (men) {
             case '休门':
-                document.getElementById('paipan-modal-info-section').innerHTML = info.men.休;
+                result = info.men.休;
                 break;
             case '死门':
-                document.getElementById('paipan-modal-info-section').innerHTML = info.men.死;
+                result = info.men.死;
                 break;
             case '伤门':
-                document.getElementById('paipan-modal-info-section').innerHTML = info.men.伤;
+                result = info.men.伤;
                 break;
             case '杜门':
-                document.getElementById('paipan-modal-info-section').innerHTML = info.men.杜;
+                result = info.men.杜;
                 break;
             case '中门':
-                document.getElementById('paipan-modal-info-section').innerHTML = info.men.中;
+                result = info.men.中;
                 break;
             case '开门':
-                document.getElementById('paipan-modal-info-section').innerHTML = info.men.开;
+                result = info.men.开;
                 break;
             case '惊门':
-                document.getElementById('paipan-modal-info-section').innerHTML = info.men.惊;
+                result = info.men.惊;
                 break;
             case '生门':
-                document.getElementById('paipan-modal-info-section').innerHTML = info.men.生;
+                result = info.men.生;
                 break;
             case '景门':
-                document.getElementById('paipan-modal-info-section').innerHTML = info.men.景;
+                result = info.men.景;
                 break;
         }
+        document.getElementById('paipan-modal-info-section').innerHTML =
+            result +
+            '<br><br>' +
+            '<span style="color:#0079FE">动应：</span><br>' +
+            menDongYing(document.getElementById('paipan-men-info').innerText);
     }
     function updateShenInfo(shen) {
+        let result = '';
         switch (shen) {
             case '值符':
-                document.getElementById('paipan-modal-info-section').innerHTML = info.shen.值符;
+                result = info.shen.值符;
                 break;
             case '螣蛇':
-                document.getElementById('paipan-modal-info-section').innerHTML = info.shen.螣蛇;
+                result = info.shen.螣蛇;
                 break;
             case '太阴':
-                document.getElementById('paipan-modal-info-section').innerHTML = info.shen.太阴;
+                result = info.shen.太阴;
                 break;
             case '六合':
-                document.getElementById('paipan-modal-info-section').innerHTML = info.shen.六合;
+                result = info.shen.六合;
                 break;
             case '白虎':
-                document.getElementById('paipan-modal-info-section').innerHTML = info.shen.白虎;
+                result = info.shen.白虎;
                 break;
             case '勾陈':
-                document.getElementById('paipan-modal-info-section').innerHTML = info.shen.勾陈;
+                result = info.shen.勾陈;
                 break;
             case '太常':
-                document.getElementById('paipan-modal-info-section').innerHTML = info.shen.太常;
+                result = info.shen.太常;
                 break;
             case '玄武':
-                document.getElementById('paipan-modal-info-section').innerHTML = info.shen.玄武;
+                result = info.shen.玄武;
                 break;
             case '朱雀':
-                document.getElementById('paipan-modal-info-section').innerHTML = info.shen.朱雀;
+                result = info.shen.朱雀;
                 break;
             case '九地':
-                document.getElementById('paipan-modal-info-section').innerHTML = info.shen.九地;
+                result = info.shen.九地;
                 break;
             case '九天':
-                document.getElementById('paipan-modal-info-section').innerHTML = info.shen.九天;
+                result = info.shen.九天;
                 break;
         }
+        document.getElementById('paipan-modal-info-section').innerHTML =
+            result +
+            '<br><br>' +
+            '<span style="color:#0079FE">动应：</span><br>' +
+            shenDongYing(document.getElementById('paipan-tianpanshen-info').innerText);
     }
     function updateTianganInfo(tiangan) {
         switch (tiangan) {
@@ -2172,6 +2187,58 @@ function feipan_info(info) {
                     return '<span style="color: red">' + xiongdi + '</span>';
                 }
                 return xiongdi;
+            }
+        }
+    }
+    function menDongYing(men) {
+        if (men == '中门') {
+            return '';
+        } else {
+            switch (men) {
+                case '休门':
+                    return '休门三十阴贵人，衣着蓝黄及碧青。<br>出此门三十里，见阴贵人，或五十里，见蛇、鼠、水物，吉。宜和集万事，可以休心宁志，人宅营家。';
+                case '死门':
+                    return '死门二十逢疾病，黄皂衣人见遭迪。<br>出此门二十里，逢有疾病。或五十里、五里内，见血光。远行不还家，嫁娶伤家长，新妇凶。宜刑吊事。';
+                case '伤门':
+                    return '伤门三十争讼起，凶人着皂血光腥。<br>出此门三十里，有争讼出血之人。若造葬、上官、出行，主遭贼。只宜捕盗、渔猎。';
+                case '杜门':
+                    return '杜门二十男女辈，绢皂褐碧相从行。<br>出此门二十里，见男女同行。或六十里，见恶人。日奇临，二女人身着青衫；月奇临，主烽火；星奇临，弓驾应。宜掩捕、兴土疆、绝鬼营、修仙隐逸、冲举炼药，吉。';
+                case '开门':
+                    return '开门二十阴人至，贵人乘马紫衣襟。<br>出此门二十里，见贵人着紫骑马，吉。四十里内，见猪马，逢酒食，万事吉。锣鼓鎗刀，妇人担伞至。手执物，抱孩儿。';
+                case '惊门':
+                    return '惊门三十鸦鸣噪，官状相逢六畜椁。<br>出此门三十里，见鸦鹊官状，六畜牴触之事。十里内有损物，四十里二人争打，返吉。如无康惊，凶。';
+                case '生门':
+                    return '生门十五逢公吏，官人着紫皂衣巾。<br>出此门十五里，有紫衣公吏官人。或六十里，见贵人车马，百事吉。可以造仙佛殿。拜将出师，大胜。';
+                case '景门':
+                    return '景门二十惊忧事，绯皂衣人宴会宾。<br>出此门二十里，有忧惊事。三十里外，见赤身人，或火蛇。七十里，水火失物。宜上书破阵，吉。如起造、嫁娶，杀宅长小口，大凶';
+            }
+        }
+    }
+    function shenDongYing(shen) {
+        if (shen == '太常') {
+            return '';
+        } else {
+            switch (shen) {
+                case '值符':
+                    return '贵人星，出行路上遇贵人，或高年老叟。又六甲为青龙，主财物，人从车船竹木而至';
+                case '螣蛇':
+                    return '主形状古怪奇异之物，或空康花假之物，及有执物而至。客来相会，必淹滞缠扰，难于送别。忧惶惊恐，事多颠倒。';
+                case '太阴':
+                    return '女人或阴险小人。为密谋文书，又谈方术事。人从南方来引，可依托。';
+                case '六合':
+                    return '遇人必喜笑相迎，一见如故。更有美女少妇，身着新衣，相将酒食，和颜悦色，殷勤相接';
+                case '白虎':
+                    return '必遇新丧孝子，或白衣人，或居夫、猎户，闻啼哭之声，或残疾老人，或争斗带伤之客，或骑马而过。';
+                case '玄武':
+                    return '必遇盗贼，或奸人刺客，或儿童小子，或讲元门课卜之士，或逃亡走审窘迫之人。';
+                case '勾陈':
+                    return '必遇新丧孝子，或白衣人，或居夫、猎户，闻啼哭之声，或残疾老人，或争斗带伤之客，或骑马而过。';
+                case '朱雀':
+                    return '必遇盗贼，或奸人刺客，或儿童小子，或讲元门课卜之士，或逃亡走审窘迫之人。';
+                case '九地':
+                    return '必遇暫日老病、心多忧患之人，或新丧者，或算命卜祝之人，说鬼神幽冥之事。';
+                case '九天':
+                    return '出行必遇响声，或口舌争斗。或屠夫、兵卒，手中执有兵器物件。此皆随出门之方而占之，不专在直符直使之宫也。';
             }
         }
     }
