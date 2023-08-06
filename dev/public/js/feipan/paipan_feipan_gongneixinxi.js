@@ -2,6 +2,7 @@ function feipan_info(info) {
     let whichGong;
     document.querySelectorAll('[data-gongwei-overlay]').forEach((overlay, index) => {
         overlay.addEventListener('click', () => {
+            document.getElementById('paipan-jigong-info').classList.add('hidden');
             whichGong = index;
             if (
                 document.querySelectorAll('[data-tianpanshen]')[index].innerHTML == '值符' &&
@@ -212,6 +213,9 @@ function feipan_info(info) {
                     document.getElementById('paipan-gongwei-info').innerText,
                     tianpanjia,
                     dipanjia,
+                    document.getElementById('paipan-tianpanshen-info').innerText,
+                    document.getElementById('paipan-xing-info').innerText,
+                    document.getElementById('paipan-men-info').innerText,
                 );
                 break;
             case 'tianpanshen':
@@ -499,148 +503,69 @@ function feipan_info(info) {
         men,
     ) {
         let result = '';
-        if (gong !== '中') {
-            if (tianpanjia == true || dipanjia == true) {
+        if (tianpanjia == true || dipanjia == true) {
+            result =
+                getZhangSheng(tianpangan, gong) +
+                getZhangSheng(dipangan, gong) +
+                getZhangSheng('甲', gong) +
+                '<br>' +
+                mengong(men, gong) +
+                getZhengGe(tianpangan, dipangan) +
+                '<br>';
+            if (tianpanjia == true && dipanjia == true) {
                 result =
-                    getZhangSheng(tianpangan, gong) +
-                    getZhangSheng(dipangan, gong) +
-                    getZhangSheng('甲', gong) +
+                    result +
+                    mengong(men, gong) +
+                    getZhengGe('甲', '甲') +
                     '<br>' +
-                    getZhengGe(tianpangan, dipangan) +
-                    '<br>';
-                if (tianpanjia == true && dipanjia == true) {
-                    result =
-                        result +
-                        getZhengGe('甲', '甲') +
-                        '<br>' +
-                        getZhengGe(tianpangan, '甲') +
-                        '<br>' +
-                        getZhengGe('甲', dipangan) +
-                        '<br>' +
-                        getFuGe(tianpangan, gong) +
-                        '<br><br>' +
-                        getFuGe('甲', gong);
-                } else if (tianpanjia == true) {
-                    result =
-                        result +
-                        getZhengGe('甲', dipangan) +
-                        '<br>' +
-                        getFuGe(tianpangan, gong) +
-                        '<br><br>' +
-                        getFuGe(dipangan, gong) +
-                        '<br><br>' +
-                        getFuGe('甲', gong);
-                } else if (dipanjia == true) {
-                    result =
-                        result +
-                        getZhengGe(tianpangan, '甲') +
-                        '<br>' +
-                        getFuGe(tianpangan, gong) +
-                        '<br><br>' +
-                        getFuGe(dipangan, gong) +
-                        '<br><br>' +
-                        getFuGe('甲', gong);
-                }
-            } else {
-                result =
-                    getZhangSheng(tianpangan, gong) +
-                    getZhangSheng(dipangan, gong) +
+                    getZhengGe(tianpangan, '甲') +
                     '<br>' +
-                    getZhengGe(tianpangan, dipangan) +
+                    getZhengGe('甲', dipangan) +
                     '<br>' +
                     getFuGe(tianpangan, gong) +
                     '<br><br>' +
-                    getFuGe(dipangan, gong);
+                    getFuGe('甲', gong);
+            } else if (tianpanjia == true) {
+                result =
+                    result +
+                    mengong(men, gong) +
+                    getZhengGe('甲', dipangan) +
+                    '<br>' +
+                    getFuGe(tianpangan, gong) +
+                    '<br><br>' +
+                    getFuGe(dipangan, gong) +
+                    '<br><br>' +
+                    getFuGe('甲', gong);
+            } else if (dipanjia == true) {
+                result =
+                    result +
+                    mengong(men, gong) +
+                    getZhengGe(tianpangan, '甲') +
+                    '<br>' +
+                    getFuGe(tianpangan, gong) +
+                    '<br><br>' +
+                    getFuGe(dipangan, gong) +
+                    '<br><br>' +
+                    getFuGe('甲', gong);
             }
         } else {
-            for (let i = 0; i < 9; i++) {
-                if (document.querySelectorAll('[data-wangshuai]')[i].innerText == '旺') {
-                    switch (i) {
-                        case 0:
-                            gong = '坎';
-                            break;
-                        case 1:
-                            gong = '坤';
-                            break;
-                        case 2:
-                            gong = '震';
-                            break;
-                        case 3:
-                            gong = '巽';
-                            break;
-                        case 5:
-                            gong = '乾';
-                            break;
-                        case 6:
-                            gong = '兑';
-                            break;
-                        case 7:
-                            gong = '艮';
-                            break;
-                        case 8:
-                            gong = '离';
-                            break;
-                    }
-                    if (tianpanjia == true || dipanjia == true) {
-                        result =
-                            getZhangSheng(tianpangan, gong) +
-                            getZhangSheng(dipangan, gong) +
-                            getZhangSheng('甲', gong) +
-                            '<br>' +
-                            getZhengGe(tianpangan, dipangan) +
-                            '<br>';
-                        if (tianpanjia == true && dipanjia == true) {
-                            result =
-                                result +
-                                getZhengGe('甲', '甲') +
-                                '<br>' +
-                                getZhengGe(tianpangan, '甲') +
-                                '<br>' +
-                                getZhengGe('甲', dipangan) +
-                                '<br>' +
-                                getFuGe(tianpangan, '中') +
-                                '<br><br>' +
-                                getFuGe('甲', '中');
-                        } else if (tianpanjia == true) {
-                            result =
-                                result +
-                                getZhengGe('甲', dipangan) +
-                                '<br>' +
-                                getFuGe(tianpangan, '中') +
-                                '<br><br>' +
-                                getFuGe(dipangan, '中') +
-                                '<br><br>' +
-                                getFuGe('甲', '中');
-                        } else if (dipanjia == true) {
-                            result =
-                                result +
-                                getZhengGe(tianpangan, '甲') +
-                                '<br>' +
-                                getFuGe(tianpangan, '中') +
-                                '<br><br>' +
-                                getFuGe(dipangan, '中') +
-                                '<br><br>' +
-                                getFuGe('甲', '中');
-                        }
-                    } else {
-                        result =
-                            getZhangSheng(tianpangan, gong) +
-                            getZhangSheng(dipangan, gong) +
-                            '<br>' +
-                            getZhengGe(tianpangan, dipangan) +
-                            '<br>' +
-                            getFuGe(tianpangan, '中') +
-                            '<br><br>' +
-                            getFuGe(dipangan, '中');
-                    }
-                }
-            }
+            result =
+                getZhangSheng(tianpangan, gong) +
+                getZhangSheng(dipangan, gong) +
+                '<br>' +
+                mengong(men, gong) +
+                getZhengGe(tianpangan, dipangan) +
+                '<br>' +
+                getFuGe(tianpangan, gong) +
+                '<br><br>' +
+                getFuGe(dipangan, gong);
         }
+        result = result + '<br><br>' + getJiGe(tianpangan, dipangan, xing, men, tianpanshen, gong);
         return result;
     }
     function getZhengGe(tianpangan, dipangan) {
         const group = tianpangan + dipangan;
-        const fuyinge = '<span style="color:#0079FE">伏吟格</span><br>';
+        const fuyinge = '<span style="color:#0079FE">伏吟格：</span>';
         const jinruge =
             '<span style="color:#0079FE">进茹格：</span>凡谋为等事，不论吉凶，以进步为吉。欲穷千里目，要更上一层楼。但如测病反而不利<br>';
         const tuiruge =
@@ -699,7 +624,7 @@ function feipan_info(info) {
         let output = `${tianpangan} + ${dipangan}：<br>`;
         switch (group) {
             case '甲甲':
-                output = output + fuyinge;
+                output = output + fuyinge + '木加木主非灾飞祸，争财竞禄，求谋难成。' + '<br>';
                 break;
             case '甲乙':
                 output = output + jinruge;
@@ -736,6 +661,8 @@ function feipan_info(info) {
                 output =
                     output +
                     fuyinge +
+                    '木加木主非灾飞祸，争财竞禄，求谋难成。' +
+                    '<br>' +
                     '<span style="color:#0079FE">日奇伏吟：</span>不宜见上级领导、贵人；求名求利及进取事不可求，只宜安分守己。利主，宜静不宜动，宜守不宜进。<br>';
                 break;
             case '乙丙':
@@ -810,6 +737,8 @@ function feipan_info(info) {
                 output =
                     output +
                     fuyinge +
+                    '火加火口舌飞祸，疾病相畏，凡事有始无终。' +
+                    '<br>' +
                     '<span style="color:#0079FE">月奇悖师：</span>文书逼迫，破耗遗失。<br>';
                 break;
             case '丙丁':
@@ -882,6 +811,8 @@ function feipan_info(info) {
                 output =
                     output +
                     fuyinge +
+                    '火加火口舌飞祸，疾病相畏，凡事有始无终。' +
+                    '<br>' +
                     '<span style="color:#0079FE">星奇入太阴：</span>文书证件即至，喜事从心、万事如意。<br>';
                 break;
             case '丁戊':
@@ -957,6 +888,8 @@ function feipan_info(info) {
                 output =
                     output +
                     fuyinge +
+                    '土加土住居烦恼，又主行事迟缓，虽成而迟等。' +
+                    '<br>' +
                     '<span style="color:#0079FE">伏吟：</span>凡事不利，道路闭塞，以守为好。<br>';
                 break;
             case '戊己':
@@ -1028,6 +961,8 @@ function feipan_info(info) {
                 output =
                     output +
                     fuyinge +
+                    '土加土住居烦恼，又主行事迟缓，虽成而迟等。' +
+                    '<br>' +
                     '<span style="color:#0079FE">地户逢鬼：</span>病者发凶或必死，百事不遂，暂不谋为，谋为则凶。<br>';
                 break;
             case '己庚':
@@ -1102,6 +1037,8 @@ function feipan_info(info) {
                 output =
                     output +
                     fuyinge +
+                    '金加金主道途分异，斗伤呻吟，凡事不顺。' +
+                    '<br>' +
                     '<span style="color:#0079FE">太白同宫：</span>官灾横祸。<br>';
                 break;
             case '庚辛':
@@ -1175,6 +1112,8 @@ function feipan_info(info) {
                 output =
                     output +
                     fuyinge +
+                    '金加金主道途分异，斗伤呻吟，凡事不顺。' +
+                    '<br>' +
                     '<span style="color:#0079FE">伏吟天庭：</span>公废私就，讼狱自羅罪名。<br>';
                 break;
             case '辛壬':
@@ -1250,6 +1189,8 @@ function feipan_info(info) {
                 output =
                     output +
                     fuyinge +
+                    '水加水口舌盗贼，阴私相侵，凡事因窘。' +
+                    '<br>' +
                     '<span style="color:#0079FE">天狱自刑/蛇入地罗：</span>求谋无成，祸患起于内部，诸事主破败，外人缠绕，内事索索。<br>';
                 break;
             case '壬癸':
@@ -1280,7 +1221,7 @@ function feipan_info(info) {
                 output =
                     output +
                     zhengchongge +
-                    wailuan +
+                    wailuange +
                     shuihuo +
                     '<span style="color:#0079FE">腾蛇夭矫：</span>文书官司，火焚也逃不掉，虚惊不宁。<br>';
                 break;
@@ -1323,6 +1264,8 @@ function feipan_info(info) {
                 output =
                     output +
                     fuyinge +
+                    '水加水口舌盗贼，阴私相侵，凡事因窘。' +
+                    '<br>' +
                     '<span style="color:#0079FE">天网四张：</span>主行人失伴，病讼皆伤。<br>';
                 break;
         }
@@ -1757,6 +1700,39 @@ function feipan_info(info) {
         }
     }
     function getZhangSheng(tiangan, gongwei) {
+        const originalGongWei = gongwei;
+        if (gongwei == '中') {
+            for (let i = 0; i < 9; i++) {
+                if (document.querySelectorAll('[data-wangshuai]')[i].innerText == '旺') {
+                    switch (i) {
+                        case 0:
+                            gongwei = '坎';
+                            break;
+                        case 1:
+                            gongwei = '坤';
+                            break;
+                        case 2:
+                            gongwei = '震';
+                            break;
+                        case 3:
+                            gongwei = '巽';
+                            break;
+                        case 5:
+                            gongwei = '乾';
+                            break;
+                        case 6:
+                            gongwei = '兑';
+                            break;
+                        case 7:
+                            gongwei = '艮';
+                            break;
+                        case 8:
+                            gongwei = '离';
+                            break;
+                    }
+                }
+            }
+        }
         const zhangsheng = '<span style="color:red">长生</span>';
         const muyu = '沐浴';
         const guandai = '冠带';
@@ -1775,280 +1751,355 @@ function feipan_info(info) {
             case '甲':
                 switch (gongwei) {
                     case '乾':
-                        result = '甲' + getLiuQin('甲', gongwei) + '：' + yang + '，' + zhangsheng;
+                        result =
+                            '甲' +
+                            getLiuQin('甲', originalGongWei) +
+                            '：' +
+                            yang +
+                            '，' +
+                            zhangsheng;
                         break;
                     case '坎':
-                        result = '甲' + getLiuQin('甲', gongwei) + '：' + muyu;
+                        result = '甲' + getLiuQin('甲', originalGongWei) + '：' + muyu;
                         break;
                     case '艮':
-                        result = '甲' + getLiuQin('甲', gongwei) + '：' + guandai + '，' + linguan;
+                        result =
+                            '甲' +
+                            getLiuQin('甲', originalGongWei) +
+                            '：' +
+                            guandai +
+                            '，' +
+                            linguan;
                         break;
                     case '震':
-                        result = '甲' + getLiuQin('甲', gongwei) + '：' + diwang;
+                        result = '甲' + getLiuQin('甲', originalGongWei) + '：' + diwang;
                         break;
                     case '巽':
-                        result = '甲' + getLiuQin('甲', gongwei) + '：' + shuai + '，' + bing;
+                        result =
+                            '甲' + getLiuQin('甲', originalGongWei) + '：' + shuai + '，' + bing;
                         break;
                     case '离':
-                        result = '甲' + getLiuQin('甲', gongwei) + '：' + si;
+                        result = '甲' + getLiuQin('甲', originalGongWei) + '：' + si;
                         break;
                     case '坤':
-                        result = '甲' + getLiuQin('甲', gongwei) + '：' + mu + '，' + jue;
+                        result = '甲' + getLiuQin('甲', originalGongWei) + '：' + mu + '，' + jue;
                         break;
                     case '兑':
-                        result = '甲' + getLiuQin('甲', gongwei) + '：' + tai;
+                        result = '甲' + getLiuQin('甲', originalGongWei) + '：' + tai;
                         break;
                 }
                 break;
             case '乙':
                 switch (gongwei) {
                     case '乾':
-                        result = '乙' + getLiuQin('乙', gongwei) + '：' + si + '，' + mu;
+                        result = '乙' + getLiuQin('乙', originalGongWei) + '：' + si + '，' + mu;
                         break;
                     case '坎':
-                        result = '乙' + getLiuQin('乙', gongwei) + '：' + bing;
+                        result = '乙' + getLiuQin('乙', originalGongWei) + '：' + bing;
                         break;
                     case '艮':
-                        result = '乙' + getLiuQin('乙', gongwei) + '：' + diwang + '，' + shuai;
+                        result =
+                            '乙' + getLiuQin('乙', originalGongWei) + '：' + diwang + '，' + shuai;
                         break;
                     case '震':
-                        result = '乙' + getLiuQin('乙', gongwei) + '：' + linguan;
+                        result = '乙' + getLiuQin('乙', originalGongWei) + '：' + linguan;
                         break;
                     case '巽':
-                        result = '乙' + getLiuQin('乙', gongwei) + '：' + muyu + '，' + guandai;
+                        result =
+                            '乙' + getLiuQin('乙', originalGongWei) + '：' + muyu + '，' + guandai;
                         break;
                     case '离':
-                        result = '乙' + getLiuQin('乙', gongwei) + '：' + zhangsheng;
+                        result = '乙' + getLiuQin('乙', originalGongWei) + '：' + zhangsheng;
                         break;
                     case '坤':
-                        result = '乙' + getLiuQin('乙', gongwei) + '：' + tai + '，' + yang;
+                        result = '乙' + getLiuQin('乙', originalGongWei) + '：' + tai + '，' + yang;
                         break;
                     case '兑':
-                        result = '乙' + getLiuQin('乙', gongwei) + '：' + jue;
+                        result = '乙' + getLiuQin('乙', originalGongWei) + '：' + jue;
                         break;
                 }
                 break;
             case '丙':
                 switch (gongwei) {
                     case '乾':
-                        result = '丙' + getLiuQin('丙', gongwei) + '：' + mu + '，' + jue;
+                        result = '丙' + getLiuQin('丙', originalGongWei) + '：' + mu + '，' + jue;
                         break;
                     case '坎':
-                        result = '丙' + getLiuQin('丙', gongwei) + '：' + tai;
+                        result = '丙' + getLiuQin('丙', originalGongWei) + '：' + tai;
                         break;
                     case '艮':
-                        result = '丙' + getLiuQin('丙', gongwei) + '：' + yang + '，' + zhangsheng;
+                        result =
+                            '丙' +
+                            getLiuQin('丙', originalGongWei) +
+                            '：' +
+                            yang +
+                            '，' +
+                            zhangsheng;
                         break;
                     case '震':
-                        result = '丙' + getLiuQin('丙', gongwei) + '：' + muyu;
+                        result = '丙' + getLiuQin('丙', originalGongWei) + '：' + muyu;
                         break;
                     case '巽':
-                        result = '丙' + getLiuQin('丙', gongwei) + '：' + guandai + '，' + linguan;
+                        result =
+                            '丙' +
+                            getLiuQin('丙', originalGongWei) +
+                            '：' +
+                            guandai +
+                            '，' +
+                            linguan;
                         break;
                     case '离':
-                        result = '丙' + getLiuQin('丙', gongwei) + '：' + diwang;
+                        result = '丙' + getLiuQin('丙', originalGongWei) + '：' + diwang;
                         break;
                     case '坤':
-                        result = '丙' + getLiuQin('丙', gongwei) + '：' + shuai + '，' + bing;
+                        result =
+                            '丙' + getLiuQin('丙', originalGongWei) + '：' + shuai + '，' + bing;
                         break;
                     case '兑':
-                        result = '丙' + getLiuQin('丙', gongwei) + '：' + si;
+                        result = '丙' + getLiuQin('丙', originalGongWei) + '：' + si;
                         break;
                 }
                 break;
             case '丁':
                 switch (gongwei) {
                     case '乾':
-                        result = '丁' + getLiuQin('丁', gongwei) + '：' + tai + '，' + yang;
+                        result = '丁' + getLiuQin('丁', originalGongWei) + '：' + tai + '，' + yang;
                         break;
                     case '坎':
-                        result = '丁' + getLiuQin('丁', gongwei) + '：' + jue;
+                        result = '丁' + getLiuQin('丁', originalGongWei) + '：' + jue;
                         break;
                     case '艮':
-                        result = '丁' + getLiuQin('丁', gongwei) + '：' + si + '，' + mu;
+                        result = '丁' + getLiuQin('丁', originalGongWei) + '：' + si + '，' + mu;
                         break;
                     case '震':
-                        result = '丁' + getLiuQin('丁', gongwei) + '：' + bing;
+                        result = '丁' + getLiuQin('丁', originalGongWei) + '：' + bing;
                         break;
                     case '巽':
-                        result = '丁' + getLiuQin('丁', gongwei) + '：' + diwang + '，' + shuai;
+                        result =
+                            '丁' + getLiuQin('丁', originalGongWei) + '：' + diwang + '，' + shuai;
                         break;
                     case '离':
-                        result = '丁' + getLiuQin('丁', gongwei) + '：' + linguan;
+                        result = '丁' + getLiuQin('丁', originalGongWei) + '：' + linguan;
                         break;
                     case '坤':
-                        result = '丁' + getLiuQin('丁', gongwei) + '：' + muyu + '，' + guandai;
+                        result =
+                            '丁' + getLiuQin('丁', originalGongWei) + '：' + muyu + '，' + guandai;
                         break;
                     case '兑':
-                        result = '丁' + getLiuQin('丁', gongwei) + '：' + zhangsheng;
+                        result = '丁' + getLiuQin('丁', originalGongWei) + '：' + zhangsheng;
                         break;
                 }
                 break;
             case '戊':
                 switch (gongwei) {
                     case '乾':
-                        result = '戊' + getLiuQin('戊', gongwei) + '：' + mu + '，' + jue;
+                        result = '戊' + getLiuQin('戊', originalGongWei) + '：' + mu + '，' + jue;
                         break;
                     case '坎':
-                        result = '戊' + getLiuQin('戊', gongwei) + '：' + tai;
+                        result = '戊' + getLiuQin('戊', originalGongWei) + '：' + tai;
                         break;
                     case '艮':
-                        result = '戊' + getLiuQin('戊', gongwei) + '：' + yang + '，' + zhangsheng;
+                        result =
+                            '戊' +
+                            getLiuQin('戊', originalGongWei) +
+                            '：' +
+                            yang +
+                            '，' +
+                            zhangsheng;
                         break;
                     case '震':
-                        result = '戊' + getLiuQin('戊', gongwei) + '：' + muyu;
+                        result = '戊' + getLiuQin('戊', originalGongWei) + '：' + muyu;
                         break;
                     case '巽':
-                        result = '戊' + getLiuQin('戊', gongwei) + '：' + guandai + '，' + linguan;
+                        result =
+                            '戊' +
+                            getLiuQin('戊', originalGongWei) +
+                            '：' +
+                            guandai +
+                            '，' +
+                            linguan;
                         break;
                     case '离':
-                        result = '戊' + getLiuQin('戊', gongwei) + '：' + diwang;
+                        result = '戊' + getLiuQin('戊', originalGongWei) + '：' + diwang;
                         break;
                     case '坤':
-                        result = '戊' + getLiuQin('戊', gongwei) + '：' + shuai + '，' + bing;
+                        result =
+                            '戊' + getLiuQin('戊', originalGongWei) + '：' + shuai + '，' + bing;
                         break;
                     case '兑':
-                        result = '戊' + getLiuQin('戊', gongwei) + '：' + si;
+                        result = '戊' + getLiuQin('戊', originalGongWei) + '：' + si;
                         break;
                 }
                 break;
             case '己':
                 switch (gongwei) {
                     case '乾':
-                        result = '己' + getLiuQin('己', gongwei) + '：' + tai + '，' + yang;
+                        result = '己' + getLiuQin('己', originalGongWei) + '：' + tai + '，' + yang;
                         break;
                     case '坎':
-                        result = '己' + getLiuQin('己', gongwei) + '：' + jue;
+                        result = '己' + getLiuQin('己', originalGongWei) + '：' + jue;
                         break;
                     case '艮':
-                        result = '己' + getLiuQin('己', gongwei) + '：' + si + '，' + mu;
+                        result = '己' + getLiuQin('己', originalGongWei) + '：' + si + '，' + mu;
                         break;
                     case '震':
-                        result = '己' + getLiuQin('己', gongwei) + '：' + bing;
+                        result = '己' + getLiuQin('己', originalGongWei) + '：' + bing;
                         break;
                     case '巽':
-                        result = '己' + getLiuQin('己', gongwei) + '：' + diwang + '，' + shuai;
+                        result =
+                            '己' + getLiuQin('己', originalGongWei) + '：' + diwang + '，' + shuai;
                         break;
                     case '离':
-                        result = '己' + getLiuQin('己', gongwei) + '：' + linguan;
+                        result = '己' + getLiuQin('己', originalGongWei) + '：' + linguan;
                         break;
                     case '坤':
-                        result = '己' + getLiuQin('己', gongwei) + '：' + muyu + '，' + guandai;
+                        result =
+                            '己' + getLiuQin('己', originalGongWei) + '：' + muyu + '，' + guandai;
                         break;
                     case '兑':
-                        result = '己' + getLiuQin('己', gongwei) + '：' + zhangsheng;
+                        result = '己' + getLiuQin('己', originalGongWei) + '：' + zhangsheng;
                         break;
                 }
                 break;
             case '庚':
                 switch (gongwei) {
                     case '乾':
-                        result = '庚' + getLiuQin('庚', gongwei) + '：' + shuai + '，' + bing;
+                        result =
+                            '庚' + getLiuQin('庚', originalGongWei) + '：' + shuai + '，' + bing;
                         break;
                     case '坎':
-                        result = '庚' + getLiuQin('庚', gongwei) + '：' + si;
+                        result = '庚' + getLiuQin('庚', originalGongWei) + '：' + si;
                         break;
                     case '艮':
-                        result = '庚' + getLiuQin('庚', gongwei) + '：' + mu + '，' + jue;
+                        result = '庚' + getLiuQin('庚', originalGongWei) + '：' + mu + '，' + jue;
                         break;
                     case '震':
-                        result = '庚' + getLiuQin('庚', gongwei) + '：' + tai;
+                        result = '庚' + getLiuQin('庚', originalGongWei) + '：' + tai;
                         break;
                     case '巽':
-                        result = '庚' + getLiuQin('庚', gongwei) + '：' + yang + '，' + zhangsheng;
+                        result =
+                            '庚' +
+                            getLiuQin('庚', originalGongWei) +
+                            '：' +
+                            yang +
+                            '，' +
+                            zhangsheng;
                         break;
                     case '离':
-                        result = '庚' + getLiuQin('庚', gongwei) + '：' + muyu;
+                        result = '庚' + getLiuQin('庚', originalGongWei) + '：' + muyu;
                         break;
                     case '坤':
-                        result = '庚' + getLiuQin('庚', gongwei) + '：' + guandai + '，' + linguan;
+                        result =
+                            '庚' +
+                            getLiuQin('庚', originalGongWei) +
+                            '：' +
+                            guandai +
+                            '，' +
+                            linguan;
                         break;
                     case '兑':
-                        result = '庚' + getLiuQin('庚', gongwei) + '：' + diwang;
+                        result = '庚' + getLiuQin('庚', originalGongWei) + '：' + diwang;
                         break;
                 }
                 break;
             case '辛':
                 switch (gongwei) {
                     case '乾':
-                        result = '辛' + getLiuQin('辛', gongwei) + '：' + muyu + '，' + guandai;
+                        result =
+                            '辛' + getLiuQin('辛', originalGongWei) + '：' + muyu + '，' + guandai;
                         break;
                     case '坎':
-                        result = '辛' + getLiuQin('辛', gongwei) + '：' + zhangsheng;
+                        result = '辛' + getLiuQin('辛', originalGongWei) + '：' + zhangsheng;
                         break;
                     case '艮':
-                        result = '辛' + getLiuQin('辛', gongwei) + '：' + tai + '，' + yang;
+                        result = '辛' + getLiuQin('辛', originalGongWei) + '：' + tai + '，' + yang;
                         break;
                     case '震':
-                        result = '辛' + getLiuQin('辛', gongwei) + '：' + jue;
+                        result = '辛' + getLiuQin('辛', originalGongWei) + '：' + jue;
                         break;
                     case '巽':
-                        result = '辛' + getLiuQin('辛', gongwei) + '：' + si + '，' + mu;
+                        result = '辛' + getLiuQin('辛', originalGongWei) + '：' + si + '，' + mu;
                         break;
                     case '离':
-                        result = '辛' + getLiuQin('辛', gongwei) + '：' + bing;
+                        result = '辛' + getLiuQin('辛', originalGongWei) + '：' + bing;
                         break;
                     case '坤':
-                        result = '辛' + getLiuQin('辛', gongwei) + '：' + diwang + '，' + shuai;
+                        result =
+                            '辛' + getLiuQin('辛', originalGongWei) + '：' + diwang + '，' + shuai;
                         break;
                     case '兑':
-                        result = '辛' + getLiuQin('辛', gongwei) + '：' + linguan;
+                        result = '辛' + getLiuQin('辛', originalGongWei) + '：' + linguan;
                         break;
                 }
                 break;
             case '壬':
                 switch (gongwei) {
                     case '乾':
-                        result = '壬' + getLiuQin('壬', gongwei) + '：' + guandai + '，' + linguan;
+                        result =
+                            '壬' +
+                            getLiuQin('壬', originalGongWei) +
+                            '：' +
+                            guandai +
+                            '，' +
+                            linguan;
                         break;
                     case '坎':
-                        result = '壬' + getLiuQin('壬', gongwei) + '：' + diwang;
+                        result = '壬' + getLiuQin('壬', originalGongWei) + '：' + diwang;
                         break;
                     case '艮':
-                        result = '壬' + getLiuQin('壬', gongwei) + '：' + shuai + '，' + bing;
+                        result =
+                            '壬' + getLiuQin('壬', originalGongWei) + '：' + shuai + '，' + bing;
                         break;
                     case '震':
-                        result = '壬' + getLiuQin('壬', gongwei) + '：' + si;
+                        result = '壬' + getLiuQin('壬', originalGongWei) + '：' + si;
                         break;
                     case '巽':
-                        result = '壬' + getLiuQin('壬', gongwei) + '：' + mu + '，' + jue;
+                        result = '壬' + getLiuQin('壬', originalGongWei) + '：' + mu + '，' + jue;
                         break;
                     case '离':
-                        result = '壬' + getLiuQin('壬', gongwei) + '：' + tai;
+                        result = '壬' + getLiuQin('壬', originalGongWei) + '：' + tai;
                         break;
                     case '坤':
-                        result = '壬' + getLiuQin('壬', gongwei) + '：' + yang + '，' + zhangsheng;
+                        result =
+                            '壬' +
+                            getLiuQin('壬', originalGongWei) +
+                            '：' +
+                            yang +
+                            '，' +
+                            zhangsheng;
                         break;
                     case '兑':
-                        result = '壬' + getLiuQin('壬', gongwei) + '：' + muyu;
+                        result = '壬' + getLiuQin('壬', originalGongWei) + '：' + muyu;
                         break;
                 }
                 break;
             case '癸':
                 switch (gongwei) {
                     case '乾':
-                        result = '癸' + getLiuQin('癸', gongwei) + '：' + diwang + '，' + shuai;
+                        result =
+                            '癸' + getLiuQin('癸', originalGongWei) + '：' + diwang + '，' + shuai;
                         break;
                     case '坎':
-                        result = '癸' + getLiuQin('癸', gongwei) + '：' + linguan;
+                        result = '癸' + getLiuQin('癸', originalGongWei) + '：' + linguan;
                         break;
                     case '艮':
-                        result = '癸' + getLiuQin('癸', gongwei) + '：' + muyu + '，' + guandai;
+                        result =
+                            '癸' + getLiuQin('癸', originalGongWei) + '：' + muyu + '，' + guandai;
                         break;
                     case '震':
-                        result = '癸' + getLiuQin('癸', gongwei) + '：' + zhangsheng;
+                        result = '癸' + getLiuQin('癸', originalGongWei) + '：' + zhangsheng;
                         break;
                     case '巽':
-                        result = '癸' + getLiuQin('癸', gongwei) + '：' + tai + '，' + yang;
+                        result = '癸' + getLiuQin('癸', originalGongWei) + '：' + tai + '，' + yang;
                         break;
                     case '离':
-                        result = '癸' + getLiuQin('癸', gongwei) + '：' + jue;
+                        result = '癸' + getLiuQin('癸', originalGongWei) + '：' + jue;
                         break;
                     case '坤':
-                        result = '癸' + getLiuQin('癸', gongwei) + '：' + si + '，' + mu;
+                        result = '癸' + getLiuQin('癸', originalGongWei) + '：' + si + '，' + mu;
                         break;
                     case '兑':
-                        result = '癸' + getLiuQin('癸', gongwei) + '：' + bing;
+                        result = '癸' + getLiuQin('癸', originalGongWei) + '：' + bing;
                         break;
                 }
                 break;
@@ -2496,6 +2547,416 @@ function feipan_info(info) {
                     case '亥':
                         return '天英星值亥时，有女人把火，孩童叫哭，渔公夜吹，水面波涛之应。作用后，如遇疯疾人上门，防有破耗之事。';
                 }
+        }
+    }
+    function getJiGe(tianpangan, dipangan, xing, men, shen, gongwei) {
+        let result = '';
+        // todo 却天三门，地四户，地私门
+        // 天三门
+        // 地四户
+        // 地私门
+
+        // 三诈
+        if (tianpangan == '乙' || tianpangan == '丙' || tianpangan == '丁') {
+            if (men == '开门' || men == '休门' || men == '生门') {
+                if (shen == '太阴') {
+                    result =
+                        result +
+                        '<span style="color:#0079FE">真诈：</span>宜施恩，隐遁，出师，招抚，嫁娶，远行，上官，赶赴，经商，求财。<br><br>';
+                } else if (shen == '九地') {
+                    result =
+                        result +
+                        '<span style="color:#0079FE">重诈：</span>宜进人口，求财，谒贵，出师，埋伏，嫁娶，远行，上官，赶赴，经商，求财。<br><br>';
+                } else if (shen == '六合') {
+                    result =
+                        result +
+                        '<span style="color:#0079FE">休诈：</span>宜合药，治病，嫁娶，远行，上官，赶赴，经商，求财。<br><br>';
+                }
+            }
+        }
+
+        // 五假
+        // 天假
+        if (tianpangan == '丙') {
+            if (men == '景门') {
+                if (shen == '九天') {
+                    if (dipangan == '戊') {
+                        result =
+                            result +
+                            '<span style="color:#0079FE">天假：</span>宜谒贵，上策，发令，结盟。<br><br>';
+                    }
+                }
+            }
+        }
+        // 地假
+        if (tianpangan == '丁') {
+            if (men == '杜门') {
+                if (shen == '九地') {
+                    if (dipangan == '己') {
+                        result =
+                            result +
+                            '<span style="color:#0079FE">地假：</span>宜藏伏，逃难，侦查。<br><br>';
+                    }
+                }
+            }
+        }
+        // 物假
+        if (tianpangan == '丁') {
+            if (men == '杜门') {
+                if (shen == '太阴') {
+                    if (dipangan == '己') {
+                        result =
+                            result +
+                            '<span style="color:#0079FE">物假：</span>宜埋葬，伏藏，交易。<br><br>';
+                    }
+                }
+            }
+        }
+        // 人假
+        if (tianpangan == '壬') {
+            if (men == '惊门') {
+                if (shen == '螣蛇') {
+                    if (gongwei == '坤') {
+                        result =
+                            result +
+                            '<span style="color:#0079FE">人假：</span>宜逋逃，搜隐。<br><br>';
+                    }
+                }
+            }
+        }
+        // 鬼假
+        if (tianpangan == '己') {
+            if (men == '死门') {
+                if (shen == '朱雀' || shen == '玄武') {
+                    if (gongwei == '艮') {
+                        result =
+                            result +
+                            '<span style="color:#0079FE">鬼假：</span>宜修坟，狩猎。<br><br>';
+                    }
+                }
+            }
+        }
+        // 神假
+        if (tianpangan == '庚') {
+            if (men == '伤门') {
+                if (shen == '白虎') {
+                    if (gongwei == '巽') {
+                        result =
+                            result +
+                            '<span style="color:#0079FE">神假：</span>宜埋葬，捕捉，诈亡，嫁娶，贸易等。<br><br>';
+                    }
+                }
+            }
+        }
+
+        // 九遁
+        // 天遁
+        if (tianpangan == '丙') {
+            if (men == '生门') {
+                if (dipangan == '丁') {
+                    result =
+                        result +
+                        '<span style="color:#0079FE">天遁：</span>宜征战，上书，求官，除恶，结婚，贸易，百事生旺。<br><br>';
+                }
+            }
+        }
+        // 地遁
+        if (tianpangan == '乙') {
+            if (men == '开门') {
+                if (dipangan == '己') {
+                    result =
+                        result +
+                        '<span style="color:#0079FE">地遁：</span>宜安营，藏兵，修造，出阵，求财。<br><br>';
+                }
+            }
+        }
+        // 人遁
+        if (tianpangan == '丁') {
+            if (men == '休门') {
+                if (shen == '太阴') {
+                    result =
+                        result +
+                        '<span style="color:#0079FE">人遁：</span>宜攻虚，开路，塞河，造像，教化。<br><br>';
+                }
+            }
+        }
+        // 神遁
+        if (tianpangan == '丙') {
+            if (men == '生门') {
+                if (shen == '九天') {
+                    result =
+                        result +
+                        '<span style="color:#0079FE">神遁：</span>大利功名，开创，宣扬等事。<br><br>';
+                }
+            }
+        }
+        // 鬼遁
+        if (tianpangan == '乙') {
+            if (men == '开门' || men == '生门' || dipangan == '丁') {
+                if (shen == '九地') {
+                    result =
+                        result +
+                        '<span style="color:#0079FE">鬼遁：</span>宜安营，藏兵，修造，出阵，求财。<br><br>';
+                }
+            }
+        }
+        // 风遁
+        if (tianpangan == '辛') {
+            if (men == '休门') {
+                if (gongwei == '巽') {
+                    result =
+                        result +
+                        '<span style="color:#0079FE">风遁：</span>宜烧营截寨，焚粮草，顺风响应。<br><br>';
+                }
+            }
+        }
+        // 云遁
+        if (tianpangan == '乙') {
+            if (men == '休门') {
+                if (gongwei == '震') {
+                    result =
+                        result +
+                        '<span style="color:#0079FE">云遁：</span>宜伏藏变化，兴云致雾，利于出兵。<br><br>';
+                }
+            }
+        }
+        // 龙遁
+        if (tianpangan == '乙') {
+            if (men == '休门') {
+                if (gongwei == '坎' || dipangan == '癸') {
+                    result =
+                        result +
+                        '<span style="color:#0079FE">龙遁：</span>宜请龙祈雨，治水，水战，把守河渡，谋划，修桥，穿井。<br><br>';
+                }
+            }
+        }
+        // 虎遁
+        if (gongwei == '艮') {
+            if (tianpangan == '乙') {
+                if (men == '休门') {
+                    if (dipangan == '辛') {
+                        result =
+                            result +
+                            '<span style="color:#0079FE">虎遁：</span>宜立营，招降，设伏，修造。<br><br>';
+                    }
+                }
+            }
+        }
+        // 文遁
+        if (tianpangan == '乙') {
+            if (men == '生门') {
+                if (dipangan == '丁') {
+                    result =
+                        result +
+                        '<span style="color:#0079FE">文遁：</span>大利文书，谋划等事。<br><br>';
+                }
+            }
+        }
+        // 武遁
+        if (tianpangan == '丙') {
+            if (men == '开门') {
+                if (dipangan == '辛') {
+                    result =
+                        result + '<span style="color:#0079FE">武遁：</span>大利武威等事 。<br><br>';
+                }
+            }
+        }
+
+        if (tianpangan == '乙') {
+            if (dipangan == '丁') {
+                if (men == '生门') {
+                    result =
+                        result +
+                        '<span style="color:#0079FE">日丽中天：</span>宜伤官谒贵，谋望求财，考试科举，投兵任将，嫁娶，造葬，放水。<br><br>';
+                }
+            }
+        }
+        return result;
+    }
+    function mengong(men, gong) {
+        const menpo =
+            '<span style="color:red">门迫：</span>主祸从外来。我居宫室之内，并不欲招非于他，他突然来克我，不知有何关碍，迫来之事最为迅速，要多堤防。<br><br>';
+        const shouzhi =
+            '<span style="color:red">门受制：</span>主内祸重重。因为我安居无事，他却过来惹我，我以郑重克服于他，他也甘受我制，主我侵犯于他。<br><br>';
+        const he =
+            '<span style="color:#0079FE">交和：</span>主喜庆重重。我居穷困之际，并无意去求他，他不辞劳苦，主动来帮助我，我也愿意接受他的帮助。主因外人相助而有喜庆。<br><br>';
+        const yi =
+            '<span style="color:#0079FE">结义：</span>主喜中有脱。他人不远千里而来投奔于我，我也念其诚意，接之以礼，子之以仪，故谓之义。主乐善好施，他人受益。<br><br>';
+        const fuyin =
+            '<span style="color:red">门伏吟：</span>主有灾难，祸不单行，伏地痛苦呻吟之象。宜静不宜动，宜缓不宜速。只宜收敛钱财，讨债等。<br><br>';
+        const fanyin =
+            '<span style="color:red">门反吟：</span>主反复不宁，进后复退，聚而复散，徘徊不定，犹豫不决，半途而废，凡是多重复。宜快刀斩乱麻，速战速决。<br><br>';
+        switch (men) {
+            case '休门':
+                switch (gong) {
+                    case '乾':
+                        return yi;
+                    case '坎':
+                        return fuyin;
+                    case '艮':
+                        return shouzhi;
+                    case '震':
+                        return he;
+                    case '巽':
+                        return he;
+                    case '离':
+                        return fanyin;
+                    case '坤':
+                        return shouzhi;
+                    case '兑':
+                        return he;
+                    case '中':
+                        return shouzhi;
+                }
+            case '生门':
+                switch (gong) {
+                    case '乾':
+                        return he;
+                    case '坎':
+                        return menpo;
+                    case '艮':
+                        return fuyin;
+                    case '震':
+                        return shouzhi;
+                    case '巽':
+                        return shouzhi;
+                    case '离':
+                        return yi;
+                    case '坤':
+                        return fanyin;
+                    case '兑':
+                        return he;
+                    case '中':
+                        return fanyin;
+                }
+            case '伤门':
+                switch (gong) {
+                    case '乾':
+                        return shouzhi;
+                    case '坎':
+                        return yi;
+                    case '艮':
+                        return menpo;
+                    case '震':
+                        return fuyin;
+                    case '巽':
+                        return '';
+                    case '离':
+                        return he;
+                    case '坤':
+                        return menpo;
+                    case '兑':
+                        return fanyin;
+                    case '中':
+                        return menpo;
+                }
+            case '杜门':
+                switch (gong) {
+                    case '乾':
+                        return fanyin;
+                    case '坎':
+                        return yi;
+                    case '艮':
+                        return menpo;
+                    case '震':
+                        return '';
+                    case '巽':
+                        return fuyin;
+                    case '离':
+                        return he;
+                    case '坤':
+                        return menpo;
+                    case '兑':
+                        return shouzhi;
+                    case '中':
+                        return menpo;
+                }
+            case '景门':
+                switch (gong) {
+                    case '乾':
+                        return menpo;
+                    case '坎':
+                        return fanyin;
+                    case '艮':
+                        return he;
+                    case '震':
+                        return yi;
+                    case '巽':
+                        return yi;
+                    case '离':
+                        return fuyin;
+                    case '坤':
+                        return he;
+                    case '兑':
+                        return menpo;
+                    case '中':
+                        return he;
+                }
+            case '死门':
+                switch (gong) {
+                    case '乾':
+                        return he;
+                    case '坎':
+                        return menpo;
+                    case '艮':
+                        return fanyin;
+                    case '震':
+                        return shouzhi;
+                    case '巽':
+                        return shouzhi;
+                    case '离':
+                        return yi;
+                    case '坤':
+                        return fuyin;
+                    case '兑':
+                        return he;
+                    case '中':
+                        return fanyin;
+                }
+            case '惊门':
+                switch (gong) {
+                    case '乾':
+                        return '';
+                    case '坎':
+                        return he;
+                    case '艮':
+                        return yi;
+                    case '震':
+                        return fanyin;
+                    case '巽':
+                        return menpo;
+                    case '离':
+                        return shouzhi;
+                    case '坤':
+                        return yi;
+                    case '兑':
+                        return fuyin;
+                    case '中':
+                        return yi;
+                }
+            case '开门':
+                switch (gong) {
+                    case '乾':
+                        return fuyin;
+                    case '坎':
+                        return he;
+                    case '艮':
+                        return yi;
+                    case '震':
+                        return menpo;
+                    case '巽':
+                        return fanyin;
+                    case '离':
+                        return shouzhi;
+                    case '坤':
+                        return yi;
+                    case '兑':
+                        return '';
+                    case '中':
+                        return yi;
+                }
+            case '中门':
+                return '';
         }
     }
 }

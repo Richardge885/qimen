@@ -1,13 +1,20 @@
 const { ipcRenderer } = require('electron');
 ipcRenderer.on('传统转盘排盘', (e, data) => {
-    const [year, month, day] = data.time.yangli.split('/').map((str) => parseInt(str));
+    const [year, month, day] = data.time.yangli
+        .split('/')
+        .map((str) => parseInt(str));
     updateTimeInfo(data, year, month, day, data.hour);
     updateXunShou(data.paipan.xunshou);
     updateDun(data.paipan.dun);
     updateJushu(data.paipan.jushu);
     updateFuShi(data.paipan.fushi.zhifu, data.paipan.fushi.zhishi);
     paiDiPanGan(data.paipan.dipangan);
-    paiAnGanZhi(data.paipan.anganzhi, data.paipan.dun, data.paipan.dipangan, data.paipan.xunshou);
+    paiAnGanZhi(
+        data.paipan.anganzhi,
+        data.paipan.dun,
+        data.paipan.dipangan,
+        data.paipan.xunshou
+    );
     paiMaXing(data.paipan.maxing);
     paiKongWang(data.paipan.kongwang);
     paiBaMen(data.paipan.bamen, document.getElementById('shi').innerText);
@@ -19,7 +26,7 @@ ipcRenderer.on('传统转盘排盘', (e, data) => {
     renderImportantColor(
         data.paipan.fushi.zhishi,
         document.getElementById('shi').innerHTML,
-        document.getElementById('ri').innerHTML,
+        document.getElementById('ri').innerHTML
     );
     zhuanpan_info(info);
 });
@@ -422,7 +429,6 @@ function paiTianPanShen(dun, shigan) {
             }
         }
         for (let i = 0; i < 8; i++) {
-            console.log(shen[i]);
             shenArray[shunxu[i]].innerHTML = shen[i];
         }
     }
@@ -554,8 +560,13 @@ function renderImportantColor(zhishi, shigan, rigan) {
         if (jigong[i].innerHTML == rigan) {
             jigong[i].classList.add('rigan');
         }
-        if (document.querySelectorAll('[data-dipanyikong]')[i].innerHTML == rigan) {
-            document.querySelectorAll('[data-dipanyikong]')[i].classList.add('rigan');
+        if (
+            document.querySelectorAll('[data-dipanyikong]')[i].innerHTML ==
+            rigan
+        ) {
+            document
+                .querySelectorAll('[data-dipanyikong]')
+                [i].classList.add('rigan');
         }
         if (dipangan[i].innerHTML == rigan) {
             dipangan[i].classList.add('rigan');
@@ -575,9 +586,16 @@ function renderImportantColor(zhishi, shigan, rigan) {
             dipangan[i].classList.remove('rigan');
             dipangan[i].classList.add('important');
         }
-        if (document.querySelectorAll('[data-dipanyikong]')[i].innerHTML == shigan) {
-            document.querySelectorAll('[data-dipanyikong]')[i].classList.remove('rigan');
-            document.querySelectorAll('[data-dipanyikong]')[i].classList.add('shigan');
+        if (
+            document.querySelectorAll('[data-dipanyikong]')[i].innerHTML ==
+            shigan
+        ) {
+            document
+                .querySelectorAll('[data-dipanyikong]')
+                [i].classList.remove('rigan');
+            document
+                .querySelectorAll('[data-dipanyikong]')
+                [i].classList.add('shigan');
         }
         if (tianpanshen[i].innerHTML == '值符') {
             tianpanshen[i].classList.add('important');

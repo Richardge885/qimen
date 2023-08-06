@@ -954,230 +954,6 @@ function zhuanpan_info(info) {
         }
         return output;
     }
-    function getJiGe(tianpangan, dipangan, xing, men, shen, gongwei) {
-        let result = '';
-        // todo 却天三门，地四户，地私门
-        // 天三门
-        // 地四户
-        // 地私门
-
-        // 三诈
-        if (tianpangan == '乙' || tianpangan == '丙' || tianpangan == '丁') {
-            if (men == '开门' || men == '休门' || men == '生门') {
-                if (shen == '太阴') {
-                    result =
-                        result +
-                        '<span style="color:#0079FE">真诈：</span>宜施恩，隐遁，出师，招抚，嫁娶，远行，上官，赶赴，经商，求财。<br><br>';
-                } else if (shen == '九地') {
-                    result =
-                        result +
-                        '<span style="color:#0079FE">重诈：</span>宜进人口，求财，谒贵，出师，埋伏，嫁娶，远行，上官，赶赴，经商，求财。<br><br>';
-                } else if (shen == '六合') {
-                    result =
-                        result +
-                        '<span style="color:#0079FE">休诈：</span>宜合药，治病，嫁娶，远行，上官，赶赴，经商，求财。<br><br>';
-                }
-            }
-        }
-
-        // 五假
-        // 天假
-        if (tianpangan == '丙') {
-            if (men == '景门') {
-                if (shen == '九天') {
-                    if (dipangan == '戊') {
-                        result =
-                            result +
-                            '<span style="color:#0079FE">天假：</span>宜谒贵，上策，发令，结盟。<br><br>';
-                    }
-                }
-            }
-        }
-        // 地假
-        if (tianpangan == '丁') {
-            if (men == '杜门') {
-                if (shen == '九地') {
-                    if (dipangan == '己') {
-                        result =
-                            result +
-                            '<span style="color:#0079FE">地假：</span>宜藏伏，逃难，侦查。<br><br>';
-                    }
-                }
-            }
-        }
-        // 物假
-        if (tianpangan == '丁') {
-            if (men == '杜门') {
-                if (shen == '太阴') {
-                    if (dipangan == '己') {
-                        result =
-                            result +
-                            '<span style="color:#0079FE">物假：</span>宜埋葬，伏藏，交易。<br><br>';
-                    }
-                }
-            }
-        }
-        // 人假
-        if (tianpangan == '壬') {
-            if (men == '惊门') {
-                if (shen == '螣蛇') {
-                    if (gongwei == '坤') {
-                        result =
-                            result +
-                            '<span style="color:#0079FE">人假：</span>宜逋逃，搜隐。<br><br>';
-                    }
-                }
-            }
-        }
-        // 鬼假
-        if (tianpangan == '己') {
-            if (men == '死门') {
-                if (shen == '朱雀' || shen == '玄武') {
-                    if (gongwei == '艮') {
-                        result =
-                            result +
-                            '<span style="color:#0079FE">鬼假：</span>宜修坟，狩猎。<br><br>';
-                    }
-                }
-            }
-        }
-        // 神假
-        if (tianpangan == '庚') {
-            if (men == '伤门') {
-                if (shen == '白虎') {
-                    if (gongwei == '巽') {
-                        result =
-                            result +
-                            '<span style="color:#0079FE">神假：</span>宜埋葬，捕捉，诈亡，嫁娶，贸易等。<br><br>';
-                    }
-                }
-            }
-        }
-
-        // 九遁
-        // 天遁
-        if (tianpangan == '丙') {
-            if (men == '生门') {
-                if (dipangan == '丁') {
-                    result =
-                        result +
-                        '<span style="color:#0079FE">天遁：</span>宜征战，上书，求官，除恶，结婚，贸易，百事生旺。<br><br>';
-                }
-            }
-        }
-        // 地遁
-        if (tianpangan == '乙') {
-            if (men == '开门') {
-                if (dipangan == '己') {
-                    result =
-                        result +
-                        '<span style="color:#0079FE">地遁：</span>宜安营，藏兵，修造，出阵，求财。<br><br>';
-                }
-            }
-        }
-        // 人遁
-        if (tianpangan == '丁') {
-            if (men == '休门') {
-                if (shen == '太阴') {
-                    result =
-                        result +
-                        '<span style="color:#0079FE">人遁：</span>宜攻虚，开路，塞河，造像，教化。<br><br>';
-                }
-            }
-        }
-        // 神遁
-        if (tianpangan == '丙') {
-            if (men == '生门') {
-                if (shen == '九天') {
-                    result =
-                        result +
-                        '<span style="color:#0079FE">神遁：</span>大利功名，开创，宣扬等事。<br><br>';
-                }
-            }
-        }
-        // 鬼遁
-        if (tianpangan == '乙') {
-            if (men == '开门' || men == '生门' || dipangan == '丁') {
-                if (shen == '九地') {
-                    result =
-                        result +
-                        '<span style="color:#0079FE">鬼遁：</span>宜安营，藏兵，修造，出阵，求财。<br><br>';
-                }
-            }
-        }
-        // 风遁
-        if (tianpangan == '辛') {
-            if (men == '休门') {
-                if (gongwei == '巽') {
-                    result =
-                        result +
-                        '<span style="color:#0079FE">风遁：</span>宜烧营截寨，焚粮草，顺风响应。<br><br>';
-                }
-            }
-        }
-        // 云遁
-        if (tianpangan == '乙') {
-            if (men == '休门') {
-                if (gongwei == '震') {
-                    result =
-                        result +
-                        '<span style="color:#0079FE">云遁：</span>宜伏藏变化，兴云致雾，利于出兵。<br><br>';
-                }
-            }
-        }
-        // 龙遁
-        if (tianpangan == '乙') {
-            if (men == '休门') {
-                if (gongwei == '坎' || dipangan == '癸') {
-                    result =
-                        result +
-                        '<span style="color:#0079FE">龙遁：</span>宜请龙祈雨，治水，水战，把守河渡，谋划，修桥，穿井。<br><br>';
-                }
-            }
-        }
-        // 虎遁
-        if (gongwei == '艮') {
-            if (tianpangan == '乙') {
-                if (men == '休门') {
-                    if (dipangan == '辛') {
-                        result =
-                            result +
-                            '<span style="color:#0079FE">虎遁：</span>宜立营，招降，设伏，修造。<br><br>';
-                    }
-                }
-            }
-        }
-        // 文遁
-        if (tianpangan == '乙') {
-            if (men == '生门') {
-                if (dipangan == '丁') {
-                    result =
-                        result +
-                        '<span style="color:#0079FE">文遁：</span>大利文书，谋划等事。<br><br>';
-                }
-            }
-        }
-        // 武遁
-        if (tianpangan == '丙') {
-            if (men == '开门') {
-                if (dipangan == '辛') {
-                    result =
-                        result + '<span style="color:#0079FE">武遁：</span>大利武威等事 。<br><br>';
-                }
-            }
-        }
-
-        if (tianpangan == '乙') {
-            if (dipangan == '丁') {
-                if (men == '生门') {
-                    result =
-                        result +
-                        '<span style="color:#0079FE">日丽中天：</span>宜伤官谒贵，谋望求财，考试科举，投兵任将，嫁娶，造葬，放水。<br><br>';
-                }
-            }
-        }
-        return result;
-    }
     function getZhangSheng(tiangan, gongwei) {
         const zhangsheng = '<span style="color:red">长生</span>';
         const muyu = '沐浴';
@@ -1747,5 +1523,229 @@ function zhuanpan_info(info) {
                         return '天英星值亥时，有女人把火，孩童叫哭，渔公夜吹，水面波涛之应。作用后，如遇疯疾人上门，防有破耗之事。';
                 }
         }
+    }
+    function getJiGe(tianpangan, dipangan, xing, men, shen, gongwei) {
+        let result = '';
+        // todo 却天三门，地四户，地私门
+        // 天三门
+        // 地四户
+        // 地私门
+
+        // 三诈
+        if (tianpangan == '乙' || tianpangan == '丙' || tianpangan == '丁') {
+            if (men == '开门' || men == '休门' || men == '生门') {
+                if (shen == '太阴') {
+                    result =
+                        result +
+                        '<span style="color:#0079FE">真诈：</span>宜施恩，隐遁，出师，招抚，嫁娶，远行，上官，赶赴，经商，求财。<br><br>';
+                } else if (shen == '九地') {
+                    result =
+                        result +
+                        '<span style="color:#0079FE">重诈：</span>宜进人口，求财，谒贵，出师，埋伏，嫁娶，远行，上官，赶赴，经商，求财。<br><br>';
+                } else if (shen == '六合') {
+                    result =
+                        result +
+                        '<span style="color:#0079FE">休诈：</span>宜合药，治病，嫁娶，远行，上官，赶赴，经商，求财。<br><br>';
+                }
+            }
+        }
+
+        // 五假
+        // 天假
+        if (tianpangan == '丙') {
+            if (men == '景门') {
+                if (shen == '九天') {
+                    if (dipangan == '戊') {
+                        result =
+                            result +
+                            '<span style="color:#0079FE">天假：</span>宜谒贵，上策，发令，结盟。<br><br>';
+                    }
+                }
+            }
+        }
+        // 地假
+        if (tianpangan == '丁') {
+            if (men == '杜门') {
+                if (shen == '九地') {
+                    if (dipangan == '己') {
+                        result =
+                            result +
+                            '<span style="color:#0079FE">地假：</span>宜藏伏，逃难，侦查。<br><br>';
+                    }
+                }
+            }
+        }
+        // 物假
+        if (tianpangan == '丁') {
+            if (men == '杜门') {
+                if (shen == '太阴') {
+                    if (dipangan == '己') {
+                        result =
+                            result +
+                            '<span style="color:#0079FE">物假：</span>宜埋葬，伏藏，交易。<br><br>';
+                    }
+                }
+            }
+        }
+        // 人假
+        if (tianpangan == '壬') {
+            if (men == '惊门') {
+                if (shen == '螣蛇') {
+                    if (gongwei == '坤') {
+                        result =
+                            result +
+                            '<span style="color:#0079FE">人假：</span>宜逋逃，搜隐。<br><br>';
+                    }
+                }
+            }
+        }
+        // 鬼假
+        if (tianpangan == '己') {
+            if (men == '死门') {
+                if (shen == '朱雀' || shen == '玄武') {
+                    if (gongwei == '艮') {
+                        result =
+                            result +
+                            '<span style="color:#0079FE">鬼假：</span>宜修坟，狩猎。<br><br>';
+                    }
+                }
+            }
+        }
+        // 神假
+        if (tianpangan == '庚') {
+            if (men == '伤门') {
+                if (shen == '白虎') {
+                    if (gongwei == '巽') {
+                        result =
+                            result +
+                            '<span style="color:#0079FE">神假：</span>宜埋葬，捕捉，诈亡，嫁娶，贸易等。<br><br>';
+                    }
+                }
+            }
+        }
+
+        // 九遁
+        // 天遁
+        if (tianpangan == '丙') {
+            if (men == '生门') {
+                if (dipangan == '丁') {
+                    result =
+                        result +
+                        '<span style="color:#0079FE">天遁：</span>宜征战，上书，求官，除恶，结婚，贸易，百事生旺。<br><br>';
+                }
+            }
+        }
+        // 地遁
+        if (tianpangan == '乙') {
+            if (men == '开门') {
+                if (dipangan == '己') {
+                    result =
+                        result +
+                        '<span style="color:#0079FE">地遁：</span>宜安营，藏兵，修造，出阵，求财。<br><br>';
+                }
+            }
+        }
+        // 人遁
+        if (tianpangan == '丁') {
+            if (men == '休门') {
+                if (shen == '太阴') {
+                    result =
+                        result +
+                        '<span style="color:#0079FE">人遁：</span>宜攻虚，开路，塞河，造像，教化。<br><br>';
+                }
+            }
+        }
+        // 神遁
+        if (tianpangan == '丙') {
+            if (men == '生门') {
+                if (shen == '九天') {
+                    result =
+                        result +
+                        '<span style="color:#0079FE">神遁：</span>大利功名，开创，宣扬等事。<br><br>';
+                }
+            }
+        }
+        // 鬼遁
+        if (tianpangan == '乙') {
+            if (men == '开门' || men == '生门' || dipangan == '丁') {
+                if (shen == '九地') {
+                    result =
+                        result +
+                        '<span style="color:#0079FE">鬼遁：</span>宜安营，藏兵，修造，出阵，求财。<br><br>';
+                }
+            }
+        }
+        // 风遁
+        if (tianpangan == '辛') {
+            if (men == '休门') {
+                if (gongwei == '巽') {
+                    result =
+                        result +
+                        '<span style="color:#0079FE">风遁：</span>宜烧营截寨，焚粮草，顺风响应。<br><br>';
+                }
+            }
+        }
+        // 云遁
+        if (tianpangan == '乙') {
+            if (men == '休门') {
+                if (gongwei == '震') {
+                    result =
+                        result +
+                        '<span style="color:#0079FE">云遁：</span>宜伏藏变化，兴云致雾，利于出兵。<br><br>';
+                }
+            }
+        }
+        // 龙遁
+        if (tianpangan == '乙') {
+            if (men == '休门') {
+                if (gongwei == '坎' || dipangan == '癸') {
+                    result =
+                        result +
+                        '<span style="color:#0079FE">龙遁：</span>宜请龙祈雨，治水，水战，把守河渡，谋划，修桥，穿井。<br><br>';
+                }
+            }
+        }
+        // 虎遁
+        if (gongwei == '艮') {
+            if (tianpangan == '乙') {
+                if (men == '休门') {
+                    if (dipangan == '辛') {
+                        result =
+                            result +
+                            '<span style="color:#0079FE">虎遁：</span>宜立营，招降，设伏，修造。<br><br>';
+                    }
+                }
+            }
+        }
+        // 文遁
+        if (tianpangan == '乙') {
+            if (men == '生门') {
+                if (dipangan == '丁') {
+                    result =
+                        result +
+                        '<span style="color:#0079FE">文遁：</span>大利文书，谋划等事。<br><br>';
+                }
+            }
+        }
+        // 武遁
+        if (tianpangan == '丙') {
+            if (men == '开门') {
+                if (dipangan == '辛') {
+                    result =
+                        result + '<span style="color:#0079FE">武遁：</span>大利武威等事 。<br><br>';
+                }
+            }
+        }
+
+        if (tianpangan == '乙') {
+            if (dipangan == '丁') {
+                if (men == '生门') {
+                    result =
+                        result +
+                        '<span style="color:#0079FE">日丽中天：</span>宜伤官谒贵，谋望求财，考试科举，投兵任将，嫁娶，造葬，放水。<br><br>';
+                }
+            }
+        }
+        return result;
     }
 }
