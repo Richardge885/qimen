@@ -1925,7 +1925,11 @@ function feipan_info(info) {
                             zhangsheng;
                         break;
                     case '震':
-                        result = '戊' + getLiuQin('戊', originalGongWei) + '：' + muyu;
+                        result =
+                            '<span style="color:red">戊</span>' +
+                            getLiuQin('戊', originalGongWei) +
+                            '：' +
+                            muyu;
                         break;
                     case '巽':
                         result =
@@ -1971,7 +1975,12 @@ function feipan_info(info) {
                         break;
                     case '坤':
                         result =
-                            '己' + getLiuQin('己', originalGongWei) + '：' + muyu + '，' + guandai;
+                            '<span style="color:red">己</span>' +
+                            getLiuQin('己', originalGongWei) +
+                            '：' +
+                            muyu +
+                            '，' +
+                            guandai;
                         break;
                     case '兑':
                         result = '己' + getLiuQin('己', originalGongWei) + '：' + zhangsheng;
@@ -1988,7 +1997,13 @@ function feipan_info(info) {
                         result = '庚' + getLiuQin('庚', originalGongWei) + '：' + si;
                         break;
                     case '艮':
-                        result = '庚' + getLiuQin('庚', originalGongWei) + '：' + mu + '，' + jue;
+                        result =
+                            '<span style="color:red">庚</span>' +
+                            getLiuQin('庚', originalGongWei) +
+                            '：' +
+                            mu +
+                            '，' +
+                            jue;
                         break;
                     case '震':
                         result = '庚' + getLiuQin('庚', originalGongWei) + '：' + tai;
@@ -2038,7 +2053,11 @@ function feipan_info(info) {
                         result = '辛' + getLiuQin('辛', originalGongWei) + '：' + si + '，' + mu;
                         break;
                     case '离':
-                        result = '辛' + getLiuQin('辛', originalGongWei) + '：' + bing;
+                        result =
+                            '<span style="color:red">辛</span>' +
+                            getLiuQin('辛', originalGongWei) +
+                            '：' +
+                            bing;
                         break;
                     case '坤':
                         result =
@@ -2071,7 +2090,13 @@ function feipan_info(info) {
                         result = '壬' + getLiuQin('壬', originalGongWei) + '：' + si;
                         break;
                     case '巽':
-                        result = '壬' + getLiuQin('壬', originalGongWei) + '：' + mu + '，' + jue;
+                        result =
+                            '<span style="color:red">壬</span>' +
+                            getLiuQin('壬', originalGongWei) +
+                            '：' +
+                            mu +
+                            '，' +
+                            jue;
                         break;
                     case '离':
                         result = '壬' + getLiuQin('壬', originalGongWei) + '：' + tai;
@@ -2107,7 +2132,13 @@ function feipan_info(info) {
                         result = '癸' + getLiuQin('癸', originalGongWei) + '：' + zhangsheng;
                         break;
                     case '巽':
-                        result = '癸' + getLiuQin('癸', originalGongWei) + '：' + tai + '，' + yang;
+                        result =
+                            '<span style="color:red">癸</span>' +
+                            getLiuQin('癸', originalGongWei) +
+                            '：' +
+                            tai +
+                            '，' +
+                            yang;
                         break;
                     case '离':
                         result = '癸' + getLiuQin('癸', originalGongWei) + '：' + jue;
