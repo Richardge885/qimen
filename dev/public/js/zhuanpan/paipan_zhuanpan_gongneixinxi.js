@@ -1066,7 +1066,7 @@ function zhuanpan_info(info) {
                         result = '戊：' + yang + '，' + zhangsheng;
                         break;
                     case '震':
-                        result = '戊：' + muyu;
+                        result = '<span style="color:red">戊：</span>' + muyu;
                         break;
                     case '巽':
                         result = '戊：' + guandai + '，' + linguan;
@@ -1103,7 +1103,7 @@ function zhuanpan_info(info) {
                         result = '己：' + linguan;
                         break;
                     case '坤':
-                        result = '己：' + muyu + '，' + guandai;
+                        result = '<span style="color:red">己：</span>' + muyu + '，' + guandai;
                         break;
                     case '兑':
                         result = '己：' + zhangsheng;
@@ -1119,7 +1119,7 @@ function zhuanpan_info(info) {
                         result = '庚：' + si;
                         break;
                     case '艮':
-                        result = '庚：' + mu + '，' + jue;
+                        result = '<span style="color:red">庚：</span>' + mu + '，' + jue;
                         break;
                     case '震':
                         result = '庚：' + tai;
@@ -1156,7 +1156,7 @@ function zhuanpan_info(info) {
                         result = '辛：' + si + '，' + mu;
                         break;
                     case '离':
-                        result = '辛：' + bing;
+                        result = '<span style="color:red">辛：</span>' + bing;
                         break;
                     case '坤':
                         result = '辛：' + diwang + '，' + shuai;
@@ -1181,7 +1181,7 @@ function zhuanpan_info(info) {
                         result = '壬：' + si;
                         break;
                     case '巽':
-                        result = '壬：' + mu + '，' + jue;
+                        result = '<span style="color:red">壬：</span>' + mu + '，' + jue;
                         break;
                     case '离':
                         result = '壬：' + tai;
@@ -1209,7 +1209,7 @@ function zhuanpan_info(info) {
                         result = '癸：' + zhangsheng;
                         break;
                     case '巽':
-                        result = '癸：' + tai + '，' + yang;
+                        result = '<span style="color:red">癸：</span>' + tai + '，' + yang;
                         break;
                     case '离':
                         result = '癸：' + jue;
