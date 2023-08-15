@@ -508,57 +508,74 @@ function feipan_info(info) {
                 getZhangSheng(tianpangan, gong) +
                 getZhangSheng(dipangan, gong) +
                 getZhangSheng('甲', gong) +
-                '<br>' +
+                '<br><hr><br>' +
                 mengong(men, gong) +
                 getZhengGe(tianpangan, dipangan) +
                 '<br>';
             if (tianpanjia == true && dipanjia == true) {
                 result =
                     result +
-                    mengong(men, gong) +
                     getZhengGe('甲', '甲') +
                     '<br>' +
                     getZhengGe(tianpangan, '甲') +
                     '<br>' +
                     getZhengGe('甲', dipangan) +
-                    '<br>' +
+                    '<br><hr><br>' +
                     getFuGe(tianpangan, gong) +
                     '<br><br>' +
-                    getFuGe('甲', gong);
+                    getFuGe('甲', gong) +
+                    '<br><br><hr><br>' +
+                    getShenSha(
+                        document.querySelectorAll('[data-anganzhi]')[whichGong].innerText.charAt(1),
+                        gong,
+                    );
             } else if (tianpanjia == true) {
                 result =
                     result +
-                    mengong(men, gong) +
                     getZhengGe('甲', dipangan) +
-                    '<br>' +
+                    '<br><hr><br>' +
                     getFuGe(tianpangan, gong) +
                     '<br><br>' +
                     getFuGe(dipangan, gong) +
                     '<br><br>' +
-                    getFuGe('甲', gong);
+                    getFuGe('甲', gong) +
+                    '<br><br><hr><br>' +
+                    getShenSha(
+                        document.querySelectorAll('[data-anganzhi]')[whichGong].innerText.charAt(1),
+                        gong,
+                    );
             } else if (dipanjia == true) {
                 result =
                     result +
-                    mengong(men, gong) +
                     getZhengGe(tianpangan, '甲') +
-                    '<br>' +
+                    '<br><hr><br>' +
                     getFuGe(tianpangan, gong) +
                     '<br><br>' +
                     getFuGe(dipangan, gong) +
                     '<br><br>' +
-                    getFuGe('甲', gong);
+                    getFuGe('甲', gong) +
+                    '<br><br><hr><br>' +
+                    getShenSha(
+                        document.querySelectorAll('[data-anganzhi]')[whichGong].innerText.charAt(1),
+                        gong,
+                    );
             }
         } else {
             result =
                 getZhangSheng(tianpangan, gong) +
                 getZhangSheng(dipangan, gong) +
-                '<br>' +
+                '<br><hr><br>' +
                 mengong(men, gong) +
                 getZhengGe(tianpangan, dipangan) +
-                '<br>' +
+                '<br><hr><br>' +
                 getFuGe(tianpangan, gong) +
                 '<br><br>' +
-                getFuGe(dipangan, gong);
+                getFuGe(dipangan, gong) +
+                '<br><br><hr><br>' +
+                getShenSha(
+                    document.querySelectorAll('[data-anganzhi]')[whichGong].innerText.charAt(1),
+                    gong,
+                );
         }
         result = result + '<br><br>' + getJiGe(tianpangan, dipangan, xing, men, tianpanshen, gong);
         return result;
@@ -2775,17 +2792,17 @@ function feipan_info(info) {
     }
     function mengong(men, gong) {
         const menpo =
-            '<span style="color:red">门迫：</span>主祸从外来。我居宫室之内，并不欲招非于他，他突然来克我，不知有何关碍，迫来之事最为迅速，要多堤防。<br><br>';
+            '门+宫：<br><span style="color:red">门迫：</span>主祸从外来。我居宫室之内，并不欲招非于他，他突然来克我，不知有何关碍，迫来之事最为迅速，要多堤防。<br><br><hr><br>';
         const shouzhi =
-            '<span style="color:red">门受制：</span>主内祸重重。因为我安居无事，他却过来惹我，我以郑重克服于他，他也甘受我制，主我侵犯于他。<br><br>';
+            '门+宫：<br><span style="color:red">门受制：</span>主内祸重重。因为我安居无事，他却过来惹我，我以郑重克服于他，他也甘受我制，主我侵犯于他。<br><br><hr><br>';
         const he =
-            '<span style="color:#0079FE">交和：</span>主喜庆重重。我居穷困之际，并无意去求他，他不辞劳苦，主动来帮助我，我也愿意接受他的帮助。主因外人相助而有喜庆。<br><br>';
+            '门+宫：<br><span style="color:#0079FE">交和：</span>主喜庆重重。我居穷困之际，并无意去求他，他不辞劳苦，主动来帮助我，我也愿意接受他的帮助。主因外人相助而有喜庆。<br><br><hr><br>';
         const yi =
-            '<span style="color:#0079FE">结义：</span>主喜中有脱。他人不远千里而来投奔于我，我也念其诚意，接之以礼，子之以仪，故谓之义。主乐善好施，他人受益。<br><br>';
+            '门+宫：<br><span style="color:#0079FE">结义：</span>主喜中有脱。他人不远千里而来投奔于我，我也念其诚意，接之以礼，子之以仪，故谓之义。主乐善好施，他人受益。<br><br><hr><br>';
         const fuyin =
-            '<span style="color:red">门伏吟：</span>主有灾难，祸不单行，伏地痛苦呻吟之象。宜静不宜动，宜缓不宜速。只宜收敛钱财，讨债等。<br><br>';
+            '门+宫：<br><span style="color:red">门伏吟：</span>主有灾难，祸不单行，伏地痛苦呻吟之象。宜静不宜动，宜缓不宜速。只宜收敛钱财，讨债等。<br><br><hr><br>';
         const fanyin =
-            '<span style="color:red">门反吟：</span>主反复不宁，进后复退，聚而复散，徘徊不定，犹豫不决，半途而废，凡是多重复。宜快刀斩乱麻，速战速决。<br><br>';
+            '门+宫：<br><span style="color:red">门反吟：</span>主反复不宁，进后复退，聚而复散，徘徊不定，犹豫不决，半途而废，凡是多重复。宜快刀斩乱麻，速战速决。<br><br><hr><br>';
         switch (men) {
             case '休门':
                 switch (gong) {
@@ -2957,6 +2974,1458 @@ function feipan_info(info) {
                 }
             case '中门':
                 return '';
+        }
+    }
+    function getShenSha(anzhi, gongwei) {
+        let result = '神煞：<br>';
+        const ri = document.getElementById('ri').innerText;
+        shichen = document.getElementById('shi').innerText.charAt(1);
+        const guiren = '<span style="color:#0079FE">贵人：</span>主逢凶化吉，有贵人帮扶<br>';
+        const deshen = '<span style="color:#0079FE">德神：</span>主财利福德，助吉抑凶<br>';
+        const lushen = '<span style="color:#0079FE">禄神：</span>主钱财，福禄，工作，饮食等<br>';
+        const waitaohua = '<span style="color:red">外桃花：</span>主明目张胆，在外风流<br>';
+        const yima = '<span style="color:#0079FE">驿马：</span>为动迁之神，主出行、变动<br>';
+        const huima = '<span style="color:#0079FE">回马：</span>主动身回家，返回原地<br>';
+        const posui = '<span style="color:red">破碎：</span>主物破，财损、血光一方分之伤等<br>';
+        const jiesha = '<span style="color:red">劫煞：</span>主劫盗伤杀之事也主快速之意。<br>';
+        const neitaohua = '<span style="color:red">内桃花：</span>也为暗桃花，主暗地里偷偷摸摸<br>';
+        const huagai = '<span style="color:#0079FE">华盖：</span>主人暗昧不明，有屈难伸<br>';
+        // 日干神煞
+        if (
+            shichen == '子' ||
+            shichen == '丑' ||
+            shichen == '寅' ||
+            shichen == '卯' ||
+            shichen == '辰' ||
+            shichen == '巳'
+        ) {
+            switch (ri.charAt(0)) {
+                case '甲':
+                    if (anzhi == '未') {
+                        result = result + guiren;
+                    }
+                    if (anzhi == '寅') {
+                        result = result + deshen + lushen;
+                    }
+                    if (anzhi == '子') {
+                        result = result + waitaohua;
+                    }
+                    break;
+                case '乙':
+                    if (anzhi == '申') {
+                        result = result + guiren;
+                    }
+                    if (anzhi == '申') {
+                        result = result + deshen;
+                    }
+                    if (anzhi == '卯') {
+                        result = result + lushen;
+                    }
+                    if (anzhi == '子') {
+                        result = result + waitaohua;
+                    }
+                    break;
+                case '丙':
+                    if (anzhi == '酉') {
+                        result = result + guiren;
+                    }
+                    if (anzhi == '巳') {
+                        result = result + deshen + lushen;
+                    }
+                    if (anzhi == '卯') {
+                        result = result + waitaohua;
+                    }
+                    break;
+                case '丁':
+                    if (anzhi == '亥') {
+                        result = result + guiren;
+                    }
+                    if (anzhi == '亥') {
+                        result = result + deshen;
+                    }
+                    if (anzhi == '午') {
+                        result = result + lushen;
+                    }
+                    if (anzhi == '卯') {
+                        result = result + waitaohua;
+                    }
+                    break;
+                case '戊':
+                    if (anzhi == '丑') {
+                        result = result + guiren;
+                    }
+                    if (anzhi == '巳') {
+                        result = result + deshen + lushen;
+                    }
+                    if (anzhi == '卯') {
+                        result = result + waitaohua;
+                    }
+                    break;
+                case '己':
+                    if (anzhi == '子') {
+                        result = result + guiren;
+                    }
+                    if (anzhi == '寅') {
+                        result = result + deshen;
+                    }
+                    if (anzhi == '午') {
+                        result = result + lushen;
+                    }
+                    if (anzhi == '卯') {
+                        result = result + waitaohua;
+                    }
+                    break;
+                case '庚':
+                    if (anzhi == '丑') {
+                        result = result + guiren;
+                    }
+                    if (anzhi == '申') {
+                        result = result + deshen + lushen;
+                    }
+                    if (anzhi == '午') {
+                        result = result + waitaohua;
+                    }
+                    break;
+                case '辛':
+                    if (anzhi == '寅') {
+                        result = result + guiren;
+                    }
+                    if (anzhi == '巳') {
+                        result = result + deshen;
+                    }
+                    if (anzhi == '酉') {
+                        result = result + lushen;
+                    }
+                    if (anzhi == '午') {
+                        result = result + waitaohua;
+                    }
+                    break;
+                case '壬':
+                    if (anzhi == '卯') {
+                        result = result + guiren;
+                    }
+                    if (anzhi == '亥') {
+                        result = result + deshen + lushen;
+                    }
+                    if (anzhi == '酉') {
+                        result = result + waitaohua;
+                    }
+                    break;
+                case '癸':
+                    if (anzhi == '巳') {
+                        result = result + guiren;
+                    }
+                    if (anzhi == '巳') {
+                        result = result + deshen;
+                    }
+                    if (anzhi == '子') {
+                        result = result + lushen;
+                    }
+                    if (anzhi == '酉') {
+                        result = result + waitaohua;
+                    }
+                    break;
+            }
+        } else {
+            switch (ri.charAt(0)) {
+                case '甲':
+                    if (anzhi == '丑') {
+                        result = result + guiren;
+                    }
+                    if (anzhi == '寅') {
+                        result = result + deshen + lushen;
+                    }
+                    if (anzhi == '子') {
+                        result = result + waitaohua;
+                    }
+                    break;
+                case '乙':
+                    if (anzhi == '子') {
+                        result = result + guiren;
+                    }
+                    if (anzhi == '申') {
+                        result = result + deshen;
+                    }
+                    if (anzhi == '卯') {
+                        result = result + lushen;
+                    }
+                    if (anzhi == '子') {
+                        result = result + waitaohua;
+                    }
+                    break;
+                case '丙':
+                    if (anzhi == '亥') {
+                        result = result + guiren;
+                    }
+                    if (anzhi == '巳') {
+                        result = result + deshen + lushen;
+                    }
+                    if (anzhi == '卯') {
+                        result = result + waitaohua;
+                    }
+                    break;
+                case '丁':
+                    if (anzhi == '酉') {
+                        result = result + guiren;
+                    }
+                    if (anzhi == '亥') {
+                        result = result + deshen;
+                    }
+                    if (anzhi == '午') {
+                        result = result + lushen;
+                    }
+                    if (anzhi == '卯') {
+                        result = result + waitaohua;
+                    }
+                    break;
+                case '戊':
+                    if (anzhi == '丑') {
+                        result = result + guiren;
+                    }
+                    if (anzhi == '巳') {
+                        result = result + deshen + lushen;
+                    }
+                    if (anzhi == '卯') {
+                        result = result + waitaohua;
+                    }
+                    break;
+                case '己':
+                    if (anzhi == '子') {
+                        result = result + guiren;
+                    }
+                    if (anzhi == '寅') {
+                        result = result + deshen;
+                    }
+                    if (anzhi == '午') {
+                        result = result + lushen;
+                    }
+                    if (anzhi == '卯') {
+                        result = result + waitaohua;
+                    }
+                    break;
+                case '庚':
+                    if (anzhi == '丑') {
+                        result = result + guiren;
+                    }
+                    if (anzhi == '申') {
+                        result = result + deshen + lushen;
+                    }
+                    if (anzhi == '午') {
+                        result = result + waitaohua;
+                    }
+                    break;
+                case '辛':
+                    if (anzhi == '寅') {
+                        result = result + guiren;
+                    }
+                    if (anzhi == '巳') {
+                        result = result + deshen;
+                    }
+                    if (anzhi == '酉') {
+                        result = result + lushen;
+                    }
+                    if (anzhi == '午') {
+                        result = result + waitaohua;
+                    }
+                    break;
+                case '壬':
+                    if (anzhi == '卯') {
+                        result = result + guiren;
+                    }
+                    if (anzhi == '亥') {
+                        result = result + deshen + lushen;
+                    }
+                    if (anzhi == '酉') {
+                        result = result + waitaohua;
+                    }
+                    break;
+                case '癸':
+                    if (anzhi == '巳') {
+                        result = result + guiren;
+                    }
+                    if (anzhi == '巳') {
+                        result = result + deshen;
+                    }
+                    if (anzhi == '子') {
+                        result = result + lushen;
+                    }
+                    if (anzhi == '酉') {
+                        result = result + waitaohua;
+                    }
+                    break;
+            }
+        }
+        // 日支神煞
+        switch (ri.charAt(1)) {
+            case '子':
+                if (anzhi == '寅') {
+                    result = result + yima;
+                }
+                if (anzhi == '申') {
+                    result = result + huima;
+                }
+                if (anzhi == '巳') {
+                    result = result + posui + jiesha;
+                }
+                if (anzhi == '酉') {
+                    result = result + neitaohua;
+                }
+                if (anzhi == '辰') {
+                    result = result + huagai;
+                }
+                break;
+            case '丑':
+                if (anzhi == '亥') {
+                    result = result + yima;
+                }
+                if (anzhi == '巳') {
+                    result = result + huima;
+                }
+                if (anzhi == '丑') {
+                    result = result + posui;
+                }
+                if (anzhi == '寅') {
+                    result = result + jiesha;
+                }
+                if (anzhi == '午') {
+                    result = result + neitaohua;
+                }
+                if (anzhi == '丑') {
+                    result = result + huagai;
+                }
+                break;
+            case '寅':
+                if (anzhi == '申') {
+                    result = result + yima;
+                }
+                if (anzhi == '寅') {
+                    result = result + huima;
+                }
+                if (anzhi == '酉') {
+                    result = result + posui;
+                }
+                if (anzhi == '亥') {
+                    result = result + jiesha;
+                }
+                if (anzhi == '卯') {
+                    result = result + neitaohua;
+                }
+                if (anzhi == '戌') {
+                    result = result + huagai;
+                }
+                break;
+            case '卯':
+                if (anzhi == '巳') {
+                    result = result + yima;
+                }
+                if (anzhi == '亥') {
+                    result = result + huima;
+                }
+                if (anzhi == '巳') {
+                    result = result + posui;
+                }
+                if (anzhi == '申') {
+                    result = result + jiesha;
+                }
+                if (anzhi == '子') {
+                    result = result + neitaohua;
+                }
+                if (anzhi == '未') {
+                    result = result + huagai;
+                }
+                break;
+            case '辰':
+                if (anzhi == '寅') {
+                    result = result + yima;
+                }
+                if (anzhi == '申') {
+                    result = result + huima;
+                }
+                if (anzhi == '丑') {
+                    result = result + posui;
+                }
+                if (anzhi == '巳') {
+                    result = result + jiesha;
+                }
+                if (anzhi == '酉') {
+                    result = result + neitaohua;
+                }
+                if (anzhi == '辰') {
+                    result = result + huagai;
+                }
+                break;
+            case '巳':
+                if (anzhi == '亥') {
+                    result = result + yima;
+                }
+                if (anzhi == '巳') {
+                    result = result + huima;
+                }
+                if (anzhi == '酉') {
+                    result = result + posui;
+                }
+                if (anzhi == '寅') {
+                    result = result + jiesha;
+                }
+                if (anzhi == '午') {
+                    result = result + neitaohua;
+                }
+                if (anzhi == '丑') {
+                    result = result + huagai;
+                }
+                break;
+            case '午':
+                if (anzhi == '申') {
+                    result = result + yima;
+                }
+                if (anzhi == '寅') {
+                    result = result + huima;
+                }
+                if (anzhi == '巳') {
+                    result = result + posui;
+                }
+                if (anzhi == '亥') {
+                    result = result + jiesha;
+                }
+                if (anzhi == '卯') {
+                    result = result + neitaohua;
+                }
+                if (anzhi == '戌') {
+                    result = result + huagai;
+                }
+                break;
+            case '未':
+                if (anzhi == '巳') {
+                    result = result + yima;
+                }
+                if (anzhi == '亥') {
+                    result = result + huima;
+                }
+                if (anzhi == '丑') {
+                    result = result + posui;
+                }
+                if (anzhi == '申') {
+                    result = result + jiesha;
+                }
+                if (anzhi == '子') {
+                    result = result + neitaohua;
+                }
+                if (anzhi == '未') {
+                    result = result + huagai;
+                }
+                break;
+            case '申':
+                if (anzhi == '寅') {
+                    result = result + yima;
+                }
+                if (anzhi == '申') {
+                    result = result + huima;
+                }
+                if (anzhi == '酉') {
+                    result = result + posui;
+                }
+                if (anzhi == '巳') {
+                    result = result + jiesha;
+                }
+                if (anzhi == '酉') {
+                    result = result + neitaohua;
+                }
+                if (anzhi == '辰') {
+                    result = result + huagai;
+                }
+                break;
+            case '酉':
+                if (anzhi == '亥') {
+                    result = result + yima;
+                }
+                if (anzhi == '巳') {
+                    result = result + huima + posui;
+                }
+                if (anzhi == '寅') {
+                    result = result + jiesha;
+                }
+                if (anzhi == '午') {
+                    result = result + neitaohua;
+                }
+                if (anzhi == '丑') {
+                    result = result + huagai;
+                }
+                break;
+            case '戌':
+                if (anzhi == '申') {
+                    result = result + yima;
+                }
+                if (anzhi == '寅') {
+                    result = result + huima;
+                }
+                if (anzhi == '丑') {
+                    result = result + posui;
+                }
+                if (anzhi == '亥') {
+                    result = result + jiesha;
+                }
+                if (anzhi == '卯') {
+                    result = result + neitaohua;
+                }
+                if (anzhi == '戌') {
+                    result = result + huagai;
+                }
+                break;
+            case '亥':
+                if (anzhi == '巳') {
+                    result = result + yima;
+                }
+                if (anzhi == '亥') {
+                    result = result + huima;
+                }
+                if (anzhi == '酉') {
+                    result = result + posui;
+                }
+                if (anzhi == '申') {
+                    result = result + jiesha;
+                }
+                if (anzhi == '子') {
+                    result = result + neitaohua;
+                }
+                if (anzhi == '未') {
+                    result = result + huagai;
+                }
+                break;
+        }
+        // 月建神煞
+        const yuede = '<span style="color:#0079FE">月德：</span>主消除忧祸，逢凶化吉，化险为夷<br>';
+        const tianma =
+            '<span style="color:#0079FE">天马：</span>主迁动、出行之事。廷求事迅速，游行皆利，逃避远去，走失难寻，其余皆利<br>';
+        const tianyi = '<span style="color:#0079FE">天医：</span>主与医药有关，利求医<br>';
+        const yueyan = '<span style="color:red">月厌：</span>主鬼神相扰，被人诅咒，不利婚姻<br>';
+        const shengqi =
+            '<span style="color:#0079FE">生气：</span>主难中有救，绝处逢生，所为皆美<br>';
+        const siqi = '<span style="color:red">死气：</span>主死表之事，病讼、孕产皆忌<br>';
+        const sishen = '<span style="color:red">死神：</span>主死丧疾病，占病凶<br>';
+        const tiangui = '<span style="color:red">天鬼：</span>主流行性疾病，家有怪异<br>';
+        const xuezhi = '<span style="color:red">血支：</span>主血光血病，产孕疾病忌见<br>';
+        const chengshen = '<span style="color:#0079FE">成神：</span>主成合事体。所课得遂<br>';
+        const xinshen = '<span style="color:#0079FE">信神：</span>主文书、信息<br>';
+        switch (document.getElementById('yue').innerText.charAt(1)) {
+            case '子':
+                if (gongwei == '巽') {
+                    result =
+                        result +
+                        '<span style="color:#0079FE">天德：</span>主消除忧祸，逢凶化吉，化险为夷<br>';
+                }
+                if (anzhi == '亥') {
+                    result = result + yuede;
+                }
+                if (anzhi == '寅') {
+                    result = result + tianma;
+                }
+                if (anzhi == '寅') {
+                    result = result + tianyi;
+                }
+                if (anzhi == '子') {
+                    result = result + yueyan;
+                }
+                if (anzhi == '戌') {
+                    result = result + shengqi;
+                }
+                if (anzhi == '辰') {
+                    result = result + siqi;
+                }
+                if (anzhi == '卯') {
+                    result = result + sishen;
+                }
+                if (anzhi == '卯') {
+                    result = result + tiangui;
+                }
+                if (anzhi == '亥') {
+                    result = result + xuezhi;
+                }
+                if (anzhi == '亥') {
+                    result = result + chengshen;
+                }
+                if (anzhi == '申') {
+                    result = result + xinshen;
+                }
+                break;
+            case '丑':
+                if (gongwei == '兑') {
+                    result =
+                        result +
+                        '<span style="color:#0079FE">天德：</span>主消除忧祸，逢凶化吉，化险为夷<br>';
+                }
+                if (anzhi == '申') {
+                    result = result + yuede;
+                }
+                if (anzhi == '辰') {
+                    result = result + tianma;
+                }
+                if (anzhi == '卯') {
+                    result = result + tianyi;
+                }
+                if (anzhi == '亥') {
+                    result = result + yueyan;
+                }
+                if (anzhi == '亥') {
+                    result = result + shengqi;
+                }
+                if (anzhi == '巳') {
+                    result = result + siqi;
+                }
+                if (anzhi == '辰') {
+                    result = result + sishen;
+                }
+                if (anzhi == '子') {
+                    result = result + tiangui;
+                }
+                if (anzhi == '子') {
+                    result = result + xuezhi;
+                }
+                if (anzhi == '寅') {
+                    result = result + chengshen;
+                }
+                if (anzhi == '酉') {
+                    result = result + xinshen;
+                }
+                break;
+            case '寅':
+                if (gongwei == '离') {
+                    result =
+                        result +
+                        '<span style="color:#0079FE">天德：</span>主消除忧祸，逢凶化吉，化险为夷<br>';
+                }
+                if (anzhi == '巳') {
+                    result = result + yuede;
+                }
+                if (anzhi == '午') {
+                    result = result + tianma;
+                }
+                if (anzhi == '辰') {
+                    result = result + tianyi;
+                }
+                if (anzhi == '戌') {
+                    result = result + yueyan;
+                }
+                if (anzhi == '子') {
+                    result = result + shengqi;
+                }
+                if (anzhi == '午') {
+                    result = result + siqi;
+                }
+                if (anzhi == '巳') {
+                    result = result + sishen;
+                }
+                if (anzhi == '酉') {
+                    result = result + tiangui;
+                }
+                if (anzhi == '丑') {
+                    result = result + xuezhi;
+                }
+                if (anzhi == '巳') {
+                    result = result + chengshen;
+                }
+                if (anzhi == '戌') {
+                    result = result + xinshen;
+                }
+                break;
+            case '卯':
+                if (gongwei == '坤') {
+                    result =
+                        result +
+                        '<span style="color:#0079FE">天德：</span>主消除忧祸，逢凶化吉，化险为夷<br>';
+                }
+                if (anzhi == '寅') {
+                    result = result + yuede;
+                }
+                if (anzhi == '申') {
+                    result = result + tianma;
+                }
+                if (anzhi == '巳') {
+                    result = result + tianyi;
+                }
+                if (anzhi == '酉') {
+                    result = result + yueyan;
+                }
+                if (anzhi == '丑') {
+                    result = result + shengqi;
+                }
+                if (anzhi == '未') {
+                    result = result + siqi;
+                }
+                if (anzhi == '午') {
+                    result = result + sishen;
+                }
+                if (anzhi == '午') {
+                    result = result + tiangui;
+                }
+                if (anzhi == '寅') {
+                    result = result + xuezhi;
+                }
+                if (anzhi == '申') {
+                    result = result + chengshen;
+                }
+                if (anzhi == '亥') {
+                    result = result + xinshen;
+                }
+                break;
+            case '辰':
+                if (gongwei == '坎') {
+                    result =
+                        result +
+                        '<span style="color:#0079FE">天德：</span>主消除忧祸，逢凶化吉，化险为夷<br>';
+                }
+                if (anzhi == '亥') {
+                    result = result + yuede;
+                }
+                if (anzhi == '戌') {
+                    result = result + tianma;
+                }
+                if (anzhi == '午') {
+                    result = result + tianyi;
+                }
+                if (anzhi == '申') {
+                    result = result + yueyan;
+                }
+                if (anzhi == '寅') {
+                    result = result + shengqi;
+                }
+                if (anzhi == '申') {
+                    result = result + siqi;
+                }
+                if (anzhi == '未') {
+                    result = result + sishen;
+                }
+                if (anzhi == '卯') {
+                    result = result + tiangui;
+                }
+                if (anzhi == '卯') {
+                    result = result + xuezhi;
+                }
+                if (anzhi == '亥') {
+                    result = result + chengshen;
+                }
+                if (anzhi == '子') {
+                    result = result + xinshen;
+                }
+                break;
+            case '巳':
+                if (gongwei == '兑') {
+                    result =
+                        result +
+                        '<span style="color:#0079FE">天德：</span>主消除忧祸，逢凶化吉，化险为夷<br>';
+                }
+                if (anzhi == '申') {
+                    result = result + yuede;
+                }
+                if (anzhi == '子') {
+                    result = result + tianma;
+                }
+                if (anzhi == '未') {
+                    result = result + tianyi;
+                }
+                if (anzhi == '未') {
+                    result = result + yueyan;
+                }
+                if (anzhi == '卯') {
+                    result = result + shengqi;
+                }
+                if (anzhi == '酉') {
+                    result = result + siqi;
+                }
+                if (anzhi == '申') {
+                    result = result + sishen;
+                }
+                if (anzhi == '子') {
+                    result = result + tiangui;
+                }
+                if (anzhi == '辰') {
+                    result = result + xuezhi;
+                }
+                if (anzhi == '寅') {
+                    result = result + chengshen;
+                }
+                if (anzhi == '丑') {
+                    result = result + xinshen;
+                }
+                break;
+            case '午':
+                if (gongwei == '乾') {
+                    result =
+                        result +
+                        '<span style="color:#0079FE">天德：</span>主消除忧祸，逢凶化吉，化险为夷<br>';
+                }
+                if (anzhi == '巳') {
+                    result = result + yuede;
+                }
+                if (anzhi == '寅') {
+                    result = result + tianma;
+                }
+                if (anzhi == '申') {
+                    result = result + tianyi;
+                }
+                if (anzhi == '午') {
+                    result = result + yueyan;
+                }
+                if (anzhi == '辰') {
+                    result = result + shengqi;
+                }
+                if (anzhi == '戌') {
+                    result = result + siqi;
+                }
+                if (anzhi == '酉') {
+                    result = result + sishen;
+                }
+                if (anzhi == '酉') {
+                    result = result + tiangui;
+                }
+                if (anzhi == '巳') {
+                    result = result + xuezhi;
+                }
+                if (anzhi == '巳') {
+                    result = result + chengshen;
+                }
+                if (anzhi == '寅') {
+                    result = result + xinshen;
+                }
+                break;
+            case '未':
+                if (gongwei == '震') {
+                    result =
+                        result +
+                        '<span style="color:#0079FE">天德：</span>主消除忧祸，逢凶化吉，化险为夷<br>';
+                }
+                if (anzhi == '寅') {
+                    result = result + yuede;
+                }
+                if (anzhi == '辰') {
+                    result = result + tianma;
+                }
+                if (anzhi == '酉') {
+                    result = result + tianyi;
+                }
+                if (anzhi == '巳') {
+                    result = result + yueyan;
+                }
+                if (anzhi == '巳') {
+                    result = result + shengqi;
+                }
+                if (anzhi == '亥') {
+                    result = result + siqi;
+                }
+                if (anzhi == '戌') {
+                    result = result + sishen;
+                }
+                if (anzhi == '午') {
+                    result = result + tiangui;
+                }
+                if (anzhi == '午') {
+                    result = result + xuezhi;
+                }
+                if (anzhi == '申') {
+                    result = result + chengshen;
+                }
+                if (anzhi == '卯') {
+                    result = result + xinshen;
+                }
+                break;
+            case '申':
+                if (gongwei == '坎') {
+                    result =
+                        result +
+                        '<span style="color:#0079FE">天德：</span>主消除忧祸，逢凶化吉，化险为夷<br>';
+                }
+                if (anzhi == '亥') {
+                    result = result + yuede;
+                }
+                if (anzhi == '午') {
+                    result = result + tianma;
+                }
+                if (anzhi == '戌') {
+                    result = result + tianyi;
+                }
+                if (anzhi == '辰') {
+                    result = result + yueyan;
+                }
+                if (anzhi == '午') {
+                    result = result + shengqi;
+                }
+                if (anzhi == '子') {
+                    result = result + siqi;
+                }
+                if (anzhi == '亥') {
+                    result = result + sishen;
+                }
+                if (anzhi == '卯') {
+                    result = result + tiangui;
+                }
+                if (anzhi == '未') {
+                    result = result + xuezhi;
+                }
+                if (anzhi == '亥') {
+                    result = result + chengshen;
+                }
+                if (anzhi == '辰') {
+                    result = result + xinshen;
+                }
+                break;
+            case '酉':
+                if (gongwei == '艮') {
+                    result =
+                        result +
+                        '<span style="color:#0079FE">天德：</span>主消除忧祸，逢凶化吉，化险为夷<br>';
+                }
+                if (anzhi == '申') {
+                    result = result + yuede;
+                }
+                if (anzhi == '申') {
+                    result = result + tianma;
+                }
+                if (anzhi == '亥') {
+                    result = result + tianyi;
+                }
+                if (anzhi == '卯') {
+                    result = result + yueyan;
+                }
+                if (anzhi == '未') {
+                    result = result + shengqi;
+                }
+                if (anzhi == '丑') {
+                    result = result + siqi;
+                }
+                if (anzhi == '子') {
+                    result = result + sishen;
+                }
+                if (anzhi == '子') {
+                    result = result + tiangui;
+                }
+                if (anzhi == '申') {
+                    result = result + xuezhi;
+                }
+                if (anzhi == '寅') {
+                    result = result + chengshen;
+                }
+                if (anzhi == '巳') {
+                    result = result + xinshen;
+                }
+                break;
+            case '戌':
+                if (gongwei == '离') {
+                    result =
+                        result +
+                        '<span style="color:#0079FE">天德：</span>主消除忧祸，逢凶化吉，化险为夷<br>';
+                }
+                if (anzhi == '巳') {
+                    result = result + yuede;
+                }
+                if (anzhi == '戌') {
+                    result = result + tianma;
+                }
+                if (anzhi == '子') {
+                    result = result + tianyi;
+                }
+                if (anzhi == '寅') {
+                    result = result + yueyan;
+                }
+                if (anzhi == '申') {
+                    result = result + shengqi;
+                }
+                if (anzhi == '寅') {
+                    result = result + siqi;
+                }
+                if (anzhi == '丑') {
+                    result = result + sishen;
+                }
+                if (anzhi == '酉') {
+                    result = result + tiangui;
+                }
+                if (anzhi == '酉') {
+                    result = result + xuezhi;
+                }
+                if (anzhi == '巳') {
+                    result = result + chengshen;
+                }
+                if (anzhi == '午') {
+                    result = result + xinshen;
+                }
+                break;
+            case '亥':
+                if (gongwei == '震') {
+                    result =
+                        result +
+                        '<span style="color:#0079FE">天德：</span>主消除忧祸，逢凶化吉，化险为夷<br>';
+                }
+                if (anzhi == '寅') {
+                    result = result + yuede;
+                }
+                if (anzhi == '子') {
+                    result = result + tianma;
+                }
+                if (anzhi == '丑') {
+                    result = result + tianyi;
+                }
+                if (anzhi == '丑') {
+                    result = result + yueyan;
+                }
+                if (anzhi == '酉') {
+                    result = result + shengqi;
+                }
+                if (anzhi == '卯') {
+                    result = result + siqi;
+                }
+                if (anzhi == '寅') {
+                    result = result + sishen;
+                }
+                if (anzhi == '午') {
+                    result = result + tiangui;
+                }
+                if (anzhi == '戌') {
+                    result = result + xuezhi;
+                }
+                if (anzhi == '申') {
+                    result = result + chengshen;
+                }
+                if (anzhi == '未') {
+                    result = result + xinshen;
+                }
+                break;
+        }
+        // 驾前神煞
+        const taiyang = '<span style="color:#0079FE">太阳：</span>主光明、希望，往好处发展<br>';
+        const sangmen = '<span style="color:red">丧门：</span>主死丧、孝服、哭泣<br>';
+        const taiyin = '<span style="color:#0079FE">太阴：</span>主和合、隐私、感情事<br>';
+        const guanfu = '<span style="color:red">官符：</span>主口舌官讼，小人陷害<br>';
+        const sifu = '<span style="color:red">死符：</span>主灾病、死亡、破耗<br>';
+        const suipo = '<span style="color:red">岁破：</span>主大的破损、消耗，不利母亲<br>';
+        const longde = '<span style="color:#0079FE">龙德：</span>主恩庆，散病讼<br>';
+        const baihu = '<span style="color:red">白虎：</span>主哭泣、血光、死亡之事，不利小儿，<br>';
+        const fude = '<span style="color:#0079FE">福德：</span>主福气财利，有阴神庇佑<br>';
+        const diaoke = '<span style="color:red">吊客：</span>主惊忧、阴私、灾思之事，占病凶<br>';
+        const bingfu = '<span style="color:red">病符：</span>主疾病、衰弱，也主陈年日事<br>';
+        switch (document.getElementById('nian').innerText.charAt(1)) {
+            case '子':
+                if (anzhi == '丑') {
+                    result = result + taiyang;
+                }
+                if (anzhi == '寅') {
+                    result = result + sangmen;
+                }
+                if (anzhi == '卯') {
+                    result = result + taiyin;
+                }
+                if (anzhi == '辰') {
+                    result = result + guanfu;
+                }
+                if (anzhi == '巳') {
+                    result = result + sifu;
+                }
+                if (anzhi == '午') {
+                    result = result + suipo;
+                }
+                if (anzhi == '未') {
+                    result = result + longde;
+                }
+                if (anzhi == '申') {
+                    result = result + baihu;
+                }
+                if (anzhi == '酉') {
+                    result = result + fude;
+                }
+                if (anzhi == '戌') {
+                    result = result + diaoke;
+                }
+                if (anzhi == '亥') {
+                    result = result + bingfu;
+                }
+                break;
+            case '丑':
+                if (anzhi == '寅') {
+                    result = result + taiyang;
+                }
+                if (anzhi == '卯') {
+                    result = result + sangmen;
+                }
+                if (anzhi == '辰') {
+                    result = result + taiyin;
+                }
+                if (anzhi == '巳') {
+                    result = result + guanfu;
+                }
+                if (anzhi == '午') {
+                    result = result + sifu;
+                }
+                if (anzhi == '未') {
+                    result = result + suipo;
+                }
+                if (anzhi == '申') {
+                    result = result + longde;
+                }
+                if (anzhi == '酉') {
+                    result = result + baihu;
+                }
+                if (anzhi == '戌') {
+                    result = result + fude;
+                }
+                if (anzhi == '亥') {
+                    result = result + diaoke;
+                }
+                if (anzhi == '子') {
+                    result = result + bingfu;
+                }
+                break;
+            case '寅':
+                if (anzhi == '卯') {
+                    result = result + taiyang;
+                }
+                if (anzhi == '辰') {
+                    result = result + sangmen;
+                }
+                if (anzhi == '巳') {
+                    result = result + taiyin;
+                }
+                if (anzhi == '午') {
+                    result = result + guanfu;
+                }
+                if (anzhi == '未') {
+                    result = result + sifu;
+                }
+                if (anzhi == '申') {
+                    result = result + suipo;
+                }
+                if (anzhi == '酉') {
+                    result = result + longde;
+                }
+                if (anzhi == '戌') {
+                    result = result + baihu;
+                }
+                if (anzhi == '亥') {
+                    result = result + fude;
+                }
+                if (anzhi == '子') {
+                    result = result + diaoke;
+                }
+                if (anzhi == '丑') {
+                    result = result + bingfu;
+                }
+                break;
+            case '卯':
+                if (anzhi == '辰') {
+                    result = result + taiyang;
+                }
+                if (anzhi == '巳') {
+                    result = result + sangmen;
+                }
+                if (anzhi == '午') {
+                    result = result + taiyin;
+                }
+                if (anzhi == '未') {
+                    result = result + guanfu;
+                }
+                if (anzhi == '申') {
+                    result = result + sifu;
+                }
+                if (anzhi == '酉') {
+                    result = result + suipo;
+                }
+                if (anzhi == '戌') {
+                    result = result + longde;
+                }
+                if (anzhi == '亥') {
+                    result = result + baihu;
+                }
+                if (anzhi == '子') {
+                    result = result + fude;
+                }
+                if (anzhi == '丑') {
+                    result = result + diaoke;
+                }
+                if (anzhi == '寅') {
+                    result = result + bingfu;
+                }
+                break;
+            case '辰':
+                if (anzhi == '巳') {
+                    result = result + taiyang;
+                }
+                if (anzhi == '午') {
+                    result = result + sangmen;
+                }
+                if (anzhi == '未') {
+                    result = result + taiyin;
+                }
+                if (anzhi == '申') {
+                    result = result + guanfu;
+                }
+                if (anzhi == '酉') {
+                    result = result + sifu;
+                }
+                if (anzhi == '戌') {
+                    result = result + suipo;
+                }
+                if (anzhi == '亥') {
+                    result = result + longde;
+                }
+                if (anzhi == '子') {
+                    result = result + baihu;
+                }
+                if (anzhi == '丑') {
+                    result = result + fude;
+                }
+                if (anzhi == '寅') {
+                    result = result + diaoke;
+                }
+                if (anzhi == '卯') {
+                    result = result + bingfu;
+                }
+                break;
+            case '巳':
+                if (anzhi == '午') {
+                    result = result + taiyang;
+                }
+                if (anzhi == '未') {
+                    result = result + sangmen;
+                }
+                if (anzhi == '申') {
+                    result = result + taiyin;
+                }
+                if (anzhi == '酉') {
+                    result = result + guanfu;
+                }
+                if (anzhi == '戌') {
+                    result = result + sifu;
+                }
+                if (anzhi == '亥') {
+                    result = result + suipo;
+                }
+                if (anzhi == '子') {
+                    result = result + longde;
+                }
+                if (anzhi == '丑') {
+                    result = result + baihu;
+                }
+                if (anzhi == '寅') {
+                    result = result + fude;
+                }
+                if (anzhi == '卯') {
+                    result = result + diaoke;
+                }
+                if (anzhi == '辰') {
+                    result = result + bingfu;
+                }
+                break;
+            case '午':
+                if (anzhi == '未') {
+                    result = result + taiyang;
+                }
+                if (anzhi == '申') {
+                    result = result + sangmen;
+                }
+                if (anzhi == '酉') {
+                    result = result + taiyin;
+                }
+                if (anzhi == '戌') {
+                    result = result + guanfu;
+                }
+                if (anzhi == '亥') {
+                    result = result + sifu;
+                }
+                if (anzhi == '子') {
+                    result = result + suipo;
+                }
+                if (anzhi == '丑') {
+                    result = result + longde;
+                }
+                if (anzhi == '寅') {
+                    result = result + baihu;
+                }
+                if (anzhi == '卯') {
+                    result = result + fude;
+                }
+                if (anzhi == '辰') {
+                    result = result + diaoke;
+                }
+                if (anzhi == '巳') {
+                    result = result + bingfu;
+                }
+                break;
+            case '未':
+                if (anzhi == '申') {
+                    result = result + taiyang;
+                }
+                if (anzhi == '酉') {
+                    result = result + sangmen;
+                }
+                if (anzhi == '戌') {
+                    result = result + taiyin;
+                }
+                if (anzhi == '亥') {
+                    result = result + guanfu;
+                }
+                if (anzhi == '子') {
+                    result = result + sifu;
+                }
+                if (anzhi == '丑') {
+                    result = result + suipo;
+                }
+                if (anzhi == '寅') {
+                    result = result + longde;
+                }
+                if (anzhi == '卯') {
+                    result = result + baihu;
+                }
+                if (anzhi == '辰') {
+                    result = result + fude;
+                }
+                if (anzhi == '巳') {
+                    result = result + diaoke;
+                }
+                if (anzhi == '午') {
+                    result = result + bingfu;
+                }
+                break;
+            case '申':
+                if (anzhi == '酉') {
+                    result = result + taiyang;
+                }
+                if (anzhi == '戌') {
+                    result = result + sangmen;
+                }
+                if (anzhi == '亥') {
+                    result = result + taiyin;
+                }
+                if (anzhi == '子') {
+                    result = result + guanfu;
+                }
+                if (anzhi == '丑') {
+                    result = result + sifu;
+                }
+                if (anzhi == '寅') {
+                    result = result + suipo;
+                }
+                if (anzhi == '卯') {
+                    result = result + longde;
+                }
+                if (anzhi == '辰') {
+                    result = result + baihu;
+                }
+                if (anzhi == '巳') {
+                    result = result + fude;
+                }
+                if (anzhi == '午') {
+                    result = result + diaoke;
+                }
+                if (anzhi == '未') {
+                    result = result + bingfu;
+                }
+                break;
+            case '酉':
+                if (anzhi == '戌') {
+                    result = result + taiyang;
+                }
+                if (anzhi == '亥') {
+                    result = result + sangmen;
+                }
+                if (anzhi == '子') {
+                    result = result + taiyin;
+                }
+                if (anzhi == '丑') {
+                    result = result + guanfu;
+                }
+                if (anzhi == '寅') {
+                    result = result + sifu;
+                }
+                if (anzhi == '卯') {
+                    result = result + suipo;
+                }
+                if (anzhi == '辰') {
+                    result = result + longde;
+                }
+                if (anzhi == '巳') {
+                    result = result + baihu;
+                }
+                if (anzhi == '午') {
+                    result = result + fude;
+                }
+                if (anzhi == '未') {
+                    result = result + diaoke;
+                }
+                if (anzhi == '申') {
+                    result = result + bingfu;
+                }
+                break;
+            case '戌':
+                if (anzhi == '亥') {
+                    result = result + taiyang;
+                }
+                if (anzhi == '子') {
+                    result = result + sangmen;
+                }
+                if (anzhi == '丑') {
+                    result = result + taiyin;
+                }
+                if (anzhi == '寅') {
+                    result = result + guanfu;
+                }
+                if (anzhi == '卯') {
+                    result = result + sifu;
+                }
+                if (anzhi == '辰') {
+                    result = result + suipo;
+                }
+                if (anzhi == '巳') {
+                    result = result + longde;
+                }
+                if (anzhi == '巳') {
+                    result = result + baihu;
+                }
+                if (anzhi == '未') {
+                    result = result + fude;
+                }
+                if (anzhi == '申') {
+                    result = result + diaoke;
+                }
+                if (anzhi == '酉') {
+                    result = result + bingfu;
+                }
+                break;
+            case '亥':
+                if (anzhi == '子') {
+                    result = result + taiyang;
+                }
+                if (anzhi == '丑') {
+                    result = result + sangmen;
+                }
+                if (anzhi == '寅') {
+                    result = result + taiyin;
+                }
+                if (anzhi == '卯') {
+                    result = result + guanfu;
+                }
+                if (anzhi == '辰') {
+                    result = result + sifu;
+                }
+                if (anzhi == '巳') {
+                    result = result + suipo;
+                }
+                if (anzhi == '午') {
+                    result = result + longde;
+                }
+                if (anzhi == '未') {
+                    result = result + baihu;
+                }
+                if (anzhi == '申') {
+                    result = result + fude;
+                }
+                if (anzhi == '酉') {
+                    result = result + diaoke;
+                }
+                if (anzhi == '戌') {
+                    result = result + bingfu;
+                }
+                break;
+        }
+        if (result == '神煞：<br>') {
+            return '';
+        } else {
+            return result;
         }
     }
 }

@@ -450,3 +450,7 @@
 .important {
     color: red;
 }
+
+hr {
+    border-top: 1px solid black;
+}

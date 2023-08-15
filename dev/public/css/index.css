@@ -618,10 +618,6 @@ video {
   top: 97px;
 }
 
-.z-0 {
-  z-index: 0;
-}
-
 .z-50 {
   z-index: 50;
 }
@@ -768,10 +764,6 @@ video {
 
 .w-\[450px\] {
   width: 450px;
-}
-
-.w-\[460px\] {
-  width: 460px;
 }
 
 .w-\[48px\] {
@@ -981,6 +973,10 @@ video {
   font-size: 25px;
 }
 
+.text-\[7\.5rem\] {
+  font-size: 7.5rem;
+}
+
 .text-lg {
   font-size: 1.125rem;
   line-height: 1.75rem;
@@ -989,30 +985,6 @@ video {
 .text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem;
-}
-
-.text-\[5rem\] {
-  font-size: 5rem;
-}
-
-.text-\[6rem\] {
-  font-size: 6rem;
-}
-
-.text-\[6\.5rem\] {
-  font-size: 6.5rem;
-}
-
-.text-\[7rem\] {
-  font-size: 7rem;
-}
-
-.text-\[8rem\] {
-  font-size: 8rem;
-}
-
-.text-\[7\.5rem\] {
-  font-size: 7.5rem;
 }
 
 .font-\[200px\] {
@@ -1211,10 +1183,11 @@ video {
 
 /* 飞盘九宫排版 */
 
+/* make scrollbar transparent */
+
 ::-webkit-scrollbar {
   width: 0px;
   background: transparent;
-  /* make scrollbar transparent */
 }
 
 /* HAMBURGER MENU */
@@ -1490,7 +1463,7 @@ video {
   left: 136px;
   font-weight: 300;
   font-size: 23px;
-  color: #666666
+  color: #666666;
 }
 
 .zhuanpan-maxing {
@@ -1531,6 +1504,10 @@ video {
 
 .important {
   color: red;
+}
+
+hr {
+  border-top: 1px solid black;
 }
 
 .hover\:bg-blue-700:hover {

@@ -1,3 +1,7 @@
+// Set Environment
+process.env.NODE_ENV = 'development';
+// process.env.NODE_ENV = 'production';
+
 // System requirements
 const {
     app,
@@ -14,6 +18,8 @@ const moment = require('moment');
 const { timeInfo } = require('./sizhu');
 const { paiFeiPan } = require('./feipan');
 const { paiZhuanPan } = require('./zhuanpan');
+
+const isDev = process.env.NODE_ENV !== 'production' ? true : false;
 
 let mainWindow;
 
@@ -43,7 +49,7 @@ ipcMain.on('报数起局', (e, data) => {
         data.choosenTime.date,
         data.choosenTime.hour,
         data.choosenMethod,
-        data.choosenNumber
+        data.choosenNumber,
     );
     if (data.paipanMethod == '飞盘') {
         const paipan = paiFeiPan(
@@ -51,7 +57,7 @@ ipcMain.on('报数起局', (e, data) => {
             time.ri,
             time.shi,
             data.choosenNumber,
-            data.choosenMethod
+            data.choosenMethod,
         );
         const paiPanResult = {
             time: time,
@@ -65,7 +71,7 @@ ipcMain.on('报数起局', (e, data) => {
             time.ri,
             time.shi,
             data.choosenNumber,
-            data.choosenMethod
+            data.choosenMethod,
         );
         const paiPanResult = {
             time: time,
@@ -79,7 +85,7 @@ ipcMain.on('报数起局', (e, data) => {
             time.ri,
             time.shi,
             data.choosenNumber,
-            data.choosenMethod
+            data.choosenMethod,
         );
         const paiPanResult = {
             time: time,
@@ -98,11 +104,14 @@ function createMainWindow() {
         webPreferences: {
             nodeIntegration: true,
             contextIsolation: false,
-            devTools: true, //todo change this when building
-            //    devTools: false,
+            devTools: isDev,
         },
     });
-    mainWindow.loadFile('./dev/public/homepage.html');
+    if (process.platform == 'darwin') {
+        mainWindow.loadFile('./dev/public/mac-index.html');
+    } else if (process.platform == 'win32') {
+        mainWindow.loadFile('./dev/public/win-index.html');
+    }
 }
 
 app.on('ready', () => {
@@ -136,22 +145,12 @@ ipcMain.on('screenshot', (e, data) => {
                     const fileName = getFileName(data);
 
                     // Save the screenshot as a JPG file on the desktop
-                    const filePath = path.join(
-                        app.getPath('desktop'),
-                        `${fileName}.jpg`
-                    );
-                    fs.writeFile(
-                        filePath,
-                        source.thumbnail.toJPEG(100),
-                        (error) => {
-                            if (error) {
-                                console.error(
-                                    'Failed to save screenshot:',
-                                    error
-                                );
-                            }
+                    const filePath = path.join(app.getPath('desktop'), `${fileName}.jpg`);
+                    fs.writeFile(filePath, source.thumbnail.toJPEG(100), (error) => {
+                        if (error) {
+                            console.error('Failed to save screenshot:', error);
                         }
-                    );
+                    });
                     break;
                 }
             }
