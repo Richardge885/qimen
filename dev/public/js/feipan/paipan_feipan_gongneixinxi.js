@@ -509,7 +509,6 @@ function feipan_info(info) {
                 getZhangSheng(dipangan, gong) +
                 getZhangSheng('甲', gong) +
                 '<br><hr><br>' +
-                mengong(men, gong) +
                 getZhengGe(tianpangan, dipangan) +
                 '<br>';
             if (tianpanjia == true && dipanjia == true) {
@@ -521,12 +520,13 @@ function feipan_info(info) {
                     '<br>' +
                     getZhengGe('甲', dipangan) +
                     '<br><hr><br>' +
+                    mengong(men, gong) +
                     getFuGe(tianpangan, gong) +
                     '<br><br>' +
                     getFuGe('甲', gong) +
                     '<br><br><hr><br>' +
                     getShenSha(
-                        document.querySelectorAll('[data-anganzhi]')[whichGong].innerText.charAt(1),
+                        document.querySelectorAll('[data-anganzhi]')[whichGong].innerText,
                         gong,
                     );
             } else if (tianpanjia == true) {
@@ -534,6 +534,7 @@ function feipan_info(info) {
                     result +
                     getZhengGe('甲', dipangan) +
                     '<br><hr><br>' +
+                    mengong(men, gong) +
                     getFuGe(tianpangan, gong) +
                     '<br><br>' +
                     getFuGe(dipangan, gong) +
@@ -541,7 +542,7 @@ function feipan_info(info) {
                     getFuGe('甲', gong) +
                     '<br><br><hr><br>' +
                     getShenSha(
-                        document.querySelectorAll('[data-anganzhi]')[whichGong].innerText.charAt(1),
+                        document.querySelectorAll('[data-anganzhi]')[whichGong].innerText,
                         gong,
                     );
             } else if (dipanjia == true) {
@@ -549,6 +550,7 @@ function feipan_info(info) {
                     result +
                     getZhengGe(tianpangan, '甲') +
                     '<br><hr><br>' +
+                    mengong(men, gong) +
                     getFuGe(tianpangan, gong) +
                     '<br><br>' +
                     getFuGe(dipangan, gong) +
@@ -556,7 +558,7 @@ function feipan_info(info) {
                     getFuGe('甲', gong) +
                     '<br><br><hr><br>' +
                     getShenSha(
-                        document.querySelectorAll('[data-anganzhi]')[whichGong].innerText.charAt(1),
+                        document.querySelectorAll('[data-anganzhi]')[whichGong].innerText,
                         gong,
                     );
             }
@@ -565,19 +567,16 @@ function feipan_info(info) {
                 getZhangSheng(tianpangan, gong) +
                 getZhangSheng(dipangan, gong) +
                 '<br><hr><br>' +
-                mengong(men, gong) +
                 getZhengGe(tianpangan, dipangan) +
                 '<br><hr><br>' +
+                mengong(men, gong) +
                 getFuGe(tianpangan, gong) +
                 '<br><br>' +
                 getFuGe(dipangan, gong) +
                 '<br><br><hr><br>' +
-                getShenSha(
-                    document.querySelectorAll('[data-anganzhi]')[whichGong].innerText.charAt(1),
-                    gong,
-                );
+                getShenSha(document.querySelectorAll('[data-anganzhi]')[whichGong].innerText, gong);
         }
-        result = result + '<br><br>' + getJiGe(tianpangan, dipangan, xing, men, tianpanshen, gong);
+        result = result + '<br><hr><br>' + getJiGe(tianpangan, dipangan, men, tianpanshen, gong);
         return result;
     }
     function getZhengGe(tianpangan, dipangan) {
@@ -1926,7 +1925,7 @@ function feipan_info(info) {
                         break;
                     case '震':
                         result =
-                            '<span style="color:red">戊</span>' +
+                            '<span style="color:#0079FE">戊</span>' +
                             getLiuQin('戊', originalGongWei) +
                             '：' +
                             muyu;
@@ -1975,7 +1974,7 @@ function feipan_info(info) {
                         break;
                     case '坤':
                         result =
-                            '<span style="color:red">己</span>' +
+                            '<span style="color:#0079FE">己</span>' +
                             getLiuQin('己', originalGongWei) +
                             '：' +
                             muyu +
@@ -1998,7 +1997,7 @@ function feipan_info(info) {
                         break;
                     case '艮':
                         result =
-                            '<span style="color:red">庚</span>' +
+                            '<span style="color:#0079FE">庚</span>' +
                             getLiuQin('庚', originalGongWei) +
                             '：' +
                             mu +
@@ -2054,7 +2053,7 @@ function feipan_info(info) {
                         break;
                     case '离':
                         result =
-                            '<span style="color:red">辛</span>' +
+                            '<span style="color:#0079FE">辛</span>' +
                             getLiuQin('辛', originalGongWei) +
                             '：' +
                             bing;
@@ -2091,7 +2090,7 @@ function feipan_info(info) {
                         break;
                     case '巽':
                         result =
-                            '<span style="color:red">壬</span>' +
+                            '<span style="color:#0079FE">壬</span>' +
                             getLiuQin('壬', originalGongWei) +
                             '：' +
                             mu +
@@ -2133,7 +2132,7 @@ function feipan_info(info) {
                         break;
                     case '巽':
                         result =
-                            '<span style="color:red">癸</span>' +
+                            '<span style="color:#0079FE">癸</span>' +
                             getLiuQin('癸', originalGongWei) +
                             '：' +
                             tai +
@@ -2597,7 +2596,7 @@ function feipan_info(info) {
                 }
         }
     }
-    function getJiGe(tianpangan, dipangan, xing, men, shen, gongwei) {
+    function getJiGe(tianpangan, dipangan, men, shen, gongwei) {
         let result = '';
         // todo 却天三门，地四户，地私门
         // 天三门
@@ -3007,7 +3006,8 @@ function feipan_info(info) {
                 return '';
         }
     }
-    function getShenSha(anzhi, gongwei) {
+    function getShenSha(anganzhi, gongwei) {
+        const anzhi = anganzhi.charAt(1);
         let result = '神煞：<br>';
         const ri = document.getElementById('ri').innerText;
         shichen = document.getElementById('shi').innerText.charAt(1);
@@ -4452,6 +4452,54 @@ function feipan_info(info) {
                     result = result + bingfu;
                 }
                 break;
+        }
+        // 季煞
+        const tianxi = '<span style="color:red">天喜：</span>主喜庆，恩泽，迁官，财喜等<br>';
+        const tianshe = '<span style="color:red">天赦：</span>主消灾解难，可以逢凶化吉<br>';
+        if (
+            document.getElementById('yue').innerText.charAt(1) == '寅' ||
+            document.getElementById('yue').innerText.charAt(1) == '卯' ||
+            document.getElementById('yue').innerText.charAt(1) == '辰'
+        ) {
+            if (anzhi == '戌') {
+                result = result + tianxi;
+            }
+            if (anganzhi == '戊寅') {
+                result = result + tianshe;
+            }
+        } else if (
+            document.getElementById('yue').innerText.charAt(1) == '巳' ||
+            document.getElementById('yue').innerText.charAt(1) == '午' ||
+            document.getElementById('yue').innerText.charAt(1) == '未'
+        ) {
+            if (anzhi == '丑') {
+                result = result + tianxi;
+            }
+            if (anganzhi == '甲午') {
+                result = result + tianshe;
+            }
+        } else if (
+            document.getElementById('yue').innerText.charAt(1) == '申' ||
+            document.getElementById('yue').innerText.charAt(1) == '酉' ||
+            document.getElementById('yue').innerText.charAt(1) == '戌'
+        ) {
+            if (anzhi == '辰') {
+                result = result + tianxi;
+            }
+            if (anganzhi == '戊申') {
+                result = result + tianshe;
+            }
+        } else if (
+            document.getElementById('yue').innerText.charAt(1) == '亥' ||
+            document.getElementById('yue').innerText.charAt(1) == '子' ||
+            document.getElementById('yue').innerText.charAt(1) == '丑'
+        ) {
+            if (anzhi == '未') {
+                result = result + tianxi;
+            }
+            if (anganzhi == '甲子') {
+                result = result + tianshe;
+            }
         }
         if (result == '神煞：<br>') {
             return '';

@@ -1,20 +1,14 @@
 const { ipcRenderer } = require('electron');
+
 ipcRenderer.on('传统转盘排盘', (e, data) => {
-    const [year, month, day] = data.time.yangli
-        .split('/')
-        .map((str) => parseInt(str));
+    const [year, month, day] = data.time.yangli.split('/').map((str) => parseInt(str));
     updateTimeInfo(data, year, month, day, data.hour);
     updateXunShou(data.paipan.xunshou);
     updateDun(data.paipan.dun);
     updateJushu(data.paipan.jushu);
     updateFuShi(data.paipan.fushi.zhifu, data.paipan.fushi.zhishi);
     paiDiPanGan(data.paipan.dipangan);
-    paiAnGanZhi(
-        data.paipan.anganzhi,
-        data.paipan.dun,
-        data.paipan.dipangan,
-        data.paipan.xunshou
-    );
+    paiAnGanZhi(data.paipan.anganzhi, data.paipan.dun, data.paipan.dipangan, data.paipan.xunshou);
     paiMaXing(data.paipan.maxing);
     paiKongWang(data.paipan.kongwang);
     paiBaMen(data.paipan.bamen, document.getElementById('shi').innerText);
@@ -23,11 +17,20 @@ ipcRenderer.on('传统转盘排盘', (e, data) => {
     paiTianPanShen(data.paipan.dun, document.getElementById('shi').innerText);
     paiDiPanShen(data.paipan.dun);
     wubuyushi();
-    renderImportantColor(
-        data.paipan.fushi.zhishi,
-        document.getElementById('shi').innerHTML,
-        document.getElementById('ri').innerHTML
-    );
+    if (document.getElementById('theme').value == '五行颜色') {
+        renderWuXingColor(
+            data.paipan.fushi.zhishi,
+            document.getElementById('shi').innerHTML,
+            document.getElementById('ri').innerHTML,
+        );
+    } else {
+        renderImportantColor(
+            data.paipan.fushi.zhishi,
+            document.getElementById('shi').innerHTML,
+            document.getElementById('ri').innerHTML,
+        );
+    }
+    // 用于宫位弹窗提示
     zhuanpan_info(info);
 });
 
@@ -560,13 +563,8 @@ function renderImportantColor(zhishi, shigan, rigan) {
         if (jigong[i].innerHTML == rigan) {
             jigong[i].classList.add('rigan');
         }
-        if (
-            document.querySelectorAll('[data-dipanyikong]')[i].innerHTML ==
-            rigan
-        ) {
-            document
-                .querySelectorAll('[data-dipanyikong]')
-                [i].classList.add('rigan');
+        if (document.querySelectorAll('[data-dipanyikong]')[i].innerHTML == rigan) {
+            document.querySelectorAll('[data-dipanyikong]')[i].classList.add('rigan');
         }
         if (dipangan[i].innerHTML == rigan) {
             dipangan[i].classList.add('rigan');
@@ -586,19 +584,677 @@ function renderImportantColor(zhishi, shigan, rigan) {
             dipangan[i].classList.remove('rigan');
             dipangan[i].classList.add('important');
         }
-        if (
-            document.querySelectorAll('[data-dipanyikong]')[i].innerHTML ==
-            shigan
-        ) {
-            document
-                .querySelectorAll('[data-dipanyikong]')
-                [i].classList.remove('rigan');
-            document
-                .querySelectorAll('[data-dipanyikong]')
-                [i].classList.add('shigan');
+        if (document.querySelectorAll('[data-dipanyikong]')[i].innerHTML == shigan) {
+            document.querySelectorAll('[data-dipanyikong]')[i].classList.remove('rigan');
+            document.querySelectorAll('[data-dipanyikong]')[i].classList.add('shigan');
         }
         if (tianpanshen[i].innerHTML == '值符') {
             tianpanshen[i].classList.add('important');
         }
     }
+}
+
+function renderWuXingColor(zhishi, shi, ri) {
+    switch (shi) {
+        case '甲子':
+            shi = '戊';
+            break;
+        case '甲戌':
+            shi = '己';
+            break;
+        case '甲申':
+            shi = '庚';
+            break;
+        case '甲午':
+            shi = '辛';
+            break;
+        case '甲辰':
+            shi = '壬';
+            break;
+        case '甲寅':
+            shi = '癸';
+            break;
+    }
+    switch (ri) {
+        case '甲子':
+            ri = '戊';
+            break;
+        case '甲戌':
+            ri = '己';
+            break;
+        case '甲申':
+            ri = '庚';
+            break;
+        case '甲午':
+            ri = '辛';
+            break;
+        case '甲辰':
+            ri = '壬';
+            break;
+        case '甲寅':
+            ri = '癸';
+            break;
+    }
+    document.querySelectorAll('[data-tianpangan]').forEach((element, index) => {
+        if (element.innerText == shi.charAt(0)) {
+            element.classList.add('highlight');
+        }
+        if (element.innerText == ri.charAt(0)) {
+            element.classList.add('highlight-rigan');
+        }
+        switch (element.innerText) {
+            case '乙':
+                element.classList.add('mu');
+                break;
+
+            case '丙':
+                element.classList.add('huo');
+                break;
+            case '丁':
+                element.classList.add('huo');
+                break;
+
+            case '戊':
+                element.classList.add('tu');
+                break;
+            case '己':
+                element.classList.add('tu');
+                break;
+
+            case '庚':
+                element.classList.add('jin');
+                break;
+            case '辛':
+                element.classList.add('jin');
+                break;
+
+            case '壬':
+                element.classList.add('shui');
+                break;
+            case '癸':
+                element.classList.add('shui');
+                break;
+        }
+    });
+    document.querySelectorAll('[data-tianpanyikong]').forEach((element, index) => {
+        if (element.innerText == shi.charAt(0)) {
+            element.classList.add('highlight');
+        }
+        if (element.innerText == ri.charAt(0)) {
+            element.classList.add('highlight-rigan');
+        }
+        switch (element.innerText) {
+            case '乙':
+                element.classList.add('mu');
+                break;
+
+            case '丙':
+                element.classList.add('huo');
+                break;
+            case '丁':
+                element.classList.add('huo');
+                break;
+
+            case '戊':
+                element.classList.add('tu');
+                break;
+            case '己':
+                element.classList.add('tu');
+                break;
+
+            case '庚':
+                element.classList.add('jin');
+                break;
+            case '辛':
+                element.classList.add('jin');
+                break;
+
+            case '壬':
+                element.classList.add('shui');
+                break;
+            case '癸':
+                element.classList.add('shui');
+                break;
+        }
+    });
+    document.querySelectorAll('[data-dipanyikong]').forEach((element, index) => {
+        if (element.innerText == shi.charAt(0)) {
+            element.classList.add('highlight');
+        }
+        if (element.innerText == ri.charAt(0)) {
+            element.classList.add('highlight-rigan');
+        }
+        switch (element.innerText) {
+            case '乙':
+                element.classList.add('mu');
+                break;
+
+            case '丙':
+                element.classList.add('huo');
+                break;
+            case '丁':
+                element.classList.add('huo');
+                break;
+
+            case '戊':
+                element.classList.add('tu');
+                break;
+            case '己':
+                element.classList.add('tu');
+                break;
+
+            case '庚':
+                element.classList.add('jin');
+                break;
+            case '辛':
+                element.classList.add('jin');
+                break;
+
+            case '壬':
+                element.classList.add('shui');
+                break;
+            case '癸':
+                element.classList.add('shui');
+                break;
+        }
+    });
+    document.querySelectorAll('[data-dipangan]').forEach((element, index) => {
+        if (element.innerText == ri.charAt(0)) {
+            element.classList.add('highlight-rigan');
+        }
+        switch (element.innerText) {
+            case '乙':
+                element.classList.add('mu');
+                break;
+
+            case '丙':
+                element.classList.add('huo');
+                break;
+            case '丁':
+                element.classList.add('huo');
+                break;
+
+            case '戊':
+                element.classList.add('tu');
+                break;
+            case '己':
+                element.classList.add('tu');
+                break;
+
+            case '庚':
+                element.classList.add('jin');
+                break;
+            case '辛':
+                element.classList.add('jin');
+                break;
+
+            case '壬':
+                element.classList.add('shui');
+                break;
+            case '癸':
+                element.classList.add('shui');
+                break;
+        }
+    });
+    document.querySelectorAll('[data-men]').forEach((element, index) => {
+        if (element.innerText == zhishi) {
+            element.classList.add('highlight');
+        }
+        switch (element.innerText) {
+            case '休门':
+                element.classList.add('shui');
+                break;
+            case '生门':
+                element.classList.add('tu');
+                break;
+            case '伤门':
+                element.classList.add('mu');
+                break;
+            case '杜门':
+                element.classList.add('mu');
+                break;
+            case '景门':
+                element.classList.add('huo');
+                break;
+            case '死门':
+                element.classList.add('tu');
+                break;
+            case '惊门':
+                element.classList.add('jin');
+                break;
+            case '开门':
+                element.classList.add('jin');
+                break;
+        }
+    });
+    document.querySelectorAll('[data-xing]').forEach((element, index) => {
+        switch (element.innerText) {
+            case '天蓬':
+                element.classList.add('shui');
+                break;
+            case '天任':
+                element.classList.add('tu');
+                break;
+            case '天冲':
+                element.classList.add('mu');
+                break;
+            case '天辅':
+                element.classList.add('mu');
+                break;
+            case '天英':
+                element.classList.add('huo');
+                break;
+            case '天芮':
+                element.classList.add('tu');
+                break;
+            case '天柱':
+                element.classList.add('jin');
+                break;
+            case '天心':
+                element.classList.add('jin');
+                break;
+            case '天禽':
+                element.classList.add('tu');
+                break;
+        }
+    });
+    document.querySelectorAll('[data-tianpanshen]').forEach((element, index) => {
+        if (element.innerText == '值符') {
+            element.classList.add('highlight');
+        }
+        switch (element.innerText) {
+            case '值符':
+                element.classList.add('mu');
+                break;
+            case '螣蛇':
+                element.classList.add('huo');
+                break;
+            case '太阴':
+                element.classList.add('jin');
+                break;
+            case '六合':
+                element.classList.add('mu');
+                break;
+            case '白虎':
+                element.classList.add('jin');
+                break;
+            case '太常':
+                element.classList.add('tu');
+                break;
+            case '玄武':
+                element.classList.add('shui');
+                break;
+            case '九地':
+                element.classList.add('tu');
+                break;
+            case '九天':
+                element.classList.add('jin');
+                break;
+            case '朱雀':
+                element.classList.add('huo');
+                break;
+            case '勾陈':
+                element.classList.add('tu');
+                break;
+        }
+    });
+    document.querySelectorAll('[data-dipanshen]').forEach((element, index) => {
+        switch (element.innerText) {
+            case '符':
+                element.classList.add('mu');
+                break;
+            case '蛇':
+                element.classList.add('huo');
+                break;
+            case '阴':
+                element.classList.add('jin');
+                break;
+            case '合':
+                element.classList.add('mu');
+                break;
+            case '虎':
+                element.classList.add('jin');
+                break;
+            case '玄':
+                element.classList.add('shui');
+                break;
+            case '地':
+                element.classList.add('tu');
+                break;
+            case '天':
+                element.classList.add('jin');
+                break;
+            case '雀':
+                element.classList.add('huo');
+                break;
+            case '勾':
+                element.classList.add('tu');
+                break;
+        }
+    });
+
+    let niangan = document.getElementById('nian').innerText.charAt(0);
+    let nianzhi = document.getElementById('nian').innerText.charAt(1);
+    let yuegan = document.getElementById('yue').innerText.charAt(0);
+    let yuezhi = document.getElementById('yue').innerText.charAt(1);
+    let rigan = document.getElementById('ri').innerText.charAt(0);
+    let rizhi = document.getElementById('ri').innerText.charAt(1);
+    let shigan = document.getElementById('shi').innerText.charAt(0);
+    let shizhi = document.getElementById('shi').innerText.charAt(1);
+    switch (niangan) {
+        case '甲':
+            niangan = '<span style="color:#008200">甲</span>';
+            break;
+        case '乙':
+            niangan = '<span style="color:#008200">乙</span>';
+            break;
+
+        case '丙':
+            niangan = '<span style="color:#fc0003">丙</span>';
+            break;
+        case '丁':
+            niangan = '<span style="color:#fc0003">丁</span>';
+            break;
+
+        case '戊':
+            niangan = '<span style="color:#9c4f01">戊</span>';
+            break;
+        case '己':
+            niangan = '<span style="color:#9c4f01">己</span>';
+            break;
+
+        case '庚':
+            niangan = '<span style="color:#fe8106">庚</span>';
+            break;
+        case '辛':
+            niangan = '<span style="color:#fe8106">辛</span>';
+            break;
+
+        case '壬':
+            niangan = '<span style="color:#0401b3">壬</span>';
+            break;
+        case '癸':
+            niangan = '<span style="color:#0401b3">癸</span>';
+            break;
+    }
+    switch (yuegan) {
+        case '甲':
+            yuegan = '<span style="color:#008200">甲</span>';
+            break;
+        case '乙':
+            yuegan = '<span style="color:#008200">乙</span>';
+            break;
+
+        case '丙':
+            yuegan = '<span style="color:#fc0003">丙</span>';
+            break;
+        case '丁':
+            yuegan = '<span style="color:#fc0003">丁</span>';
+            break;
+
+        case '戊':
+            yuegan = '<span style="color:#9c4f01">戊</span>';
+            break;
+        case '己':
+            yuegan = '<span style="color:#9c4f01">己</span>';
+            break;
+
+        case '庚':
+            yuegan = '<span style="color:#fe8106">庚</span>';
+            break;
+        case '辛':
+            yuegan = '<span style="color:#fe8106">辛</span>';
+            break;
+
+        case '壬':
+            yuegan = '<span style="color:#0401b3">壬</span>';
+            break;
+        case '癸':
+            yuegan = '<span style="color:#0401b3">癸</span>';
+            break;
+    }
+    switch (rigan) {
+        case '甲':
+            rigan = '<span style="color:#008200">甲</span>';
+            break;
+        case '乙':
+            rigan = '<span style="color:#008200">乙</span>';
+            break;
+
+        case '丙':
+            rigan = '<span style="color:#fc0003">丙</span>';
+            break;
+        case '丁':
+            rigan = '<span style="color:#fc0003">丁</span>';
+            break;
+
+        case '戊':
+            rigan = '<span style="color:#9c4f01">戊</span>';
+            break;
+        case '己':
+            rigan = '<span style="color:#9c4f01">己</span>';
+            break;
+
+        case '庚':
+            rigan = '<span style="color:#fe8106">庚</span>';
+            break;
+        case '辛':
+            rigan = '<span style="color:#fe8106">辛</span>';
+            break;
+
+        case '壬':
+            rigan = '<span style="color:#0401b3">壬</span>';
+            break;
+        case '癸':
+            rigan = '<span style="color:#0401b3">癸</span>';
+            break;
+    }
+    switch (shigan) {
+        case '甲':
+            shigan = '<span style="color:#008200">甲</span>';
+            break;
+        case '乙':
+            shigan = '<span style="color:#008200">乙</span>';
+            break;
+
+        case '丙':
+            shigan = '<span style="color:#fc0003">丙</span>';
+            break;
+        case '丁':
+            shigan = '<span style="color:#fc0003">丁</span>';
+            break;
+
+        case '戊':
+            shigan = '<span style="color:#9c4f01">戊</span>';
+            break;
+        case '己':
+            shigan = '<span style="color:#9c4f01">己</span>';
+            break;
+
+        case '庚':
+            shigan = '<span style="color:#fe8106">庚</span>';
+            break;
+        case '辛':
+            shigan = '<span style="color:#fe8106">辛</span>';
+            break;
+
+        case '壬':
+            shigan = '<span style="color:#0401b3">壬</span>';
+            break;
+        case '癸':
+            shigan = '<span style="color:#0401b3">癸</span>';
+            break;
+    }
+    switch (nianzhi) {
+        case '寅':
+            nianzhi = '<span style="color:#008200">寅</span>';
+            break;
+        case '卯':
+            nianzhi = '<span style="color:#008200">卯</span>';
+            break;
+
+        case '巳':
+            nianzhi = '<span style="color:#fc0003">巳</span>';
+            break;
+        case '午':
+            nianzhi = '<span style="color:#fc0003">午</span>';
+            break;
+
+        case '辰':
+            nianzhi = '<span style="color:#9c4f01">辰</span>';
+            break;
+        case '戌':
+            nianzhi = '<span style="color:#9c4f01">戌</span>';
+            break;
+        case '丑':
+            nianzhi = '<span style="color:#9c4f01">丑</span>';
+            break;
+        case '未':
+            nianzhi = '<span style="color:#9c4f01">未</span>';
+            break;
+
+        case '申':
+            nianzhi = '<span style="color:#fe8106">申</span>';
+            break;
+        case '酉':
+            nianzhi = '<span style="color:#fe8106">酉</span>';
+            break;
+
+        case '亥':
+            nianzhi = '<span style="color:#0401b3">亥</span>';
+            break;
+        case '子':
+            nianzhi = '<span style="color:#0401b3">子</span>';
+            break;
+    }
+    switch (yuezhi) {
+        case '寅':
+            yuezhi = '<span style="color:#008200">寅</span>';
+            break;
+        case '卯':
+            yuezhi = '<span style="color:#008200">卯</span>';
+            break;
+
+        case '巳':
+            yuezhi = '<span style="color:#fc0003">巳</span>';
+            break;
+        case '午':
+            yuezhi = '<span style="color:#fc0003">午</span>';
+            break;
+
+        case '辰':
+            yuezhi = '<span style="color:#9c4f01">辰</span>';
+            break;
+        case '戌':
+            yuezhi = '<span style="color:#9c4f01">戌</span>';
+            break;
+        case '丑':
+            yuezhi = '<span style="color:#9c4f01">丑</span>';
+            break;
+        case '未':
+            yuezhi = '<span style="color:#9c4f01">未</span>';
+            break;
+
+        case '申':
+            yuezhi = '<span style="color:#fe8106">申</span>';
+            break;
+        case '酉':
+            yuezhi = '<span style="color:#fe8106">酉</span>';
+            break;
+
+        case '亥':
+            yuezhi = '<span style="color:#0401b3">亥</span>';
+            break;
+        case '子':
+            yuezhi = '<span style="color:#0401b3">子</span>';
+            break;
+    }
+    switch (rizhi) {
+        case '寅':
+            rizhi = '<span style="color:#008200">寅</span>';
+            break;
+        case '卯':
+            rizhi = '<span style="color:#008200">卯</span>';
+            break;
+
+        case '巳':
+            rizhi = '<span style="color:#fc0003">巳</span>';
+            break;
+        case '午':
+            rizhi = '<span style="color:#fc0003">午</span>';
+            break;
+
+        case '辰':
+            rizhi = '<span style="color:#9c4f01">辰</span>';
+            break;
+        case '戌':
+            rizhi = '<span style="color:#9c4f01">戌</span>';
+            break;
+        case '丑':
+            rizhi = '<span style="color:#9c4f01">丑</span>';
+            break;
+        case '未':
+            rizhi = '<span style="color:#9c4f01">未</span>';
+            break;
+
+        case '申':
+            rizhi = '<span style="color:#fe8106">申</span>';
+            break;
+        case '酉':
+            rizhi = '<span style="color:#fe8106">酉</span>';
+            break;
+
+        case '亥':
+            rizhi = '<span style="color:#0401b3">亥</span>';
+            break;
+        case '子':
+            rizhi = '<span style="color:#0401b3">子</span>';
+            break;
+    }
+    switch (shizhi) {
+        case '寅':
+            shizhi = '<span style="color:#008200">寅</span>';
+            break;
+        case '卯':
+            shizhi = '<span style="color:#008200">卯</span>';
+            break;
+
+        case '巳':
+            shizhi = '<span style="color:#fc0003">巳</span>';
+            break;
+        case '午':
+            shizhi = '<span style="color:#fc0003">午</span>';
+            break;
+
+        case '辰':
+            shizhi = '<span style="color:#9c4f01">辰</span>';
+            break;
+        case '戌':
+            shizhi = '<span style="color:#9c4f01">戌</span>';
+            break;
+        case '丑':
+            shizhi = '<span style="color:#9c4f01">丑</span>';
+            break;
+        case '未':
+            shizhi = '<span style="color:#9c4f01">未</span>';
+            break;
+
+        case '申':
+            shizhi = '<span style="color:#fe8106">申</span>';
+            break;
+        case '酉':
+            shizhi = '<span style="color:#fe8106">酉</span>';
+            break;
+
+        case '亥':
+            shizhi = '<span style="color:#0401b3">亥</span>';
+            break;
+        case '子':
+            shizhi = '<span style="color:#0401b3">子</span>';
+            break;
+    }
+    document.getElementById('nian').innerHTML = niangan + nianzhi;
+    document.getElementById('yue').innerHTML = yuegan + yuezhi;
+    document.getElementById('ri').innerHTML = rigan + rizhi;
+    document.getElementById('shi').innerHTML = shigan + shizhi;
 }

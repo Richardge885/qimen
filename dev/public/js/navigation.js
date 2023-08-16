@@ -150,28 +150,66 @@ function clearPanJu() {
     jiuxing.forEach((element) => {
         element.innerHTML = '';
         element.classList.remove('important');
+        element.classList.remove('highlight');
+        element.classList.remove('jin');
+        element.classList.remove('mu');
+        element.classList.remove('shui');
+        element.classList.remove('huo');
+        element.classList.remove('tu');
     });
     bamen.forEach((element) => {
         element.innerHTML = '';
         element.classList.remove('important');
+        element.classList.remove('highlight');
+        element.classList.remove('jin');
+        element.classList.remove('mu');
+        element.classList.remove('shui');
+        element.classList.remove('huo');
+        element.classList.remove('tu');
     });
     tianpanshen.forEach((element) => {
         element.innerHTML = '';
         element.classList.remove('important');
+        element.classList.remove('highlight');
+        element.classList.remove('jin');
+        element.classList.remove('mu');
+        element.classList.remove('shui');
+        element.classList.remove('huo');
+        element.classList.remove('tu');
     });
     dipanshen.forEach((element) => {
         element.innerHTML = '';
         element.classList.remove('important');
+        element.classList.remove('highlight');
+        element.classList.remove('jin');
+        element.classList.remove('mu');
+        element.classList.remove('shui');
+        element.classList.remove('huo');
+        element.classList.remove('tu');
     });
     tianpangan.forEach((element) => {
         element.innerHTML = '';
         element.classList.remove('important');
         element.classList.remove('rigan');
+        element.classList.remove('highlight');
+        element.classList.remove('highlight-rigan');
+        element.classList.remove('jin');
+        element.classList.remove('mu');
+        element.classList.remove('shui');
+        element.classList.remove('huo');
+        element.classList.remove('tu');
     });
     dipangan.forEach((element) => {
         element.innerHTML = '';
         element.classList.remove('important');
         element.classList.remove('rigan');
+        element.classList.remove('highlight');
+        element.classList.remove('highlight-rigan');
+        element.classList.remove('jin');
+        element.classList.remove('mu');
+        element.classList.remove('shui');
+        element.classList.remove('huo');
+        element.classList.remove('tu');
     });
     wangshuai.forEach((element) => {
         element.innerHTML = '';
@@ -188,17 +226,36 @@ function clearPanJu() {
     anganzhi.forEach((element) => {
         element.innerHTML = '';
         element.classList.remove('important');
+        element.classList.remove('anganzhi-color');
     });
     tianpanyikong.forEach((element) => {
         element.innerHTML = '';
         element.classList.remove('important');
         element.classList.remove('rigan');
+        element.classList.remove('highlight');
+        element.classList.remove('highlight-rigan');
+        element.classList.remove('jin');
+        element.classList.remove('mu');
+        element.classList.remove('shui');
+        element.classList.remove('huo');
+        element.classList.remove('tu');
     });
     dipanyikong.forEach((element) => {
         element.innerHTML = '';
         element.classList.remove('important');
         element.classList.remove('rigan');
+        element.classList.remove('highlight');
+        element.classList.remove('highlight-rigan');
+        element.classList.remove('jin');
+        element.classList.remove('mu');
+        element.classList.remove('shui');
+        element.classList.remove('huo');
+        element.classList.remove('tu');
     });
+    document.getElementById('nian').innerHTML = '';
+    document.getElementById('yue').innerHTML = '';
+    document.getElementById('ri').innerHTML = '';
+    document.getElementById('shi').innerHTML = '';
 }
 
 function closeSideMenu() {

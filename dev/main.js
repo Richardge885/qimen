@@ -136,7 +136,7 @@ ipcMain.on('screenshot', (e, data) => {
     desktopCapturer
         .getSources({
             types: ['window'],
-            thumbnailSize: { width: 7000, height: 7000 },
+            thumbnailSize: { width: 8000, height: 8000 },
         })
         .then((sources) => {
             for (const source of sources) {

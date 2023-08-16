@@ -454,3 +454,29 @@
 hr {
     border-top: 1px solid black;
 }
+
+/* 五行颜色 */
+.highlight {
+    background-color: #ffea39;
+}
+.highlight-rigan {
+    border: 2px solid red;
+}
+.jin {
+    color: #fe8106;
+}
+.mu {
+    color: #008200;
+}
+.shui {
+    color: #0401b3;
+}
+.huo {
+    color: #fc0003;
+}
+.tu {
+    color: #9c4f01;
+}
+.anganzhi-color {
+    color: #666666;
+}

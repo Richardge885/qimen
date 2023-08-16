@@ -5,14 +5,22 @@ const aboutModal = document.getElementById('home-about-modal');
 const aboutModalBtn = document.getElementById('home-guanyu');
 const menuBtn = document.getElementById('home-hamburger-menu');
 const menu = document.getElementById('menu');
+let menuState = false;
 
-menuBtn.addEventListener('click', toggleSideMenu);
-
-function toggleSideMenu() {
-    closeModal();
-    menuBtn.classList.toggle('active');
-    menu.classList.toggle('active');
-}
+menuBtn.addEventListener('click', () => {
+    if (menuState) {
+        menuBtn.classList.remove('active');
+        menu.classList.remove('active');
+        overlay.classList.remove('active');
+        menuState = false;
+    } else {
+        closeModal();
+        menuBtn.classList.add('active');
+        menu.classList.add('active');
+        overlay.classList.add('active');
+        menuState = true;
+    }
+});
 
 // 主页: 报数弹窗开关
 baoshu.addEventListener('click', openBaoshuModal);
@@ -24,16 +32,18 @@ overlay.addEventListener('click', closeModal);
 function closeModal() {
     homeModal.classList.remove('active');
     aboutModal.classList.remove('active');
+    menuBtn.classList.remove('active');
+    menu.classList.remove('active');
     overlay.classList.remove('active');
 }
 
-function closeSideMenu() {
-    menuBtn.classList.remove('active');
-    menu.classList.remove('active');
-}
+// function closeSideMenu() {
+//     menuBtn.classList.remove('active');
+//     menu.classList.remove('active');
+//     overlay.classList.remove('active');
+// }
 
 function openBaoshuModal() {
-    closeSideMenu();
     document.getElementById('shuzi').value = '';
     homeModal.classList.add('active');
     overlay.classList.add('active');
@@ -41,7 +51,9 @@ function openBaoshuModal() {
 }
 
 aboutModalBtn.addEventListener('click', () => {
-    closeSideMenu();
     aboutModal.classList.add('active');
+    menuBtn.classList.remove('active');
+    menu.classList.remove('active');
+    menuState = false;
     overlay.classList.add('active');
 });

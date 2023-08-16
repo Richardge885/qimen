@@ -19,6 +19,9 @@
     </div> -->
 
     <!-- home page section -->
+    <!-- 弹窗代码 -->
+    <!-- 弹窗灰色背景 -->
+    <div id="overlay"></div>
     <div id="home" class="flex flex-col w-screen h-screen">
         <div id="home-hamburger-menu" class="hamburger z-[50] absolute ml-[500px]">
             <div class="hamburger-top"></div>
@@ -31,10 +34,10 @@
                 onclick="fromHomeToInfo()">
                 查阅记录
             </div> -->
-            <div class="bg-[#d1d1d1d5] h-[2px] w-[265px]"></div>
+            <!-- <div class="bg-[#d1d1d1d5] h-[2px] w-[265px]"></div> -->
             <select id="theme" class="font-pingfang text-xl font-normal text-center w-[200px]" size="1">
                 <option value="默认">默认主题</option>
-                <!-- <option value="五行颜色">五行颜色</option> -->
+                <option value="五行颜色">五行颜色</option>
             </select>
             <div class="bg-[#d1d1d1d5] h-[2px] w-[265px]"></div>
             <div id="home-guanyu"
@@ -43,13 +46,10 @@
             </div>
         </div>
 
-        <!-- 弹窗代码 -->
-        <!-- 弹窗灰色背景 -->
-        <div id="overlay"></div>
 
         <!-- about modal -->
         <div id="home-about-modal" class="shadow-md shadow-shadow">
-            <div class="font-bold">奇门遁甲排盘 版本: 3.0.2</div>
+            <div class="font-bold">奇门遁甲排盘 版本: 3.0.3</div>
             <div class="font-bold">软件作者: Richard Ge</div>
             <div class="font-bold">软件设计: Zhang ZhiLan</div>
         </div>
@@ -387,7 +387,6 @@
 
     <!-- 共用 js 文件 -->
     <script type="module" src="js/navigation.js"></script>
-    <script type="module" src="js/saved_paipan_data.js"></script>
 
     <!-- 排盘页 js 文件 -->
     <script src="js/paipan_huanju.js"></script>
