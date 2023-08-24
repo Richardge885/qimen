@@ -1,15 +1,10 @@
 // Set Environment
-process.env.NODE_ENV = 'development';
-// process.env.NODE_ENV = 'production';
+// process.env.NODE_ENV = 'development';
+process.env.NODE_ENV = 'production';
 
 // System requirements
-const {
-    app,
-    BrowserWindow,
-    ipcMain,
-    desktopCapturer,
-    // screen,
-} = require('electron');
+const { app, BrowserWindow, ipcMain, desktopCapturer, dialog } = require('electron');
+
 const path = require('path');
 const fs = require('fs');
 const moment = require('moment');
@@ -22,79 +17,6 @@ const { paiZhuanPan } = require('./zhuanpan');
 const isDev = process.env.NODE_ENV !== 'production' ? true : false;
 
 let mainWindow;
-
-ipcMain.on('正时起局', (e, data) => {
-    const time = timeInfo(data.timeInfo.date, data.timeInfo.hour, false);
-    if (data.paipanMethod == '飞盘') {
-        const paipan = paiFeiPan(time.jieqi, time.ri, time.shi);
-        const paiPanResult = {
-            time: time,
-            paipan: paipan,
-            hour: data.timeInfo.hour,
-        };
-        e.reply('飞盘排盘', paiPanResult);
-    } else if (data.paipanMethod == '转盘') {
-        const paipan = paiZhuanPan(time.jieqi, time.ri, time.shi);
-        const paiPanResult = {
-            time: time,
-            paipan: paipan,
-            hour: data.timeInfo.hour,
-        };
-        e.reply('传统转盘排盘', paiPanResult);
-    }
-});
-
-ipcMain.on('报数起局', (e, data) => {
-    const time = timeInfo(
-        data.choosenTime.date,
-        data.choosenTime.hour,
-        data.choosenMethod,
-        data.choosenNumber,
-    );
-    if (data.paipanMethod == '飞盘') {
-        const paipan = paiFeiPan(
-            time.jieqi,
-            time.ri,
-            time.shi,
-            data.choosenNumber,
-            data.choosenMethod,
-        );
-        const paiPanResult = {
-            time: time,
-            paipan: paipan,
-            hour: data.choosenTime.hour,
-        };
-        e.reply('飞盘排盘', paiPanResult);
-    } else if (data.paipanMethod == '转盘') {
-        const paipan = paiZhuanPan(
-            time.jieqi,
-            time.ri,
-            time.shi,
-            data.choosenNumber,
-            data.choosenMethod,
-        );
-        const paiPanResult = {
-            time: time,
-            paipan: paipan,
-            hour: data.choosenTime.hour,
-        };
-        e.reply('传统转盘排盘', paiPanResult);
-    } else {
-        const paipan = paiFeiPan(
-            time.jieqi,
-            time.ri,
-            time.shi,
-            data.choosenNumber,
-            data.choosenMethod,
-        );
-        const paiPanResult = {
-            time: time,
-            paipan: paipan,
-            hour: data.choosenTime.hour,
-        };
-        e.reply('符使转盘排盘', paiPanResult);
-    }
-});
 
 function createMainWindow() {
     mainWindow = new BrowserWindow({
@@ -132,6 +54,71 @@ app.on('window-all-closed', () => {
     }
 });
 
+ipcMain.on('正时起局', (e, data) => {
+    currentPanjuData = data;
+    const time = timeInfo(data.timeInfo.date, data.timeInfo.hour, false);
+    if (data.paipanMethod == '飞盘') {
+        const paipan = paiFeiPan(time.jieqi, time.ri, time.shi);
+        const paiPanResult = {
+            time: time,
+            paipan: paipan,
+            hour: data.timeInfo.hour,
+        };
+        e.reply('current panju data', data);
+        e.reply('飞盘排盘', paiPanResult);
+    } else if (data.paipanMethod == '转盘') {
+        const paipan = paiZhuanPan(time.jieqi, time.ri, time.shi);
+        const paiPanResult = {
+            time: time,
+            paipan: paipan,
+            hour: data.timeInfo.hour,
+        };
+        e.reply('current panju data', data);
+        e.reply('传统转盘排盘', paiPanResult);
+    }
+});
+
+ipcMain.on('报数起局', (e, data) => {
+    currentPanjuData = data;
+    const time = timeInfo(
+        data.choosenTime.date,
+        data.choosenTime.hour,
+        data.choosenMethod,
+        data.choosenNumber,
+    );
+    if (data.paipanMethod == '飞盘') {
+        const paipan = paiFeiPan(
+            time.jieqi,
+            time.ri,
+            time.shi,
+            data.choosenNumber,
+            data.choosenMethod,
+        );
+        const paiPanResult = {
+            time: time,
+            paipan: paipan,
+            hour: data.choosenTime.hour,
+        };
+        e.reply('current panju data', data);
+        e.reply('飞盘排盘', paiPanResult);
+    } else if (data.paipanMethod == '转盘') {
+        const paipan = paiZhuanPan(
+            time.jieqi,
+            time.ri,
+            time.shi,
+            data.choosenNumber,
+            data.choosenMethod,
+        );
+        const paiPanResult = {
+            time: time,
+            paipan: paipan,
+            hour: data.choosenTime.hour,
+        };
+        e.reply('current panju data', data);
+        e.reply('传统转盘排盘', paiPanResult);
+    }
+});
+
 ipcMain.on('screenshot', (e, data) => {
     desktopCapturer
         .getSources({
@@ -160,12 +147,54 @@ ipcMain.on('screenshot', (e, data) => {
         });
 });
 
-// Function to get the file name based on the current date
 function getFileName(customFileName) {
     if (customFileName != 'none') {
-        return customFileName;
+        for (let i = 0; i < customFileName.length; i++) {
+            if (customFileName[i] == '\n') {
+                customFileName = customFileName.slice(0, i);
+                return customFileName;
+            }
+        }
     } else {
         const date = moment().format('YYYY-MM-DD_HH-mm-ss');
         return `奇门预测截图_${date}`;
     }
 }
+
+ipcMain.on('export saved data', (e, data) => {
+    data = JSON.stringify(data);
+    const filePath = path.join(app.getPath('desktop'), '奇门盘局记录.json');
+    fs.writeFile(filePath, data, (err) => {
+        if (err) {
+            e.reply('error', err);
+        }
+    });
+});
+
+ipcMain.on('import data', (e, data) => {
+    dialog
+        .showOpenDialog({
+            properties: ['openFile'],
+            filters: [{ name: 'JSON Files', extensions: ['json'] }],
+        })
+        .then((result) => {
+            if (!result.canceled) {
+                const filePath = result.filePaths[0];
+                fs.readFile(filePath, 'utf-8', (err, data) => {
+                    if (err) {
+                        e.reply('error', err);
+                        return;
+                    }
+                    const contents = JSON.parse(data);
+                    let localData = [];
+                    for (let i = contents.length - 1; i >= 0; i--) {
+                        localData.unshift(contents[i]);
+                    }
+                    e.reply('import data to render process', localData);
+                });
+            }
+        })
+        .catch((err) => {
+            e.reply('error', err);
+        });
+});

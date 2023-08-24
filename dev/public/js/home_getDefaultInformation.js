@@ -1,14 +1,17 @@
 if (localStorage.getItem('defaultInfo') == null) {
-    let defaultInfo = {
+    const defaultInfo = {
         paipanMethod: '转盘',
         theme: '默认',
     };
-    defaultInfo = JSON.stringify(defaultInfo);
-    localStorage.setItem('defaultInfo', defaultInfo);
+    localStorage.setItem('defaultInfo', JSON.stringify(defaultInfo));
+    document.getElementById('home-paipanfangshi').value = defaultInfo.paipanMethod;
+    document.getElementById('theme').value = defaultInfo.theme;
+    changeBaoshuRadioInput();
 } else {
     const defaultInfo = JSON.parse(localStorage.getItem('defaultInfo'));
     document.getElementById('home-paipanfangshi').value = defaultInfo.paipanMethod;
     document.getElementById('theme').value = defaultInfo.theme;
+    changeBaoshuRadioInput();
 }
 
 function changeBaoshuRadioInput() {

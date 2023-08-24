@@ -8,6 +8,7 @@ nextJu.addEventListener('click', next);
 previousJu.addEventListener('click', prev);
 
 function next() {
+    isFromData = false;
     const year = document.getElementById('year-number').innerText;
     const month = document.getElementById('month-number').innerText;
     const date = document.getElementById('date-number').innerText;
@@ -23,6 +24,7 @@ function next() {
     clearPanJu();
 }
 function prev() {
+    isFromData = false;
     const year = document.getElementById('year-number').innerText;
     const month = document.getElementById('month-number').innerText;
     const date = document.getElementById('date-number').innerText;

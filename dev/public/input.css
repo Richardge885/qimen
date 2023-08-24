@@ -21,6 +21,64 @@
     font-family: pingfang;
 }
 
+/* 记录页面卡片 */
+.data-card-info-section {
+    width: 300px;
+}
+
+.data-card {
+    width: 430px;
+    height: 122px;
+    background-color: white;
+    font-family: pingfang;
+    border-radius: 15px;
+    padding: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.data-paipan-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #0079fe;
+    color: white;
+    font-family: pingfang;
+    border-radius: 15px;
+    padding: 4px;
+    width: 60px;
+    height: 40px;
+    z-index: 20;
+    transition: all 0.3s;
+}
+
+.data-paipan-btn:hover {
+    background-color: white;
+    color: black;
+}
+
+.delete-btn {
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    background-color: red;
+    color: white;
+    font-family: pingfang;
+    border-radius: 15px;
+    padding: 4px;
+    width: 60px;
+    height: 40px;
+    z-index: 20;
+    transition: all 0.3s;
+}
+
+.delete-btn:hover {
+    background-color: white;
+    color: black;
+}
+
 /* 飞盘九宫排版 */
 .tianpanshen {
     position: absolute;
@@ -67,19 +125,27 @@
 .tianpangan {
     /* absolute top-[46px] left-[115px] text-[24px] font-light */
     position: absolute;
-    top: 46px;
+    top: 50px;
     left: 120px;
     font-weight: 300;
     font-size: 24px;
+    height: 30px;
+    overflow: hidden;
+    line-height: 1.1;
+    padding-top: 1px;
 }
 
 .dipangan {
     /* absolute top-[86px] left-[115px] text-[24px] font-light */
     position: absolute;
-    top: 86px;
+    top: 90px;
     left: 120px;
     font-weight: 300;
     font-size: 24px;
+    height: 30px;
+    overflow: hidden;
+    line-height: 1.1;
+    padding-top: 1px;
 }
 
 .tianpanyikong {
@@ -459,24 +525,31 @@ hr {
 .highlight {
     background-color: #ffea39;
 }
+
 .highlight-rigan {
     border: 2px solid red;
 }
+
 .jin {
     color: #fe8106;
 }
+
 .mu {
     color: #008200;
 }
+
 .shui {
     color: #0401b3;
 }
+
 .huo {
     color: #fc0003;
 }
+
 .tu {
     color: #9c4f01;
 }
+
 .anganzhi-color {
     color: #666666;
 }

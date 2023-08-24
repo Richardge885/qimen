@@ -11,14 +11,33 @@
 
 <body>
     <!-- 查阅记录 page -->
-    <!-- <div id="saved-info-section" class="w-screen h-screen hidden bg-[#eeeeee]">
-        <button onclick="fromInfoToHome()" id="info-return-btn"
-            class="h-[55px] w-[55px] bg-btn text-white rounded-[12px] hover:bg-white hover:text-black duration-150 default-shadow">
-            返回
-        </button>
-    </div> -->
+    <div id="saved-info-section" class="w-screen hidden bg-[#eeeeee] ">
+        <div class='flex flex-row justify-evenly items-center translate-y-3'>
+            <input id='search-data' type="text" class='h-[55px] w-[280px] text-lg ml-[10px] font-pingfang px-2'>
+            <button id='remove-search' class='w-[55px] h-[55px] text-3xl absolute left-[250px]'>&times;</button>
+            <!-- translate-x-[-55px] -->
+            <button id='begin-search'
+                class='h-[55px] w-[55px] bg-btn text-lg flex felx-col justify-center items-center text-white rounded-[12px] hover:bg-white hover:text-black duration-150 default-shadow '>搜索</button>
+            <button id="import-saved-data-btn"
+                class="h-[56px] w-[55px] bg-btn text-lg flex felx-col justify-center items-center text-white rounded-[12px] hover:bg-white hover:text-black duration-150 default-shadow ">
+                导入
+            </button>
+            <button id="export-saved-data-btn"
+                class="h-[55px] w-[55px] bg-btn text-white rounded-[12px] hover:bg-white hover:text-black duration-150 default-shadow ">
+                导出
+            </button>
+            <button id="info-return-btn"
+                class="h-[55px] w-[55px] bg-btn text-white rounded-[12px] hover:bg-white hover:text-black duration-150 default-shadow ">
+                返回
+            </button>
+        </div>
+        <div id='saved-data-list' class='h-[750px] mt-[35px] overflow-y-auto'></div>
+    </div>
 
     <!-- home page section -->
+    <!-- 弹窗代码 -->
+    <!-- 弹窗灰色背景 -->
+    <div id="overlay" class=""></div>
     <div id="home" class="flex flex-col w-screen h-screen">
         <div id="home-hamburger-menu" class="hamburger z-[50] absolute ml-[500px]">
             <div class="hamburger-top"></div>
@@ -26,15 +45,15 @@
             <div class="hamburger-bottom"></div>
         </div>
         <div id="menu" class="menu bg-[#eeeeee] w-[50%] flex flex-col justify-center gap-[30px] items-center z-[40]">
-            <!-- <div id="home-show-saved-data"
-                class="text-xl text-center hover:text-btn hover:underline cursor-pointer font-pingfang w-[275px]"
-                onclick="fromHomeToInfo()">
+
+            <div id="home-show-saved-data"
+                class="text-xl text-center hover:text-btn hover:underline cursor-pointer font-pingfang w-[275px]">
                 查阅记录
-            </div> -->
+            </div>
             <div class="bg-[#d1d1d1d5] h-[2px] w-[265px]"></div>
             <select id="theme" class="font-pingfang text-xl font-normal text-center w-[200px]" size="1">
                 <option value="默认">默认主题</option>
-                <!-- <option value="五行颜色">五行颜色</option> -->
+                <option value="五行颜色">五行颜色</option>
             </select>
             <div class="bg-[#d1d1d1d5] h-[2px] w-[265px]"></div>
             <div id="home-guanyu"
@@ -43,13 +62,10 @@
             </div>
         </div>
 
-        <!-- 弹窗代码 -->
-        <!-- 弹窗灰色背景 -->
-        <div id="overlay"></div>
 
         <!-- about modal -->
         <div id="home-about-modal" class="shadow-md shadow-shadow">
-            <div class="font-bold">奇门遁甲排盘 版本: 3.0.3</div>
+            <div class="font-bold">奇门遁甲排盘 版本: 4.0.0</div>
             <div class="font-bold">软件作者: Richard Ge</div>
             <div class="font-bold">软件设计: Zhang ZhiLan</div>
         </div>
@@ -73,7 +89,7 @@
                     class="border-gray-400 text-xl text-center w-[100px] border-[1px] rounded-[7px] font-pingfang" />
             </label>
             <button id="modal-btn"
-                class="bg-blue-500 text-white hover:bg-blue-700 duration-200 w-[150px] h-[50px] rounded-[15px] default-shadow font-pingfang">
+                class="bg-blue-500 text-white hover:bg-white hover:text-black duration-200 w-[150px] h-[50px] rounded-[15px] default-shadow font-pingfang">
                 确认
             </button>
         </div>
@@ -175,7 +191,8 @@
                 class="font-bold w-[48px] h-[30px] text-[#666666] text-center text-xl border-b-[1px] border-b-gray-300 font-pingfang">
                 时
                 <div id="shi"
-                    class="font-normal pt-[5px] text-black text-3xl text-center h-[82px] w-[48px] font-pingfang"></div>
+                    class="font-normal pt-[5px] text-black text-3xl text-center h-[82px] w-[48px] font-pingfang">
+                </div>
             </div>
         </div>
 
@@ -198,6 +215,8 @@
         </div>
 
         <!-- 换局按钮 -->
+        <button id='save-data-btn'
+            class='absolute top-[135px] left-[370px] h-[40px] w-[60px] bg-btn text-xl text-white rounded-[12px] hover:bg-white hover:text-black duration-150 default-shadow cursor-pointer z-5'>保存</button>
         <button id="paipan-next"
             class="absolute top-[135px] left-[490px] h-[40px] w-[40px] bg-btn text-2xl text-white rounded-[12px] hover:bg-white hover:text-black duration-150 default-shadow cursor-pointer z-5">&#x2192</button>
         <button id="paipan-previous"
@@ -220,7 +239,8 @@
                 <div data-maxing></div>
                 <div data-kongwang></div>
                 <div data-gongwei-overlay
-                    class="bg-white opacity-0 z-[8] cursor-pointer w-[165px] h-[165px] rounded-[15px] relative"></div>
+                    class="bg-white opacity-0 z-[8] cursor-pointer w-[165px] h-[165px] rounded-[15px] relative">
+                </div>
             </div>
             <div id="gongwei-2" class="absolute font-pingfang gongwei top-[178px] left-[365px]">
                 <div data-tianpanshen></div>
@@ -363,8 +383,19 @@
         <!-- 下方信息取 -->
         <textarea id="paipan-pizhu"
             class="absolute top-[703px] left-[20px] resize-none text-lg border-[1px] rounded-[15px] h-[122px] w-[430px] text-md p-4 default-shadow font-pingfang"></textarea>
+        <!-- for mac -->
+        <!-- <button id="screenshot-btn"
+            class="absolute top-[703px] left-[475px] h-[55px] w-[55px] bg-btn text-white rounded-[12px] hover:bg-white hover:text-black duration-150 default-shadow">
+            截图
+        </button>
         <button id="return"
-            class="absolute top-[703px] left-[475px] h-[122px] w-[55px] bg-btn text-white rounded-[12px] hover:bg-white hover:text-black duration-150 default-shadow">
+            class="absolute top-[770px] left-[475px] h-[55px] w-[55px] bg-btn text-white rounded-[12px] hover:bg-white hover:text-black duration-150 default-shadow">
+            返回
+        </button> -->
+
+        <!-- Win 按键 -->
+        <button id="return"
+            class="absolute top-[704px] left-[475px] h-[122px] w-[55px] bg-btn text-white rounded-[12px] hover:bg-white hover:text-black duration-150 default-shadow">
             返回
         </button>
     </div>
@@ -373,6 +404,7 @@
     <script type="module" src="js/home_setCurrentTime.js"></script>
     <script type="module" src="js/home_modal.js"></script>
     <script type="module" src="js/home_useDifferentScripts.js"></script>
+    <script type='module' src='js/savedData.js'></script>
 
     <!-- 共用 js 文件 -->
     <script type="module" src="js/navigation.js"></script>

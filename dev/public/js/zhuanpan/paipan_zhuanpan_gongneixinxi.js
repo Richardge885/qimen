@@ -495,52 +495,59 @@ function zhuanpan_info(info) {
             result =
                 result +
                 getZhangSheng(document.getElementById('paipan-jigong-info').innerText, gongwei) +
-                '<br>' +
+                '<br><hr><br>' +
                 whichGeJu(tianpangan, dipangan) +
-                '<br>' +
+                '<br><hr><br>' +
                 whichGeJu(tianpangan, document.getElementById('paipan-jigong-info').innerText) +
-                '<br>' +
+                '<br><hr><br>' +
+                mengong(men, gongwei) +
                 whichGeJu(document.getElementById('paipan-jigong-info').innerText, dipangan) +
-                '<br>' +
+                '<br><hr><br>' +
                 whichGeJu(
                     document.getElementById('paipan-jigong-info').innerText,
                     document.getElementById('paipan-jigong-info').innerText,
                 ) +
-                '<br>' +
+                '<br><hr><br>' +
                 whichGeJu(angan, dipangan) +
-                '<br>' +
+                '<br><hr><br>' +
                 whichGeJu(angan, document.getElementById('paipan-jigong-info').innerText);
         } else if (diji) {
             result =
                 result +
                 getZhangSheng(document.getElementById('paipan-jigong-info').innerText, gongwei) +
-                '<br>' +
+                '<br><hr><br>' +
                 whichGeJu(tianpangan, dipangan) +
-                '<br>' +
+                '<br><hr><br>' +
                 whichGeJu(tianpangan, document.getElementById('paipan-jigong-info').innerText) +
-                '<br>' +
+                '<br><hr><br>' +
+                mengong(men, gongwei) +
                 whichGeJu(angan, dipangan) +
-                '<br>' +
+                '<br><hr><br>' +
                 whichGeJu(angan, document.getElementById('paipan-jigong-info').innerText);
         } else if (tianji) {
             result =
                 result +
                 getZhangSheng(document.getElementById('paipan-jigong-info').innerText, gongwei) +
-                '<br>' +
+                '<br><hr><br>' +
                 whichGeJu(tianpangan, dipangan) +
-                '<br>' +
+                '<br><hr><br>' +
+                mengong(men, gongwei) +
                 whichGeJu(document.getElementById('paipan-jigong-info').innerText, dipangan) +
-                '<br>' +
+                '<br><hr><br>' +
                 whichGeJu(angan, dipangan);
         } else {
             result =
                 result +
-                '<br>' +
+                '<br><hr><br>' +
                 whichGeJu(tianpangan, dipangan) +
-                '<br>' +
+                '<br><hr><br>' +
+                mengong(men, gongwei) +
                 whichGeJu(angan, dipangan);
         }
-        result = result + '<br>' + getJiGe(tianpangan, dipangan, xing, men, tianpanshen, gongwei);
+        result =
+            result +
+            '<br><hr><br>' +
+            getJiGe(tianpangan, dipangan, xing, men, tianpanshen, gongwei);
         return result;
     }
     function whichGeJu(tianpangan, dipangan) {
@@ -1747,5 +1754,191 @@ function zhuanpan_info(info) {
             }
         }
         return result;
+    }
+    function mengong(men, gong) {
+        const menpo =
+            '门+宫：<br><span style="color:red">门迫：</span>主祸从外来。我居宫室之内，并不欲招非于他，他突然来克我，不知有何关碍，迫来之事最为迅速，要多堤防。<br><br><hr><br>';
+        const shouzhi =
+            '门+宫：<br><span style="color:red">门受制：</span>主内祸重重。因为我安居无事，他却过来惹我，我以郑重克服于他，他也甘受我制，主我侵犯于他。<br><br><hr><br>';
+        const he =
+            '门+宫：<br><span style="color:#0079FE">交和：</span>主喜庆重重。我居穷困之际，并无意去求他，他不辞劳苦，主动来帮助我，我也愿意接受他的帮助。主因外人相助而有喜庆。<br><br><hr><br>';
+        const yi =
+            '门+宫：<br><span style="color:#0079FE">结义：</span>主喜中有脱。他人不远千里而来投奔于我，我也念其诚意，接之以礼，子之以仪，故谓之义。主乐善好施，他人受益。<br><br><hr><br>';
+        const fuyin =
+            '门+宫：<br><span style="color:red">门伏吟：</span>主有灾难，祸不单行，伏地痛苦呻吟之象。宜静不宜动，宜缓不宜速。只宜收敛钱财，讨债等。<br><br><hr><br>';
+        const fanyin =
+            '门+宫：<br><span style="color:red">门反吟：</span>主反复不宁，进后复退，聚而复散，徘徊不定，犹豫不决，半途而废，凡是多重复。宜快刀斩乱麻，速战速决。<br><br><hr><br>';
+        switch (men) {
+            case '休门':
+                switch (gong) {
+                    case '乾':
+                        return yi;
+                    case '坎':
+                        return fuyin;
+                    case '艮':
+                        return shouzhi;
+                    case '震':
+                        return he;
+                    case '巽':
+                        return he;
+                    case '离':
+                        return fanyin;
+                    case '坤':
+                        return shouzhi;
+                    case '兑':
+                        return he;
+                    case '中':
+                        return shouzhi;
+                }
+            case '生门':
+                switch (gong) {
+                    case '乾':
+                        return he;
+                    case '坎':
+                        return menpo;
+                    case '艮':
+                        return fuyin;
+                    case '震':
+                        return shouzhi;
+                    case '巽':
+                        return shouzhi;
+                    case '离':
+                        return yi;
+                    case '坤':
+                        return fanyin;
+                    case '兑':
+                        return he;
+                    case '中':
+                        return fanyin;
+                }
+            case '伤门':
+                switch (gong) {
+                    case '乾':
+                        return shouzhi;
+                    case '坎':
+                        return yi;
+                    case '艮':
+                        return menpo;
+                    case '震':
+                        return fuyin;
+                    case '巽':
+                        return '';
+                    case '离':
+                        return he;
+                    case '坤':
+                        return menpo;
+                    case '兑':
+                        return fanyin;
+                    case '中':
+                        return menpo;
+                }
+            case '杜门':
+                switch (gong) {
+                    case '乾':
+                        return fanyin;
+                    case '坎':
+                        return yi;
+                    case '艮':
+                        return menpo;
+                    case '震':
+                        return '';
+                    case '巽':
+                        return fuyin;
+                    case '离':
+                        return he;
+                    case '坤':
+                        return menpo;
+                    case '兑':
+                        return shouzhi;
+                    case '中':
+                        return menpo;
+                }
+            case '景门':
+                switch (gong) {
+                    case '乾':
+                        return menpo;
+                    case '坎':
+                        return fanyin;
+                    case '艮':
+                        return he;
+                    case '震':
+                        return yi;
+                    case '巽':
+                        return yi;
+                    case '离':
+                        return fuyin;
+                    case '坤':
+                        return he;
+                    case '兑':
+                        return menpo;
+                    case '中':
+                        return he;
+                }
+            case '死门':
+                switch (gong) {
+                    case '乾':
+                        return he;
+                    case '坎':
+                        return menpo;
+                    case '艮':
+                        return fanyin;
+                    case '震':
+                        return shouzhi;
+                    case '巽':
+                        return shouzhi;
+                    case '离':
+                        return yi;
+                    case '坤':
+                        return fuyin;
+                    case '兑':
+                        return he;
+                    case '中':
+                        return fanyin;
+                }
+            case '惊门':
+                switch (gong) {
+                    case '乾':
+                        return '';
+                    case '坎':
+                        return he;
+                    case '艮':
+                        return yi;
+                    case '震':
+                        return fanyin;
+                    case '巽':
+                        return menpo;
+                    case '离':
+                        return shouzhi;
+                    case '坤':
+                        return yi;
+                    case '兑':
+                        return fuyin;
+                    case '中':
+                        return yi;
+                }
+            case '开门':
+                switch (gong) {
+                    case '乾':
+                        return fuyin;
+                    case '坎':
+                        return he;
+                    case '艮':
+                        return yi;
+                    case '震':
+                        return menpo;
+                    case '巽':
+                        return fanyin;
+                    case '离':
+                        return shouzhi;
+                    case '坤':
+                        return yi;
+                    case '兑':
+                        return '';
+                    case '中':
+                        return yi;
+                }
+            case '中门':
+                return '';
+        }
     }
 }

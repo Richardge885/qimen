@@ -28,6 +28,11 @@ document.getElementById('zhengshi').addEventListener('click', () => {
         timeInfo: choosenTime,
     };
     ipcRenderer.send('正时起局', data); // 把时间参数发送至后台
+    if (data.paipanMethod == '飞盘') {
+        useFeipanStyle();
+    } else {
+        useZhuanpanStyle();
+    }
     toggleHomeAndPaipan(); // 切换页面
     closeSideMenu();
 });
@@ -55,6 +60,11 @@ document.getElementById('modal-btn').addEventListener('click', () => {
             data.choosenMethod = 'zhichou';
         }
         ipcRenderer.send('报数起局', data); // 把时间参数发送至后台
+        if (data.paipanMethod == '飞盘') {
+            useFeipanStyle();
+        } else {
+            useZhuanpanStyle();
+        }
         toggleHomeAndPaipan(); // 切换页面
         closeModal(); // 关闭弹窗
         closeSideMenu();
@@ -85,6 +95,11 @@ document.getElementById('shuzi').addEventListener('keypress', (e) => {
                 data.choosenMethod = 'zhichou';
             }
             ipcRenderer.send('报数起局', data); // 把时间参数发送至后台
+            if (data.paipanMethod == '飞盘') {
+                useFeipanStyle();
+            } else {
+                useZhuanpanStyle();
+            }
             toggleHomeAndPaipan(); // 切换页面
             closeModal(); // 关闭弹窗
         }
@@ -259,17 +274,115 @@ function clearPanJu() {
 }
 
 function closeSideMenu() {
-    const menuBtn = document.getElementById('home-hamburger-menu');
-    const menu = document.getElementById('menu');
-    menuBtn.classList.remove('active');
-    menu.classList.remove('active');
+    document.getElementById('home-hamburger-menu').classList.remove('active');
+    document.getElementById('menu').classList.remove('active');
+    document.getElementById('overlay').classList.remove('active'); // 主页: 包数弹窗背景
 }
 
 function closeModal() {
-    const homeModal = document.getElementById('home-modal'); // 主页: 报数弹窗
-    const overlay = document.getElementById('overlay'); // 主页: 包数弹窗背景
-    const aboutModal = document.getElementById('home-about-modal');
-    homeModal.classList.remove('active');
-    aboutModal.classList.remove('active');
-    overlay.classList.remove('active');
+    document.getElementById('home-modal').classList.remove('active'); // 主页: 报数弹窗
+    document.getElementById('overlay').classList.remove('active'); // 主页: 包数弹窗背景
+    document.getElementById('home-about-modal').classList.remove('active');
+}
+
+function useFeipanStyle() {
+    document.querySelectorAll('[data-tianpanshen]').forEach((element, index) => {
+        element.classList.remove('zhuanpan-tianpanshen');
+        element.classList.add('tianpanshen');
+    });
+    document.querySelectorAll('[data-xing]').forEach((element, index) => {
+        element.classList.remove('zhuanpan-xing');
+        element.classList.add('xing');
+    });
+    document.querySelectorAll('[data-men]').forEach((element, index) => {
+        element.classList.remove('zhuanpan-men');
+        element.classList.add('men');
+    });
+    document.querySelectorAll('[data-dipanshen]').forEach((element, index) => {
+        element.classList.remove('zhuanpan-dipanshen');
+        element.classList.add('dipanshen');
+    });
+    document.querySelectorAll('[data-tianpangan]').forEach((element, index) => {
+        element.classList.remove('zhuanpan-tianpangan');
+        element.classList.add('tianpangan');
+    });
+    document.querySelectorAll('[data-dipangan]').forEach((element, index) => {
+        element.classList.remove('zhuanpan-dipangan');
+        element.classList.add('dipangan');
+    });
+    document.querySelectorAll('[data-anganzhi]').forEach((element, index) => {
+        element.classList.remove('zhuanpan-anganzhi');
+        element.classList.add('anganzhi');
+    });
+    document.querySelectorAll('[data-tianpanyikong]').forEach((element, index) => {
+        element.classList.remove('zhuanpan-tianpanyikong');
+        element.classList.add('tianpanyikong');
+    });
+    document.querySelectorAll('[data-dipanyikong]').forEach((element, index) => {
+        element.classList.remove('zhuanpan-dipanyikong');
+        element.classList.add('dipanyikong');
+    });
+    document.querySelectorAll('[data-maxing]').forEach((element, index) => {
+        element.classList.remove('zhuanpan-maxing');
+        element.classList.add('maxing');
+    });
+    document.querySelectorAll('[data-kongwang]').forEach((element, index) => {
+        element.classList.remove('zhuanpan-kongwang');
+        element.classList.add('kongwang');
+    });
+    document.querySelectorAll('[data-wangshuai]').forEach((element, index) => {
+        element.classList.remove('zhuanpan-wangshuai');
+        element.classList.add('wangshuai');
+    });
+}
+
+function useZhuanpanStyle() {
+    document.querySelectorAll('[data-maxing]').forEach((element, index) => {
+        element.classList.remove('maxing');
+        element.classList.add('zhuanpan-maxing');
+    });
+    document.querySelectorAll('[data-tianpanshen]').forEach((element, index) => {
+        element.classList.remove('tianpanshen');
+        element.classList.add('zhuanpan-tianpanshen');
+    });
+    document.querySelectorAll('[data-xing]').forEach((element, index) => {
+        element.classList.remove('xing');
+        element.classList.add('zhuanpan-xing');
+    });
+    document.querySelectorAll('[data-men]').forEach((element, index) => {
+        element.classList.remove('men');
+        element.classList.add('zhuanpan-men');
+    });
+    document.querySelectorAll('[data-dipanshen]').forEach((element, index) => {
+        element.classList.remove('dipanshen');
+        element.classList.add('zhuanpan-dipanshen');
+    });
+    document.querySelectorAll('[data-tianpangan]').forEach((element, index) => {
+        element.classList.remove('tianpangan');
+        element.classList.add('zhuanpan-tianpangan');
+    });
+    document.querySelectorAll('[data-dipangan]').forEach((element, index) => {
+        element.classList.remove('dipangan');
+        element.classList.add('zhuanpan-dipangan');
+    });
+    document.querySelectorAll('[data-anganzhi]').forEach((element, index) => {
+        element.classList.remove('anganzhi');
+        element.classList.add('zhuanpan-anganzhi');
+    });
+    document.querySelectorAll('[data-tianpanyikong]').forEach((element, index) => {
+        element.classList.remove('tianpanyikong');
+        element.classList.add('zhuanpan-tianpanyikong');
+    });
+    document.querySelectorAll('[data-dipanyikong]').forEach((element, index) => {
+        element.classList.remove('dipanyikong');
+        element.classList.add('zhuanpan-dipanyikong');
+    });
+    document.querySelectorAll('[data-kongwang]').forEach((element, index) => {
+        element.classList.remove('kongwang');
+        element.classList.add('zhuanpan-kongwang');
+    });
+    document.querySelectorAll('[data-wangshuai]').forEach((element, index) => {
+        element.classList.remove('wangshuai');
+        element.classList.add('zhuanpan-wangshuai');
+    });
 }

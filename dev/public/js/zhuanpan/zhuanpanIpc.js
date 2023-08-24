@@ -32,6 +32,9 @@ ipcRenderer.on('传统转盘排盘', (e, data) => {
     }
     // 用于宫位弹窗提示
     zhuanpan_info(info);
+    if (document.getElementById('paipan-pizhu').value == '') {
+        isFromData = false;
+    }
 });
 
 function updateTimeInfo(data, year, month, day, hour) {

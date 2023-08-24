@@ -550,12 +550,20 @@ video {
   left: 20px;
 }
 
+.left-\[250px\] {
+  left: 250px;
+}
+
 .left-\[256px\] {
   left: 256px;
 }
 
 .left-\[365px\] {
   left: 365px;
+}
+
+.left-\[370px\] {
+  left: 370px;
 }
 
 .left-\[405px\] {
@@ -610,6 +618,10 @@ video {
   top: 703px;
 }
 
+.top-\[704px\] {
+  top: 704px;
+}
+
 .top-\[770px\] {
   top: 770px;
 }
@@ -634,12 +646,20 @@ video {
   z-index: 8;
 }
 
+.ml-\[10px\] {
+  margin-left: 10px;
+}
+
 .ml-\[500px\] {
   margin-left: 500px;
 }
 
 .mt-\[15px\] {
   margin-top: 15px;
+}
+
+.mt-\[35px\] {
+  margin-top: 35px;
 }
 
 .flex {
@@ -652,6 +672,10 @@ video {
 
 .h-48 {
   height: 12rem;
+}
+
+.h-60 {
+  height: 15rem;
 }
 
 .h-\[110px\] {
@@ -694,6 +718,14 @@ video {
   height: 55px;
 }
 
+.h-\[56px\] {
+  height: 56px;
+}
+
+.h-\[750px\] {
+  height: 750px;
+}
+
 .h-\[80px\] {
   height: 80px;
 }
@@ -708,6 +740,38 @@ video {
 
 .h-screen {
   height: 100vh;
+}
+
+.h-\[60px\] {
+  height: 60px;
+}
+
+.h-\[70px\] {
+  height: 70px;
+}
+
+.h-80 {
+  height: 20rem;
+}
+
+.h-\[500px\] {
+  height: 500px;
+}
+
+.h-\[400px\] {
+  height: 400px;
+}
+
+.h-\[300px\] {
+  height: 300px;
+}
+
+.h-\[75px\] {
+  height: 75px;
+}
+
+.h-\[250px\] {
+  height: 250px;
 }
 
 .w-\[100px\] {
@@ -750,6 +814,10 @@ video {
   width: 275px;
 }
 
+.w-\[280px\] {
+  width: 280px;
+}
+
 .w-\[320px\] {
   width: 320px;
 }
@@ -778,8 +846,22 @@ video {
   width: 55px;
 }
 
+.w-\[60px\] {
+  width: 60px;
+}
+
 .w-screen {
   width: 100vw;
+}
+
+.translate-x-\[-55px\] {
+  --tw-translate-x: -55px;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.translate-y-3 {
+  --tw-translate-y: 0.75rem;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
 .cursor-pointer {
@@ -820,6 +902,10 @@ video {
 
 .overflow-scroll {
   overflow: scroll;
+}
+
+.overflow-y-auto {
+  overflow-y: auto;
 }
 
 .rounded-\[10px\] {
@@ -923,6 +1009,11 @@ video {
   padding: 3px;
 }
 
+.px-2 {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
 .pb-\[100px\] {
   padding-bottom: 100px;
 }
@@ -937,6 +1028,18 @@ video {
 
 .pt-\[5px\] {
   padding-top: 5px;
+}
+
+.pt-\[80px\] {
+  padding-top: 80px;
+}
+
+.pb-\[600px\] {
+  padding-bottom: 600px;
+}
+
+.pb-\[60px\] {
+  padding-bottom: 60px;
 }
 
 .text-center {
@@ -1067,6 +1170,65 @@ video {
   font-family: pingfang;
 }
 
+/* 记录页面卡片 */
+
+.data-card-info-section {
+  width: 300px;
+}
+
+.data-card {
+  width: 430px;
+  height: 122px;
+  background-color: white;
+  font-family: pingfang;
+  border-radius: 15px;
+  padding: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.data-paipan-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: #0079fe;
+  color: white;
+  font-family: pingfang;
+  border-radius: 15px;
+  padding: 4px;
+  width: 60px;
+  height: 40px;
+  z-index: 20;
+  transition: all 0.3s;
+}
+
+.data-paipan-btn:hover {
+  background-color: white;
+  color: black;
+}
+
+.delete-btn {
+  position: absolute;
+  top: 70px;
+  right: 20px;
+  background-color: red;
+  color: white;
+  font-family: pingfang;
+  border-radius: 15px;
+  padding: 4px;
+  width: 60px;
+  height: 40px;
+  z-index: 20;
+  transition: all 0.3s;
+}
+
+.delete-btn:hover {
+  background-color: white;
+  color: black;
+}
+
 /* 飞盘九宫排版 */
 
 .tianpanshen {
@@ -1114,19 +1276,27 @@ video {
 .tianpangan {
   /* absolute top-[46px] left-[115px] text-[24px] font-light */
   position: absolute;
-  top: 46px;
+  top: 50px;
   left: 120px;
   font-weight: 300;
   font-size: 24px;
+  height: 30px;
+  overflow: hidden;
+  line-height: 1.1;
+  padding-top: 1px;
 }
 
 .dipangan {
   /* absolute top-[86px] left-[115px] text-[24px] font-light */
   position: absolute;
-  top: 86px;
+  top: 90px;
   left: 120px;
   font-weight: 300;
   font-size: 24px;
+  height: 30px;
+  overflow: hidden;
+  line-height: 1.1;
+  padding-top: 1px;
 }
 
 .tianpanyikong {
@@ -1542,11 +1712,6 @@ hr {
 
 .anganzhi-color {
   color: #666666;
-}
-
-.hover\:bg-blue-700:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(29 78 216 / var(--tw-bg-opacity));
 }
 
 .hover\:bg-white:hover {

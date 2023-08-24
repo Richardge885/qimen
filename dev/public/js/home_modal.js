@@ -5,7 +5,6 @@ const aboutModal = document.getElementById('home-about-modal');
 const aboutModalBtn = document.getElementById('home-guanyu');
 const menuBtn = document.getElementById('home-hamburger-menu');
 const menu = document.getElementById('menu');
-let menuState = false;
 
 menuBtn.addEventListener('click', () => {
     if (menuState) {
@@ -24,7 +23,17 @@ menuBtn.addEventListener('click', () => {
 
 // 主页: 报数弹窗开关
 baoshu.addEventListener('click', openBaoshuModal);
-overlay.addEventListener('click', closeModal);
+overlay.addEventListener('click', () => {
+    closeModal();
+    closeSideMenu();
+});
+
+function closeSideMenu() {
+    document.getElementById('home-hamburger-menu').classList.remove('active');
+    document.getElementById('menu').classList.remove('active');
+    document.getElementById('overlay').classList.remove('active'); // 主页: 包数弹窗背景
+    menuState = false;
+}
 
 /**
  * 主页报数弹窗开关
@@ -36,12 +45,6 @@ function closeModal() {
     menu.classList.remove('active');
     overlay.classList.remove('active');
 }
-
-// function closeSideMenu() {
-//     menuBtn.classList.remove('active');
-//     menu.classList.remove('active');
-//     overlay.classList.remove('active');
-// }
 
 function openBaoshuModal() {
     document.getElementById('shuzi').value = '';

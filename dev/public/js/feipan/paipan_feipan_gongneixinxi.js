@@ -705,7 +705,7 @@ function feipan_info(info) {
             case '乙己':
                 output =
                     output +
-                    neiluange +
+                    wailuange +
                     mutu +
                     '<span style="color:#0079FE">日奇入墓：</span>被土暗昧、门凶事必凶。<br>';
                 break;
@@ -4454,8 +4454,8 @@ function feipan_info(info) {
                 break;
         }
         // 季煞
-        const tianxi = '<span style="color:red">天喜：</span>主喜庆，恩泽，迁官，财喜等<br>';
-        const tianshe = '<span style="color:red">天赦：</span>主消灾解难，可以逢凶化吉<br>';
+        const tianxi = '<span style="color:#0079FE">天喜：</span>主喜庆，恩泽，迁官，财喜等<br>';
+        const tianshe = '<span style="color:#0079FE">天赦：</span>主消灾解难，可以逢凶化吉<br>';
         if (
             document.getElementById('yue').innerText.charAt(1) == '寅' ||
             document.getElementById('yue').innerText.charAt(1) == '卯' ||
