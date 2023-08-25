@@ -13,6 +13,7 @@ const moment = require('moment');
 const { timeInfo } = require('./sizhu');
 const { paiFeiPan } = require('./feipan');
 const { paiZhuanPan } = require('./zhuanpan');
+const { xingfeiMenzhuan } = require('./xingfeiMenZhuan');
 
 const isDev = process.env.NODE_ENV !== 'production' ? true : false;
 
@@ -75,6 +76,15 @@ ipcMain.on('正时起局', (e, data) => {
         };
         e.reply('current panju data', data);
         e.reply('传统转盘排盘', paiPanResult);
+    } else if (data.paipanMethod == '星飞门转') {
+        const paipan = xingfeiMenzhuan(time.jieqi, time.ri, time.shi);
+        const paiPanResult = {
+            time: time,
+            paipan: paipan,
+            hour: data.timeInfo.hour,
+        };
+        e.reply('current panju data', data);
+        e.reply('星飞门转', paiPanResult);
     }
 });
 
@@ -116,6 +126,21 @@ ipcMain.on('报数起局', (e, data) => {
         };
         e.reply('current panju data', data);
         e.reply('传统转盘排盘', paiPanResult);
+    } else if (data.paipanMethod == '星飞门转') {
+        const paipan = xingfeiMenzhuan(
+            time.jieqi,
+            time.ri,
+            time.shi,
+            data.choosenNumber,
+            data.choosenMethod,
+        );
+        const paiPanResult = {
+            time: time,
+            paipan: paipan,
+            hour: data.timeInfo.hour,
+        };
+        e.reply('current panju data', data);
+        e.reply('星飞门转', paiPanResult);
     }
 });
 

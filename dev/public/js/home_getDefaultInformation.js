@@ -19,7 +19,7 @@ function changeBaoshuRadioInput() {
         document.getElementById('jushu').setAttribute('checked', '');
     } else if (
         document.getElementById('home-paipanfangshi').value == '转盘' ||
-        document.getElementById('home-paipanfangshi').value == '符使'
+        document.getElementById('home-paipanfangshi').value == '星飞门转'
     ) {
         document.getElementById('shichen').setAttribute('checked', '');
     }

@@ -1,4 +1,4 @@
-function paiZhuanPan(jieqi, rizhu, shizhu, number = 1, method = 'none') {
+function xingfeiMenzhuan(jieqi, rizhu, shizhu, number = 1, method = 'none') {
     const liushijiazi = [
         '甲子',
         '乙丑',
@@ -1143,26 +1143,25 @@ function paiBaMen(zhishi) {
 }
 
 function paiJiuXing(zhifu) {
-    switch (zhifu) {
-        case '天蓬':
-            return ['天蓬', '天任', '天冲', '天辅', '天英', '天芮', '天柱', '天心'];
-        case '天任':
-            return ['天任', '天冲', '天辅', '天英', '天芮', '天柱', '天心', '天蓬'];
-        case '天冲':
-            return ['天冲', '天辅', '天英', '天芮', '天柱', '天心', '天蓬', '天任'];
-        case '天辅':
-            return ['天辅', '天英', '天芮', '天柱', '天心', '天蓬', '天任', '天冲'];
-        case '天英':
-            return ['天英', '天芮', '天柱', '天心', '天蓬', '天任', '天冲', '天辅'];
-        case '天芮':
-            return ['天芮', '天柱', '天心', '天蓬', '天任', '天冲', '天辅', '天英'];
-        case '天禽':
-            return ['天芮', '天柱', '天心', '天蓬', '天任', '天冲', '天辅', '天英'];
-        case '天柱':
-            return ['天柱', '天心', '天蓬', '天任', '天冲', '天辅', '天英', '天芮'];
-        case '天心':
-            return ['天心', '天蓬', '天任', '天冲', '天辅', '天英', '天芮', '天柱'];
+    if (zhifu == '天蓬') {
+        return ['天蓬', '天芮', '天冲', '天辅', '天禽', '天心', '天柱', '天任', '天英'];
+    } else if (zhifu == '天芮') {
+        return ['天芮', '天冲', '天辅', '天禽', '天心', '天柱', '天任', '天英', '天蓬'];
+    } else if (zhifu == '天冲') {
+        return ['天冲', '天辅', '天禽', '天心', '天柱', '天任', '天英', '天蓬', '天芮'];
+    } else if (zhifu == '天辅') {
+        return ['天辅', '天禽', '天心', '天柱', '天任', '天英', '天蓬', '天芮', '天冲'];
+    } else if (zhifu == '天禽') {
+        return ['天禽', '天心', '天柱', '天任', '天英', '天蓬', '天芮', '天冲', '天辅'];
+    } else if (zhifu == '天心') {
+        return ['天心', '天柱', '天任', '天英', '天蓬', '天芮', '天冲', '天辅', '天禽'];
+    } else if (zhifu == '天柱') {
+        return ['天柱', '天任', '天英', '天蓬', '天芮', '天冲', '天辅', '天禽', '天心'];
+    } else if (zhifu == '天任') {
+        return ['天任', '天英', '天蓬', '天芮', '天冲', '天辅', '天禽', '天心', '天柱'];
+    } else if (zhifu == '天英') {
+        return ['天英', '天蓬', '天芮', '天冲', '天辅', '天禽', '天心', '天柱', '天任'];
     }
 }
 
-module.exports = { paiZhuanPan };
+module.exports = { xingfeiMenzhuan };
