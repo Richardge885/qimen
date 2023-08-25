@@ -1,6 +1,6 @@
 // Set Environment
-// process.env.NODE_ENV = 'development';
-process.env.NODE_ENV = 'production';
+process.env.NODE_ENV = 'development';
+// process.env.NODE_ENV = 'production';
 
 // System requirements
 const { app, BrowserWindow, ipcMain, desktopCapturer, dialog } = require('electron');
@@ -81,8 +81,8 @@ ipcMain.on('正时起局', (e, data) => {
 ipcMain.on('报数起局', (e, data) => {
     currentPanjuData = data;
     const time = timeInfo(
-        data.choosenTime.date,
-        data.choosenTime.hour,
+        data.timeInfo.date,
+        data.timeInfo.hour,
         data.choosenMethod,
         data.choosenNumber,
     );
@@ -97,7 +97,7 @@ ipcMain.on('报数起局', (e, data) => {
         const paiPanResult = {
             time: time,
             paipan: paipan,
-            hour: data.choosenTime.hour,
+            hour: data.timeInfo.hour,
         };
         e.reply('current panju data', data);
         e.reply('飞盘排盘', paiPanResult);
@@ -112,7 +112,7 @@ ipcMain.on('报数起局', (e, data) => {
         const paiPanResult = {
             time: time,
             paipan: paipan,
-            hour: data.choosenTime.hour,
+            hour: data.timeInfo.hour,
         };
         e.reply('current panju data', data);
         e.reply('传统转盘排盘', paiPanResult);

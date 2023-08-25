@@ -48,7 +48,7 @@ document.getElementById('modal-btn').addEventListener('click', () => {
         let choosenTime = formatDateTime(document.getElementById('date-time').value);
         let data = {
             paipanMethod: document.getElementById('home-paipanfangshi').value, // 排盘方式（飞盘，传统转盘，符使转盘）
-            choosenTime: choosenTime,
+            timeInfo: choosenTime,
             choosenMethod: '',
             choosenNumber: document.getElementById('shuzi').value,
         };
