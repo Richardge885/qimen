@@ -122,8 +122,6 @@ async function renderData(data) {
             isFromData = true;
             panjuIndex = index;
             for (let i = localData.length - 1; i >= 0; i--) {
-                console.log(index);
-                console.log(data[index]);
                 if (
                     data[index].info == localData[i].info &&
                     data[index].timeInfo.date == localData[i].timeInfo.date &&

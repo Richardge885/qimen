@@ -1,0 +1,57 @@
+[
+    {
+        "paipanMethod": "飞盘",
+        "timeInfo": { "date": "2023/8/25", "hour": "13" },
+        "choosenMethod": "jushu",
+        "choosenNumber": "453",
+        "info": "财运 3"
+    },
+    {
+        "paipanMethod": "飞盘",
+        "timeInfo": { "date": "2023/8/25", "hour": "13" },
+        "info": "财运 2"
+    },
+    {
+        "paipanMethod": "转盘",
+        "timeInfo": { "date": "2023/8/25", "hour": "13" },
+        "choosenMethod": "zhichou",
+        "choosenNumber": "54",
+        "info": "财运 1"
+    },
+    {
+        "timeInfo": { "date": "2023/8/25", "hour": "15" },
+        "paipanMethod": "飞盘",
+        "info": "事业 3"
+    },
+    {
+        "paipanMethod": "飞盘",
+        "timeInfo": { "date": "2023/8/25", "hour": "13" },
+        "choosenMethod": "jushu",
+        "choosenNumber": "342",
+        "info": "事业 2"
+    },
+    {
+        "paipanMethod": "转盘",
+        "timeInfo": { "date": "2023/8/25", "hour": "13" },
+        "info": "事业 1"
+    },
+    {
+        "paipanMethod": "转盘",
+        "timeInfo": { "date": "2023/8/25", "hour": "13" },
+        "choosenMethod": "shichen",
+        "choosenNumber": "1",
+        "info": "感情 3"
+    },
+    {
+        "timeInfo": { "date": "2023/8/25", "hour": "15" },
+        "paipanMethod": "飞盘",
+        "info": "感情 2"
+    },
+    {
+        "paipanMethod": "飞盘",
+        "timeInfo": { "date": "2023/8/25", "hour": "13" },
+        "choosenMethod": "jushu",
+        "choosenNumber": "4",
+        "info": "感情 1"
+    }
+]

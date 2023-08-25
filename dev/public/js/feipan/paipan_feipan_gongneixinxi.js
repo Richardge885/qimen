@@ -576,7 +576,7 @@ function feipan_info(info) {
                 '<br><br><hr><br>' +
                 getShenSha(document.querySelectorAll('[data-anganzhi]')[whichGong].innerText, gong);
         }
-        result = result + '<br><hr><br>' + getJiGe(tianpangan, dipangan, men, tianpanshen, gong);
+        result = result + getJiGe(tianpangan, dipangan, men, tianpanshen, gong);
         return result;
     }
     function getZhengGe(tianpangan, dipangan) {
@@ -2597,7 +2597,7 @@ function feipan_info(info) {
         }
     }
     function getJiGe(tianpangan, dipangan, men, shen, gongwei) {
-        let result = '';
+        let result = '<br><hr><br>';
         // todo 却天三门，地四户，地私门
         // 天三门
         // 地四户
