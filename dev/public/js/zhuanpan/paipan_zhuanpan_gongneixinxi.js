@@ -497,57 +497,58 @@ function zhuanpan_info(info) {
                 getZhangSheng(document.getElementById('paipan-jigong-info').innerText, gongwei) +
                 '<br><hr><br>' +
                 whichGeJu(tianpangan, dipangan) +
-                '<br><hr><br>' +
+                '<br>' +
                 whichGeJu(tianpangan, document.getElementById('paipan-jigong-info').innerText) +
-                '<br><hr><br>' +
-                mengong(men, gongwei) +
+                '<br>' +
                 whichGeJu(document.getElementById('paipan-jigong-info').innerText, dipangan) +
-                '<br><hr><br>' +
+                '<br>' +
                 whichGeJu(
                     document.getElementById('paipan-jigong-info').innerText,
                     document.getElementById('paipan-jigong-info').innerText,
                 ) +
-                '<br><hr><br>' +
+                '<br>' +
                 whichGeJu(angan, dipangan) +
+                '<br>' +
+                whichGeJu(angan, document.getElementById('paipan-jigong-info').innerText) +
                 '<br><hr><br>' +
-                whichGeJu(angan, document.getElementById('paipan-jigong-info').innerText);
+                mengong(men, gongwei);
         } else if (diji) {
             result =
                 result +
                 getZhangSheng(document.getElementById('paipan-jigong-info').innerText, gongwei) +
                 '<br><hr><br>' +
                 whichGeJu(tianpangan, dipangan) +
-                '<br><hr><br>' +
+                '<br>' +
                 whichGeJu(tianpangan, document.getElementById('paipan-jigong-info').innerText) +
-                '<br><hr><br>' +
-                mengong(men, gongwei) +
+                '<br>' +
                 whichGeJu(angan, dipangan) +
+                '<br>' +
+                whichGeJu(angan, document.getElementById('paipan-jigong-info').innerText) +
                 '<br><hr><br>' +
-                whichGeJu(angan, document.getElementById('paipan-jigong-info').innerText);
+                mengong(men, gongwei);
         } else if (tianji) {
             result =
                 result +
                 getZhangSheng(document.getElementById('paipan-jigong-info').innerText, gongwei) +
                 '<br><hr><br>' +
                 whichGeJu(tianpangan, dipangan) +
-                '<br><hr><br>' +
-                mengong(men, gongwei) +
+                '<br>' +
                 whichGeJu(document.getElementById('paipan-jigong-info').innerText, dipangan) +
+                '<br>' +
+                whichGeJu(angan, dipangan) +
                 '<br><hr><br>' +
-                whichGeJu(angan, dipangan);
+                mengong(men, gongwei);
         } else {
             result =
                 result +
                 '<br><hr><br>' +
                 whichGeJu(tianpangan, dipangan) +
+                '<br>' +
+                whichGeJu(angan, dipangan) +
                 '<br><hr><br>' +
-                mengong(men, gongwei) +
-                whichGeJu(angan, dipangan);
+                mengong(men, gongwei);
         }
-        result =
-            result +
-            '<br><hr><br>' +
-            getJiGe(tianpangan, dipangan, xing, men, tianpanshen, gongwei);
+        result = result + getJiGe(tianpangan, dipangan, xing, men, tianpanshen, gongwei);
         return result;
     }
     function whichGeJu(tianpangan, dipangan) {
@@ -1756,189 +1757,1484 @@ function zhuanpan_info(info) {
         return result;
     }
     function mengong(men, gong) {
+        let result = '';
         const menpo =
-            '门+宫：<br><span style="color:red">门迫：</span>主祸从外来。我居宫室之内，并不欲招非于他，他突然来克我，不知有何关碍，迫来之事最为迅速，要多堤防。<br><br><hr><br>';
+            '门+宫：<br><span style="color:red">门迫：</span>主祸从外来。我居宫室之内，并不欲招非于他，他突然来克我，不知有何关碍，迫来之事最为迅速，要多堤防。<br>';
         const shouzhi =
-            '门+宫：<br><span style="color:red">门受制：</span>主内祸重重。因为我安居无事，他却过来惹我，我以郑重克服于他，他也甘受我制，主我侵犯于他。<br><br><hr><br>';
+            '门+宫：<br><span style="color:red">门受制：</span>主内祸重重。因为我安居无事，他却过来惹我，我以郑重克服于他，他也甘受我制，主我侵犯于他。<br>';
         const he =
-            '门+宫：<br><span style="color:#0079FE">交和：</span>主喜庆重重。我居穷困之际，并无意去求他，他不辞劳苦，主动来帮助我，我也愿意接受他的帮助。主因外人相助而有喜庆。<br><br><hr><br>';
+            '门+宫：<br><span style="color:#0079FE">交和：</span>主喜庆重重。我居穷困之际，并无意去求他，他不辞劳苦，主动来帮助我，我也愿意接受他的帮助。主因外人相助而有喜庆。<br>';
         const yi =
-            '门+宫：<br><span style="color:#0079FE">结义：</span>主喜中有脱。他人不远千里而来投奔于我，我也念其诚意，接之以礼，子之以仪，故谓之义。主乐善好施，他人受益。<br><br><hr><br>';
+            '门+宫：<br><span style="color:#0079FE">结义：</span>主喜中有脱。他人不远千里而来投奔于我，我也念其诚意，接之以礼，子之以仪，故谓之义。主乐善好施，他人受益。<br>';
         const fuyin =
-            '门+宫：<br><span style="color:red">门伏吟：</span>主有灾难，祸不单行，伏地痛苦呻吟之象。宜静不宜动，宜缓不宜速。只宜收敛钱财，讨债等。<br><br><hr><br>';
+            '门+宫：<br><span style="color:red">门伏吟：</span>主有灾难，祸不单行，伏地痛苦呻吟之象。宜静不宜动，宜缓不宜速。只宜收敛钱财，讨债等。<br>';
         const fanyin =
-            '门+宫：<br><span style="color:red">门反吟：</span>主反复不宁，进后复退，聚而复散，徘徊不定，犹豫不决，半途而废，凡是多重复。宜快刀斩乱麻，速战速决。<br><br><hr><br>';
+            '门+宫：<br><span style="color:red">门反吟：</span>主反复不宁，进后复退，聚而复散，徘徊不定，犹豫不决，半途而废，凡是多重复。宜快刀斩乱麻，速战速决。<br>';
         switch (men) {
             case '休门':
                 switch (gong) {
                     case '乾':
-                        return yi;
+                        result =
+                            result +
+                            (yi +
+                                '<br><span style="color:#0079FE">休加开：</span>主开张店铺及见贵，求财等事大吉。<br>');
+                        break;
                     case '坎':
-                        return fuyin;
+                        result =
+                            result +
+                            (fuyin +
+                                '<br><span style="color:#0079FE">休加休：</span>求才进人口，谒贵吉，朝见上官，修造大利。<br>');
+                        break;
                     case '艮':
-                        return shouzhi;
+                        result =
+                            result +
+                            (shouzhi +
+                                '<br><span style="color:#0079FE">休加生：</span>得阴人财物；于贵谋望，虽迟应吉。<br>');
+                        break;
                     case '震':
-                        return he;
+                        result =
+                            result +
+                            (he +
+                                '<br><span style="color:#0079FE">休加伤：</span>上官主喜庆；求财则不易得；其它分产、变动等事亦不吉。<br>');
+                        break;
                     case '巽':
-                        return he;
+                        result =
+                            result +
+                            (he +
+                                '<br><span style="color:#0079FE">休加杜：</span>主破财、失物难寻。<br>');
+                        break;
                     case '离':
-                        return fanyin;
+                        result =
+                            result +
+                            (fanyin +
+                                '<br><span style="color:#0079FE">休加景：</span>主谋望文书印信等事不成，反招口舌。<br>');
+                        break;
                     case '坤':
-                        return shouzhi;
+                        result =
+                            result +
+                            (shouzhi +
+                                '<br><span style="color:#0079FE">休加死：</span>主文印官事不吉，远行，僧道事不吉，占病凶。<br>');
+                        break;
                     case '兑':
-                        return he;
+                        result =
+                            result +
+                            (he +
+                                '<br><span style="color:#0079FE">休加惊：</span>主损财、招非并疾病惊恐事。<br>');
+                        break;
                     case '中':
-                        return shouzhi;
+                        result = result + shouzhi + '<br><span style="color:#0079FE"></span><br>';
+                        break;
                 }
+                switch (document.getElementById('paipan-tianpangan-info').innerText) {
+                    case '乙':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">休加乙：</span>求谋重，不得；求轻，可得。<br>';
+                        break;
+                    case '丙':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">休加丙：</span>文书和合喜庆。<br>';
+                        break;
+                    case '丁':
+                        result =
+                            result + '<span style="color:#0079FE">休加丁：</span>百讼休歇。<br>';
+                        break;
+                    case '戊':
+                        result =
+                            result + '<span style="color:#0079FE">休加戊：</span>财物和合。<br>';
+                        break;
+                    case '己':
+                        result =
+                            result + '<span style="color:#0079FE">休加己：</span>暗昧不宁。<br>';
+                        break;
+                    case '庚':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">休加庚：</span>文书词讼先结后解。<br>';
+                        break;
+                    case '辛':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">休加辛：</span>疾病退愈，失物不得。<br>';
+                        break;
+                    case '壬':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">休加壬：</span>阴人词讼牵连。<br>';
+                        break;
+                    case '癸':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">休加癸：</span>阴人词讼牵连。<br>';
+                        break;
+                }
+                switch (document.getElementById('paipan-dipangan-info').innerText) {
+                    case '乙':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">休加乙：</span>求谋重，不得；求轻，可得。';
+                        break;
+                    case '丙':
+                        result =
+                            result + '<span style="color:#0079FE">休加丙：</span>文书和合喜庆。';
+                        break;
+                    case '丁':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">休加丁：</span>百讼休歇。休加己：暗昧不宁。';
+                        break;
+                    case '戊':
+                        result = result + '<span style="color:#0079FE">休加戊：</span>财物和合。';
+                        break;
+                    case '己':
+                        result = result + '<span style="color:#0079FE">休加己：</span>暗昧不宁。';
+                        break;
+                    case '庚':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">休加庚：</span>文书词讼先结后解。';
+                        break;
+                    case '辛':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">休加辛：</span>疾病退愈，失物不得。';
+                        break;
+                    case '壬':
+                        result =
+                            result + '<span style="color:#0079FE">休加壬：</span>阴人词讼牵连。';
+                        break;
+                    case '癸':
+                        result =
+                            result + '<span style="color:#0079FE">休加癸：</span>阴人词讼牵连。';
+                        break;
+                }
+                switch (document.getElementById('paipan-jigong-info').innerText) {
+                    case '乙':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">休加乙：</span>求谋重，不得；求轻，可得。';
+                        break;
+                    case '丙':
+                        result =
+                            result + '<span style="color:#0079FE">休加丙：</span>文书和合喜庆。';
+                        break;
+                    case '丁':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">休加丁：</span>百讼休歇。休加己：暗昧不宁。';
+                        break;
+                    case '戊':
+                        result = result + '<span style="color:#0079FE">休加戊：</span>财物和合。';
+                        break;
+                    case '己':
+                        result = result + '<span style="color:#0079FE">休加己：</span>暗昧不宁。';
+                        break;
+                    case '庚':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">休加庚：</span>文书词讼先结后解。';
+                        break;
+                    case '辛':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">休加辛：</span>疾病退愈，失物不得。';
+                        break;
+                    case '壬':
+                        result =
+                            result + '<span style="color:#0079FE">休加壬：</span>阴人词讼牵连。';
+                        break;
+                    case '癸':
+                        result =
+                            result + '<span style="color:#0079FE">休加癸：</span>阴人词讼牵连。';
+                        break;
+                }
+                break;
             case '生门':
                 switch (gong) {
                     case '乾':
-                        return he;
+                        result =
+                            result +
+                            (he +
+                                '<br><span style="color:#0079FE">生加开：</span>主见贵人，求财大发。<br>');
+                        break;
                     case '坎':
-                        return menpo;
+                        result =
+                            result +
+                            (menpo +
+                                '<br><span style="color:#0079FE">生加休：</span>主阴人处，谋财利。<br>');
+                        break;
                     case '艮':
-                        return fuyin;
+                        result =
+                            result +
+                            (fuyin +
+                                '<br><span style="color:#0079FE">生加生：</span>主远行，求财，吉。<br>');
+                        break;
                     case '震':
-                        return shouzhi;
+                        result =
+                            result +
+                            (shouzhi +
+                                '<br><span style="color:#0079FE">生加伤：</span>主亲友变动，道路不吉。<br>');
+                        break;
                     case '巽':
-                        return shouzhi;
+                        result =
+                            result +
+                            (shouzhi +
+                                '<br><span style="color:#0079FE">生加杜：</span>主阴谋、阴人损财，不利。<br>');
+                        break;
                     case '离':
-                        return yi;
+                        result =
+                            result +
+                            (yi +
+                                '<br><span style="color:#0079FE">生加景：</span>主阴人、小口不宁及文书事。<br>');
+                        break;
                     case '坤':
-                        return fanyin;
+                        result =
+                            result +
+                            (fanyin +
+                                '<br><span style="color:#0079FE">生加死：</span>主田宅官司，病则主难救。<br>');
+                        break;
                     case '兑':
-                        return he;
+                        result =
+                            result +
+                            (he +
+                                '<br><span style="color:#0079FE">生加惊：</span>主尊长财产、词讼，病迟愈，吉。<br>');
+                        break;
                     case '中':
-                        return fanyin;
+                        result = result + fanyin;
+                        break;
                 }
+                switch (document.getElementById('paipan-tianpangan-info').innerText) {
+                    case '乙':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">生加乙：</span>主阴人生产迟，吉。<br>';
+                        break;
+                    case '丙':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">生加丙：</span>贵人，印绶、婚姻、书信等喜事。<br>';
+                        break;
+                    case '丁':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">生加丁：</span>词讼、婚姻、财利，出行大吉。<br>';
+                        break;
+                    case '戊':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">生加戊：</span>嫁娶、谒贵，求财皆吉。<br>';
+                        break;
+                    case '己':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">生加己：</span>得贵人维护支持，吉。<br>';
+                        break;
+                    case '庚':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">生加庚：</span>财产争讼、破耗遗失。<br>';
+                        break;
+                    case '辛':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">生加辛：</span>主产妇疾病，后吉。<br>';
+                        break;
+                    case '壬':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">生加壬：</span>遗失财物，后得，捕盗易获。<br>';
+                        break;
+                    case '癸':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">生加癸：</span>主婚姻难成，余事皆吉。<br>';
+                        break;
+                }
+                switch (document.getElementById('paipan-dipangan-info').innerText) {
+                    case '乙':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">生加乙：</span>主阴人生产迟，吉。<br>';
+                        break;
+                    case '丙':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">生加丙：</span>贵人，印绶、婚姻、书信等喜事。<br>';
+                        break;
+                    case '丁':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">生加丁：</span>词讼、婚姻、财利，出行大吉。<br>';
+                        break;
+                    case '戊':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">生加戊：</span>嫁娶、谒贵，求财皆吉。<br>';
+                        break;
+                    case '己':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">生加己：</span>得贵人维护支持，吉。<br>';
+                        break;
+                    case '庚':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">生加庚：</span>财产争讼、破耗遗失。<br>';
+                        break;
+                    case '辛':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">生加辛：</span>主产妇疾病，后吉。<br>';
+                        break;
+                    case '壬':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">生加壬：</span>遗失财物，后得，捕盗易获。<br>';
+                        break;
+                    case '癸':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">生加癸：</span>主婚姻难成，余事皆吉。<br>';
+                        break;
+                }
+                switch (document.getElementById('paipan-jigong-info').innerText) {
+                    case '乙':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">生加乙：</span>主阴人生产迟，吉。<br>';
+                        break;
+                    case '丙':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">生加丙：</span>贵人，印绶、婚姻、书信等喜事。<br>';
+                        break;
+                    case '丁':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">生加丁：</span>词讼、婚姻、财利，出行大吉。<br>';
+                        break;
+                    case '戊':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">生加戊：</span>嫁娶、谒贵，求财皆吉。<br>';
+                        break;
+                    case '己':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">生加己：</span>得贵人维护支持，吉。<br>';
+                        break;
+                    case '庚':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">生加庚：</span>财产争讼、破耗遗失。<br>';
+                        break;
+                    case '辛':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">生加辛：</span>主产妇疾病，后吉。<br>';
+                        break;
+                    case '壬':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">生加壬：</span>遗失财物，后得，捕盗易获。<br>';
+                        break;
+                    case '癸':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">生加癸：</span>主婚姻难成，余事皆吉。<br>';
+                        break;
+                }
+                break;
             case '伤门':
                 switch (gong) {
                     case '乾':
-                        return shouzhi;
+                        result =
+                            result +
+                            (shouzhi +
+                                '<br><span style="color:#0079FE">伤加开：</span>主见贵人、开张、走失、变动等事不利。<br>');
+                        break;
                     case '坎':
-                        return yi;
+                        result =
+                            result +
+                            (yi +
+                                '<br><span style="color:#0079FE">伤加休：</span>主男人变动或托人谋事，财名不利。<br>');
+                        break;
                     case '艮':
-                        return menpo;
+                        result =
+                            result +
+                            (menpo +
+                                '<br><span style="color:#0079FE">伤加生：</span>主房产、种植业等变动。<br>');
+                        break;
                     case '震':
-                        return fuyin;
+                        result =
+                            result +
+                            (fuyin +
+                                '<br><span style="color:#0079FE">伤加伤：</span>主变动、远行皆主折伤。<br>');
+                        break;
                     case '巽':
-                        return '';
+                        result =
+                            result +
+                            ('' +
+                                '<br><span style="color:#0079FE">伤加杜：</span>主变动、失聪、官司、刑狱、百事凶。<br>');
+                        break;
                     case '离':
-                        return he;
+                        result =
+                            result +
+                            (he +
+                                '<br><span style="color:#0079FE">伤加景：</span>主文书、印信、口舌、惹是生非。<br>');
+                        break;
                     case '坤':
-                        return menpo;
+                        result =
+                            result +
+                            (menpo +
+                                '<br><span style="color:#0079FE">伤加死：</span>主官司、印信凶，出行大忌，占病凶。<br>');
+                        break;
                     case '兑':
-                        return fanyin;
+                        result =
+                            result +
+                            (fanyin +
+                                '<br><span style="color:#0079FE">伤加惊：</span>主亲人疾病、惊忧，谋为不利，凶。<br>');
+                        break;
                     case '中':
-                        return menpo;
+                        result = result + menpo + '<br><span style="color:#0079FE"></span><br>';
+                        break;
                 }
+                switch (document.getElementById('paipan-tianpangan-info').innerText) {
+                    case '乙':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">伤加乙：</span>求财不得，反盗耗失财。<br>';
+                        break;
+                    case '丙':
+                        result = result + '<span style="color:#0079FE">伤加丙：</span>道路损失<br>';
+                        break;
+                    case '丁':
+                        result =
+                            result + '<span style="color:#0079FE">伤加丁：</span>印信不实。<br>';
+                        break;
+                    case '戊':
+                        result =
+                            result + '<span style="color:#0079FE">伤加戊：</span>失脱难获。<br>';
+                        break;
+                    case '己':
+                        result =
+                            result + '<span style="color:#0079FE">伤加己：</span>财散人病。<br>';
+                        break;
+                    case '庚':
+                        result =
+                            result + '<span style="color:#0079FE">伤加庚：</span>讼狱被刑杖。<br>';
+                        break;
+                    case '辛':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">伤加辛：</span>夫妻怀私怨怒。<br>';
+                        break;
+                    case '壬':
+                        result =
+                            result + '<span style="color:#0079FE">伤加壬：</span>囚盗牵连。<br>';
+                        break;
+                    case '癸':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">伤加癸：</span>讼狱被冤，有理难伸。<br>';
+                        break;
+                }
+                switch (document.getElementById('paipan-dipangan-info').innerText) {
+                    case '乙':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">伤加乙：</span>求财不得，反盗耗失财。<br>';
+                        break;
+                    case '丙':
+                        result = result + '<span style="color:#0079FE">伤加丙：</span>道路损失<br>';
+                        break;
+                    case '丁':
+                        result =
+                            result + '<span style="color:#0079FE">伤加丁：</span>印信不实。<br>';
+                        break;
+                    case '戊':
+                        result =
+                            result + '<span style="color:#0079FE">伤加戊：</span>失脱难获。<br>';
+                        break;
+                    case '己':
+                        result =
+                            result + '<span style="color:#0079FE">伤加己：</span>财散人病。<br>';
+                        break;
+                    case '庚':
+                        result =
+                            result + '<span style="color:#0079FE">伤加庚：</span>讼狱被刑杖。<br>';
+                        break;
+                    case '辛':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">伤加辛：</span>夫妻怀私怨怒。<br>';
+                        break;
+                    case '壬':
+                        result =
+                            result + '<span style="color:#0079FE">伤加壬：</span>囚盗牵连。<br>';
+                        break;
+                    case '癸':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">伤加癸：</span>讼狱被冤，有理难伸。<br>';
+                        break;
+                }
+                switch (document.getElementById('paipan-jigong-info').innerText) {
+                    case '乙':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">伤加乙：</span>求财不得，反盗耗失财。<br>';
+                        break;
+                    case '丙':
+                        result = result + '<span style="color:#0079FE">伤加丙：</span>道路损失<br>';
+                        break;
+                    case '丁':
+                        result =
+                            result + '<span style="color:#0079FE">伤加丁：</span>印信不实。<br>';
+                        break;
+                    case '戊':
+                        result =
+                            result + '<span style="color:#0079FE">伤加戊：</span>失脱难获。<br>';
+                        break;
+                    case '己':
+                        result =
+                            result + '<span style="color:#0079FE">伤加己：</span>财散人病。<br>';
+                        break;
+                    case '庚':
+                        result =
+                            result + '<span style="color:#0079FE">伤加庚：</span>讼狱被刑杖。<br>';
+                        break;
+                    case '辛':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">伤加辛：</span>夫妻怀私怨怒。<br>';
+                        break;
+                    case '壬':
+                        result =
+                            result + '<span style="color:#0079FE">伤加壬：</span>囚盗牵连。<br>';
+                        break;
+                    case '癸':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">伤加癸：</span>讼狱被冤，有理难伸。<br>';
+                        break;
+                }
+                break;
             case '杜门':
                 switch (gong) {
                     case '乾':
-                        return fanyin;
+                        result =
+                            result +
+                            (fanyin +
+                                '<br><span style="color:#0079FE">杜加开：</span>主见贵人、官长谋事，先破财后吉。<br>');
+                        break;
                     case '坎':
-                        return yi;
+                        result =
+                            result +
+                            (yi +
+                                '<br><span style="color:#0079FE">杜加休：</span>主求财小益。<br>');
+                        break;
                     case '艮':
-                        return menpo;
+                        result =
+                            result +
+                            (menpo +
+                                '<br><span style="color:#0079FE">杜加生：</span>主阳人小口破财，田宅求财不利。<br>');
+                        break;
                     case '震':
-                        return '';
+                        result =
+                            result +
+                            ('' +
+                                '<br><span style="color:#0079FE">杜加伤：</span>主兄弟田产破财。<br>');
+                        break;
                     case '巽':
-                        return fuyin;
+                        result =
+                            result +
+                            (fuyin +
+                                '<br><span style="color:#0079FE">杜加杜：</span>主因父母疾病、田宅出脱事，凶。<br>');
+                        break;
                     case '离':
-                        return he;
+                        result =
+                            result +
+                            (he +
+                                '<br><span style="color:#0079FE">杜加景：</span>主文书、印信阻隔，阳人小口疾病。<br>');
+                        break;
                     case '坤':
-                        return menpo;
+                        result =
+                            result +
+                            (menpo +
+                                '<br><span style="color:#0079FE">杜加死：</span>主田宅、文书失落，官司破财小凶。<br>');
+                        break;
                     case '兑':
-                        return shouzhi;
+                        result =
+                            result +
+                            (shouzhi +
+                                '<br><span style="color:#0079FE">杜加惊：</span>主门户内忧疑、惊恐、词讼事。<br>');
+                        break;
                     case '中':
-                        return menpo;
+                        result = result + menpo + '<br><span style="color:#0079FE"></span><br><br>';
+                        break;
                 }
+                switch (document.getElementById('paipan-tianpangan-info').innerText) {
+                    case '乙':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">杜加乙：</span>主暗求财物，后则不明至讼。<br>';
+                        break;
+                    case '丙':
+                        result =
+                            result + '<span style="color:#0079FE">杜加丙：</span>主文契遗失。<br>';
+                        break;
+                    case '丁':
+                        result =
+                            result + '<span style="color:#0079FE">杜加丁：</span>主阳人讼狱。<br>';
+                        break;
+                    case '戊':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">杜加戊：</span>主谋事不易成，密处求财可得。<br>';
+                        break;
+                    case '己':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">杜加己：</span>主私谋取、害人、招非。<br>';
+                        break;
+                    case '庚':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">杜加庚：</span>因女人词讼被刑。<br>';
+                        break;
+                    case '辛':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">杜加辛：</span>主打伤人至词讼，阳人小口凶。<br>';
+                        break;
+                    case '壬':
+                        result =
+                            result + '<span style="color:#0079FE">杜加壬：</span>主奸盗事凶。<br>';
+                        break;
+                    case '癸':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">杜加癸：</span>主百事皆阻，病者不食。<br>';
+                        break;
+                }
+                switch (document.getElementById('paipan-dipangan-info').innerText) {
+                    case '乙':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">杜加乙：</span>主暗求财物，后则不明至讼。<br>';
+                        break;
+                    case '丙':
+                        result =
+                            result + '<span style="color:#0079FE">杜加丙：</span>主文契遗失。<br>';
+                        break;
+                    case '丁':
+                        result =
+                            result + '<span style="color:#0079FE">杜加丁：</span>主阳人讼狱。<br>';
+                        break;
+                    case '戊':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">杜加戊：</span>主谋事不易成，密处求财可得。<br>';
+                        break;
+                    case '己':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">杜加己：</span>主私谋取、害人、招非。<br>';
+                        break;
+                    case '庚':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">杜加庚：</span>因女人词讼被刑。<br>';
+                        break;
+                    case '辛':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">杜加辛：</span>主打伤人至词讼，阳人小口凶。<br>';
+                        break;
+                    case '壬':
+                        result =
+                            result + '<span style="color:#0079FE">杜加壬：</span>主奸盗事凶。<br>';
+                        break;
+                    case '癸':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">杜加癸：</span>主百事皆阻，病者不食。<br>';
+                        break;
+                }
+                switch (document.getElementById('paipan-jigong-info').innerText) {
+                    case '乙':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">杜加乙：</span>主暗求财物，后则不明至讼。<br>';
+                        break;
+                    case '丙':
+                        result =
+                            result + '<span style="color:#0079FE">杜加丙：</span>主文契遗失。<br>';
+                        break;
+                    case '丁':
+                        result =
+                            result + '<span style="color:#0079FE">杜加丁：</span>主阳人讼狱。<br>';
+                        break;
+                    case '戊':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">杜加戊：</span>主谋事不易成，密处求财可得。<br>';
+                        break;
+                    case '己':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">杜加己：</span>主私谋取、害人、招非。<br>';
+                        break;
+                    case '庚':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">杜加庚：</span>因女人词讼被刑。<br>';
+                        break;
+                    case '辛':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">杜加辛：</span>主打伤人至词讼，阳人小口凶。<br>';
+                        break;
+                    case '壬':
+                        result =
+                            result + '<span style="color:#0079FE">杜加壬：</span>主奸盗事凶。<br>';
+                        break;
+                    case '癸':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">杜加癸：</span>主百事皆阻，病者不食。<br>';
+                        break;
+                }
+                break;
             case '景门':
                 switch (gong) {
                     case '乾':
-                        return menpo;
+                        result =
+                            result +
+                            (menpo +
+                                '<br><span style="color:#0079FE">景加开：</span>官人升迁，求文印事皆吉。<br>');
+                        break;
                     case '坎':
-                        return fanyin;
+                        result =
+                            result +
+                            (fanyin +
+                                '<br><span style="color:#0079FE">景加休：</span>主文书遗失，争讼不休。<br>');
+                        break;
                     case '艮':
-                        return he;
+                        result =
+                            result +
+                            (he +
+                                '<br><span style="color:#0079FE">景加生：</span>主阴人生产大喜，更主求财旺利，行人大吉。<br>');
+                        break;
                     case '震':
-                        return yi;
+                        result =
+                            result +
+                            (yi +
+                                '<br><span style="color:#0079FE">景加伤：</span>主亲眷口舌，败财后平。<br>');
+                        break;
                     case '巽':
-                        return yi;
+                        result =
+                            result +
+                            (yi +
+                                '<br><span style="color:#0079FE">景加杜：</span>主失脱文书，败财后平<br>');
+                        break;
                     case '离':
-                        return fuyin;
+                        result =
+                            result +
+                            (fuyin +
+                                '<br><span style="color:#0079FE">景加景：</span>主文状未动，有预先见之意，内有阳人、小口忧患。<br>');
+                        break;
                     case '坤':
-                        return he;
+                        result =
+                            result +
+                            (he +
+                                '<br><span style="color:#0079FE">景加死：</span>主官讼，争田宅事，多啾唧。<br>');
+                        break;
                     case '兑':
-                        return menpo;
+                        result =
+                            result +
+                            (menpo +
+                                '<br><span style="color:#0079FE">景加惊：</span>主官讼，女人小口疾病，凶。<br>');
+                        break;
                     case '中':
-                        return he;
+                        result = result + he + '<br><span style="color:#0079FE"></span><br><br>';
+                        break;
                 }
+                switch (document.getElementById('paipan-tianpangan-info').innerText) {
+                    case '乙':
+                        result =
+                            result + '<span style="color:#0079FE">景加乙：</span>讼事不成。<br>';
+                        break;
+                    case '丙':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">景加丙：</span>文书急迫、火速不利。<br>';
+                        break;
+                    case '丁':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">景加丁：</span>主因文书、印状招非。<br>';
+                        break;
+                    case '戊':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">景加戊：</span>因财产至讼，远行则吉。<br>';
+                        break;
+                    case '己':
+                        result =
+                            result + '<span style="color:#0079FE">景加己：</span>官司牵连。<br>';
+                        break;
+                    case '庚':
+                        result =
+                            result + '<span style="color:#0079FE">景加庚：</span>讼人自讼。<br>';
+                        break;
+                    case '辛':
+                        result =
+                            result + '<span style="color:#0079FE">景加辛：</span>阴人词讼。<br>';
+                        break;
+                    case '壬':
+                        result =
+                            result + '<span style="color:#0079FE">景加壬：</span>因贼牵连。<br>';
+                        break;
+                    case '癸':
+                        result =
+                            result +
+                            '<span style="color:#0079FE"></span>景加癸：因奴婢受刑伤。<br>';
+                        break;
+                }
+                switch (document.getElementById('paipan-dipangan-info').innerText) {
+                    case '乙':
+                        result =
+                            result + '<span style="color:#0079FE">景加乙：</span>讼事不成。<br>';
+                        break;
+                    case '丙':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">景加丙：</span>文书急迫、火速不利。<br>';
+                        break;
+                    case '丁':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">景加丁：</span>主因文书、印状招非。<br>';
+                        break;
+                    case '戊':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">景加戊：</span>因财产至讼，远行则吉。<br>';
+                        break;
+                    case '己':
+                        result =
+                            result + '<span style="color:#0079FE">景加己：</span>官司牵连。<br>';
+                        break;
+                    case '庚':
+                        result =
+                            result + '<span style="color:#0079FE">景加庚：</span>讼人自讼。<br>';
+                        break;
+                    case '辛':
+                        result =
+                            result + '<span style="color:#0079FE">景加辛：</span>阴人词讼。<br>';
+                        break;
+                    case '壬':
+                        result =
+                            result + '<span style="color:#0079FE">景加壬：</span>因贼牵连。<br>';
+                        break;
+                    case '癸':
+                        result =
+                            result +
+                            '<span style="color:#0079FE"></span>景加癸：因奴婢受刑伤。<br>';
+                        break;
+                }
+                switch (document.getElementById('paipan-jigong-info').innerText) {
+                    case '乙':
+                        result =
+                            result + '<span style="color:#0079FE">景加乙：</span>讼事不成。<br>';
+                        break;
+                    case '丙':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">景加丙：</span>文书急迫、火速不利。<br>';
+                        break;
+                    case '丁':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">景加丁：</span>主因文书、印状招非。<br>';
+                        break;
+                    case '戊':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">景加戊：</span>因财产至讼，远行则吉。<br>';
+                        break;
+                    case '己':
+                        result =
+                            result + '<span style="color:#0079FE">景加己：</span>官司牵连。<br>';
+                        break;
+                    case '庚':
+                        result =
+                            result + '<span style="color:#0079FE">景加庚：</span>讼人自讼。<br>';
+                        break;
+                    case '辛':
+                        result =
+                            result + '<span style="color:#0079FE">景加辛：</span>阴人词讼。<br>';
+                        break;
+                    case '壬':
+                        result =
+                            result + '<span style="color:#0079FE">景加壬：</span>因贼牵连。<br>';
+                        break;
+                    case '癸':
+                        result =
+                            result +
+                            '<span style="color:#0079FE"></span>景加癸：因奴婢受刑伤。<br>';
+                        break;
+                }
+                break;
             case '死门':
                 switch (gong) {
                     case '乾':
-                        return he;
+                        result =
+                            result +
+                            (he +
+                                '<br><span style="color:#0079FE">死加开：</span>见贵人求文书、印信事利。<br>');
+                        break;
                     case '坎':
-                        return menpo;
+                        result =
+                            result +
+                            (menpo +
+                                '<br><span style="color:#0079FE">死加休：</span>主求财物事不吉，向僧道求方吉。<br>');
+                        break;
                     case '艮':
-                        return fanyin;
+                        result =
+                            result +
+                            (fanyin +
+                                '<br><span style="color:#0079FE">死加生：</span>主丧事，求财则得，占病死者复生。<br>');
+                        break;
                     case '震':
-                        return shouzhi;
+                        result =
+                            result +
+                            (shouzhi +
+                                '<br><span style="color:#0079FE">死加伤：</span>官司变动遭刑杖凶。<br>');
+                        break;
                     case '巽':
-                        return shouzhi;
+                        result =
+                            result +
+                            (shouzhi +
+                                '<br><span style="color:#0079FE">死加杜：</span>破财，妇人风疾，腹肿。<br>');
+                        break;
                     case '离':
-                        return yi;
+                        result =
+                            result +
+                            (yi +
+                                '<br><span style="color:#0079FE">死加景：</span>因文信、书契、财产事见官，先怒后喜不凶。<br>');
+                        break;
                     case '坤':
-                        return fuyin;
+                        result =
+                            result +
+                            (fuyin +
+                                '<br><span style="color:#0079FE">死加死：</span>主官事，无气、凶。<br>');
+                        break;
                     case '兑':
-                        return he;
+                        result =
+                            result +
+                            (he +
+                                '<br><span style="color:#0079FE">死加惊：</span>因官司事不结，忧疑患病凶。<br>');
+                        break;
                     case '中':
-                        return fanyin;
+                        result = result + fanyin + '<br><span style="color:#0079FE"></span><br>';
+                        break;
                 }
+                switch (document.getElementById('paipan-tianpangan-info').innerText) {
+                    case '乙':
+                        result =
+                            result + '<span style="color:#0079FE">死加乙：</span>求事不成。<br>';
+                        break;
+                    case '丙':
+                        result =
+                            result + '<span style="color:#0079FE">死加丙：</span>信息忧疑。<br>';
+                        break;
+                    case '丁':
+                        resu;
+                        result + '<span style="color:#0079FE">死加丁：</span>老阳人疾病。<br>';
+                        break;
+                    case '戊':
+                        result =
+                            result + '<span style="color:#0079FE">死加戊：</span>主作伪财。<br>';
+                        break;
+                    case '己':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">死加己：</span>主病讼牵连凶。<br>';
+                        break;
+                    case '庚':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">死加庚：</span>主女人生产、子母并凶。<br>';
+                        break;
+                    case '辛':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">死加辛：</span>主遭盗贼，失脱难获。<br>';
+                        break;
+                    case '壬':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">死+壬：</span>主讼人自讼自招。<br>';
+                        break;
+                    case '癸':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">死加癸：</span>主妇女嫁娶事凶。<br>';
+                        break;
+                }
+                switch (document.getElementById('paipan-dipangan-info').innerText) {
+                    case '乙':
+                        result =
+                            result + '<span style="color:#0079FE">死加乙：</span>求事不成。<br>';
+                        break;
+                    case '丙':
+                        result =
+                            result + '<span style="color:#0079FE">死加丙：</span>信息忧疑。<br>';
+                        break;
+                    case '丁':
+                        resu;
+                        result + '<span style="color:#0079FE">死加丁：</span>老阳人疾病。<br>';
+                        break;
+                    case '戊':
+                        result =
+                            result + '<span style="color:#0079FE">死加戊：</span>主作伪财。<br>';
+                        break;
+                    case '己':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">死加己：</span>主病讼牵连凶。<br>';
+                        break;
+                    case '庚':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">死加庚：</span>主女人生产、子母并凶。<br>';
+                        break;
+                    case '辛':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">死加辛：</span>主遭盗贼，失脱难获。<br>';
+                        break;
+                    case '壬':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">死+壬：</span>主讼人自讼自招。<br>';
+                        break;
+                    case '癸':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">死加癸：</span>主妇女嫁娶事凶。<br>';
+                        break;
+                }
+                switch (document.getElementById('paipan-jigong-info').innerText) {
+                    case '乙':
+                        result =
+                            result + '<span style="color:#0079FE">死加乙：</span>求事不成。<br>';
+                        break;
+                    case '丙':
+                        result =
+                            result + '<span style="color:#0079FE">死加丙：</span>信息忧疑。<br>';
+                        break;
+                    case '丁':
+                        resu;
+                        result + '<span style="color:#0079FE">死加丁：</span>老阳人疾病。<br>';
+                        break;
+                    case '戊':
+                        result =
+                            result + '<span style="color:#0079FE">死加戊：</span>主作伪财。<br>';
+                        break;
+                    case '己':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">死加己：</span>主病讼牵连凶。<br>';
+                        break;
+                    case '庚':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">死加庚：</span>主女人生产、子母并凶。<br>';
+                        break;
+                    case '辛':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">死加辛：</span>主遭盗贼，失脱难获。<br>';
+                        break;
+                    case '壬':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">死+壬：</span>主讼人自讼自招。<br>';
+                        break;
+                    case '癸':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">死加癸：</span>主妇女嫁娶事凶。<br>';
+                        break;
+                }
+                break;
             case '惊门':
                 switch (gong) {
                     case '乾':
-                        return '';
+                        result =
+                            result +
+                            ('' +
+                                '<br><span style="color:#0079FE">惊加开：</span>主忧疑，官事惊恐，见喜贵则不凶。<br>');
+                        break;
                     case '坎':
-                        return he;
+                        result =
+                            result +
+                            (he +
+                                '<br><span style="color:#0079FE">惊加休：</span>求财事或口舌事，迟吉。<br>');
+                        break;
                     case '艮':
-                        return yi;
+                        result =
+                            result +
+                            (yi +
+                                '<br><span style="color:#0079FE">惊加生：</span>主因妇人生产或求财而生惊忧，皆吉。<br>');
+                        break;
                     case '震':
-                        return fanyin;
+                        result =
+                            result +
+                            (fanyin +
+                                '<br><span style="color:#0079FE">惊加伤：</span>主因商议同谋害人事泄，惹讼凶。<br>');
+                        break;
                     case '巽':
-                        return menpo;
+                        result =
+                            result +
+                            (menpo +
+                                '<br><span style="color:#0079FE">惊加杜：</span>失脱破财事，惊恐，不凶。<br>');
+                        break;
                     case '离':
-                        return shouzhi;
+                        result =
+                            result +
+                            (shouzhi +
+                                '<br><span style="color:#0079FE">惊加景：</span>主讼词不息，小口疾病，凶。<br>');
+                        break;
                     case '坤':
-                        return yi;
+                        result =
+                            result +
+                            (yi +
+                                '<br><span style="color:#0079FE">惊加死：</span>因田宅中怪异而生是非，凶。<br>');
+                        break;
                     case '兑':
-                        return fuyin;
+                        result =
+                            result +
+                            (fuyin +
+                                '<br><span style="color:#0079FE">惊加惊：</span>主疾病、忧虑、惊疑、惊恐。<br>');
+                        break;
                     case '中':
-                        return yi;
+                        result = result + yi + '<br><span style="color:#0079FE"></span><br>';
+                        break;
                 }
+                switch (document.getElementById('paipan-tianpangan-info').innerText) {
+                    case '乙':
+                        result =
+                            result + '<span style="color:#0079FE">惊加乙：</span>主谋财不得。<br>';
+                        break;
+                    case '丙':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">惊加丙：</span>主文书印信惊恐。<br>';
+                        break;
+                    case '丁':
+                        result =
+                            result + '<span style="color:#0079FE">惊加丁：</span>词讼牵连。<br>';
+                        break;
+                    case '戊':
+                        result =
+                            result + '<span style="color:#0079FE">惊加戊：</span>损财、信阻。<br>';
+                        break;
+                    case '己':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">惊加己：</span>恶犬伤人成讼。<br>';
+                        break;
+                    case '庚':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">惊加庚：</span>道路损伤、遇盗贼，凶。<br>';
+                        break;
+                    case '辛':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">惊加辛：</span>因女人成讼，凶。<br>';
+                        break;
+                    case '壬':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">惊加壬：</span>官司囚禁、病者大凶。<br>';
+                        break;
+                    case '癸':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">惊加癸：</span>主被贼盗，失物不获。<br>';
+                        break;
+                }
+                switch (document.getElementById('paipan-dipangan-info').innerText) {
+                    case '乙':
+                        result =
+                            result + '<span style="color:#0079FE">惊加乙：</span>主谋财不得。<br>';
+                        break;
+                    case '丙':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">惊加丙：</span>主文书印信惊恐。<br>';
+                        break;
+                    case '丁':
+                        result =
+                            result + '<span style="color:#0079FE">惊加丁：</span>词讼牵连。<br>';
+                        break;
+                    case '戊':
+                        result =
+                            result + '<span style="color:#0079FE">惊加戊：</span>损财、信阻。<br>';
+                        break;
+                    case '己':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">惊加己：</span>恶犬伤人成讼。<br>';
+                        break;
+                    case '庚':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">惊加庚：</span>道路损伤、遇盗贼，凶。<br>';
+                        break;
+                    case '辛':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">惊加辛：</span>因女人成讼，凶。<br>';
+                        break;
+                    case '壬':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">惊加壬：</span>官司囚禁、病者大凶。<br>';
+                        break;
+                    case '癸':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">惊加癸：</span>主被贼盗，失物不获。<br>';
+                        break;
+                }
+                switch (document.getElementById('paipan-jigong-info').innerText) {
+                    case '乙':
+                        result =
+                            result + '<span style="color:#0079FE">惊加乙：</span>主谋财不得。<br>';
+                        break;
+                    case '丙':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">惊加丙：</span>主文书印信惊恐。<br>';
+                        break;
+                    case '丁':
+                        result =
+                            result + '<span style="color:#0079FE">惊加丁：</span>词讼牵连。<br>';
+                        break;
+                    case '戊':
+                        result =
+                            result + '<span style="color:#0079FE">惊加戊：</span>损财、信阻。<br>';
+                        break;
+                    case '己':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">惊加己：</span>恶犬伤人成讼。<br>';
+                        break;
+                    case '庚':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">惊加庚：</span>道路损伤、遇盗贼，凶。<br>';
+                        break;
+                    case '辛':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">惊加辛：</span>因女人成讼，凶。<br>';
+                        break;
+                    case '壬':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">惊加壬：</span>官司囚禁、病者大凶。<br>';
+                        break;
+                    case '癸':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">惊加癸：</span>主被贼盗，失物不获。<br>';
+                        break;
+                }
+                break;
             case '开门':
                 switch (gong) {
                     case '乾':
-                        return fuyin;
+                        result =
+                            result +
+                            (fuyin +
+                                '<br><span style="color:#0079FE">开+开：</span>主贵人、宝物、财喜、官运、事业皆吉。<br>');
+                        break;
                     case '坎':
-                        return he;
+                        result =
+                            result +
+                            (he +
+                                '<br><span style="color:#0079FE">开+休：</span>主见贵人、财喜、开张店铺、贸易大利。<br>');
+                        break;
                     case '艮':
-                        return yi;
+                        result =
+                            result +
+                            (yi +
+                                '<br><span style="color:#0079FE">开+生：</span>见贵人，谋望所求遂意。<br>');
+                        break;
                     case '震':
-                        return menpo;
+                        result =
+                            result +
+                            (menpo +
+                                '<br><span style="color:#0079FE">开+伤：</span>主变动、更改、移徙等事，皆不吉。<br>');
+                        break;
                     case '巽':
-                        return fanyin;
+                        result =
+                            result +
+                            (fanyin +
+                                '<br><span style="color:#0079FE">开+杜：</span>主失脱文印、书契等，小凶。<br>');
+                        break;
                     case '离':
-                        return shouzhi;
+                        result =
+                            result +
+                            (shouzhi +
+                                '<br><span style="color:#0079FE">开+景：</span>见贵人，因文书事不利。<br>');
+                        break;
                     case '坤':
-                        return yi;
+                        result =
+                            result +
+                            (yi +
+                                '<br><span style="color:#0079FE">开+死：</span>官司、惊忧、恶事，先忧后喜。<br>');
+                        break;
                     case '兑':
-                        return '';
+                        result =
+                            result +
+                            '<span style="color:#0079FE">开+惊：</span>词讼、惊疑之事。<br><br>';
+                        break;
                     case '中':
-                        return yi;
+                        result = result + yi;
+                        break;
                 }
+                switch (document.getElementById('paipan-tianpangan-info').innerText) {
+                    case '乙':
+                        result =
+                            result + '<span style="color:#0079FE">开加乙：</span>小财可求。<br>';
+                        break;
+                    case '丙':
+                        result =
+                            result + '<span style="color:#0079FE">开加丙：</span>贵人印绶。<br>';
+                        break;
+                    case '丁':
+                        result =
+                            result + '<span style="color:#0079FE">开加丁：</span>远信必至。<br>';
+                        break;
+                    case '戊':
+                        result =
+                            result + '<span style="color:#0079FE">开加戊：</span>财名俱得。<br>';
+                        break;
+                    case '己':
+                        result =
+                            result + '<span style="color:#0079FE">开加己：</span>事绪不定。<br>';
+                        break;
+                    case '庚':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">开加庚：</span>道路词讼，谋为两歧。<br>';
+                        break;
+                    case '辛':
+                        result =
+                            result + '<span style="color:#0079FE">开加辛：</span>阴人道路。<br>';
+                        break;
+                    case '壬':
+                        result =
+                            result + '<span style="color:#0079FE">开加壬：</span>远行有失。<br>';
+                        break;
+                    case '癸':
+                        result =
+                            result + '<span style="color:#0079FE">开加癸：</span>失财小凶。<br>';
+                        break;
+                }
+                switch (document.getElementById('paipan-dipangan-info').innerText) {
+                    case '乙':
+                        result =
+                            result + '<span style="color:#0079FE">开加乙：</span>小财可求。<br>';
+                        break;
+                    case '丙':
+                        result =
+                            result + '<span style="color:#0079FE">开加丙：</span>贵人印绶。<br>';
+                        break;
+                    case '丁':
+                        result =
+                            result + '<span style="color:#0079FE">开加丁：</span>远信必至。<br>';
+                        break;
+                    case '戊':
+                        result =
+                            result + '<span style="color:#0079FE">开加戊：</span>财名俱得。<br>';
+                        break;
+                    case '己':
+                        result =
+                            result + '<span style="color:#0079FE">开加己：</span>事绪不定。<br>';
+                        break;
+                    case '庚':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">开加庚：</span>道路词讼，谋为两歧。<br>';
+                        break;
+                    case '辛':
+                        result =
+                            result + '<span style="color:#0079FE">开加辛：</span>阴人道路。<br>';
+                        break;
+                    case '壬':
+                        result =
+                            result + '<span style="color:#0079FE">开加壬：</span>远行有失。<br>';
+                        break;
+                    case '癸':
+                        result =
+                            result + '<span style="color:#0079FE">开加癸：</span>失财小凶。<br>';
+                        break;
+                }
+                switch (document.getElementById('paipan-jigong-info').innerText) {
+                    case '乙':
+                        result =
+                            result + '<span style="color:#0079FE">开加乙：</span>小财可求。<br>';
+                        break;
+                    case '丙':
+                        result =
+                            result + '<span style="color:#0079FE">开加丙：</span>贵人印绶。<br>';
+                        break;
+                    case '丁':
+                        result =
+                            result + '<span style="color:#0079FE">开加丁：</span>远信必至。<br>';
+                        break;
+                    case '戊':
+                        result =
+                            result + '<span style="color:#0079FE">开加戊：</span>财名俱得。<br>';
+                        break;
+                    case '己':
+                        result =
+                            result + '<span style="color:#0079FE">开加己：</span>事绪不定。<br>';
+                        break;
+                    case '庚':
+                        result =
+                            result +
+                            '<span style="color:#0079FE">开加庚：</span>道路词讼，谋为两歧。<br>';
+                        break;
+                    case '辛':
+                        result =
+                            result + '<span style="color:#0079FE">开加辛：</span>阴人道路。<br>';
+                        break;
+                    case '壬':
+                        result =
+                            result + '<span style="color:#0079FE">开加壬：</span>远行有失。<br>';
+                        break;
+                    case '癸':
+                        result =
+                            result + '<span style="color:#0079FE">开加癸：</span>失财小凶。<br>';
+                        break;
+                }
+                break;
             case '中门':
-                return '';
+                result = result + '';
+                break;
         }
+        return result + '<br><hr><br>';
     }
 }
