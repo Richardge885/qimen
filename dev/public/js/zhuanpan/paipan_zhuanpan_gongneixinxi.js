@@ -1,7 +1,9 @@
-function zhuanpan_info(info) {
+function zhuanpan_info(info, paifa) {
+    let whichGong;
     document.querySelectorAll('[data-gongwei-overlay]').forEach((overlay, index) => {
         if (index !== 4) {
             overlay.addEventListener('click', () => {
+                whichGong = index;
                 document.getElementById('paipan-jiamu-info').classList.add('hidden');
                 document.getElementById('paipan-gongwei-info').classList.add('rounded-bl-[15px]');
                 getCurrentGongweiInfo(index); // 提取被点击的宫位信息并且把宫内信息加载到侧边栏中
@@ -94,33 +96,75 @@ function zhuanpan_info(info) {
                 bagua = '离';
                 break;
         }
-        if (xing == '天芮' || bagua == '坤') {
-            document.getElementById('paipan-gongwei-info').classList.remove('rounded-bl-[15px]');
-            document.getElementById('paipan-gongwei-info').classList.add('gongwei-info-on-bottom');
-            document.getElementById('paipan-jigong-info').classList.remove('hidden');
-            document.getElementById('paipan-tianpanshen-info').innerText = tianpanshen;
-            document.getElementById('paipan-xing-info').innerText = xing;
-            document.getElementById('paipan-men-info').innerText = men;
-            document.getElementById('paipan-tianpangan-info').innerText = tianpangan;
-            document.getElementById('paipan-dipangan-info').innerText = dipangan;
-            document.getElementById('paipan-gongwei-info').innerText = bagua;
-            document.getElementById('paipan-angan-info').innerText = angan;
-            document.getElementById('paipan-jigong-info').innerText =
-                document.querySelectorAll('[data-dipangan]')[4].innerHTML;
-        } else {
-            document.getElementById('paipan-gongwei-info').classList.add('rounded-bl-[15px]');
-            document
-                .getElementById('paipan-gongwei-info')
-                .classList.remove('gongwei-info-on-bottom');
-            document.getElementById('paipan-jigong-info').classList.add('hidden');
-            document.getElementById('paipan-tianpanshen-info').innerText = tianpanshen;
-            document.getElementById('paipan-xing-info').innerText = xing;
-            document.getElementById('paipan-men-info').innerText = men;
-            document.getElementById('paipan-tianpangan-info').innerText = tianpangan;
-            document.getElementById('paipan-dipangan-info').innerText = dipangan;
-            document.getElementById('paipan-gongwei-info').innerText = bagua;
-            document.getElementById('paipan-angan-info').innerText = angan;
-            document.getElementById('paipan-jigong-info').innerText = '';
+        if (paifa == '转盘') {
+            if (xing == '天芮' || bagua == '坤') {
+                document
+                    .getElementById('paipan-gongwei-info')
+                    .classList.remove('rounded-bl-[15px]');
+                document
+                    .getElementById('paipan-gongwei-info')
+                    .classList.add('gongwei-info-on-bottom');
+                document.getElementById('paipan-jigong-info').classList.remove('hidden');
+                document.getElementById('paipan-tianpanshen-info').innerText = tianpanshen;
+                document.getElementById('paipan-xing-info').innerText = xing;
+                document.getElementById('paipan-men-info').innerText = men;
+                document.getElementById('paipan-tianpangan-info').innerText = tianpangan;
+                document.getElementById('paipan-dipangan-info').innerText = dipangan;
+                document.getElementById('paipan-gongwei-info').innerText = bagua;
+                document.getElementById('paipan-angan-info').innerText = angan;
+                document.getElementById('paipan-jigong-info').innerText =
+                    document.querySelectorAll('[data-dipangan]')[4].innerHTML;
+            } else {
+                document.getElementById('paipan-gongwei-info').classList.add('rounded-bl-[15px]');
+                document
+                    .getElementById('paipan-gongwei-info')
+                    .classList.remove('gongwei-info-on-bottom');
+                document.getElementById('paipan-jigong-info').classList.add('hidden');
+                document.getElementById('paipan-tianpanshen-info').innerText = tianpanshen;
+                document.getElementById('paipan-xing-info').innerText = xing;
+                document.getElementById('paipan-men-info').innerText = men;
+                document.getElementById('paipan-tianpangan-info').innerText = tianpangan;
+                document.getElementById('paipan-dipangan-info').innerText = dipangan;
+                document.getElementById('paipan-gongwei-info').innerText = bagua;
+                document.getElementById('paipan-angan-info').innerText = angan;
+                document.getElementById('paipan-jigong-info').innerText = '';
+            }
+        } else if (paifa == '星飞门转') {
+            if (
+                bagua == '坤' ||
+                document.querySelectorAll('[data-tianpanyikong]')[whichGong].innerText != ''
+            ) {
+                document
+                    .getElementById('paipan-gongwei-info')
+                    .classList.remove('rounded-bl-[15px]');
+                document
+                    .getElementById('paipan-gongwei-info')
+                    .classList.add('gongwei-info-on-bottom');
+                document.getElementById('paipan-jigong-info').classList.remove('hidden');
+                document.getElementById('paipan-tianpanshen-info').innerText = tianpanshen;
+                document.getElementById('paipan-xing-info').innerText = xing;
+                document.getElementById('paipan-men-info').innerText = men;
+                document.getElementById('paipan-tianpangan-info').innerText = tianpangan;
+                document.getElementById('paipan-dipangan-info').innerText = dipangan;
+                document.getElementById('paipan-gongwei-info').innerText = bagua;
+                document.getElementById('paipan-angan-info').innerText = angan;
+                document.getElementById('paipan-jigong-info').innerText =
+                    document.querySelectorAll('[data-dipangan]')[4].innerHTML;
+            } else {
+                document.getElementById('paipan-gongwei-info').classList.add('rounded-bl-[15px]');
+                document
+                    .getElementById('paipan-gongwei-info')
+                    .classList.remove('gongwei-info-on-bottom');
+                document.getElementById('paipan-jigong-info').classList.add('hidden');
+                document.getElementById('paipan-tianpanshen-info').innerText = tianpanshen;
+                document.getElementById('paipan-xing-info').innerText = xing;
+                document.getElementById('paipan-men-info').innerText = men;
+                document.getElementById('paipan-tianpangan-info').innerText = tianpangan;
+                document.getElementById('paipan-dipangan-info').innerText = dipangan;
+                document.getElementById('paipan-gongwei-info').innerText = bagua;
+                document.getElementById('paipan-angan-info').innerText = angan;
+                document.getElementById('paipan-jigong-info').innerText = '';
+            }
         }
     }
 
@@ -137,58 +181,132 @@ function zhuanpan_info(info) {
                 document.getElementById('paipan-jiamu-info').classList.remove('focused-item');
                 document.getElementById('paipan-dipangan-info').classList.remove('focused-item');
                 document.getElementById('paipan-gongwei-info').classList.remove('focused-item');
-                if (
-                    document.getElementById('paipan-xing-info').innerText != '天芮' &&
-                    document.getElementById('paipan-gongwei-info').innerText != '坤'
-                ) {
-                    document.getElementById('paipan-modal-info-section').innerHTML = updateGejuInfo(
-                        document.getElementById('paipan-tianpangan-info').innerText,
-                        document.getElementById('paipan-dipangan-info').innerText,
-                        document.getElementById('paipan-xing-info').innerText,
-                        document.getElementById('paipan-men-info').innerText,
-                        document.getElementById('paipan-tianpanshen-info').innerText,
-                        document.getElementById('paipan-angan-info').innerText,
-                        document.getElementById('paipan-gongwei-info').innerText,
-                    );
-                } else if (
-                    document.getElementById('paipan-xing-info').innerText == '天芮' &&
-                    document.getElementById('paipan-gongwei-info').innerText == '坤'
-                ) {
-                    document.getElementById('paipan-modal-info-section').innerHTML = updateGejuInfo(
-                        document.getElementById('paipan-tianpangan-info').innerText,
-                        document.getElementById('paipan-dipangan-info').innerText,
-                        document.getElementById('paipan-xing-info').innerText,
-                        document.getElementById('paipan-men-info').innerText,
-                        document.getElementById('paipan-tianpanshen-info').innerText,
-                        document.getElementById('paipan-angan-info').innerText,
-                        document.getElementById('paipan-gongwei-info').innerText,
-                        true,
-                        true,
-                    );
-                } else if (document.getElementById('paipan-gongwei-info').innerText == '坤') {
-                    document.getElementById('paipan-modal-info-section').innerHTML = updateGejuInfo(
-                        document.getElementById('paipan-tianpangan-info').innerText,
-                        document.getElementById('paipan-dipangan-info').innerText,
-                        document.getElementById('paipan-xing-info').innerText,
-                        document.getElementById('paipan-men-info').innerText,
-                        document.getElementById('paipan-tianpanshen-info').innerText,
-                        document.getElementById('paipan-angan-info').innerText,
-                        document.getElementById('paipan-gongwei-info').innerText,
-                        false,
-                        true,
-                    );
-                } else if (document.getElementById('paipan-xing-info').innerText == '天芮') {
-                    document.getElementById('paipan-modal-info-section').innerHTML = updateGejuInfo(
-                        document.getElementById('paipan-tianpangan-info').innerText,
-                        document.getElementById('paipan-dipangan-info').innerText,
-                        document.getElementById('paipan-xing-info').innerText,
-                        document.getElementById('paipan-men-info').innerText,
-                        document.getElementById('paipan-tianpanshen-info').innerText,
-                        document.getElementById('paipan-angan-info').innerText,
-                        document.getElementById('paipan-gongwei-info').innerText,
-                        true,
-                        false,
-                    );
+                if (paifa == '转盘') {
+                    if (
+                        document.getElementById('paipan-xing-info').innerText != '天芮' &&
+                        document.getElementById('paipan-gongwei-info').innerText != '坤'
+                    ) {
+                        document.getElementById('paipan-modal-info-section').innerHTML =
+                            updateGejuInfo(
+                                document.getElementById('paipan-tianpangan-info').innerText,
+                                document.getElementById('paipan-dipangan-info').innerText,
+                                document.getElementById('paipan-xing-info').innerText,
+                                document.getElementById('paipan-men-info').innerText,
+                                document.getElementById('paipan-tianpanshen-info').innerText,
+                                document.getElementById('paipan-angan-info').innerText,
+                                document.getElementById('paipan-gongwei-info').innerText,
+                            );
+                    } else if (
+                        document.getElementById('paipan-xing-info').innerText == '天芮' &&
+                        document.getElementById('paipan-gongwei-info').innerText == '坤'
+                    ) {
+                        document.getElementById('paipan-modal-info-section').innerHTML =
+                            updateGejuInfo(
+                                document.getElementById('paipan-tianpangan-info').innerText,
+                                document.getElementById('paipan-dipangan-info').innerText,
+                                document.getElementById('paipan-xing-info').innerText,
+                                document.getElementById('paipan-men-info').innerText,
+                                document.getElementById('paipan-tianpanshen-info').innerText,
+                                document.getElementById('paipan-angan-info').innerText,
+                                document.getElementById('paipan-gongwei-info').innerText,
+                                true,
+                                true,
+                            );
+                    } else if (document.getElementById('paipan-gongwei-info').innerText == '坤') {
+                        document.getElementById('paipan-modal-info-section').innerHTML =
+                            updateGejuInfo(
+                                document.getElementById('paipan-tianpangan-info').innerText,
+                                document.getElementById('paipan-dipangan-info').innerText,
+                                document.getElementById('paipan-xing-info').innerText,
+                                document.getElementById('paipan-men-info').innerText,
+                                document.getElementById('paipan-tianpanshen-info').innerText,
+                                document.getElementById('paipan-angan-info').innerText,
+                                document.getElementById('paipan-gongwei-info').innerText,
+                                false,
+                                true,
+                            );
+                    } else if (document.getElementById('paipan-xing-info').innerText == '天芮') {
+                        document.getElementById('paipan-modal-info-section').innerHTML =
+                            updateGejuInfo(
+                                document.getElementById('paipan-tianpangan-info').innerText,
+                                document.getElementById('paipan-dipangan-info').innerText,
+                                document.getElementById('paipan-xing-info').innerText,
+                                document.getElementById('paipan-men-info').innerText,
+                                document.getElementById('paipan-tianpanshen-info').innerText,
+                                document.getElementById('paipan-angan-info').innerText,
+                                document.getElementById('paipan-gongwei-info').innerText,
+                                true,
+                                false,
+                            );
+                    }
+                } else if (paifa == '星飞门转') {
+                    if (
+                        document.querySelectorAll('[data-tianpanyikong]')[whichGong].innerText ==
+                            '' &&
+                        document.querySelectorAll('[data-dipanyikong]')[whichGong].innerText == ''
+                    ) {
+                        document.getElementById('paipan-modal-info-section').innerHTML =
+                            updateGejuInfo(
+                                document.getElementById('paipan-tianpangan-info').innerText,
+                                document.getElementById('paipan-dipangan-info').innerText,
+                                document.getElementById('paipan-xing-info').innerText,
+                                document.getElementById('paipan-men-info').innerText,
+                                document.getElementById('paipan-tianpanshen-info').innerText,
+                                document.getElementById('paipan-angan-info').innerText,
+                                document.getElementById('paipan-gongwei-info').innerText,
+                            );
+                    } else if (
+                        document.querySelectorAll('[data-tianpanyikong]')[whichGong].innerText !=
+                            '' &&
+                        document.querySelectorAll('[data-dipanyikong]')[whichGong].innerText == ''
+                    ) {
+                        document.getElementById('paipan-modal-info-section').innerHTML =
+                            updateGejuInfo(
+                                document.getElementById('paipan-tianpangan-info').innerText,
+                                document.getElementById('paipan-dipangan-info').innerText,
+                                document.getElementById('paipan-xing-info').innerText,
+                                document.getElementById('paipan-men-info').innerText,
+                                document.getElementById('paipan-tianpanshen-info').innerText,
+                                document.getElementById('paipan-angan-info').innerText,
+                                document.getElementById('paipan-gongwei-info').innerText,
+                                true,
+                                false,
+                            );
+                    } else if (
+                        document.querySelectorAll('[data-tianpanyikong]')[whichGong].innerText ==
+                            '' &&
+                        document.querySelectorAll('[data-dipanyikong]')[whichGong].innerText != ''
+                    ) {
+                        document.getElementById('paipan-modal-info-section').innerHTML =
+                            updateGejuInfo(
+                                document.getElementById('paipan-tianpangan-info').innerText,
+                                document.getElementById('paipan-dipangan-info').innerText,
+                                document.getElementById('paipan-xing-info').innerText,
+                                document.getElementById('paipan-men-info').innerText,
+                                document.getElementById('paipan-tianpanshen-info').innerText,
+                                document.getElementById('paipan-angan-info').innerText,
+                                document.getElementById('paipan-gongwei-info').innerText,
+                                false,
+                                true,
+                            );
+                    } else if (
+                        document.querySelectorAll('[data-tianpanyikong]')[whichGong].innerText !=
+                            '' &&
+                        document.querySelectorAll('[data-dipanyikong]')[whichGong].innerText != ''
+                    ) {
+                        document.getElementById('paipan-modal-info-section').innerHTML =
+                            updateGejuInfo(
+                                document.getElementById('paipan-tianpangan-info').innerText,
+                                document.getElementById('paipan-dipangan-info').innerText,
+                                document.getElementById('paipan-xing-info').innerText,
+                                document.getElementById('paipan-men-info').innerText,
+                                document.getElementById('paipan-tianpanshen-info').innerText,
+                                document.getElementById('paipan-angan-info').innerText,
+                                document.getElementById('paipan-gongwei-info').innerText,
+                                true,
+                                true,
+                            );
+                    }
                 }
                 break;
             case 'tianpanshen':
@@ -1534,13 +1652,91 @@ function zhuanpan_info(info) {
     }
     function getJiGe(tianpangan, dipangan, xing, men, shen, gongwei) {
         let result = '';
+        const tianpanjigong =
+            document.querySelectorAll('[data-tianpanyikong]')[whichGong].innerText;
+        const dipanjigong = document.querySelectorAll('[data-dipanyikong]')[whichGong].innerText;
+        let niangan = document.getElementById('nian').innerText;
+        let yuegan = document.getElementById('yue').innerText;
+        let rigan = document.getElementById('ri').innerText;
+        let shigan = document.getElementById('shi').innerText;
+        if (shigan == '甲子') {
+            shigan = '戊';
+        } else if (shigan == '甲戌') {
+            shigan = '己';
+        } else if (shigan == '甲申') {
+            shigan = '庚';
+        } else if (shigan == '甲午') {
+            shigan = '辛';
+        } else if (shigan == '甲辰') {
+            shigan = '壬';
+        } else if (shigan == '甲寅') {
+            shigan = '癸';
+        } else {
+            shigan = shigan.charAt(0);
+        }
+
+        if (rigan == '甲子') {
+            rigan = '戊';
+        } else if (rigan == '甲戌') {
+            rigan = '己';
+        } else if (rigan == '甲申') {
+            rigan = '庚';
+        } else if (rigan == '甲午') {
+            rigan = '辛';
+        } else if (rigan == '甲辰') {
+            rigan = '壬';
+        } else if (rigan == '甲寅') {
+            rigan = '癸';
+        } else {
+            rigan = rigan.charAt(0);
+        }
+
+        if (yuegan == '甲子') {
+            yuegan = '戊';
+        } else if (yuegan == '甲戌') {
+            yuegan = '己';
+        } else if (yuegan == '甲申') {
+            yuegan = '庚';
+        } else if (yuegan == '甲午') {
+            yuegan = '辛';
+        } else if (yuegan == '甲辰') {
+            yuegan = '壬';
+        } else if (yuegan == '甲寅') {
+            yuegan = '癸';
+        } else {
+            yuegan = yuegan.charAt(0);
+        }
+
+        if (niangan == '甲子') {
+            niangan = '戊';
+        } else if (niangan == '甲戌') {
+            niangan = '己';
+        } else if (niangan == '甲申') {
+            niangan = '庚';
+        } else if (niangan == '甲午') {
+            niangan = '辛';
+        } else if (niangan == '甲辰') {
+            niangan = '壬';
+        } else if (niangan == '甲寅') {
+            niangan = '癸';
+        } else {
+            niangan = niangan.charAt(0);
+        }
+
         // todo 却天三门，地四户，地私门
         // 天三门
         // 地四户
         // 地私门
 
         // 三诈
-        if (tianpangan == '乙' || tianpangan == '丙' || tianpangan == '丁') {
+        if (
+            tianpangan == '乙' ||
+            tianpangan == '丙' ||
+            tianpangan == '丁' ||
+            tianpanjigong == '乙' ||
+            tianpanjigong == '丙' ||
+            tianpanjigong == '丁'
+        ) {
             if (men == '开门' || men == '休门' || men == '生门') {
                 if (shen == '太阴') {
                     result =
@@ -1560,10 +1756,10 @@ function zhuanpan_info(info) {
 
         // 五假
         // 天假
-        if (tianpangan == '丙') {
+        if (tianpangan == '丙' || tianpanjigong == '丙') {
             if (men == '景门') {
                 if (shen == '九天') {
-                    if (dipangan == '戊') {
+                    if (dipangan == '戊' || dipanjigong == '戊') {
                         result =
                             result +
                             '<span style="color:#0079FE">天假：</span>宜谒贵，上策，发令，结盟。<br><br>';
@@ -1572,10 +1768,10 @@ function zhuanpan_info(info) {
             }
         }
         // 地假
-        if (tianpangan == '丁') {
+        if (tianpangan == '丁' || tianpanjigong == '丁') {
             if (men == '杜门') {
                 if (shen == '九地') {
-                    if (dipangan == '己') {
+                    if (dipangan == '己' || dipanjigong == '己') {
                         result =
                             result +
                             '<span style="color:#0079FE">地假：</span>宜藏伏，逃难，侦查。<br><br>';
@@ -1584,10 +1780,10 @@ function zhuanpan_info(info) {
             }
         }
         // 物假
-        if (tianpangan == '丁') {
+        if (tianpangan == '丁' || tianpanjigong == '丁') {
             if (men == '杜门') {
                 if (shen == '太阴') {
-                    if (dipangan == '己') {
+                    if (dipangan == '己' || dipanjigong == '己') {
                         result =
                             result +
                             '<span style="color:#0079FE">物假：</span>宜埋葬，伏藏，交易。<br><br>';
@@ -1596,7 +1792,7 @@ function zhuanpan_info(info) {
             }
         }
         // 人假
-        if (tianpangan == '壬') {
+        if (tianpangan == '壬' || tianpanjigong == '壬') {
             if (men == '惊门') {
                 if (shen == '螣蛇') {
                     if (gongwei == '坤') {
@@ -1608,7 +1804,7 @@ function zhuanpan_info(info) {
             }
         }
         // 鬼假
-        if (tianpangan == '己') {
+        if (tianpangan == '己' || tianpanjigong == '己') {
             if (men == '死门') {
                 if (shen == '朱雀' || shen == '玄武') {
                     if (gongwei == '艮') {
@@ -1620,7 +1816,7 @@ function zhuanpan_info(info) {
             }
         }
         // 神假
-        if (tianpangan == '庚') {
+        if (tianpangan == '庚' || tianpanjigong == '庚') {
             if (men == '伤门') {
                 if (shen == '白虎') {
                     if (gongwei == '巽') {
@@ -1634,9 +1830,9 @@ function zhuanpan_info(info) {
 
         // 九遁
         // 天遁
-        if (tianpangan == '丙') {
+        if (tianpangan == '丙' || tianpanjigong == '丙') {
             if (men == '生门') {
-                if (dipangan == '丁') {
+                if (dipangan == '丁' || dipanjigong == '丁') {
                     result =
                         result +
                         '<span style="color:#0079FE">天遁：</span>宜征战，上书，求官，除恶，结婚，贸易，百事生旺。<br><br>';
@@ -1644,9 +1840,9 @@ function zhuanpan_info(info) {
             }
         }
         // 地遁
-        if (tianpangan == '乙') {
+        if (tianpangan == '乙' || tianpanjigong == '乙') {
             if (men == '开门') {
-                if (dipangan == '己') {
+                if (dipangan == '己' || dipanjigong == '己') {
                     result =
                         result +
                         '<span style="color:#0079FE">地遁：</span>宜安营，藏兵，修造，出阵，求财。<br><br>';
@@ -1654,7 +1850,7 @@ function zhuanpan_info(info) {
             }
         }
         // 人遁
-        if (tianpangan == '丁') {
+        if (tianpangan == '丁' || tianpanjigong == '丁') {
             if (men == '休门') {
                 if (shen == '太阴') {
                     result =
@@ -1664,7 +1860,7 @@ function zhuanpan_info(info) {
             }
         }
         // 神遁
-        if (tianpangan == '丙') {
+        if (tianpangan == '丙' || tianpanjigong == '丙') {
             if (men == '生门') {
                 if (shen == '九天') {
                     result =
@@ -1674,7 +1870,7 @@ function zhuanpan_info(info) {
             }
         }
         // 鬼遁
-        if (tianpangan == '乙') {
+        if (tianpangan == '乙' || tianpanjigong == '乙') {
             if (men == '开门' || men == '生门' || dipangan == '丁') {
                 if (shen == '九地') {
                     result =
@@ -1684,7 +1880,7 @@ function zhuanpan_info(info) {
             }
         }
         // 风遁
-        if (tianpangan == '辛') {
+        if (tianpangan == '辛' || tianpanjigong == '辛') {
             if (men == '休门') {
                 if (gongwei == '巽') {
                     result =
@@ -1694,7 +1890,7 @@ function zhuanpan_info(info) {
             }
         }
         // 云遁
-        if (tianpangan == '乙') {
+        if (tianpangan == '乙' || tianpanjigong == '乙') {
             if (men == '休门') {
                 if (gongwei == '震') {
                     result =
@@ -1704,7 +1900,7 @@ function zhuanpan_info(info) {
             }
         }
         // 龙遁
-        if (tianpangan == '乙') {
+        if (tianpangan == '乙' || tianpanjigong == '乙') {
             if (men == '休门') {
                 if (gongwei == '坎' || dipangan == '癸') {
                     result =
@@ -1715,9 +1911,9 @@ function zhuanpan_info(info) {
         }
         // 虎遁
         if (gongwei == '艮') {
-            if (tianpangan == '乙') {
+            if (tianpangan == '乙' || tianpanjigong == '乙') {
                 if (men == '休门') {
-                    if (dipangan == '辛') {
+                    if (dipangan == '辛' || dipanjigong == '辛') {
                         result =
                             result +
                             '<span style="color:#0079FE">虎遁：</span>宜立营，招降，设伏，修造。<br><br>';
@@ -1726,9 +1922,9 @@ function zhuanpan_info(info) {
             }
         }
         // 文遁
-        if (tianpangan == '乙') {
+        if (tianpangan == '乙' || tianpanjigong == '乙') {
             if (men == '生门') {
-                if (dipangan == '丁') {
+                if (dipangan == '丁' || dipanjigong == '丁') {
                     result =
                         result +
                         '<span style="color:#0079FE">文遁：</span>大利文书，谋划等事。<br><br>';
@@ -1736,22 +1932,208 @@ function zhuanpan_info(info) {
             }
         }
         // 武遁
-        if (tianpangan == '丙') {
+        if (tianpangan == '丙' || tianpanjigong == '丙') {
             if (men == '开门') {
-                if (dipangan == '辛') {
+                if (dipangan == '辛' || dipanjigong == '辛') {
                     result =
                         result + '<span style="color:#0079FE">武遁：</span>大利武威等事 。<br><br>';
                 }
             }
         }
 
-        if (tianpangan == '乙') {
-            if (dipangan == '丁') {
-                if (men == '生门') {
+        // 凶格
+        // 时干入墓
+        if (tianpangan == shigan || tianpanjigong == shigan) {
+            if (tianpangan == '乙' || tianpanjigong == '乙') {
+                if (gongwei == '乾') {
                     result =
                         result +
-                        '<span style="color:#0079FE">日丽中天：</span>宜伤官谒贵，谋望求财，考试科举，投兵任将，嫁娶，造葬，放水。<br><br>';
+                        '<span style="color:red">时干入墓：</span>时干入墓凡事不成之象，不利求财、办事、婚姻嫁娶、建筑修造、出行等。<br><br>';
                 }
+            } else if (tianpangan == '丙' || tianpanjigong == '丙') {
+                if (gongwei == '乾') {
+                    result =
+                        result +
+                        '<span style="color:red">时干入墓：</span>时干入墓凡事不成之象，不利求财、办事、婚姻嫁娶、建筑修造、出行等。<br><br>';
+                }
+            } else if (tianpangan == '丁' || tianpanjigong == '丁') {
+                if (gongwei == '艮') {
+                    result =
+                        result +
+                        '<span style="color:red">时干入墓：</span>时干入墓凡事不成之象，不利求财、办事、婚姻嫁娶、建筑修造、出行等。<br><br>';
+                }
+            } else if (tianpangan == '戊' || tianpanjigong == '戊') {
+                if (gongwei == '乾') {
+                    result =
+                        result +
+                        '<span style="color:red">时干入墓：</span>时干入墓凡事不成之象，不利求财、办事、婚姻嫁娶、建筑修造、出行等。<br><br>';
+                }
+            } else if (tianpangan == '己' || tianpanjigong == '己') {
+                if (gongwei == '艮') {
+                    result =
+                        result +
+                        '<span style="color:red">时干入墓：</span>时干入墓凡事不成之象，不利求财、办事、婚姻嫁娶、建筑修造、出行等。<br><br>';
+                }
+            } else if (tianpangan == '庚' || tianpanjigong == '庚') {
+                if (gongwei == '艮') {
+                    result =
+                        result +
+                        '<span style="color:red">时干入墓：</span>时干入墓凡事不成之象，不利求财、办事、婚姻嫁娶、建筑修造、出行等。<br><br>';
+                }
+            } else if (tianpangan == '辛' || tianpanjigong == '辛') {
+                if (gongwei == '巽') {
+                    result =
+                        result +
+                        '<span style="color:red">时干入墓：</span>时干入墓凡事不成之象，不利求财、办事、婚姻嫁娶、建筑修造、出行等。<br><br>';
+                }
+            } else if (tianpangan == '壬' || tianpanjigong == '壬') {
+                if (gongwei == '巽') {
+                    result =
+                        result +
+                        '<span style="color:red">时干入墓：</span>时干入墓凡事不成之象，不利求财、办事、婚姻嫁娶、建筑修造、出行等。<br><br>';
+                }
+            } else if (tianpangan == '癸' || tianpanjigong == '癸') {
+                if (gongwei == '坤') {
+                    result =
+                        result +
+                        '<span style="color:red">时干入墓：</span>时干入墓凡事不成之象，不利求财、办事、婚姻嫁娶、建筑修造、出行等。<br><br>';
+                }
+            }
+        }
+        // 三奇入墓
+        if (
+            tianpangan == '乙' ||
+            tianpangan == '丙' ||
+            tianpangan == '丁' ||
+            tianpanjigong == '乙' ||
+            tianpanjigong == '丙' ||
+            tianpanjigong == '丁' ||
+            dipangan == '乙' ||
+            dipangan == '丙' ||
+            dipangan == '丁' ||
+            dipanjigong == '乙' ||
+            dipanjigong == '丙' ||
+            dipanjigong == '丁'
+        ) {
+            if (
+                tianpangan == '乙' ||
+                tianpanjigong == '乙' ||
+                dipangan == '乙' ||
+                dipanjigong == '乙'
+            ) {
+                if (gongwei == '乾')
+                    result =
+                        result +
+                        '<span style="color:red">三奇入墓：</span>百事不宜，忌行军，凡事吉的不吉，凶的不凶，无力之象。<br><br>';
+            } else if (
+                tianpangan == '丙' ||
+                tianpanjigong == '丙' ||
+                dipangan == '丙' ||
+                dipanjigong == '丙'
+            ) {
+                if (gongwei == '乾')
+                    result =
+                        result +
+                        '<span style="color:red">三奇入墓：</span>百事不宜，忌行军，凡事吉的不吉，凶的不凶，无力之象。<br><br>';
+            } else if (
+                tianpangan == '丁' ||
+                tianpanjigong == '丁' ||
+                dipangan == '丁' ||
+                dipanjigong == '丁'
+            ) {
+                if (gongwei == '艮')
+                    result =
+                        result +
+                        '<span style="color:red">三奇入墓：</span>百事不宜，忌行军，凡事吉的不吉，凶的不凶，无力之象。<br><br>';
+            }
+        }
+        // 飞干格
+        if (tianpangan == rigan || tianpanjigong == rigan) {
+            if (dipangan == '庚' || dipanjigong == '庚') {
+                result =
+                    result +
+                    '<span style="color:red">飞干格：</span>战斗主客皆伤，出行主有飞灾横祸。<br><br>';
+            }
+        }
+        // 伏干格
+        if (dipangan == rigan || dipanjigong == rigan) {
+            if (tianpangan == '庚' || tianpanjigong == '庚') {
+                result =
+                    result +
+                    '<span style="color:red">伏干格：</span>此时战必遭擒，主客两伤，出行尤其 忌讳。<br><br>';
+            }
+        }
+        // 年月日时格
+        if (tianpangan == '庚' || tianpanjigong == '庚') {
+            if (dipangan == niangan || dipanjigong == niangan) {
+                result =
+                    result +
+                    '<span style="color:red">岁格：</span>行兵、远行、谋事、做事都不利，只宜捕捉盗贼逃犯。<br>岁格、月格、日格、时格，一般主凶。庚格多应在定应期时，如遇年格则应年内；遇时格则应时辰内。测婚姻，遇年格，与父母（尤其是公婆矛盾突出）；遇月格，与兄弟姐妹、妯娌不和、关系紧张；遇日格、时格，可能是夫妻品行不良，涉及人品，应格外小心。<br><br>';
+            }
+        }
+        if (tianpangan == '庚' || tianpanjigong == '庚') {
+            if (dipangan == yuegan || dipanjigong == yuegan) {
+                result =
+                    result +
+                    '<span style="color:red">月格：</span>行兵、远行、谋事、做事都不利，只宜捕捉盗贼逃犯。<br>岁格、月格、日格、时格，一般主凶。庚格多应在定应期时，如遇年格则应年内；遇时格则应时辰内。测婚姻，遇年格，与父母（尤其是公婆矛盾突出）；遇月格，与兄弟姐妹、妯娌不和、关系紧张；遇日格、时格，可能是夫妻品行不良，涉及人品，应格外小心。<br><br>';
+            }
+        }
+        if (tianpangan == '庚' || tianpanjigong == '庚') {
+            if (dipangan == rigan || dipanjigong == rigan) {
+                result =
+                    result +
+                    '<span style="color:red">日格：</span>行兵、远行、谋事、做事都不利，只宜捕捉盗贼逃犯。<br>岁格、月格、日格、时格，一般主凶。庚格多应在定应期时，如遇年格则应年内；遇时格则应时辰内。测婚姻，遇年格，与父母（尤其是公婆矛盾突出）；遇月格，与兄弟姐妹、妯娌不和、关系紧张；遇日格、时格，可能是夫妻品行不良，涉及人品，应格外小心。<br><br>';
+            }
+        }
+        if (tianpangan == '庚' || tianpanjigong == '庚') {
+            if (dipangan == shigan || dipanjigong == shigan) {
+                result =
+                    result +
+                    '<span style="color:red">时格：</span>行兵、远行、谋事、做事都不利，只宜捕捉盗贼逃犯。<br>岁格、月格、日格、时格，一般主凶。庚格多应在定应期时，如遇年格则应年内；遇时格则应时辰内。测婚姻，遇年格，与父母（尤其是公婆矛盾突出）；遇月格，与兄弟姐妹、妯娌不和、关系紧张；遇日格、时格，可能是夫妻品行不良，涉及人品，应格外小心。<br><br>';
+            }
+        }
+        // 刑格
+        if (tianpangan == '庚' || tianpanjigong == '庚') {
+            if (dipangan == '己' || dipanjigong == '己') {
+                result =
+                    result +
+                    '<span style="color:red">刑格：</span>此时行兵大凶，战阵主丧，出行中途阻隔，诸事不利。又主官司受刑、经商破财、出行患病。总之占事遇刑格，多有不利。<br><br>';
+            }
+        }
+        // 悖格
+        if (tianpangan == '丙' || tianpanjigong == '丙') {
+            if (dipangan == niangan || dipanjigong == niangan) {
+                result =
+                    result +
+                    '<span style="color:red">悖格：</span>悖格之时举事，多倒行逆施，纲纪紊乱，易出乱臣贼子、叛逆之人。此时宜固守，不可轻动，利为主不利为客，做任何事都主紊乱，大凶。<br><br>';
+            }
+        }
+        if (tianpangan == '丙' || tianpanjigong == '丙') {
+            if (dipangan == yuegan || dipanjigong == yuegan) {
+                result =
+                    result +
+                    '<span style="color:red">悖格：</span>悖格之时举事，多倒行逆施，纲纪紊乱，易出乱臣贼子、叛逆之人。此时宜固守，不可轻动，利为主不利为客，做任何事都主紊乱，大凶。<br><br>';
+            }
+        }
+        if (tianpangan == '丙' || tianpanjigong == '丙') {
+            if (dipangan == rigan || dipanjigong == rigan) {
+                result =
+                    result +
+                    '<span style="color:red">悖格：</span>悖格之时举事，多倒行逆施，纲纪紊乱，易出乱臣贼子、叛逆之人。此时宜固守，不可轻动，利为主不利为客，做任何事都主紊乱，大凶。<br><br>';
+            }
+        }
+        if (tianpangan == '丙' || tianpanjigong == '丙') {
+            if (dipangan == shigan || dipanjigong == shigan) {
+                result =
+                    result +
+                    '<span style="color:red">悖格：</span>悖格之时举事，多倒行逆施，纲纪紊乱，易出乱臣贼子、叛逆之人。此时宜固守，不可轻动，利为主不利为客，做任何事都主紊乱，大凶。<br><br>';
+            }
+        }
+        if (dipangan == '丙' || dipanjigong == '丙') {
+            if (shen == '值符') {
+                result =
+                    result +
+                    '<span style="color:red">悖格：</span>悖格之时举事，多倒行逆施，纲纪紊乱，易出乱臣贼子、叛逆之人。此时宜固守，不可轻动，利为主不利为客，做任何事都主紊乱，大凶。<br><br>';
             }
         }
         return result;
@@ -1873,36 +2255,39 @@ function zhuanpan_info(info) {
                     case '乙':
                         result =
                             result +
-                            '<span style="color:#0079FE">休加乙：</span>求谋重，不得；求轻，可得。';
+                            '<span style="color:#0079FE">休加乙：</span>求谋重，不得；求轻，可得。<br>';
                         break;
                     case '丙':
                         result =
-                            result + '<span style="color:#0079FE">休加丙：</span>文书和合喜庆。';
+                            result +
+                            '<span style="color:#0079FE">休加丙：</span>文书和合喜庆。<br>';
                         break;
                     case '丁':
                         result =
-                            result +
-                            '<span style="color:#0079FE">休加丁：</span>百讼休歇。休加己：暗昧不宁。';
+                            result + '<span style="color:#0079FE">休加丁：</span>百讼休歇。<br>';
                         break;
                     case '戊':
-                        result = result + '<span style="color:#0079FE">休加戊：</span>财物和合。';
+                        result =
+                            result + '<span style="color:#0079FE">休加戊：</span>财物和合。<br>';
                         break;
                     case '己':
-                        result = result + '<span style="color:#0079FE">休加己：</span>暗昧不宁。';
+                        result =
+                            result + '<span style="color:#0079FE">休加己：</span>暗昧不宁。<br>';
                         break;
                     case '庚':
                         result =
                             result +
-                            '<span style="color:#0079FE">休加庚：</span>文书词讼先结后解。';
+                            '<span style="color:#0079FE">休加庚：</span>文书词讼先结后解。<br>';
                         break;
                     case '辛':
                         result =
                             result +
-                            '<span style="color:#0079FE">休加辛：</span>疾病退愈，失物不得。';
+                            '<span style="color:#0079FE">休加辛：</span>疾病退愈，失物不得。<br>';
                         break;
                     case '壬':
                         result =
-                            result + '<span style="color:#0079FE">休加壬：</span>阴人词讼牵连。';
+                            result +
+                            '<span style="color:#0079FE">休加壬：</span>阴人词讼牵连。<br>';
                         break;
                     case '癸':
                         result =
@@ -1913,36 +2298,39 @@ function zhuanpan_info(info) {
                     case '乙':
                         result =
                             result +
-                            '<span style="color:#0079FE">休加乙：</span>求谋重，不得；求轻，可得。';
+                            '<span style="color:#0079FE">休加乙：</span>求谋重，不得；求轻，可得。<br>';
                         break;
                     case '丙':
                         result =
-                            result + '<span style="color:#0079FE">休加丙：</span>文书和合喜庆。';
+                            result +
+                            '<span style="color:#0079FE">休加丙：</span>文书和合喜庆。<br>';
                         break;
                     case '丁':
                         result =
-                            result +
-                            '<span style="color:#0079FE">休加丁：</span>百讼休歇。休加己：暗昧不宁。';
+                            result + '<span style="color:#0079FE">休加丁：</span>百讼休歇。<br>';
                         break;
                     case '戊':
-                        result = result + '<span style="color:#0079FE">休加戊：</span>财物和合。';
+                        result =
+                            result + '<span style="color:#0079FE">休加戊：</span>财物和合。<br>';
                         break;
                     case '己':
-                        result = result + '<span style="color:#0079FE">休加己：</span>暗昧不宁。';
+                        result =
+                            result + '<span style="color:#0079FE">休加己：</span>暗昧不宁。<br>';
                         break;
                     case '庚':
                         result =
                             result +
-                            '<span style="color:#0079FE">休加庚：</span>文书词讼先结后解。';
+                            '<span style="color:#0079FE">休加庚：</span>文书词讼先结后解。<br>';
                         break;
                     case '辛':
                         result =
                             result +
-                            '<span style="color:#0079FE">休加辛：</span>疾病退愈，失物不得。';
+                            '<span style="color:#0079FE">休加辛：</span>疾病退愈，失物不得。<br>';
                         break;
                     case '壬':
                         result =
-                            result + '<span style="color:#0079FE">休加壬：</span>阴人词讼牵连。';
+                            result +
+                            '<span style="color:#0079FE">休加壬：</span>阴人词讼牵连。<br>';
                         break;
                     case '癸':
                         result =
@@ -2753,8 +3141,8 @@ function zhuanpan_info(info) {
                             result + '<span style="color:#0079FE">死加丙：</span>信息忧疑。<br>';
                         break;
                     case '丁':
-                        resu;
-                        result + '<span style="color:#0079FE">死加丁：</span>老阳人疾病。<br>';
+                        result =
+                            result + '<span style="color:#0079FE">死加丁：</span>老阳人疾病。<br>';
                         break;
                     case '戊':
                         result =
@@ -2796,8 +3184,8 @@ function zhuanpan_info(info) {
                             result + '<span style="color:#0079FE">死加丙：</span>信息忧疑。<br>';
                         break;
                     case '丁':
-                        resu;
-                        result + '<span style="color:#0079FE">死加丁：</span>老阳人疾病。<br>';
+                        result =
+                            result + '<span style="color:#0079FE">死加丁：</span>老阳人疾病。<br>';
                         break;
                     case '戊':
                         result =
@@ -2839,8 +3227,8 @@ function zhuanpan_info(info) {
                             result + '<span style="color:#0079FE">死加丙：</span>信息忧疑。<br>';
                         break;
                     case '丁':
-                        resu;
-                        result + '<span style="color:#0079FE">死加丁：</span>老阳人疾病。<br>';
+                        result =
+                            result + '<span style="color:#0079FE">死加丁：</span>老阳人疾病。<br>';
                         break;
                     case '戊':
                         result =

@@ -31,7 +31,7 @@ ipcRenderer.on('星飞门转', (e, data) => {
         );
     }
     // 用于宫位弹窗提示
-    zhuanpan_info(info);
+    zhuanpan_info(info, '星飞门转');
     if (document.getElementById('paipan-pizhu').value == '') {
         isFromData = false;
     }
@@ -363,7 +363,7 @@ async function paiTianPanGan(xunshou) {
     for (let i = 0; i < 8; i++) {
         document.querySelectorAll('[data-tianpangan]')[shunxu[i]].innerText = tianpangan[i];
     }
-    for (let i = 0; i < 8; i++) {
+    for (let i = 0; i <= 8; i++) {
         if (
             document.querySelectorAll('[data-tianpangan]')[i].innerText ==
             document.querySelectorAll('[data-dipangan]')[1].innerText
