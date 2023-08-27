@@ -80,6 +80,26 @@
 }
 
 /* 飞盘九宫排版 */
+.tianpanliuqin {
+    position: absolute;
+    top: 32px;
+    left: 119px;
+    font-weight: 300;
+    font-size: 13px;
+    /* color: #666666; */
+    color: black;
+}
+
+.dipanliuqin {
+    position: absolute;
+    top: 117px;
+    left: 119px;
+    font-weight: 300;
+    font-size: 13px;
+    /* color: #666666; */
+    color: black;
+}
+
 .tianpanshen {
     position: absolute;
     top: 5px;
@@ -181,7 +201,7 @@
 .kongwang {
     /* absolute top-[14px] left-[132px] font-normal text-[18px] text-[#666666] */
     position: absolute;
-    top: 14px;
+    top: 10px;
     left: 132px;
     font-weight: 400;
     color: #666666;
@@ -192,8 +212,8 @@
 .wangshuai {
     /* absolute top-[130px] left-[127px] font-normal text-[18px] text-[#666666] */
     position: absolute;
-    top: 130px;
-    left: 132px;
+    top: 132px;
+    left: 138px;
     font-weight: 400;
     font-size: 18px;
     color: #666666;
@@ -527,7 +547,7 @@ hr {
 }
 
 .highlight-rigan {
-    border: 2px solid red;
+    border: 1.5px solid red;
 }
 
 .jin {

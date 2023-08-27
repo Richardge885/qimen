@@ -141,6 +141,7 @@ function updateDefaultInformation() {
     const updateInfo = {
         paipanMethod: document.getElementById('home-paipanfangshi').value,
         theme: document.getElementById('theme').value,
+        feipanliuqin: document.getElementById('liuqin-toggle').checked,
     };
     localStorage.setItem('defaultInfo', JSON.stringify(updateInfo));
 }
@@ -160,6 +161,8 @@ function clearPanJu() {
     const dipanyikong = document.querySelectorAll('[data-dipanyikong]');
     const textarea = document.getElementById('paipan-pizhu');
     const wubuyushi = document.getElementById('paipan-wubuyushi');
+    const tianpanliuqin = document.querySelectorAll('[data-tianpanliuqin]');
+    const dipanliuqin = document.querySelectorAll('[data-dipanliuqin]');
     wubuyushi.innerHTML = '';
     textarea.value = '';
     jiuxing.forEach((element) => {
@@ -266,6 +269,12 @@ function clearPanJu() {
         element.classList.remove('shui');
         element.classList.remove('huo');
         element.classList.remove('tu');
+    });
+    tianpanliuqin.forEach((element) => {
+        element.innerHTML = '';
+    });
+    dipanliuqin.forEach((element) => {
+        element.innerHTML = '';
     });
     document.getElementById('nian').innerHTML = '';
     document.getElementById('yue').innerHTML = '';

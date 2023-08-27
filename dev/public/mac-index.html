@@ -57,6 +57,10 @@
                 <option value="五行颜色">五行颜色</option>
             </select>
             <div class="bg-[#d1d1d1d5] h-[2px] w-[265px]"></div>
+            <label class="text-xl font-pingfang">飞盘显示六亲
+                <input type="checkbox" name='liuqin-true' id="liuqin-toggle" class="w-[15px] h-[15px] font-pingfang" />
+            </label>
+            <div class="bg-[#d1d1d1d5] h-[2px] w-[265px]"></div>
             <div id="home-guanyu"
                 class="text-xl text-center hover:text-btn hover:underline cursor-pointer font-pingfang w-[275px]">
                 关于
@@ -240,6 +244,8 @@
                 <div data-anganzhi></div>
                 <div data-dipanshen></div>
                 <div data-tianpanyikong></div>
+                <div data-tianpanliuqin class='tianpanliuqin'></div>
+                <div data-dipanliuqin class='dipanliuqin'></div>
                 <div data-dipanyikong></div>
                 <div data-wangshuai></div>
                 <div data-maxing></div>
@@ -256,6 +262,8 @@
                 <div data-dipangan></div>
                 <div data-anganzhi></div>
                 <div data-dipanshen></div>
+                <div data-tianpanliuqin class='tianpanliuqin'></div>
+                <div data-dipanliuqin class='dipanliuqin'></div>
                 <div data-tianpanyikong></div>
                 <div data-dipanyikong></div>
                 <div data-maxing></div>
@@ -276,6 +284,8 @@
                 <div data-maxing></div>
                 <div data-kongwang></div>
                 <div data-wangshuai></div>
+                <div data-tianpanliuqin class='tianpanliuqin'></div>
+                <div data-dipanliuqin class='dipanliuqin'></div>
                 <div data-tianpanyikong></div>
                 <div data-dipanyikong></div>
                 <div data-gongwei-overlay
@@ -287,6 +297,8 @@
                 <div data-xing></div>
                 <div data-tianpangan></div>
                 <div data-men></div>
+                <div data-tianpanliuqin class='tianpanliuqin'></div>
+                <div data-dipanliuqin class='dipanliuqin'></div>
                 <div data-dipangan></div>
                 <div data-anganzhi></div>
                 <div data-dipanshen></div>
@@ -302,6 +314,8 @@
             <div id="gongwei-5" class="absolute font-pingfang gongwei top-[351px] left-[192px]">
                 <div data-tianpanshen></div>
                 <div data-xing></div>
+                <div data-tianpanliuqin class='tianpanliuqin'></div>
+                <div data-dipanliuqin class='dipanliuqin'></div>
                 <div data-tianpangan></div>
                 <div data-men></div>
                 <div data-dipangan></div>
@@ -319,6 +333,8 @@
             <div id="gongwei-6" class="absolute font-pingfang gongwei top-[524px] left-[365px]">
                 <div data-tianpanshen></div>
                 <div data-xing></div>
+                <div data-tianpanliuqin class='tianpanliuqin'></div>
+                <div data-dipanliuqin class='dipanliuqin'></div>
                 <div data-tianpangan></div>
                 <div data-men></div>
                 <div data-dipangan></div>
@@ -336,6 +352,8 @@
             <div id="gongwei-7" class="absolute font-pingfang gongwei top-[351px] left-[365px]">
                 <div data-tianpanshen></div>
                 <div data-xing></div>
+                <div data-tianpanliuqin class='tianpanliuqin'></div>
+                <div data-dipanliuqin class='dipanliuqin'></div>
                 <div data-tianpangan></div>
                 <div data-men></div>
                 <div data-dipangan></div>
@@ -354,6 +372,8 @@
                 <div data-tianpanshen></div>
                 <div data-xing></div>
                 <div data-tianpangan></div>
+                <div data-tianpanliuqin class='tianpanliuqin'></div>
+                <div data-dipanliuqin class='dipanliuqin'></div>
                 <div data-men></div>
                 <div data-dipangan></div>
                 <div data-anganzhi></div>
@@ -371,6 +391,8 @@
                 <div data-tianpanshen></div>
                 <div data-xing></div>
                 <div data-tianpangan></div>
+                <div data-tianpanliuqin class='tianpanliuqin'></div>
+                <div data-dipanliuqin class='dipanliuqin'></div>
                 <div data-men></div>
                 <div data-dipangan></div>
                 <div data-anganzhi></div>
@@ -388,7 +410,7 @@
 
         <!-- 下方信息取 -->
         <textarea id="paipan-pizhu"
-            class="absolute top-[703px] left-[20px] resize-none text-lg border-[1px] rounded-[15px] h-[122px] w-[430px] text-md p-4 default-shadow font-pingfang"></textarea>
+            class="absolute top-[703px] left-[20px] resize-none text-xl border-[1px] rounded-[15px] h-[122px] w-[430px] text-md p-4 default-shadow font-pingfang"></textarea>
         <!-- for mac -->
         <button id="screenshot-btn"
             class="absolute top-[703px] left-[475px] h-[55px] w-[55px] bg-btn text-white rounded-[12px] hover:bg-white hover:text-black duration-150 default-shadow">
