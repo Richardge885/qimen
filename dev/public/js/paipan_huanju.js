@@ -224,9 +224,11 @@ function clearPanJu() {
     });
     tianpanliuqin.forEach((element) => {
         element.innerHTML = '';
+        element.classList.remove('simplified-liuqin');
     });
     dipanliuqin.forEach((element) => {
         element.innerHTML = '';
+        element.classList.remove('simplified-liuqin');
     });
 
     document.getElementById('nian').innerHTML = '';

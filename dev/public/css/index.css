@@ -1188,9 +1188,9 @@ video {
   top: 32px;
   left: 119px;
   font-weight: 300;
-  font-size: 13px;
-  /* color: #666666; */
-  color: black;
+  font-size: 14px;
+  color: #666666;
+  /* color: black; */
 }
 
 .dipanliuqin {
@@ -1198,9 +1198,14 @@ video {
   top: 117px;
   left: 119px;
   font-weight: 300;
-  font-size: 13px;
-  /* color: #666666; */
-  color: black;
+  font-size: 14px;
+  color: #666666;
+  /* color: black; */
+}
+
+.simplified-liuqin {
+  left: 125px;
+  font-size: 15px;
 }
 
 .tianpanshen {

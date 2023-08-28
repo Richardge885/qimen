@@ -21,7 +21,7 @@ function changeBaoshuRadioInput() {
 document.getElementById('zhengshi').addEventListener('click', () => {
     updateDefaultInformation();
     changeBaoshuRadioInput();
-    clearPanJu(); // 清空盘面
+    // clearPanJu(); // 清空盘面
     let choosenTime = formatDateTime(document.getElementById('date-time').value);
     const data = {
         paipanMethod: document.getElementById('home-paipanfangshi').value, // 排盘方式（飞盘，传统转盘，符使转盘）
@@ -44,7 +44,7 @@ document.getElementById('modal-btn').addEventListener('click', () => {
     ) {
         updateDefaultInformation();
         changeBaoshuRadioInput();
-        clearPanJu(); // 清空盘面
+        // clearPanJu(); // 清空盘面
         let choosenTime = formatDateTime(document.getElementById('date-time').value);
         let data = {
             paipanMethod: document.getElementById('home-paipanfangshi').value, // 排盘方式（飞盘，传统转盘，符使转盘）
@@ -79,7 +79,7 @@ document.getElementById('shuzi').addEventListener('keypress', (e) => {
         ) {
             updateDefaultInformation();
             changeBaoshuRadioInput();
-            clearPanJu();
+            // clearPanJu();
             let choosenTime = formatDateTime(document.getElementById('date-time').value);
             let data = {
                 paipanMethod: document.getElementById('home-paipanfangshi').value, // 排盘方式（飞盘，传统转盘，符使转盘）
@@ -113,6 +113,7 @@ function toggleHomeAndPaipan() {
     home.classList.toggle('hidden');
     paipan.classList.toggle('hidden');
     paipan.classList.toggle('flex');
+    clearPanJu();
 }
 
 /**
@@ -142,6 +143,7 @@ function updateDefaultInformation() {
         paipanMethod: document.getElementById('home-paipanfangshi').value,
         theme: document.getElementById('theme').value,
         feipanliuqin: document.getElementById('liuqin-toggle').checked,
+        liuqinSimplified: document.getElementById('liuqin-toggle-simplified').checked,
     };
     localStorage.setItem('defaultInfo', JSON.stringify(updateInfo));
 }
@@ -272,9 +274,11 @@ function clearPanJu() {
     });
     tianpanliuqin.forEach((element) => {
         element.innerHTML = '';
+        element.classList.remove('simplified-liuqin');
     });
     dipanliuqin.forEach((element) => {
         element.innerHTML = '';
+        element.classList.remove('simplified-liuqin');
     });
     document.getElementById('nian').innerHTML = '';
     document.getElementById('yue').innerHTML = '';

@@ -41,7 +41,14 @@ ipcRenderer.on('飞盘排盘', (e, data) => {
     }
 
     // 是否显示六亲
-    if (document.getElementById('liuqin-toggle').checked) {
+    if (
+        document.getElementById('liuqin-toggle').checked &&
+        document.getElementById('liuqin-toggle-simplified').checked
+    ) {
+        paiLiuQinSimplified(document.getElementById('shi').innerText.charAt(0));
+    } else if (document.getElementById('liuqin-toggle-simplified').checked) {
+        paiLiuQinSimplified(document.getElementById('shi').innerText.charAt(0));
+    } else if (document.getElementById('liuqin-toggle').checked) {
         paiLiuQin(document.getElementById('shi').innerText.charAt(0));
     }
 
@@ -52,9 +59,6 @@ ipcRenderer.on('飞盘排盘', (e, data) => {
     }
 });
 
-/**
- * 更新四柱等信息
- */
 function updateTimeInfo(data, year, month, day, hour) {
     document.getElementById('nian').innerHTML = data.time.nian;
     document.getElementById('yue').innerHTML = data.time.yue;
@@ -1232,5 +1236,149 @@ function paiLiuQin(shigan) {
                 dipanliuqin[index].innerText = xiongdi;
             }
         }
+    });
+}
+
+function paiLiuQinSimplified(shigan) {
+    const tianpangan = document.querySelectorAll('[data-tianpangan]');
+    const dipangan = document.querySelectorAll('[data-dipangan]');
+    const tianpanliuqin = document.querySelectorAll('[data-tianpanliuqin]');
+    const dipanliuqin = document.querySelectorAll('[data-dipanliuqin]');
+    const fumu = '父';
+    const xiongdi = '兄';
+    const zisun = '子';
+    const qicai = '财';
+    const guangui = '官';
+    tianpangan.forEach((element, index) => {
+        if (shigan == '甲' || shigan == '乙') {
+            if (element.innerText == '甲' || element.innerText == '乙') {
+                tianpanliuqin[index].innerText = xiongdi;
+            } else if (element.innerText == '丙' || element.innerText == '丁') {
+                tianpanliuqin[index].innerText = zisun;
+            } else if (element.innerText == '戊' || element.innerText == '己') {
+                tianpanliuqin[index].innerText = qicai;
+            } else if (element.innerText == '庚' || element.innerText == '辛') {
+                tianpanliuqin[index].innerText = guangui;
+            } else if (element.innerText == '壬' || element.innerText == '癸') {
+                tianpanliuqin[index].innerText = fumu;
+            }
+        } else if (shigan == '丙' || shigan == '丁') {
+            if (element.innerText == '甲' || element.innerText == '乙') {
+                tianpanliuqin[index].innerText = fumu;
+            } else if (element.innerText == '丙' || element.innerText == '丁') {
+                tianpanliuqin[index].innerText = xiongdi;
+            } else if (element.innerText == '戊' || element.innerText == '己') {
+                tianpanliuqin[index].innerText = zisun;
+            } else if (element.innerText == '庚' || element.innerText == '辛') {
+                tianpanliuqin[index].innerText = qicai;
+            } else if (element.innerText == '壬' || element.innerText == '癸') {
+                tianpanliuqin[index].innerText = guangui;
+            }
+        } else if (shigan == '戊' || shigan == '己') {
+            if (element.innerText == '甲' || element.innerText == '乙') {
+                tianpanliuqin[index].innerText = guangui;
+            } else if (element.innerText == '丙' || element.innerText == '丁') {
+                tianpanliuqin[index].innerText = fumu;
+            } else if (element.innerText == '戊' || element.innerText == '己') {
+                tianpanliuqin[index].innerText = xiongdi;
+            } else if (element.innerText == '庚' || element.innerText == '辛') {
+                tianpanliuqin[index].innerText = zisun;
+            } else if (element.innerText == '壬' || element.innerText == '癸') {
+                tianpanliuqin[index].innerText = qicai;
+            }
+        } else if (shigan == '庚' || shigan == '辛') {
+            if (element.innerText == '甲' || element.innerText == '乙') {
+                tianpanliuqin[index].innerText = qicai;
+            } else if (element.innerText == '丙' || element.innerText == '丁') {
+                tianpanliuqin[index].innerText = guangui;
+            } else if (element.innerText == '戊' || element.innerText == '己') {
+                tianpanliuqin[index].innerText = fumu;
+            } else if (element.innerText == '庚' || element.innerText == '辛') {
+                tianpanliuqin[index].innerText = xiongdi;
+            } else if (element.innerText == '壬' || element.innerText == '癸') {
+                tianpanliuqin[index].innerText = zisun;
+            }
+        } else if (shigan == '壬' || shigan == '癸') {
+            if (element.innerText == '甲' || element.innerText == '乙') {
+                tianpanliuqin[index].innerText = zisun;
+            } else if (element.innerText == '丙' || element.innerText == '丁') {
+                tianpanliuqin[index].innerText = qicai;
+            } else if (element.innerText == '戊' || element.innerText == '己') {
+                tianpanliuqin[index].innerText = guangui;
+            } else if (element.innerText == '庚' || element.innerText == '辛') {
+                tianpanliuqin[index].innerText = fumu;
+            } else if (element.innerText == '壬' || element.innerText == '癸') {
+                tianpanliuqin[index].innerText = xiongdi;
+            }
+        }
+    });
+    dipangan.forEach((element, index) => {
+        if (shigan == '甲' || shigan == '乙') {
+            if (element.innerText == '甲' || element.innerText == '乙') {
+                dipanliuqin[index].innerText = xiongdi;
+            } else if (element.innerText == '丙' || element.innerText == '丁') {
+                dipanliuqin[index].innerText = zisun;
+            } else if (element.innerText == '戊' || element.innerText == '己') {
+                dipanliuqin[index].innerText = qicai;
+            } else if (element.innerText == '庚' || element.innerText == '辛') {
+                dipanliuqin[index].innerText = guangui;
+            } else if (element.innerText == '壬' || element.innerText == '癸') {
+                dipanliuqin[index].innerText = fumu;
+            }
+        } else if (shigan == '丙' || shigan == '丁') {
+            if (element.innerText == '甲' || element.innerText == '乙') {
+                dipanliuqin[index].innerText = fumu;
+            } else if (element.innerText == '丙' || element.innerText == '丁') {
+                dipanliuqin[index].innerText = xiongdi;
+            } else if (element.innerText == '戊' || element.innerText == '己') {
+                dipanliuqin[index].innerText = zisun;
+            } else if (element.innerText == '庚' || element.innerText == '辛') {
+                dipanliuqin[index].innerText = qicai;
+            } else if (element.innerText == '壬' || element.innerText == '癸') {
+                dipanliuqin[index].innerText = guangui;
+            }
+        } else if (shigan == '戊' || shigan == '己') {
+            if (element.innerText == '甲' || element.innerText == '乙') {
+                dipanliuqin[index].innerText = guangui;
+            } else if (element.innerText == '丙' || element.innerText == '丁') {
+                dipanliuqin[index].innerText = fumu;
+            } else if (element.innerText == '戊' || element.innerText == '己') {
+                dipanliuqin[index].innerText = xiongdi;
+            } else if (element.innerText == '庚' || element.innerText == '辛') {
+                dipanliuqin[index].innerText = zisun;
+            } else if (element.innerText == '壬' || element.innerText == '癸') {
+                dipanliuqin[index].innerText = qicai;
+            }
+        } else if (shigan == '庚' || shigan == '辛') {
+            if (element.innerText == '甲' || element.innerText == '乙') {
+                dipanliuqin[index].innerText = qicai;
+            } else if (element.innerText == '丙' || element.innerText == '丁') {
+                dipanliuqin[index].innerText = guangui;
+            } else if (element.innerText == '戊' || element.innerText == '己') {
+                dipanliuqin[index].innerText = fumu;
+            } else if (element.innerText == '庚' || element.innerText == '辛') {
+                dipanliuqin[index].innerText = xiongdi;
+            } else if (element.innerText == '壬' || element.innerText == '癸') {
+                dipanliuqin[index].innerText = zisun;
+            }
+        } else if (shigan == '壬' || shigan == '癸') {
+            if (element.innerText == '甲' || element.innerText == '乙') {
+                dipanliuqin[index].innerText = zisun;
+            } else if (element.innerText == '丙' || element.innerText == '丁') {
+                dipanliuqin[index].innerText = qicai;
+            } else if (element.innerText == '戊' || element.innerText == '己') {
+                dipanliuqin[index].innerText = guangui;
+            } else if (element.innerText == '庚' || element.innerText == '辛') {
+                dipanliuqin[index].innerText = fumu;
+            } else if (element.innerText == '壬' || element.innerText == '癸') {
+                dipanliuqin[index].innerText = xiongdi;
+            }
+        }
+    });
+    tianpanliuqin.forEach((element) => {
+        element.classList.add('simplified-liuqin');
+    });
+    dipanliuqin.forEach((element) => {
+        element.classList.add('simplified-liuqin');
     });
 }

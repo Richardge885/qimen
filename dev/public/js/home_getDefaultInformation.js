@@ -3,6 +3,7 @@ if (localStorage.getItem('defaultInfo') == null) {
         paipanMethod: '转盘',
         theme: '默认',
         feipanliuqin: false,
+        liuqinSimplified: false,
     };
     localStorage.setItem('defaultInfo', JSON.stringify(defaultInfo));
     document.getElementById('home-paipanfangshi').value = defaultInfo.paipanMethod;
@@ -16,6 +17,11 @@ if (localStorage.getItem('defaultInfo') == null) {
         document.getElementById('liuqin-toggle').checked = true;
     } else {
         document.getElementById('liuqin-toggle').checked = false;
+    }
+    if (defaultInfo.liuqinSimplified) {
+        document.getElementById('liuqin-toggle-simplified').checked = true;
+    } else {
+        document.getElementById('liuqin-toggle-simplified').checked = false;
     }
     changeBaoshuRadioInput();
 }
