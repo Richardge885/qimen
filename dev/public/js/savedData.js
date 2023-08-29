@@ -70,7 +70,9 @@ document.getElementById('begin-search').addEventListener('click', () => {
 });
 
 // 保存盘局
-document.getElementById('save-data-btn').addEventListener('click', () => {
+document.getElementById('save-data-btn').addEventListener('click', saveData);
+ipcRenderer.on('save current panju from shortcut', saveData);
+function saveData() {
     if (document.getElementById('paipan-pizhu').value != '') {
         if (isFromData) {
             localData[panjuIndex] = currentPanju;
@@ -81,7 +83,7 @@ document.getElementById('save-data-btn').addEventListener('click', () => {
             localStorage.setItem('savedData', JSON.stringify(localData));
         }
     }
-});
+}
 
 // 导出数据
 document.getElementById('export-saved-data-btn').addEventListener('click', () => {

@@ -3,7 +3,14 @@ process.env.NODE_ENV = 'development';
 // process.env.NODE_ENV = 'production';
 
 // System requirements
-const { app, BrowserWindow, ipcMain, desktopCapturer, dialog } = require('electron');
+const {
+    app,
+    BrowserWindow,
+    ipcMain,
+    desktopCapturer,
+    dialog,
+    globalShortcut,
+} = require('electron');
 
 const path = require('path');
 const fs = require('fs');
@@ -39,6 +46,10 @@ function createMainWindow() {
 
 app.on('ready', () => {
     createMainWindow();
+    globalShortcut.register('CmdOrCtrl+s', () => {
+        mainWindow.webContents.send('save current panju from shortcut');
+    });
+    mainWindow.on('ready', () => (mainWindow = null));
 });
 
 app.on('activate', () => {
