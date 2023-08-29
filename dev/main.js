@@ -174,11 +174,15 @@ ipcMain.on('screenshot', (e, data) => {
 
 function getFileName(customFileName) {
     if (customFileName != 'none') {
-        for (let i = 0; i < customFileName.length; i++) {
-            if (customFileName[i] == '\n') {
-                customFileName = customFileName.slice(0, i);
-                return customFileName;
+        if (customFileName.includes('\n')) {
+            for (let i = 0; i < customFileName.length; i++) {
+                if (customFileName[i] == '\n') {
+                    customFileName = customFileName.slice(0, i);
+                    return customFileName;
+                }
             }
+        } else {
+            return customFileName;
         }
     } else {
         const date = moment().format('YYYY-MM-DD_HH-mm-ss');
