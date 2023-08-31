@@ -1,6 +1,7 @@
 let menuState = false;
 let isFromData = false;
 let panjuIndex;
+
 const info = {
     xing: {
         天蓬: '<span style="color:#0079FE">五行：</span>水（大凶）<br><span style="color:#0079FE">意：</span>偷盗、抢劫、险阻<br><span style="color:#0079FE">天：</span> 雨、水灾<br><span style="color:#0079FE">人：</span> 聪明伶俐，能言善辩，智慧，计谋，小人，投机，敌将<br><span style="color:#0079FE">性情：</span> 圆融果敢、大胆妄为、贪婪、敢于冒险、喜欢暗中行事、多情多欲、贪酒恋花<br><span style="color:#0079FE">形态：</span> 庄严、威猛、彪悍、精干、面黑或眼大<br><span style="color:#0079FE">宜：</span>安边定国，修筑城池，兴工动作，屯兵固守，保镇一方<br><span style="color:#0079FE">忌：</span>入宅，修造，祭祀，交易',

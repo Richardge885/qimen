@@ -73,7 +73,6 @@ document.getElementById('begin-search').addEventListener('click', () => {
 document.getElementById('save-data-btn').addEventListener('click', saveData);
 ipcRenderer.on('save current panju from shortcut', saveData);
 function saveData() {
-    console.log('saved');
     if (document.getElementById('paipan-pizhu').value != '') {
         if (isFromData) {
             localData[panjuIndex] = currentPanju;

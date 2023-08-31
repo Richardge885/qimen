@@ -318,8 +318,13 @@ function feipan_info(info) {
                 break;
             case '天冲':
                 result = info.xing.天冲;
+            case '天沖':
+                result = info.xing.天冲;
                 break;
             case '天辅':
+                result = info.xing.天辅;
+                break;
+            case '天輔':
                 result = info.xing.天辅;
                 break;
             case '天禽':
@@ -377,6 +382,33 @@ function feipan_info(info) {
             case '景门':
                 result = info.men.景;
                 break;
+            case '休門':
+                result = info.men.休;
+                break;
+            case '死門':
+                result = info.men.死;
+                break;
+            case '傷門':
+                result = info.men.伤;
+                break;
+            case '杜門':
+                result = info.men.杜;
+                break;
+            case '中門':
+                result = info.men.中;
+                break;
+            case '開門':
+                result = info.men.开;
+                break;
+            case '驚門':
+                result = info.men.惊;
+                break;
+            case '生門':
+                result = info.men.生;
+                break;
+            case '景門':
+                result = info.men.景;
+                break;
         }
         document.getElementById('paipan-modal-info-section').innerHTML =
             result +
@@ -396,6 +428,9 @@ function feipan_info(info) {
             case '太阴':
                 result = info.shen.太阴;
                 break;
+            case '太陰':
+                result = info.shen.太阴;
+                break;
             case '六合':
                 result = info.shen.六合;
                 break;
@@ -403,6 +438,9 @@ function feipan_info(info) {
                 result = info.shen.白虎;
                 break;
             case '勾陈':
+                result = info.shen.勾陈;
+                break;
+            case '勾陳':
                 result = info.shen.勾陈;
                 break;
             case '太常':
@@ -2318,6 +2356,22 @@ function feipan_info(info) {
                     return '生门十五逢公吏，官人着紫皂衣巾。<br>出此门十五里，有紫衣公吏官人。或六十里，见贵人车马，百事吉。可以造仙佛殿。拜将出师，大胜。';
                 case '景门':
                     return '景门二十惊忧事，绯皂衣人宴会宾。<br>出此门二十里，有忧惊事。三十里外，见赤身人，或火蛇。七十里，水火失物。宜上书破阵，吉。如起造、嫁娶，杀宅长小口，大凶';
+                case '休門':
+                    return '休门三十阴贵人，衣着蓝黄及碧青。<br>出此门三十里，见阴贵人，或五十里，见蛇、鼠、水物，吉。宜和集万事，可以休心宁志，人宅营家。';
+                case '死門':
+                    return '死门二十逢疾病，黄皂衣人见遭迪。<br>出此门二十里，逢有疾病。或五十里、五里内，见血光。远行不还家，嫁娶伤家长，新妇凶。宜刑吊事。';
+                case '傷門':
+                    return '伤门三十争讼起，凶人着皂血光腥。<br>出此门三十里，有争讼出血之人。若造葬、上官、出行，主遭贼。只宜捕盗、渔猎。';
+                case '杜門':
+                    return '杜门二十男女辈，绢皂褐碧相从行。<br>出此门二十里，见男女同行。或六十里，见恶人。日奇临，二女人身着青衫；月奇临，主烽火；星奇临，弓驾应。宜掩捕、兴土疆、绝鬼营、修仙隐逸、冲举炼药，吉。';
+                case '開門':
+                    return '开门二十阴人至，贵人乘马紫衣襟。<br>出此门二十里，见贵人着紫骑马，吉。四十里内，见猪马，逢酒食，万事吉。锣鼓鎗刀，妇人担伞至。手执物，抱孩儿。';
+                case '驚門':
+                    return '惊门三十鸦鸣噪，官状相逢六畜椁。<br>出此门三十里，见鸦鹊官状，六畜牴触之事。十里内有损物，四十里二人争打，返吉。如无康惊，凶。';
+                case '生門':
+                    return '生门十五逢公吏，官人着紫皂衣巾。<br>出此门十五里，有紫衣公吏官人。或六十里，见贵人车马，百事吉。可以造仙佛殿。拜将出师，大胜。';
+                case '景門':
+                    return '景门二十惊忧事，绯皂衣人宴会宾。<br>出此门二十里，有忧惊事。三十里外，见赤身人，或火蛇。七十里，水火失物。宜上书破阵，吉。如起造、嫁娶，杀宅长小口，大凶';
             }
         }
     }
@@ -2332,6 +2386,8 @@ function feipan_info(info) {
                     return '主形状古怪奇异之物，或空康花假之物，及有执物而至。客来相会，必淹滞缠扰，难于送别。忧惶惊恐，事多颠倒。';
                 case '太阴':
                     return '女人或阴险小人。为密谋文书，又谈方术事。人从南方来引，可依托。';
+                case '太陰':
+                    return '女人或阴险小人。为密谋文书，又谈方术事。人从南方来引，可依托。';
                 case '六合':
                     return '遇人必喜笑相迎，一见如故。更有美女少妇，身着新衣，相将酒食，和颜悦色，殷勤相接';
                 case '白虎':
@@ -2339,6 +2395,8 @@ function feipan_info(info) {
                 case '玄武':
                     return '必遇盗贼，或奸人刺客，或儿童小子，或讲元门课卜之士，或逃亡走审窘迫之人。';
                 case '勾陈':
+                    return '必遇新丧孝子，或白衣人，或居夫、猎户，闻啼哭之声，或残疾老人，或争斗带伤之客，或骑马而过。';
+                case '勾陳':
                     return '必遇新丧孝子，或白衣人，或居夫、猎户，闻啼哭之声，或残疾老人，或争斗带伤之客，或骑马而过。';
                 case '朱雀':
                     return '必遇盗贼，或奸人刺客，或儿童小子，或讲元门课卜之士，或逃亡走审窘迫之人。';
@@ -2433,6 +2491,60 @@ function feipan_info(info) {
                         return '天冲星值亥时，有跛足青衣人至，及东北人家火光应。作用后，猫捕得白鼠，大发财禄。';
                 }
             case '天辅':
+                switch (shi) {
+                    case '子':
+                        return '天辅星值子时，主天有景星庆云，红白衣人叫唤应。作用后，六十日内，进商音人物。如猿猴人室，主加官孕子之吉。';
+                    case '丑':
+                        return '天辅星值丑时，东方犬吠，有人争斗应。作用后，六十日，野鸡白免人屋，进僧道之物，或东南方羽音人送文契，远人信来。周年添人口，血财大旺，加官进禄。';
+                    case '寅':
+                        return '天辅星值寅时，主公吏人手持金木之器，及艺人携文书乐器应。作用后，六十日，有猫咬鸡维，当得盗贼财物。赤面人作牙，进羽音人田契。十二年大发，且生贵子。';
+                    case '卯':
+                        return '天辅星值卯时，有女人持雨盖，师巫鼓角声应。作用后，六十日，有生气人屋。因女人讼事，得财物产业。';
+                    case '辰':
+                        return '天辅星值辰时，有白羊黄犬相斗，卖油米菜人相撞，白衣小儿哭，怀事妇人至。作用后，大发钱谷。一年内，双生贵子。';
+                    case '巳':
+                        return '天辅星值巳时，有僧尼相调，女人抱布，狂风四起，儿童叫喊。作用后，进东方人财，有鬼搬运，大发财源。';
+                    case '午':
+                        return '天辅星值午时，有僧道持盖，文人把扇，女子穿红，窑冶烟起应。作用后，有贵人送异物，进西方人金银，长者到门，得寡妇之产。';
+                    case '未':
+                        return '天辅星值末时，有群犬争吠，丐妇携杖，僧道铺啜，西北方争屋喧哗应。作用后，百日内，进商音人财物，或有文信人宅，大发。';
+                    case '申':
+                        return '天辅星值申时，有肿脚青长人携酒果至，三教色衣人来，西北金鼓声应。作用后，井中出蛇，有人送牛羊至，吉。半年内，得妇人财，大发。';
+                    case '酉':
+                        return '天辅星值西时，得远信，娶妇来应。作用后，人财大发。';
+                    case '戌':
+                        return '天辅星值戌时，主窑冶火光，兵卒守关，师巫并行应。作用后，得远方财信，防六畜伤人。';
+                    case '亥':
+                        return '天辅星值亥时，有野猪奔逐，鸡鸣犬吠，渔翁把钓，僧尼夜奔应。作用后，见白鼠，大吉。';
+                }
+            case '天沖':
+                switch (shi) {
+                    case '子':
+                        return '天冲星值子时，有风兩鹤鸣钟鼓声应。作用后，六十日内，有生气人屋。周年田蚕倍收，防妇人产亡。若拾得古镜，当得僧道之财。';
+                    case '丑':
+                        return '天冲星值丑时，有青衣车牛，与埙篪鼓声，牛鸣虎啸犬吠，风雾窑烟，小儿妇人来应。作用后，牛产辙犊，乌猫生白子，庭生瑞草，得山林、田产、僧尼之财。若逢匠作伤狗，防庭帏灾变。';
+                    case '寅':
+                        return '天冲星值寅时，有贵人乘轿，童子执金银器至应。作用后，二十日，进角音人六畜田契，或人送琉璃器肌。六十日，牝鸡晨鸣，防家长有厄。若见过，因口舌争讼得财，主乙己丁生人获福。';
+                    case '卯':
+                        return '天冲星值卯时，有女子渡桥，贵人乘马，木匠锯树，猎犬逐免应。作用后，宜防妇女有灾。';
+                    case '辰':
+                        return '天冲星值辰时，主蛇上树，虎出林，僧道士工至应。作用后，拾得黄白古物，发财。七十日，进一男一女，家主防跌蹼。';
+                    case '巳':
+                        return '天冲星值已时，有牛羊争斗，女人相骂，西南鼓声，东南火发。作用后，六十日，蛇蛇咬鸡，牛人室，女人送契至。一百日，犬生花狗，大旺田财。';
+                    case '午':
+                        return '天冲星值午时，东邻火起，白衣叫唤，鸦鹊喧闹应。作用后，拾得古器，有鬼运钱谷，大发之兆。';
+                    case '未':
+                        return '天冲星值未时，有鼓响，孝服儿女，牛羊成群，西北闹喧应。作用后，六十日，白羊人宅，大发。';
+                    case '申':
+                        return '天冲星值申时，南方有白衣人骑马，吏卒人持刀斗殴应。作用后百日，女人作牙，进绝户产业。';
+                    case '酉':
+                        return '天冲星值酉时，有远人书信，狐狸咬叫，妇人把火。作用后，周年得贵子，发横财。';
+                    case '戌':
+                        return '天冲星值戌时，西方三五人，把火寻失物，军吏师巫，三牙须人至应。作用后，六十日，鸡上树鸣，得远信，获羽音人财。周年，防牛伤小口之患。';
+                    case '亥':
+                        return '天冲星值亥时，有跛足青衣人至，及东北人家火光应。作用后，猫捕得白鼠，大发财禄。';
+                }
+            case '天輔':
                 switch (shi) {
                     case '子':
                         return '天辅星值子时，主天有景星庆云，红白衣人叫唤应。作用后，六十日内，进商音人物。如猿猴人室，主加官孕子之吉。';
@@ -2597,6 +2709,43 @@ function feipan_info(info) {
         }
     }
     function getJiGe(tianpangan, dipangan, men, shen, gongwei) {
+        switch (men) {
+            case '休門':
+                men = '休门';
+                break;
+            case '生門':
+                men = '生门';
+                break;
+            case '傷門':
+                men = '伤门';
+                break;
+            case '杜門':
+                men = '杜门';
+                break;
+            case '景門':
+                men = '景门';
+                break;
+            case '死門':
+                men = '死门';
+                break;
+            case '驚門':
+                men = '惊门';
+                break;
+            case '開門':
+                men = '开门';
+                break;
+            case '中門':
+                men = '中门';
+                break;
+        }
+        switch (shen) {
+            case '太陰':
+                shen = '太阴';
+                break;
+            case '勾陳':
+                shen = '勾陈';
+                break;
+        }
         let result = '<br><hr><br>';
         // todo 却天三门，地四户，地私门
         // 天三门
@@ -3003,6 +3152,176 @@ function feipan_info(info) {
                         return yi;
                 }
             case '中门':
+                return '';
+            case '休門':
+                switch (gong) {
+                    case '乾':
+                        return yi;
+                    case '坎':
+                        return fuyin;
+                    case '艮':
+                        return shouzhi;
+                    case '震':
+                        return he;
+                    case '巽':
+                        return he;
+                    case '离':
+                        return fanyin;
+                    case '坤':
+                        return shouzhi;
+                    case '兑':
+                        return he;
+                    case '中':
+                        return shouzhi;
+                }
+            case '生門':
+                switch (gong) {
+                    case '乾':
+                        return he;
+                    case '坎':
+                        return menpo;
+                    case '艮':
+                        return fuyin;
+                    case '震':
+                        return shouzhi;
+                    case '巽':
+                        return shouzhi;
+                    case '离':
+                        return yi;
+                    case '坤':
+                        return fanyin;
+                    case '兑':
+                        return he;
+                    case '中':
+                        return fanyin;
+                }
+            case '傷門':
+                switch (gong) {
+                    case '乾':
+                        return shouzhi;
+                    case '坎':
+                        return yi;
+                    case '艮':
+                        return menpo;
+                    case '震':
+                        return fuyin;
+                    case '巽':
+                        return '';
+                    case '离':
+                        return he;
+                    case '坤':
+                        return menpo;
+                    case '兑':
+                        return fanyin;
+                    case '中':
+                        return menpo;
+                }
+            case '杜門':
+                switch (gong) {
+                    case '乾':
+                        return fanyin;
+                    case '坎':
+                        return yi;
+                    case '艮':
+                        return menpo;
+                    case '震':
+                        return '';
+                    case '巽':
+                        return fuyin;
+                    case '离':
+                        return he;
+                    case '坤':
+                        return menpo;
+                    case '兑':
+                        return shouzhi;
+                    case '中':
+                        return menpo;
+                }
+            case '景門':
+                switch (gong) {
+                    case '乾':
+                        return menpo;
+                    case '坎':
+                        return fanyin;
+                    case '艮':
+                        return he;
+                    case '震':
+                        return yi;
+                    case '巽':
+                        return yi;
+                    case '离':
+                        return fuyin;
+                    case '坤':
+                        return he;
+                    case '兑':
+                        return menpo;
+                    case '中':
+                        return he;
+                }
+            case '死門':
+                switch (gong) {
+                    case '乾':
+                        return he;
+                    case '坎':
+                        return menpo;
+                    case '艮':
+                        return fanyin;
+                    case '震':
+                        return shouzhi;
+                    case '巽':
+                        return shouzhi;
+                    case '离':
+                        return yi;
+                    case '坤':
+                        return fuyin;
+                    case '兑':
+                        return he;
+                    case '中':
+                        return fanyin;
+                }
+            case '驚門':
+                switch (gong) {
+                    case '乾':
+                        return '';
+                    case '坎':
+                        return he;
+                    case '艮':
+                        return yi;
+                    case '震':
+                        return fanyin;
+                    case '巽':
+                        return menpo;
+                    case '离':
+                        return shouzhi;
+                    case '坤':
+                        return yi;
+                    case '兑':
+                        return fuyin;
+                    case '中':
+                        return yi;
+                }
+            case '開門':
+                switch (gong) {
+                    case '乾':
+                        return fuyin;
+                    case '坎':
+                        return he;
+                    case '艮':
+                        return yi;
+                    case '震':
+                        return menpo;
+                    case '巽':
+                        return fanyin;
+                    case '离':
+                        return shouzhi;
+                    case '坤':
+                        return yi;
+                    case '兑':
+                        return '';
+                    case '中':
+                        return yi;
+                }
+            case '中門':
                 return '';
         }
     }
