@@ -1800,7 +1800,7 @@ function zhuanpan_info(info, paifa) {
                 shen = '勾陈';
                 break;
         }
-        let result = '';
+        let result = '<br><hr><br>';
         const tianpanjigong =
             document.querySelectorAll('[data-tianpanyikong]')[whichGong].innerText;
         const dipanjigong = document.querySelectorAll('[data-dipanyikong]')[whichGong].innerText;
@@ -2286,21 +2286,25 @@ function zhuanpan_info(info, paifa) {
                     '<span style="color:red">悖格：</span>悖格之时举事，多倒行逆施，纲纪紊乱，易出乱臣贼子、叛逆之人。此时宜固守，不可轻动，利为主不利为客，做任何事都主紊乱，大凶。<br><br>';
             }
         }
-        return result;
+        if (result == '<br><hr><br>') {
+            return '';
+        } else {
+            return result;
+        }
     }
     function mengong(men, gong) {
         const menpo =
-            '门+宫：<br><span style="color:red">门迫：</span>主祸从外来。我居宫室之内，并不欲招非于他，他突然来克我，不知有何关碍，迫来之事最为迅速，要多堤防。<br><br><hr><br>';
+            '门+宫：<br><span style="color:red">门迫：</span>主祸从外来。我居宫室之内，并不欲招非于他，他突然来克我，不知有何关碍，迫来之事最为迅速，要多堤防。<br>';
         const shouzhi =
-            '门+宫：<br><span style="color:red">门受制：</span>主内祸重重。因为我安居无事，他却过来惹我，我以郑重克服于他，他也甘受我制，主我侵犯于他。<br><br><hr><br>';
+            '门+宫：<br><span style="color:red">门受制：</span>主内祸重重。因为我安居无事，他却过来惹我，我以郑重克服于他，他也甘受我制，主我侵犯于他。<br>';
         const he =
-            '门+宫：<br><span style="color:#0079FE">交和：</span>主喜庆重重。我居穷困之际，并无意去求他，他不辞劳苦，主动来帮助我，我也愿意接受他的帮助。主因外人相助而有喜庆。<br><br><hr><br>';
+            '门+宫：<br><span style="color:#0079FE">交和：</span>主喜庆重重。我居穷困之际，并无意去求他，他不辞劳苦，主动来帮助我，我也愿意接受他的帮助。主因外人相助而有喜庆。<br>';
         const yi =
-            '门+宫：<br><span style="color:#0079FE">结义：</span>主喜中有脱。他人不远千里而来投奔于我，我也念其诚意，接之以礼，子之以仪，故谓之义。主乐善好施，他人受益。<br><br><hr><br>';
+            '门+宫：<br><span style="color:#0079FE">结义：</span>主喜中有脱。他人不远千里而来投奔于我，我也念其诚意，接之以礼，子之以仪，故谓之义。主乐善好施，他人受益。<br>';
         const fuyin =
-            '门+宫：<br><span style="color:red">门伏吟：</span>主有灾难，祸不单行，伏地痛苦呻吟之象。宜静不宜动，宜缓不宜速。只宜收敛钱财，讨债等。<br><br><hr><br>';
+            '门+宫：<br><span style="color:red">门伏吟：</span>主有灾难，祸不单行，伏地痛苦呻吟之象。宜静不宜动，宜缓不宜速。只宜收敛钱财，讨债等。<br>';
         const fanyin =
-            '门+宫：<br><span style="color:red">门反吟：</span>主反复不宁，进后复退，聚而复散，徘徊不定，犹豫不决，半途而废，凡是多重复。宜快刀斩乱麻，速战速决。<br><br><hr><br>';
+            '门+宫：<br><span style="color:red">门反吟：</span>主反复不宁，进后复退，聚而复散，徘徊不定，犹豫不决，半途而废，凡是多重复。宜快刀斩乱麻，速战速决。<br>';
         switch (men) {
             case '休门':
                 switch (gong) {
