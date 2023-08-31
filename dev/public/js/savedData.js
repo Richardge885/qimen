@@ -77,6 +77,7 @@ function saveData() {
         if (isFromData) {
             localData[panjuIndex] = currentPanju;
             localData[panjuIndex].info = document.getElementById('paipan-pizhu').value;
+            localStorage.setItem('savedData', JSON.stringify(localData));
         } else {
             currentPanju.info = document.getElementById('paipan-pizhu').value;
             localData.unshift(currentPanju);
