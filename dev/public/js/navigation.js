@@ -17,6 +17,8 @@ ipcRenderer.on('back to home page', (e) => {
         paipan.classList.add('hidden');
         paipan.classList.remove('flex');
         document.getElementById('saved-info-section').classList.add('hidden');
+        document.getElementById('paipan-overlay').classList.remove('active');
+        document.getElementById('paipan-info-modal').classList.remove('active');
         menuState = false;
     }
 });
