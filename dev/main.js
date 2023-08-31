@@ -2,6 +2,10 @@
 process.env.NODE_ENV = 'development';
 // process.env.NODE_ENV = 'production';
 
+const path = require('path');
+const fs = require('fs');
+const moment = require('moment');
+
 // System requirements
 const {
     app,
@@ -11,10 +15,7 @@ const {
     dialog,
     globalShortcut,
 } = require('electron');
-
-const path = require('path');
-const fs = require('fs');
-const moment = require('moment');
+const electronLocalshortcut = require('electron-localshortcut');
 
 // importing modules
 const { timeInfo } = require('./sizhu');
@@ -42,13 +43,16 @@ function createMainWindow() {
     } else if (process.platform == 'win32') {
         mainWindow.loadFile('./dev/public/win-index.html');
     }
+    electronLocalshortcut.register(mainWindow, 'Cmd+S', () => {
+        mainWindow.webContents.send('save current panju from shortcut');
+    });
+    electronLocalshortcut.register(mainWindow, 'Ctrl+S', () => {
+        mainWindow.webContents.send('save current panju from shortcut');
+    });
 }
 
 app.on('ready', () => {
     createMainWindow();
-    globalShortcut.register('CmdOrCtrl+s', () => {
-        mainWindow.webContents.send('save current panju from shortcut');
-    });
     mainWindow.on('ready', () => (mainWindow = null));
 });
 
@@ -62,6 +66,8 @@ app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') {
         app.quit();
     } else {
+        electronLocalshortcut.unregister(mainWindow, 'Cmd+S');
+        electronLocalshortcut.unregister(mainWindow, 'Ctrl+S');
         mainWindow = null;
     }
 });

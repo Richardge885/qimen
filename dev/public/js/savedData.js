@@ -73,6 +73,7 @@ document.getElementById('begin-search').addEventListener('click', () => {
 document.getElementById('save-data-btn').addEventListener('click', saveData);
 ipcRenderer.on('save current panju from shortcut', saveData);
 function saveData() {
+    console.log('saved');
     if (document.getElementById('paipan-pizhu').value != '') {
         if (isFromData) {
             localData[panjuIndex] = currentPanju;
@@ -170,7 +171,19 @@ function clearRenderList() {
     });
     document.querySelectorAll('[data-delete-btn]').forEach((item, index) => {
         item.removeEventListener('click', () => {
-            deleteItem(index).then(renderData(data));
+            deleteItem(data, index);
+            if (document.getElementById('search-data').value != '') {
+                const searchTerm = document.getElementById('search-data').value;
+                let newList = [];
+                for (let i = localData.length - 1; i >= 0; i--) {
+                    if (localData[i].info.includes(searchTerm)) {
+                        newList.unshift(localData[i]);
+                    }
+                }
+                renderData(newList);
+            } else {
+                renderData(localData);
+            }
         });
     });
     dataList.innerHTML = '';

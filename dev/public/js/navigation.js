@@ -144,6 +144,7 @@ function updateDefaultInformation() {
         theme: document.getElementById('theme').value,
         feipanliuqin: document.getElementById('liuqin-toggle').checked,
         liuqinSimplified: document.getElementById('liuqin-toggle-simplified').checked,
+        classicChinese: document.getElementById('classic-chinese').checked,
     };
     localStorage.setItem('defaultInfo', JSON.stringify(updateInfo));
 }

@@ -22,6 +22,7 @@
     },
     "dependencies": {
         "capture-electron": "^4.0.3",
+        "electron-localshortcut": "^3.2.1",
         "moment": "^2.29.4"
     },
     "build": {

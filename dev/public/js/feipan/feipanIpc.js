@@ -52,6 +52,10 @@ ipcRenderer.on('飞盘排盘', (e, data) => {
         paiLiuQin(document.getElementById('shi').innerText.charAt(0));
     }
 
+    // 繁体盘面
+    if (document.getElementById('classic-chinese').checked) {
+        classicChinese();
+    }
     // 用于宫位弹窗提示
     feipan_info(info);
     if (document.getElementById('paipan-pizhu').value == '') {
@@ -1380,5 +1384,69 @@ function paiLiuQinSimplified(shigan) {
     });
     dipanliuqin.forEach((element) => {
         element.classList.add('simplified-liuqin');
+    });
+}
+
+function classicChinese() {
+    document.querySelectorAll('[data-tianpanshen]').forEach((element) => {
+        switch (element.innerText) {
+            case '太阴':
+                element.innerText = '太陰';
+                break;
+            case '勾陈':
+                element.innerText = '勾陳';
+                break;
+        }
+    });
+    document.querySelectorAll('[data-xing]').forEach((element) => {
+        switch (element.innerText) {
+            case '天冲':
+                element.innerText = '天沖';
+                break;
+            case '天辅':
+                element.innerText = '天輔';
+                break;
+        }
+    });
+    document.querySelectorAll('[data-men]').forEach((element) => {
+        switch (element.innerText) {
+            case '休门':
+                element.innerText = '休門';
+                break;
+            case '死门':
+                element.innerText = '死門';
+                break;
+            case '伤门':
+                element.innerText = '傷門';
+                break;
+            case '杜门':
+                element.innerText = '杜門';
+                break;
+            case '中门':
+                element.innerText = '中門';
+                break;
+            case '开门':
+                element.innerText = '開門';
+                break;
+            case '惊门':
+                element.innerText = '驚門';
+                break;
+            case '生门':
+                element.innerText = '生門';
+                break;
+            case '景门':
+                element.innerText = '景門';
+                break;
+        }
+    });
+    document.querySelectorAll('[data-dipanshen]').forEach((element) => {
+        switch (element.innerText) {
+            case '太阴':
+                element.innerText = '太陰';
+                break;
+            case '勾陈':
+                element.innerText = '勾陳';
+                break;
+        }
     });
 }
