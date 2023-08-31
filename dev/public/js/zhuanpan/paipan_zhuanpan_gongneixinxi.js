@@ -1390,7 +1390,7 @@ function zhuanpan_info(info, paifa) {
         return result + '<br>';
     }
     function menDongYing(men) {
-        if (men == '中门') {
+        if (men == '中门' || men == '中門') {
             return '';
         } else {
             switch (men) {

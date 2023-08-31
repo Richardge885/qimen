@@ -2336,7 +2336,7 @@ function feipan_info(info) {
         }
     }
     function menDongYing(men) {
-        if (men == '中门') {
+        if (men == '中门' || men == '中門') {
             return '';
         } else {
             switch (men) {
@@ -2967,7 +2967,11 @@ function feipan_info(info) {
                 }
             }
         }
-        return result;
+        if (result == '<br><hr><br>') {
+            return '';
+        } else {
+            return result;
+        }
     }
     function mengong(men, gong) {
         const menpo =
