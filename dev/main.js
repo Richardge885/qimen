@@ -7,14 +7,7 @@ const fs = require('fs');
 const moment = require('moment');
 
 // System requirements
-const {
-    app,
-    BrowserWindow,
-    ipcMain,
-    desktopCapturer,
-    dialog,
-    globalShortcut,
-} = require('electron');
+const { app, BrowserWindow, ipcMain, desktopCapturer, dialog } = require('electron');
 const electronLocalshortcut = require('electron-localshortcut');
 
 // importing modules
@@ -49,6 +42,12 @@ function createMainWindow() {
     electronLocalshortcut.register(mainWindow, 'Ctrl+S', () => {
         mainWindow.webContents.send('save current panju from shortcut');
     });
+    electronLocalshortcut.register(mainWindow, 'Cmd+[', () => {
+        mainWindow.webContents.send('back to home page');
+    });
+    electronLocalshortcut.register(mainWindow, 'Ctrl+[', () => {
+        mainWindow.webContents.send('back to home page');
+    });
 }
 
 app.on('ready', () => {
@@ -68,6 +67,8 @@ app.on('window-all-closed', () => {
     } else {
         electronLocalshortcut.unregister(mainWindow, 'Cmd+S');
         electronLocalshortcut.unregister(mainWindow, 'Ctrl+S');
+        electronLocalshortcut.unregister(mainWindow, 'Cmd+[');
+        electronLocalshortcut.unregister(mainWindow, 'Ctrl+[');
         mainWindow = null;
     }
 });

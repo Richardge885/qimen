@@ -6,6 +6,21 @@ const returnBtn = document.getElementById('return'); // 排盘: 页返回按钮
 
 returnBtn.addEventListener('click', toggleHomeAndPaipan); // 排盘: 页面返回主页按钮
 
+ipcRenderer.on('back to home page', (e) => {
+    if (
+        paipan.classList.contains('hidden') &&
+        document.getElementById('saved-info-section').classList.contains('hidden')
+    ) {
+    } else {
+        clearPanJu();
+        home.classList.remove('hidden');
+        paipan.classList.add('hidden');
+        paipan.classList.remove('flex');
+        document.getElementById('saved-info-section').classList.add('hidden');
+        menuState = false;
+    }
+});
+
 function changeBaoshuRadioInput() {
     if (document.getElementById('home-paipanfangshi').value == '飞盘') {
         document.getElementById('jushu').setAttribute('checked', '');
