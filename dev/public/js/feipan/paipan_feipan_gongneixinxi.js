@@ -1331,6 +1331,67 @@ function feipan_info(info) {
         const shili = '凡事必须耗我心力，威服他人而始能有成，不然则有伤害于他人';
         const cuican = '凡事必须伏服于他人之下，卑躬折节而始能有成，不然则会受到他人迫害';
         const pojing = '主凡事必须辅佐他人，保护同伴而始能有成，不然则要破财伤身';
+
+        // 甲乙
+        const quzhi =
+            '<span style="color:#0079FE">曲直格：</span>大利军家施号令，探听敌弊合经营。又为仁寿格。';
+        const taixi =
+            '<span style="color:#0079FE">胎息格：</span>谋为从兹当进步，君子欣扶事有成。又为发生格。';
+        const lifa =
+            '<span style="color:#0079FE">罹伐格：</span>此格不利出军去，谋作交兵定震惊。主斗争惊恐。';
+        const fenlin =
+            '<span style="color:#0079FE">焚林格：</span>守日为宜固本美，毋须前进并争锋。宜防火。';
+        const xingchuang =
+            '<span style="color:#0079FE">兴创格：</span>最佳造作与修筑，主客交锋不称情。宜持衡。';
+
+        // 丙丁
+        const yanshang =
+            '<span style="color:#0079FE">炎上格：</span>文书献策为最吉，用火乘风可进功。为虚冲，宜文治。';
+        const zenghui =
+            '<span style="color:#0079FE">增辉格：</span>文章显达功名进，举火出军勃然兴。利于飞黄腾达。';
+        const yanmu =
+            '<span style="color:#0079FE">掩目格：</span>掩目灭光为其号，溺身死地犯狱刑。主阴暗隐蔽。';
+        const shiguang =
+            '<span style="color:#0079FE">失光格：</span>前进必然招脱耗，破财破产坏元精。莫登程。';
+        const douli =
+            '<span style="color:#0079FE">斗力格：</span>口舌兴词概因此，逢之迅速退步停。事难宁。';
+
+        // 戊己
+        const jiase =
+            '<span style="color:#0079FE">稼穑格：</span>大力守边井下寨，安营乐业与雕薨。宣耕耘造作。';
+        const bianxiang =
+            '<span style="color:#0079FE">变象格：</span>资生万物而成器，进步元亨万里程，宜窑灶破瓦。';
+        const huaiti =
+            '<span style="color:#0079FE">坏体格：</span>伤身损命犹劳力，退守为宜毋进兵。主禁锢，利坚贞。';
+        const juejing =
+            '<span style="color:#0079FE">绝精格：</span>耗散元阳失本面，诸般谋作一场空。事不通。';
+        const poshui =
+            '<span style="color:#0079FE">迫水格：</span>田园致讼终耗力，交战出军损兵丁。慎官刑。';
+
+        // 庚辛
+        const congge =
+            '<span style="color:#0079FE">从革格：</span>教军演队宜操矛，劫敌发兵功最优。为肃杀，宜武功。';
+        const yangwei =
+            '<span style="color:#0079FE">杨威格：</span>兴兵练阵皆其吉，乐道采丹向此修。利建侯称霸。';
+        const bikou =
+            '<span style="color:#0079FE">闭口格：</span>他人闪赚伤于我，途道绝粮切勿谋。主冤仇血光。';
+        const xiejin =
+            '<span style="color:#0079FE">泄津格：</span>此象须防人陷我，钱财败损又添忧。怕消沉。';
+        const fegnren =
+            '<span style="color:#0079FE">逢刃格：</span>伤其体兮败其形，口舌争斗命残朽。有凶咎';
+
+        // 壬癸
+        const runxia =
+            '<span style="color:#0079FE">润下格：</span>调河治水兼水战，斗智乘船向此游。又为含羞格。';
+        const tongguan =
+            '<span style="color:#0079FE">通关格：</span>迎锋见阵皆为吉，财利功名任所求。利筹策水利。';
+        const jueji =
+            '<span style="color:#0079FE">绝迹格：</span>伤其形质坏其身，疾病官灾一时陡。主疾病牵缠。';
+        const baiyuan =
+            '<span style="color:#0079FE">败源格：</span>诸般谋作皆费力，归去空空似浮舟。有忧愁。';
+        const mierun =
+            '<span style="color:#0079FE">灭润格：</span>利于淫邪私情事，非灾即祸将身因。乃无荣';
+
         if (tiangan == '甲' || tiangan == '乙') {
             switch (gong) {
                 case '乾':
@@ -1339,14 +1400,19 @@ function feipan_info(info) {
                         '在' +
                         gong +
                         '<br>' +
+                        lifa +
+                        '<br>' +
                         '<span style="color:#0079FE">摧残格：</span>' +
-                        cuican
+                        cuican +
+                        '<br>'
                     );
                 case '兑':
                     return (
                         tiangan +
                         '在' +
                         gong +
+                        '<br>' +
+                        lifa +
                         '<br>' +
                         '<span style="color:#0079FE">摧残格：</span>' +
                         cuican
@@ -1357,6 +1423,8 @@ function feipan_info(info) {
                         '在' +
                         gong +
                         '<br>' +
+                        taixi +
+                        '<br>' +
                         '<span style="color:#0079FE">得力格：</span>' +
                         deli
                     );
@@ -1365,6 +1433,8 @@ function feipan_info(info) {
                         tiangan +
                         '在' +
                         gong +
+                        '<br>' +
+                        fenlin +
                         '<br>' +
                         '<span style="color:#0079FE">破精格：</span>' +
                         pojing
@@ -1375,6 +1445,8 @@ function feipan_info(info) {
                         '在' +
                         gong +
                         '<br>' +
+                        quzhi +
+                        '<br>' +
                         '<span style="color:#0079FE">结党格：</span>' +
                         jiedang
                     );
@@ -1383,6 +1455,8 @@ function feipan_info(info) {
                         tiangan +
                         '在' +
                         gong +
+                        '<br>' +
+                        quzhi +
                         '<br>' +
                         '<span style="color:#0079FE">结党格：</span>' +
                         jiedang
@@ -1393,6 +1467,8 @@ function feipan_info(info) {
                         '在' +
                         gong +
                         '<br>' +
+                        xingchuang +
+                        '<br>' +
                         '<span style="color:#0079FE">失利格：</span>' +
                         shili
                     );
@@ -1402,6 +1478,8 @@ function feipan_info(info) {
                         '在' +
                         gong +
                         '<br>' +
+                        xingchuang +
+                        '<br>' +
                         '<span style="color:#0079FE">失利格：</span>' +
                         shili
                     );
@@ -1410,6 +1488,8 @@ function feipan_info(info) {
                         tiangan +
                         '在' +
                         gong +
+                        '<br>' +
+                        xingchuang +
                         '<br>' +
                         '<span style="color:#0079FE">失利格：</span>' +
                         shili
@@ -1423,6 +1503,8 @@ function feipan_info(info) {
                         '在' +
                         gong +
                         '<br>' +
+                        douli +
+                        '<br>' +
                         '<span style="color:#0079FE">失利格：</span>' +
                         shili
                     );
@@ -1431,6 +1513,8 @@ function feipan_info(info) {
                         tiangan +
                         '在' +
                         gong +
+                        '<br>' +
+                        douli +
                         '<br>' +
                         '<span style="color:#0079FE">失利格：</span>' +
                         shili
@@ -1441,6 +1525,8 @@ function feipan_info(info) {
                         '在' +
                         gong +
                         '<br>' +
+                        yanmu +
+                        '<br>' +
                         '<span style="color:#0079FE">摧残格：</span>' +
                         cuican
                     );
@@ -1449,6 +1535,8 @@ function feipan_info(info) {
                         tiangan +
                         '在' +
                         gong +
+                        '<br>' +
+                        yanshang +
                         '<br>' +
                         '<span style="color:#0079FE">结党格：</span>' +
                         jiedang
@@ -1459,6 +1547,8 @@ function feipan_info(info) {
                         '在' +
                         gong +
                         '<br>' +
+                        zenghui +
+                        '<br>' +
                         '<span style="color:#0079FE">得力格：</span>' +
                         deli
                     );
@@ -1467,6 +1557,8 @@ function feipan_info(info) {
                         tiangan +
                         '在' +
                         gong +
+                        '<br>' +
+                        zenghui +
                         '<br>' +
                         '<span style="color:#0079FE">得力格：</span>' +
                         deli
@@ -1477,6 +1569,8 @@ function feipan_info(info) {
                         '在' +
                         gong +
                         '<br>' +
+                        shiguang +
+                        '<br>' +
                         '<span style="color:#0079FE">破精格：</span>' +
                         pojing
                     );
@@ -1486,6 +1580,8 @@ function feipan_info(info) {
                         '在' +
                         gong +
                         '<br>' +
+                        shiguang +
+                        '<br>' +
                         '<span style="color:#0079FE">破精格：</span>' +
                         pojing
                     );
@@ -1494,6 +1590,8 @@ function feipan_info(info) {
                         tiangan +
                         '在' +
                         gong +
+                        '<br>' +
+                        shiguang +
                         '<br>' +
                         '<span style="color:#0079FE">破精格：</span>' +
                         pojing
@@ -1507,6 +1605,8 @@ function feipan_info(info) {
                         '在' +
                         gong +
                         '<br>' +
+                        juejing +
+                        '<br>' +
                         '<span style="color:#0079FE">破精格：</span>' +
                         pojing
                     );
@@ -1515,6 +1615,8 @@ function feipan_info(info) {
                         tiangan +
                         '在' +
                         gong +
+                        '<br>' +
+                        juejing +
                         '<br>' +
                         '<span style="color:#0079FE">破精格：</span>' +
                         pojing
@@ -1525,6 +1627,8 @@ function feipan_info(info) {
                         '在' +
                         gong +
                         '<br>' +
+                        poshui +
+                        '<br>' +
                         '<span style="color:#0079FE">失利格：</span>' +
                         shili
                     );
@@ -1533,6 +1637,8 @@ function feipan_info(info) {
                         tiangan +
                         '在' +
                         gong +
+                        '<br>' +
+                        bianxiang +
                         '<br>' +
                         '<span style="color:#0079FE">得力格：</span>' +
                         deli
@@ -1543,6 +1649,8 @@ function feipan_info(info) {
                         '在' +
                         gong +
                         '<br>' +
+                        huaiti +
+                        '<br>' +
                         '<span style="color:#0079FE">摧残格：</span>' +
                         cuican
                     );
@@ -1551,6 +1659,8 @@ function feipan_info(info) {
                         tiangan +
                         '在' +
                         gong +
+                        '<br>' +
+                        huaiti +
                         '<br>' +
                         '<span style="color:#0079FE">摧残格：</span>' +
                         cuican
@@ -1561,6 +1671,8 @@ function feipan_info(info) {
                         '在' +
                         gong +
                         '<br>' +
+                        jiase +
+                        '<br>' +
                         '<span style="color:#0079FE">结党格：</span>' +
                         jiedang
                     );
@@ -1570,6 +1682,8 @@ function feipan_info(info) {
                         '在' +
                         gong +
                         '<br>' +
+                        jiase +
+                        '<br>' +
                         '<span style="color:#0079FE">结党格：</span>' +
                         jiedang
                     );
@@ -1578,6 +1692,8 @@ function feipan_info(info) {
                         tiangan +
                         '在' +
                         gong +
+                        '<br>' +
+                        jiase +
                         '<br>' +
                         '<span style="color:#0079FE">结党格：</span>' +
                         jiedang
@@ -1591,6 +1707,8 @@ function feipan_info(info) {
                         '在' +
                         gong +
                         '<br>' +
+                        congge +
+                        '<br>' +
                         '<span style="color:#0079FE">结党格：</span>' +
                         jiedang
                     );
@@ -1599,6 +1717,8 @@ function feipan_info(info) {
                         tiangan +
                         '在' +
                         gong +
+                        '<br>' +
+                        congge +
                         '<br>' +
                         '<span style="color:#0079FE">结党格：</span>' +
                         jiedang
@@ -1609,6 +1729,8 @@ function feipan_info(info) {
                         '在' +
                         gong +
                         '<br>' +
+                        xiejin +
+                        '<br>' +
                         '<span style="color:#0079FE">破精格：</span>' +
                         pojing
                     );
@@ -1617,6 +1739,8 @@ function feipan_info(info) {
                         tiangan +
                         '在' +
                         gong +
+                        '<br>' +
+                        bikou +
                         '<br>' +
                         '<span style="color:#0079FE">摧残格：</span>' +
                         cuican
@@ -1627,6 +1751,8 @@ function feipan_info(info) {
                         '在' +
                         gong +
                         '<br>' +
+                        fegnren +
+                        '<br>' +
                         '<span style="color:#0079FE">失利格：</span>' +
                         shili
                     );
@@ -1635,6 +1761,8 @@ function feipan_info(info) {
                         tiangan +
                         '在' +
                         gong +
+                        '<br>' +
+                        fegnren +
                         '<br>' +
                         '<span style="color:#0079FE">失利格：</span>' +
                         shili
@@ -1645,6 +1773,8 @@ function feipan_info(info) {
                         '在' +
                         gong +
                         '<br>' +
+                        yangwei +
+                        '<br>' +
                         '<span style="color:#0079FE">得力格：</span>' +
                         deli
                     );
@@ -1654,6 +1784,8 @@ function feipan_info(info) {
                         '在' +
                         gong +
                         '<br>' +
+                        yangwei +
+                        '<br>' +
                         '<span style="color:#0079FE">得力格：</span>' +
                         deli
                     );
@@ -1662,6 +1794,8 @@ function feipan_info(info) {
                         tiangan +
                         '在' +
                         gong +
+                        '<br>' +
+                        yangwei +
                         '<br>' +
                         '<span style="color:#0079FE">得力格：</span>' +
                         deli
@@ -1675,6 +1809,8 @@ function feipan_info(info) {
                         '在' +
                         gong +
                         '<br>' +
+                        tongguan +
+                        '<br>' +
                         '<span style="color:#0079FE">得力格：</span>' +
                         deli
                     );
@@ -1683,6 +1819,8 @@ function feipan_info(info) {
                         tiangan +
                         '在' +
                         gong +
+                        '<br>' +
+                        tongguan +
                         '<br>' +
                         '<span style="color:#0079FE">得力格：</span>' +
                         deli
@@ -1693,6 +1831,8 @@ function feipan_info(info) {
                         '在' +
                         gong +
                         '<br>' +
+                        runxia +
+                        '<br>' +
                         '<span style="color:#0079FE">结党格：</span>' +
                         jiedang
                     );
@@ -1701,6 +1841,8 @@ function feipan_info(info) {
                         tiangan +
                         '在' +
                         gong +
+                        '<br>' +
+                        mierun +
                         '<br>' +
                         '<span style="color:#0079FE">失利格：</span>' +
                         shili
@@ -1711,6 +1853,8 @@ function feipan_info(info) {
                         '在' +
                         gong +
                         '<br>' +
+                        baiyuan +
+                        '<br>' +
                         '<span style="color:#0079FE">破精格：</span>' +
                         pojing
                     );
@@ -1719,6 +1863,8 @@ function feipan_info(info) {
                         tiangan +
                         '在' +
                         gong +
+                        '<br>' +
+                        baiyuan +
                         '<br>' +
                         '<span style="color:#0079FE">破精格：</span>' +
                         pojing
@@ -1729,6 +1875,8 @@ function feipan_info(info) {
                         '在' +
                         gong +
                         '<br>' +
+                        jueji +
+                        '<br>' +
                         '<span style="color:#0079FE">摧残格：</span>' +
                         cuican
                     );
@@ -1738,6 +1886,8 @@ function feipan_info(info) {
                         '在' +
                         gong +
                         '<br>' +
+                        jueji +
+                        '<br>' +
                         '<span style="color:#0079FE">摧残格：</span>' +
                         cuican
                     );
@@ -1746,6 +1896,8 @@ function feipan_info(info) {
                         tiangan +
                         '在' +
                         gong +
+                        '<br>' +
+                        jueji +
                         '<br>' +
                         '<span style="color:#0079FE">摧残格：</span>' +
                         cuican

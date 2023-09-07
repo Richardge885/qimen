@@ -7,7 +7,13 @@ const fs = require('fs');
 const moment = require('moment');
 
 // System requirements
-const { app, BrowserWindow, ipcMain, desktopCapturer, dialog } = require('electron');
+const {
+    app,
+    BrowserWindow,
+    ipcMain,
+    desktopCapturer,
+    dialog,
+} = require('electron');
 const electronLocalshortcut = require('electron-localshortcut');
 
 // importing modules
@@ -112,7 +118,7 @@ ipcMain.on('报数起局', (e, data) => {
         data.timeInfo.date,
         data.timeInfo.hour,
         data.choosenMethod,
-        data.choosenNumber,
+        data.choosenNumber
     );
     if (data.paipanMethod == '飞盘') {
         const paipan = paiFeiPan(
@@ -120,7 +126,7 @@ ipcMain.on('报数起局', (e, data) => {
             time.ri,
             time.shi,
             data.choosenNumber,
-            data.choosenMethod,
+            data.choosenMethod
         );
         const paiPanResult = {
             time: time,
@@ -135,7 +141,7 @@ ipcMain.on('报数起局', (e, data) => {
             time.ri,
             time.shi,
             data.choosenNumber,
-            data.choosenMethod,
+            data.choosenMethod
         );
         const paiPanResult = {
             time: time,
@@ -150,7 +156,7 @@ ipcMain.on('报数起局', (e, data) => {
             time.ri,
             time.shi,
             data.choosenNumber,
-            data.choosenMethod,
+            data.choosenMethod
         );
         const paiPanResult = {
             time: time,
@@ -175,12 +181,22 @@ ipcMain.on('screenshot', (e, data) => {
                     const fileName = getFileName(data);
 
                     // Save the screenshot as a JPG file on the desktop
-                    const filePath = path.join(app.getPath('desktop'), `${fileName}.jpg`);
-                    fs.writeFile(filePath, source.thumbnail.toJPEG(100), (error) => {
-                        if (error) {
-                            console.error('Failed to save screenshot:', error);
+                    const filePath = path.join(
+                        app.getPath('desktop'),
+                        `${fileName}.jpg`
+                    );
+                    fs.writeFile(
+                        filePath,
+                        source.thumbnail.toJPEG(100),
+                        (error) => {
+                            if (error) {
+                                console.error(
+                                    'Failed to save screenshot:',
+                                    error
+                                );
+                            }
                         }
-                    });
+                    );
                     break;
                 }
             }
