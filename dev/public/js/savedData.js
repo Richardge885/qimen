@@ -48,8 +48,15 @@ document.getElementById('search-data').addEventListener('keypress', (e) => {
     if (e.key === 'Enter') {
         const searchTerm = document.getElementById('search-data').value;
         let newList = [];
+        let question = '';
         for (let i = localData.length - 1; i >= 0; i--) {
-            if (localData[i].info.includes(searchTerm)) {
+            const lineBreakPosition = getReturnPosition(localData[i].info);
+            if (lineBreakPosition != 0) {
+                question = localData[i].info.slice(0, lineBreakPosition);
+            } else {
+                question = localData[i].info;
+            }
+            if (question.includes(searchTerm)) {
                 newList.unshift(localData[i]);
             }
         }
@@ -61,8 +68,15 @@ document.getElementById('search-data').addEventListener('keypress', (e) => {
 document.getElementById('begin-search').addEventListener('click', () => {
     const searchTerm = document.getElementById('search-data').value;
     let newList = [];
+    let question = '';
     for (let i = localData.length - 1; i >= 0; i--) {
-        if (localData[i].info.includes(searchTerm)) {
+        const lineBreakPosition = getReturnPosition(localData[i].info);
+        if (lineBreakPosition != 0) {
+            question = localData[i].info.slice(0, lineBreakPosition);
+        } else {
+            question = localData[i].info;
+        }
+        if (question.includes(searchTerm)) {
             newList.unshift(localData[i]);
         }
     }
