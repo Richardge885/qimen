@@ -631,9 +631,9 @@ function feipan_info(info) {
         const haoqige =
             '<span style="color:#0079FE">耗气格：</span>我之财务不周全。主我帮助他人，而伤了我的骨血，脱耗我的精华<br>';
         const jiaoyinge =
-            '<span style="color:#0079FE">交阴格：</span>事情存在阴谋，与不为人知的信息或事情<br>';
+            '<span style="color:#0079FE">交阴格：</span>利于妇女阴邪之事，并有隐匿隐私之象，有阴谋有害与我<br>';
         const jiaoyangge =
-            '<span style="color:#0079FE">交阳格：</span>事情存在阴谋，与不为人知的信息或事情<br>';
+            '<span style="color:#0079FE">交阳格：</span>事虽在进，但未免有伤我经血，有阴谋有害与我<br>';
         const shanghege =
             '<span style="color:#0079FE">上合格：</span>上亲下之象，领导，长辈关心下属，晚辈<br>';
         const xiahege =
@@ -645,7 +645,7 @@ function feipan_info(info) {
         const chengquange =
             '<span style="color:#0079FE">乘权格：</span>主他人尽力帮助于我，而获其资助、增我神气<br>';
         const duoquange =
-            '<span style="color:#0079FE">夺权格：</span>我之财务不周全。主我帮助他人，而伤了我的骨血，脱耗我的精华<br>';
+            '<span style="color:#0079FE">夺权格：</span>我之财务不周全。主我帮助他人，而伤了我的骨血，脱耗我的精华，也有财务，权利等被夺之象<br>';
         const yishige =
             '<span style="color:#0079FE">倚势格：</span>主他人尽力帮助于我，而获其资助、增我神气<br>';
         const beichongge =
@@ -669,11 +669,11 @@ function feipan_info(info) {
             '<span style="color:#0079FE">外侵格：</span>主事从外入，需防外人欺凌，外人主动来找我<br>';
         const neiqinge =
             '<span style="color:#0079FE">内侵格：</span>主事从内起，需防内人刑害，为我主动去找人<br>';
-        const jinmu = '金木相加：主官事，口舌斗争。<br>';
-        const shuihuo = '水火相乘：主惊恐，妇女不安。<br>';
-        const tushui = '土水相克：主遗财患病，争竞家园。<br>';
-        const mutu = '木土相犯：主牢狱口舌，争财夺利。<br>';
-        const huojin = '火金相见：主怪异血光，突发灾难。<br>';
+        const jinmu = '<span style="color:#0079FE">金木相加：</span>主官事，口舌斗争。<br>';
+        const shuihuo = '<span style="color:#0079FE">水火相乘：</span>主惊恐，妇女不安。<br>';
+        const tushui = '<span style="color:#0079FE">土水相克：</span>主遗财患病，争竞家园。<br>';
+        const mutu = '<span style="color:#0079FE">木土相犯：</span>主牢狱口舌，争财夺利。<br>';
+        const huojin = '<span style="color:#0079FE">火金相见：</span>主怪异血光，突发灾难。<br>';
 
         let output = `${tianpangan} + ${dipangan}：<br>`;
         switch (group) {
@@ -693,10 +693,20 @@ function feipan_info(info) {
                 output = output + waizhige + mutu;
                 break;
             case '甲己':
-                output = output + shanghege + waiqinge + mutu;
+                output =
+                    output +
+                    shanghege +
+                    waiqinge +
+                    mutu +
+                    '<span style="color:#0079FE">合土格：</span>格主宜农业田士耕种等事。<br>';
                 break;
             case '甲庚':
-                output = output + beichongge + neizhige + jinmu;
+                output =
+                    output +
+                    beichongge +
+                    neizhige +
+                    jinmu +
+                    '<span style="color:#0079FE">木冲格：</span>宜用义宣扬，行谦下士，以及从林作伏、滚木作攻之事。<br>';
                 break;
             case '甲辛':
                 output = output + neihaige + jinmu;
@@ -753,6 +763,7 @@ function feipan_info(info) {
                     shanghege +
                     neiqinge +
                     jinmu +
+                    '<span style="color:#0079FE">合金格：</span>主宜钱财威武等事。<br>' +
                     '<span style="color:#0079FE">日奇被刑：</span>有争讼，各怀私意。<br>';
                 break;
             case '乙辛':
@@ -761,6 +772,7 @@ function feipan_info(info) {
                     beichongge +
                     neiluange +
                     jinmu +
+                    '<span style="color:#0079FE">木冲格：</span>宜用义宣扬，行谦下士，以及从林作伏、滚木作攻之事。<br>' +
                     '<span style="color:#0079FE">青龙逃走：</span>人亡财破，奴仆拐带，六畜皆伤。<br>';
                 break;
             case '乙壬':
@@ -827,6 +839,7 @@ function feipan_info(info) {
                     shanghege +
                     waiqinge +
                     huojin +
+                    '<span style="color:#0079FE">合水格：</span>主宜飘荡淫邪等事。<br>' +
                     '<span style="color:#0079FE">日月相会：</span>谋事成就，病人不凶。<br>';
                 break;
             case '丙壬':
@@ -835,6 +848,7 @@ function feipan_info(info) {
                     beichongge +
                     neizhige +
                     shuihuo +
+                    '<span style="color:#0079FE">火冲格：</span>宜行文招士，立词安民，运筹谋划，欺诈火攻之事。<br>' +
                     '<span style="color:#0079FE">火入天罗：</span>为客不利，是非颇多。<br>';
                 break;
             case '丙癸':
@@ -903,6 +917,7 @@ function feipan_info(info) {
                     shanghege +
                     neiqinge +
                     shuihuo +
+                    '<span style="color:#0079FE">合木格：</span>主宜经营动作等事。<br>' +
                     '<span style="color:#0079FE">奇仪相合：</span>贵人恩诏，诉狱公平。<br>';
                 break;
             case '丁癸':
@@ -911,6 +926,7 @@ function feipan_info(info) {
                     beichongge +
                     neiluange +
                     shuihuo +
+                    '<span style="color:#0079FE">火冲格：</span>宜行文招士，立词安民，运筹谋划，欺诈火攻之事。<br>' +
                     '<span style="color:#0079FE">朱雀投江：</span>文书口舌是非，经官动府、词诉不利，音信沉溺不到。<br>';
                 break;
 
@@ -979,11 +995,16 @@ function feipan_info(info) {
                     shanghege +
                     waiqinge +
                     tushui +
+                    '<span style="color:#0079FE">合火格：</span>主宜文谋筹策消息等事。<br>' +
                     '<span style="color:#0079FE">青龙华盖：</span>逢吉门为吉，可招福临门；逢凶门，事多不利，为凶。<br>';
                 break;
 
             case '己甲':
-                output = output + xiahege + neiqinge;
+                output =
+                    output +
+                    xiahege +
+                    neiqinge +
+                    '<span style="color:#0079FE">合土格：</span>主宜农业田士耕种等事。<br>';
                 break;
             case '己乙':
                 output =
@@ -1049,7 +1070,12 @@ function feipan_info(info) {
                 break;
 
             case '庚甲':
-                output = output + zhengchongge + waizhige + jinmu;
+                output =
+                    output +
+                    zhengchongge +
+                    waizhige +
+                    jinmu +
+                    '<span style="color:#0079FE">金冲格：</span>宜扬威振武，演阵将兵，年战斗杀之事。<br>';
                 break;
             case '庚乙':
                 output =
@@ -1057,6 +1083,7 @@ function feipan_info(info) {
                     xiahege +
                     waiqinge +
                     jinmu +
+                    '<span style="color:#0079FE">合金格：</span>主宜钱财威武等事。<br>' +
                     '<span style="color:#0079FE">太白逢星：</span>退吉进凶，谋为不利。<br>';
                 break;
             case '庚丙':
@@ -1125,6 +1152,7 @@ function feipan_info(info) {
                     zhengchongge +
                     wailuange +
                     jinmu +
+                    '<span style="color:#0079FE">金冲格：</span>宜扬威振武，演阵将兵，年战斗杀之事。<br>' +
                     '<span style="color:#0079FE">白虎猖狂：</span>家败人亡（分家、婚散、破产），出行有惊恐，远行多灾殃，尊长不喜，车船俱伤。<br>';
                 break;
             case '辛丙':
@@ -1133,6 +1161,7 @@ function feipan_info(info) {
                     xiahege +
                     neiqinge +
                     huojin +
+                    '<span style="color:#0079FE">合水格：</span>主宜飘荡淫邪等事。<br>' +
                     '<span style="color:#0079FE">干合悖师：</span>荧惑出现，占雨无，占晴旱，占事必因财致讼。<br>';
                 break;
             case '辛丁':
@@ -1200,6 +1229,7 @@ function feipan_info(info) {
                     zhengchongge +
                     waizhige +
                     shuihuo +
+                    '<span style="color:#0079FE">水冲格：</span>宜用智行诱，酒食宴乐，调河开渠，水战水攻之事。<br>' +
                     '<span style="color:#0079FE">水蛇入火：</span>两败俱伤，为客不利。<br>';
                 break;
             case '壬丁':
@@ -1208,6 +1238,7 @@ function feipan_info(info) {
                     xiahege +
                     waiqinge +
                     shuihuo +
+                    '<span style="color:#0079FE">合木格：</span>主宜经营动作等事。<br>' +
                     '<span style="color:#0079FE">干合蛇刑：</span>文书牵连，贵人匆匆，男吉女凶。<br>';
                 break;
             case '壬戊':
@@ -1277,6 +1308,7 @@ function feipan_info(info) {
                     zhengchongge +
                     wailuange +
                     shuihuo +
+                    '<span style="color:#0079FE">水冲格：</span>宜用智行诱，酒食宴乐，调河开渠，水战水攻之事。<br>' +
                     '<span style="color:#0079FE">腾蛇夭矫：</span>文书官司，火焚也逃不掉，虚惊不宁。<br>';
                 break;
             case '癸戊':
@@ -1285,6 +1317,7 @@ function feipan_info(info) {
                     xiahege +
                     waiqinge +
                     tushui +
+                    '<span style="color:#0079FE">合火格：</span>主宜文谋筹策消息等事。<br>' +
                     '<span style="color:#0079FE">天乙合会：</span>吉门宜求财，婚姻喜美，吉人赞助成合。<br>';
                 break;
             case '癸己':
