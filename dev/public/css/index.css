@@ -762,6 +762,10 @@ video {
   width: 200px;
 }
 
+.w-\[201px\] {
+  width: 201px;
+}
+
 .w-\[248px\] {
   width: 248px;
 }
@@ -812,10 +816,6 @@ video {
 
 .w-screen {
   width: 100vw;
-}
-
-.w-\[201px\] {
-  width: 201px;
 }
 
 .translate-x-\[-55px\] {

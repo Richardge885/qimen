@@ -1,6 +1,6 @@
 // Set Environment
-// process.env.NODE_ENV = 'development';
-process.env.NODE_ENV = 'production';
+process.env.NODE_ENV = 'development';
+// process.env.NODE_ENV = 'production';
 
 const path = require('path');
 const fs = require('fs');
@@ -48,6 +48,12 @@ function createMainWindow() {
     electronLocalshortcut.register(mainWindow, 'Ctrl+[', () => {
         mainWindow.webContents.send('back to home page');
     });
+    // electronLocalshortcut.register(mainWindow, 'Cmd+r', () => {
+    //     mainWindow.webContents.send('refresh current time');
+    // });
+    // electronLocalshortcut.register(mainWindow, 'Ctrl+r', () => {
+    //     mainWindow.webContents.send('refresh current time');
+    // });
 }
 
 app.on('ready', () => {
@@ -69,6 +75,8 @@ app.on('window-all-closed', () => {
         electronLocalshortcut.unregister(mainWindow, 'Ctrl+S');
         electronLocalshortcut.unregister(mainWindow, 'Cmd+[');
         electronLocalshortcut.unregister(mainWindow, 'Ctrl+[');
+        // electronLocalshortcut.unregister(mainWindow, 'Cmd+r');
+        // electronLocalshortcut.unregister(mainWindow, 'Ctrl+r');
         mainWindow = null;
     }
 });

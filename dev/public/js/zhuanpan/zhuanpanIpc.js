@@ -41,6 +41,7 @@ ipcRenderer.on('传统转盘排盘', (e, data) => {
     if (document.getElementById('paipan-pizhu').value == '') {
         isFromData = false;
     }
+    document.getElementById('paipan-pizhu').scrollTop = 0;
 });
 
 function updateTimeInfo(data, year, month, day, hour) {
