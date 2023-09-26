@@ -1336,7 +1336,7 @@ video {
 
 /* make scrollbar transparent */
 
-::-webkit-scrollbar {
+.hide-scrollbar::-webkit-scrollbar {
   width: 0px;
   background: transparent;
 }

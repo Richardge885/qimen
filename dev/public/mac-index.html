@@ -11,7 +11,7 @@
 
 <body>
     <!-- 查阅记录 page -->
-    <div id="saved-info-section" class="w-screen hidden bg-[#eeeeee] ">
+    <div id="saved-info-section" class="w-screen hidden bg-[#eeeeee]">
         <div class='flex flex-row justify-evenly items-center translate-y-3'>
             <input id='search-data' type="text" class='h-[55px] w-[280px] text-lg ml-[10px] font-pingfang px-2'>
             <button id='remove-search' class='w-[55px] h-[55px] text-3xl absolute left-[250px]'>&times;</button>
@@ -148,8 +148,9 @@
     <!-- paipan page section -->
     <div id="paipan" class="w-screen h-screen hidden bg-[#eeeeee]">
         <!-- info modal -->
-        <div id="paipan-info-modal" class="">
-            <div id="paipan-modal-info-section" class="overflow-scroll text-lg mt-[15px] w-[320px]"></div>
+        <div id="paipan-info-modal" class="hide-scrollbar">
+            <div id="paipan-modal-info-section" class="overflow-scroll text-lg mt-[15px] w-[320px] hide-scrollbar">
+            </div>
             <div id="paipan-gongwei-info-items" class="flex flex-col text-lg pl-[5px]">
                 <div class="paipan-gongwei-info-items rounded-tr-[15px]" id="paipan-geju-info">
                     格局
