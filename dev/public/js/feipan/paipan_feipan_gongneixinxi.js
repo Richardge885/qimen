@@ -654,7 +654,7 @@ function feipan_info(info) {
         const zhipoge =
             '<span style="color:#0079FE">支破格：</span>支破无成灾祸息，谋为难就有冲突<br>';
         const waihaige =
-            '<span style="color:#0079FE">外害格：</span>主事从外入，需防外人欺凌，外人主动来找我。';
+            '<span style="color:#0079FE">外害格：</span>主事从外入，需防外人欺凌，外人主动来找我。<br>';
         const neihaige =
             '<span style="color:#0079FE">内害格：</span>主事从内起，需防内人刑害，为我主动去找人<br>';
         const wailuange =
@@ -2388,7 +2388,7 @@ function feipan_info(info) {
                             case '巽':
                                 return '<span style="color: red">（比肩）</span>';
                             default:
-                                return '(比肩)';
+                                return '（比肩）';
                         }
                     case '乙':
                         switch (gongwei) {
