@@ -2107,8 +2107,8 @@ function shishenSimplified(shigan) {
     const pianyin = '枭';
     const zhengguan = '官';
     const qisha = '杀';
-    const zhengcai = '才';
-    const piancai = '财';
+    const zhengcai = '财';
+    const piancai = '才';
     const shishen = '食';
     const shangguan = '伤';
     const bijian = '比';
@@ -2238,10 +2238,10 @@ function shishenSimplified(shigan) {
                         tianpanliuqin[index].innerText = shishen;
                         break;
                     case '庚':
-                        tianpanliuqin[index].innerText = piancai;
+                        tianpanliuqin[index].innerText = zhengcai;
                         break;
                     case '辛':
-                        tianpanliuqin[index].innerText = zhengcai;
+                        tianpanliuqin[index].innerText = piancai;
                         break;
                     case '壬':
                         tianpanliuqin[index].innerText = zhengguan;
@@ -2582,10 +2582,10 @@ function shishenSimplified(shigan) {
                         dipanliuqin[index].innerText = shishen;
                         break;
                     case '庚':
-                        dipanliuqin[index].innerText = piancai;
+                        dipanliuqin[index].innerText = zhengcai;
                         break;
                     case '辛':
-                        dipanliuqin[index].innerText = zhengcai;
+                        dipanliuqin[index].innerText = piancai;
                         break;
                     case '壬':
                         dipanliuqin[index].innerText = zhengguan;
