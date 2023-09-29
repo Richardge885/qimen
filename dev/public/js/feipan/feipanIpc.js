@@ -40,18 +40,23 @@ ipcRenderer.on('飞盘排盘', (e, data) => {
         );
     }
 
-    // 是否显示六亲
-    if (
-        document.getElementById('liuqin-toggle').checked &&
-        document.getElementById('liuqin-toggle-simplified').checked
-    ) {
-        paiLiuQinSimplified(document.getElementById('shi').innerText.charAt(0));
-    } else if (document.getElementById('liuqin-toggle-simplified').checked) {
-        paiLiuQinSimplified(document.getElementById('shi').innerText.charAt(0));
-    } else if (document.getElementById('liuqin-toggle').checked) {
-        paiLiuQin(document.getElementById('shi').innerText.charAt(0));
+    // 是否显示六亲或十神
+    switch (document.getElementById('liuqin').value) {
+        case '六亲':
+            paiLiuQin(document.getElementById('shi').innerText.charAt(0));
+            break;
+        case '十神':
+            shishen(document.getElementById('shi').innerText.charAt(0));
+            break;
+        case '六亲简化':
+            paiLiuQinSimplified(document.getElementById('shi').innerText.charAt(0));
+            break;
+        case '十神简化':
+            shishenSimplified(document.getElementById('shi').innerText.charAt(0));
+            break;
+        default:
+            break;
     }
-
     // 繁体盘面
     if (document.getElementById('classic-chinese').checked) {
         classicChinese();
@@ -1378,6 +1383,1422 @@ function paiLiuQinSimplified(shigan) {
             } else if (element.innerText == '壬' || element.innerText == '癸') {
                 dipanliuqin[index].innerText = xiongdi;
             }
+        }
+    });
+    tianpanliuqin.forEach((element) => {
+        element.classList.add('simplified-liuqin');
+    });
+    dipanliuqin.forEach((element) => {
+        element.classList.add('simplified-liuqin');
+    });
+}
+
+function shishen(shigan) {
+    const tianpangan = document.querySelectorAll('[data-tianpangan]');
+    const dipangan = document.querySelectorAll('[data-dipangan]');
+    const tianpanliuqin = document.querySelectorAll('[data-tianpanliuqin]');
+    const dipanliuqin = document.querySelectorAll('[data-dipanliuqin]');
+    const zhengyin = '正印';
+    const pianyin = '枭神';
+    const zhengguan = '正官';
+    const qisha = '七杀';
+    const zhengcai = '正财';
+    const piancai = '偏财';
+    const shishen = '食神';
+    const shangguan = '伤官';
+    const bijian = '比肩';
+    const jiecai = '劫财';
+    tianpangan.forEach((element, index) => {
+        switch (shigan) {
+            case '甲':
+                switch (element.innerText) {
+                    case '甲':
+                        tianpanliuqin[index].innerText = bijian;
+                        break;
+                    case '乙':
+                        tianpanliuqin[index].innerText = jiecai;
+                        break;
+                    case '丙':
+                        tianpanliuqin[index].innerText = shishen;
+                        break;
+                    case '丁':
+                        tianpanliuqin[index].innerText = shangguan;
+                        break;
+                    case '戊':
+                        tianpanliuqin[index].innerText = piancai;
+                        break;
+                    case '己':
+                        tianpanliuqin[index].innerText = zhengcai;
+                        break;
+                    case '庚':
+                        tianpanliuqin[index].innerText = qisha;
+                        break;
+                    case '辛':
+                        tianpanliuqin[index].innerText = zhengguan;
+                        break;
+                    case '壬':
+                        tianpanliuqin[index].innerText = pianyin;
+                        break;
+                    case '癸':
+                        tianpanliuqin[index].innerText = zhengyin;
+                        break;
+                }
+                break;
+            case '乙':
+                switch (element.innerText) {
+                    case '甲':
+                        tianpanliuqin[index].innerText = jiecai;
+                        break;
+                    case '乙':
+                        tianpanliuqin[index].innerText = bijian;
+                        break;
+                    case '丙':
+                        tianpanliuqin[index].innerText = shangguan;
+                        break;
+                    case '丁':
+                        tianpanliuqin[index].innerText = shishen;
+                        break;
+                    case '戊':
+                        tianpanliuqin[index].innerText = zhengcai;
+                        break;
+                    case '己':
+                        tianpanliuqin[index].innerText = piancai;
+                        break;
+                    case '庚':
+                        tianpanliuqin[index].innerText = zhengguan;
+                        break;
+                    case '辛':
+                        tianpanliuqin[index].innerText = qisha;
+                        break;
+                    case '壬':
+                        tianpanliuqin[index].innerText = zhengyin;
+                        break;
+                    case '癸':
+                        tianpanliuqin[index].innerText = pianyin;
+                        break;
+                }
+                break;
+            case '丙':
+                switch (element.innerText) {
+                    case '甲':
+                        tianpanliuqin[index].innerText = pianyin;
+                        break;
+                    case '乙':
+                        tianpanliuqin[index].innerText = zhengyin;
+                        break;
+                    case '丙':
+                        tianpanliuqin[index].innerText = bijian;
+                        break;
+                    case '丁':
+                        tianpanliuqin[index].innerText = jiecai;
+                        break;
+                    case '戊':
+                        tianpanliuqin[index].innerText = shishen;
+                        break;
+                    case '己':
+                        tianpanliuqin[index].innerText = shangguan;
+                        break;
+                    case '庚':
+                        tianpanliuqin[index].innerText = piancai;
+                        break;
+                    case '辛':
+                        tianpanliuqin[index].innerText = zhengcai;
+                        break;
+                    case '壬':
+                        tianpanliuqin[index].innerText = qisha;
+                        break;
+                    case '癸':
+                        tianpanliuqin[index].innerText = zhengguan;
+                        break;
+                }
+                break;
+            case '丁':
+                switch (element.innerText) {
+                    case '甲':
+                        tianpanliuqin[index].innerText = zhengyin;
+                        break;
+                    case '乙':
+                        tianpanliuqin[index].innerText = pianyin;
+                        break;
+                    case '丙':
+                        tianpanliuqin[index].innerText = jiecai;
+                        break;
+                    case '丁':
+                        tianpanliuqin[index].innerText = bijian;
+                        break;
+                    case '戊':
+                        tianpanliuqin[index].innerText = shangguan;
+                        break;
+                    case '己':
+                        tianpanliuqin[index].innerText = shishen;
+                        break;
+                    case '庚':
+                        tianpanliuqin[index].innerText = piancai;
+                        break;
+                    case '辛':
+                        tianpanliuqin[index].innerText = zhengcai;
+                        break;
+                    case '壬':
+                        tianpanliuqin[index].innerText = zhengguan;
+                        break;
+                    case '癸':
+                        tianpanliuqin[index].innerText = qisha;
+                        break;
+                }
+                break;
+            case '戊':
+                switch (element.innerText) {
+                    case '甲':
+                        tianpanliuqin[index].innerText = qisha;
+                        break;
+                    case '乙':
+                        tianpanliuqin[index].innerText = zhengguan;
+                        break;
+                    case '丙':
+                        tianpanliuqin[index].innerText = pianyin;
+                        break;
+                    case '丁':
+                        tianpanliuqin[index].innerText = zhengyin;
+                        break;
+                    case '戊':
+                        tianpanliuqin[index].innerText = bijian;
+                        break;
+                    case '己':
+                        tianpanliuqin[index].innerText = jiecai;
+                        break;
+                    case '庚':
+                        tianpanliuqin[index].innerText = shishen;
+                        break;
+                    case '辛':
+                        tianpanliuqin[index].innerText = shangguan;
+                        break;
+                    case '壬':
+                        tianpanliuqin[index].innerText = piancai;
+                        break;
+                    case '癸':
+                        tianpanliuqin[index].innerText = zhengcai;
+                        break;
+                }
+                break;
+            case '己':
+                switch (element.innerText) {
+                    case '甲':
+                        tianpanliuqin[index].innerText = zhengguan;
+                        break;
+                    case '乙':
+                        tianpanliuqin[index].innerText = qisha;
+                        break;
+                    case '丙':
+                        tianpanliuqin[index].innerText = zhengyin;
+                        break;
+                    case '丁':
+                        tianpanliuqin[index].innerText = pianyin;
+                        break;
+                    case '戊':
+                        tianpanliuqin[index].innerText = jiecai;
+                        break;
+                    case '己':
+                        tianpanliuqin[index].innerText = bijian;
+                        break;
+                    case '庚':
+                        tianpanliuqin[index].innerText = shangguan;
+                        break;
+                    case '辛':
+                        tianpanliuqin[index].innerText = shishen;
+                        break;
+                    case '壬':
+                        tianpanliuqin[index].innerText = zhengcai;
+                        break;
+                    case '癸':
+                        tianpanliuqin[index].innerText = piancai;
+                        break;
+                }
+                break;
+            case '庚':
+                switch (element.innerText) {
+                    case '甲':
+                        tianpanliuqin[index].innerText = piancai;
+                        break;
+                    case '乙':
+                        tianpanliuqin[index].innerText = zhengcai;
+                        break;
+                    case '丙':
+                        tianpanliuqin[index].innerText = qisha;
+                        break;
+                    case '丁':
+                        tianpanliuqin[index].innerText = zhengguan;
+                        break;
+                    case '戊':
+                        tianpanliuqin[index].innerText = pianyin;
+                        break;
+                    case '己':
+                        tianpanliuqin[index].innerText = zhengyin;
+                        break;
+                    case '庚':
+                        tianpanliuqin[index].innerText = bijian;
+                        break;
+                    case '辛':
+                        tianpanliuqin[index].innerText = jiecai;
+                        break;
+                    case '壬':
+                        tianpanliuqin[index].innerText = shishen;
+                        break;
+                    case '癸':
+                        tianpanliuqin[index].innerText = shangguan;
+                        break;
+                }
+                break;
+            case '辛':
+                switch (element.innerText) {
+                    case '甲':
+                        tianpanliuqin[index].innerText = zhengcai;
+                        break;
+                    case '乙':
+                        tianpanliuqin[index].innerText = piancai;
+                        break;
+                    case '丙':
+                        tianpanliuqin[index].innerText = zhengguan;
+                        break;
+                    case '丁':
+                        tianpanliuqin[index].innerText = qisha;
+                        break;
+                    case '戊':
+                        tianpanliuqin[index].innerText = zhengyin;
+                        break;
+                    case '己':
+                        tianpanliuqin[index].innerText = pianyin;
+                        break;
+                    case '庚':
+                        tianpanliuqin[index].innerText = jiecai;
+                        break;
+                    case '辛':
+                        tianpanliuqin[index].innerText = bijian;
+                        break;
+                    case '壬':
+                        tianpanliuqin[index].innerText = shangguan;
+                        break;
+                    case '癸':
+                        tianpanliuqin[index].innerText = shishen;
+                        break;
+                }
+                break;
+            case '壬':
+                switch (element.innerText) {
+                    case '甲':
+                        tianpanliuqin[index].innerText = shishen;
+                        break;
+                    case '乙':
+                        tianpanliuqin[index].innerText = shangguan;
+                        break;
+                    case '丙':
+                        tianpanliuqin[index].innerText = piancai;
+                        break;
+                    case '丁':
+                        tianpanliuqin[index].innerText = zhengcai;
+                        break;
+                    case '戊':
+                        tianpanliuqin[index].innerText = qisha;
+                        break;
+                    case '己':
+                        tianpanliuqin[index].innerText = zhengguan;
+                        break;
+                    case '庚':
+                        tianpanliuqin[index].innerText = pianyin;
+                        break;
+                    case '辛':
+                        tianpanliuqin[index].innerText = zhengyin;
+                        break;
+                    case '壬':
+                        tianpanliuqin[index].innerText = bijian;
+                        break;
+                    case '癸':
+                        tianpanliuqin[index].innerText = jiecai;
+                        break;
+                }
+                break;
+            case '癸':
+                switch (element.innerText) {
+                    case '甲':
+                        tianpanliuqin[index].innerText = shangguan;
+                        break;
+                    case '乙':
+                        tianpanliuqin[index].innerText = shishen;
+                        break;
+                    case '丙':
+                        tianpanliuqin[index].innerText = zhengcai;
+                        break;
+                    case '丁':
+                        tianpanliuqin[index].innerText = piancai;
+                        break;
+                    case '戊':
+                        tianpanliuqin[index].innerText = zhengguan;
+                        break;
+                    case '己':
+                        tianpanliuqin[index].innerText = qisha;
+                        break;
+                    case '庚':
+                        tianpanliuqin[index].innerText = zhengyin;
+                        break;
+                    case '辛':
+                        tianpanliuqin[index].innerText = pianyin;
+                        break;
+                    case '壬':
+                        tianpanliuqin[index].innerText = jiecai;
+                        break;
+                    case '癸':
+                        tianpanliuqin[index].innerText = bijian;
+                        break;
+                }
+                break;
+        }
+    });
+    dipangan.forEach((element, index) => {
+        switch (shigan) {
+            case '甲':
+                switch (element.innerText) {
+                    case '甲':
+                        dipanliuqin[index].innerText = bijian;
+                        break;
+                    case '乙':
+                        dipanliuqin[index].innerText = jiecai;
+                        break;
+                    case '丙':
+                        dipanliuqin[index].innerText = shishen;
+                        break;
+                    case '丁':
+                        dipanliuqin[index].innerText = shangguan;
+                        break;
+                    case '戊':
+                        dipanliuqin[index].innerText = piancai;
+                        break;
+                    case '己':
+                        dipanliuqin[index].innerText = zhengcai;
+                        break;
+                    case '庚':
+                        dipanliuqin[index].innerText = qisha;
+                        break;
+                    case '辛':
+                        dipanliuqin[index].innerText = zhengguan;
+                        break;
+                    case '壬':
+                        dipanliuqin[index].innerText = pianyin;
+                        break;
+                    case '癸':
+                        dipanliuqin[index].innerText = zhengyin;
+                        break;
+                }
+                break;
+            case '乙':
+                switch (element.innerText) {
+                    case '甲':
+                        dipanliuqin[index].innerText = jiecai;
+                        break;
+                    case '乙':
+                        dipanliuqin[index].innerText = bijian;
+                        break;
+                    case '丙':
+                        dipanliuqin[index].innerText = shangguan;
+                        break;
+                    case '丁':
+                        dipanliuqin[index].innerText = shishen;
+                        break;
+                    case '戊':
+                        dipanliuqin[index].innerText = zhengcai;
+                        break;
+                    case '己':
+                        dipanliuqin[index].innerText = piancai;
+                        break;
+                    case '庚':
+                        dipanliuqin[index].innerText = zhengguan;
+                        break;
+                    case '辛':
+                        dipanliuqin[index].innerText = qisha;
+                        break;
+                    case '壬':
+                        dipanliuqin[index].innerText = zhengyin;
+                        break;
+                    case '癸':
+                        dipanliuqin[index].innerText = pianyin;
+                        break;
+                }
+                break;
+            case '丙':
+                switch (element.innerText) {
+                    case '甲':
+                        dipanliuqin[index].innerText = pianyin;
+                        break;
+                    case '乙':
+                        dipanliuqin[index].innerText = zhengyin;
+                        break;
+                    case '丙':
+                        dipanliuqin[index].innerText = bijian;
+                        break;
+                    case '丁':
+                        dipanliuqin[index].innerText = jiecai;
+                        break;
+                    case '戊':
+                        dipanliuqin[index].innerText = shishen;
+                        break;
+                    case '己':
+                        dipanliuqin[index].innerText = shangguan;
+                        break;
+                    case '庚':
+                        dipanliuqin[index].innerText = piancai;
+                        break;
+                    case '辛':
+                        dipanliuqin[index].innerText = zhengcai;
+                        break;
+                    case '壬':
+                        dipanliuqin[index].innerText = qisha;
+                        break;
+                    case '癸':
+                        dipanliuqin[index].innerText = zhengguan;
+                        break;
+                }
+                break;
+            case '丁':
+                switch (element.innerText) {
+                    case '甲':
+                        dipanliuqin[index].innerText = zhengyin;
+                        break;
+                    case '乙':
+                        dipanliuqin[index].innerText = pianyin;
+                        break;
+                    case '丙':
+                        dipanliuqin[index].innerText = jiecai;
+                        break;
+                    case '丁':
+                        dipanliuqin[index].innerText = bijian;
+                        break;
+                    case '戊':
+                        dipanliuqin[index].innerText = shangguan;
+                        break;
+                    case '己':
+                        dipanliuqin[index].innerText = shishen;
+                        break;
+                    case '庚':
+                        dipanliuqin[index].innerText = piancai;
+                        break;
+                    case '辛':
+                        dipanliuqin[index].innerText = zhengcai;
+                        break;
+                    case '壬':
+                        dipanliuqin[index].innerText = zhengguan;
+                        break;
+                    case '癸':
+                        dipanliuqin[index].innerText = qisha;
+                        break;
+                }
+                break;
+            case '戊':
+                switch (element.innerText) {
+                    case '甲':
+                        dipanliuqin[index].innerText = qisha;
+                        break;
+                    case '乙':
+                        dipanliuqin[index].innerText = zhengguan;
+                        break;
+                    case '丙':
+                        dipanliuqin[index].innerText = pianyin;
+                        break;
+                    case '丁':
+                        dipanliuqin[index].innerText = zhengyin;
+                        break;
+                    case '戊':
+                        dipanliuqin[index].innerText = bijian;
+                        break;
+                    case '己':
+                        dipanliuqin[index].innerText = jiecai;
+                        break;
+                    case '庚':
+                        dipanliuqin[index].innerText = shishen;
+                        break;
+                    case '辛':
+                        dipanliuqin[index].innerText = shangguan;
+                        break;
+                    case '壬':
+                        dipanliuqin[index].innerText = piancai;
+                        break;
+                    case '癸':
+                        dipanliuqin[index].innerText = zhengcai;
+                        break;
+                }
+                break;
+            case '己':
+                switch (element.innerText) {
+                    case '甲':
+                        dipanliuqin[index].innerText = zhengguan;
+                        break;
+                    case '乙':
+                        dipanliuqin[index].innerText = qisha;
+                        break;
+                    case '丙':
+                        dipanliuqin[index].innerText = zhengyin;
+                        break;
+                    case '丁':
+                        dipanliuqin[index].innerText = pianyin;
+                        break;
+                    case '戊':
+                        dipanliuqin[index].innerText = jiecai;
+                        break;
+                    case '己':
+                        dipanliuqin[index].innerText = bijian;
+                        break;
+                    case '庚':
+                        dipanliuqin[index].innerText = shangguan;
+                        break;
+                    case '辛':
+                        dipanliuqin[index].innerText = shishen;
+                        break;
+                    case '壬':
+                        dipanliuqin[index].innerText = zhengcai;
+                        break;
+                    case '癸':
+                        dipanliuqin[index].innerText = piancai;
+                        break;
+                }
+                break;
+            case '庚':
+                switch (element.innerText) {
+                    case '甲':
+                        dipanliuqin[index].innerText = piancai;
+                        break;
+                    case '乙':
+                        dipanliuqin[index].innerText = zhengcai;
+                        break;
+                    case '丙':
+                        dipanliuqin[index].innerText = qisha;
+                        break;
+                    case '丁':
+                        dipanliuqin[index].innerText = zhengguan;
+                        break;
+                    case '戊':
+                        dipanliuqin[index].innerText = pianyin;
+                        break;
+                    case '己':
+                        dipanliuqin[index].innerText = zhengyin;
+                        break;
+                    case '庚':
+                        dipanliuqin[index].innerText = bijian;
+                        break;
+                    case '辛':
+                        dipanliuqin[index].innerText = jiecai;
+                        break;
+                    case '壬':
+                        dipanliuqin[index].innerText = shishen;
+                        break;
+                    case '癸':
+                        dipanliuqin[index].innerText = shangguan;
+                        break;
+                }
+                break;
+            case '辛':
+                switch (element.innerText) {
+                    case '甲':
+                        dipanliuqin[index].innerText = zhengcai;
+                        break;
+                    case '乙':
+                        dipanliuqin[index].innerText = piancai;
+                        break;
+                    case '丙':
+                        dipanliuqin[index].innerText = zhengguan;
+                        break;
+                    case '丁':
+                        dipanliuqin[index].innerText = qisha;
+                        break;
+                    case '戊':
+                        dipanliuqin[index].innerText = zhengyin;
+                        break;
+                    case '己':
+                        dipanliuqin[index].innerText = pianyin;
+                        break;
+                    case '庚':
+                        dipanliuqin[index].innerText = jiecai;
+                        break;
+                    case '辛':
+                        dipanliuqin[index].innerText = bijian;
+                        break;
+                    case '壬':
+                        dipanliuqin[index].innerText = shangguan;
+                        break;
+                    case '癸':
+                        dipanliuqin[index].innerText = shishen;
+                        break;
+                }
+                break;
+            case '壬':
+                switch (element.innerText) {
+                    case '甲':
+                        dipanliuqin[index].innerText = shishen;
+                        break;
+                    case '乙':
+                        dipanliuqin[index].innerText = shangguan;
+                        break;
+                    case '丙':
+                        dipanliuqin[index].innerText = piancai;
+                        break;
+                    case '丁':
+                        dipanliuqin[index].innerText = zhengcai;
+                        break;
+                    case '戊':
+                        dipanliuqin[index].innerText = qisha;
+                        break;
+                    case '己':
+                        dipanliuqin[index].innerText = zhengguan;
+                        break;
+                    case '庚':
+                        dipanliuqin[index].innerText = pianyin;
+                        break;
+                    case '辛':
+                        dipanliuqin[index].innerText = zhengyin;
+                        break;
+                    case '壬':
+                        dipanliuqin[index].innerText = bijian;
+                        break;
+                    case '癸':
+                        dipanliuqin[index].innerText = jiecai;
+                        break;
+                }
+                break;
+            case '癸':
+                switch (element.innerText) {
+                    case '甲':
+                        dipanliuqin[index].innerText = shangguan;
+                        break;
+                    case '乙':
+                        dipanliuqin[index].innerText = shishen;
+                        break;
+                    case '丙':
+                        dipanliuqin[index].innerText = zhengcai;
+                        break;
+                    case '丁':
+                        dipanliuqin[index].innerText = piancai;
+                        break;
+                    case '戊':
+                        dipanliuqin[index].innerText = zhengguan;
+                        break;
+                    case '己':
+                        dipanliuqin[index].innerText = qisha;
+                        break;
+                    case '庚':
+                        dipanliuqin[index].innerText = zhengyin;
+                        break;
+                    case '辛':
+                        dipanliuqin[index].innerText = pianyin;
+                        break;
+                    case '壬':
+                        dipanliuqin[index].innerText = jiecai;
+                        break;
+                    case '癸':
+                        dipanliuqin[index].innerText = bijian;
+                        break;
+                }
+                break;
+        }
+    });
+}
+
+function shishenSimplified(shigan) {
+    const tianpangan = document.querySelectorAll('[data-tianpangan]');
+    const dipangan = document.querySelectorAll('[data-dipangan]');
+    const tianpanliuqin = document.querySelectorAll('[data-tianpanliuqin]');
+    const dipanliuqin = document.querySelectorAll('[data-dipanliuqin]');
+    const zhengyin = '印';
+    const pianyin = '枭';
+    const zhengguan = '官';
+    const qisha = '杀';
+    const zhengcai = '才';
+    const piancai = '财';
+    const shishen = '食';
+    const shangguan = '伤';
+    const bijian = '比';
+    const jiecai = '劫';
+    tianpangan.forEach((element, index) => {
+        switch (shigan) {
+            case '甲':
+                switch (element.innerText) {
+                    case '甲':
+                        tianpanliuqin[index].innerText = bijian;
+                        break;
+                    case '乙':
+                        tianpanliuqin[index].innerText = jiecai;
+                        break;
+                    case '丙':
+                        tianpanliuqin[index].innerText = shishen;
+                        break;
+                    case '丁':
+                        tianpanliuqin[index].innerText = shangguan;
+                        break;
+                    case '戊':
+                        tianpanliuqin[index].innerText = piancai;
+                        break;
+                    case '己':
+                        tianpanliuqin[index].innerText = zhengcai;
+                        break;
+                    case '庚':
+                        tianpanliuqin[index].innerText = qisha;
+                        break;
+                    case '辛':
+                        tianpanliuqin[index].innerText = zhengguan;
+                        break;
+                    case '壬':
+                        tianpanliuqin[index].innerText = pianyin;
+                        break;
+                    case '癸':
+                        tianpanliuqin[index].innerText = zhengyin;
+                        break;
+                }
+                break;
+            case '乙':
+                switch (element.innerText) {
+                    case '甲':
+                        tianpanliuqin[index].innerText = jiecai;
+                        break;
+                    case '乙':
+                        tianpanliuqin[index].innerText = bijian;
+                        break;
+                    case '丙':
+                        tianpanliuqin[index].innerText = shangguan;
+                        break;
+                    case '丁':
+                        tianpanliuqin[index].innerText = shishen;
+                        break;
+                    case '戊':
+                        tianpanliuqin[index].innerText = zhengcai;
+                        break;
+                    case '己':
+                        tianpanliuqin[index].innerText = piancai;
+                        break;
+                    case '庚':
+                        tianpanliuqin[index].innerText = zhengguan;
+                        break;
+                    case '辛':
+                        tianpanliuqin[index].innerText = qisha;
+                        break;
+                    case '壬':
+                        tianpanliuqin[index].innerText = zhengyin;
+                        break;
+                    case '癸':
+                        tianpanliuqin[index].innerText = pianyin;
+                        break;
+                }
+                break;
+            case '丙':
+                switch (element.innerText) {
+                    case '甲':
+                        tianpanliuqin[index].innerText = pianyin;
+                        break;
+                    case '乙':
+                        tianpanliuqin[index].innerText = zhengyin;
+                        break;
+                    case '丙':
+                        tianpanliuqin[index].innerText = bijian;
+                        break;
+                    case '丁':
+                        tianpanliuqin[index].innerText = jiecai;
+                        break;
+                    case '戊':
+                        tianpanliuqin[index].innerText = shishen;
+                        break;
+                    case '己':
+                        tianpanliuqin[index].innerText = shangguan;
+                        break;
+                    case '庚':
+                        tianpanliuqin[index].innerText = piancai;
+                        break;
+                    case '辛':
+                        tianpanliuqin[index].innerText = zhengcai;
+                        break;
+                    case '壬':
+                        tianpanliuqin[index].innerText = qisha;
+                        break;
+                    case '癸':
+                        tianpanliuqin[index].innerText = zhengguan;
+                        break;
+                }
+                break;
+            case '丁':
+                switch (element.innerText) {
+                    case '甲':
+                        tianpanliuqin[index].innerText = zhengyin;
+                        break;
+                    case '乙':
+                        tianpanliuqin[index].innerText = pianyin;
+                        break;
+                    case '丙':
+                        tianpanliuqin[index].innerText = jiecai;
+                        break;
+                    case '丁':
+                        tianpanliuqin[index].innerText = bijian;
+                        break;
+                    case '戊':
+                        tianpanliuqin[index].innerText = shangguan;
+                        break;
+                    case '己':
+                        tianpanliuqin[index].innerText = shishen;
+                        break;
+                    case '庚':
+                        tianpanliuqin[index].innerText = piancai;
+                        break;
+                    case '辛':
+                        tianpanliuqin[index].innerText = zhengcai;
+                        break;
+                    case '壬':
+                        tianpanliuqin[index].innerText = zhengguan;
+                        break;
+                    case '癸':
+                        tianpanliuqin[index].innerText = qisha;
+                        break;
+                }
+                break;
+            case '戊':
+                switch (element.innerText) {
+                    case '甲':
+                        tianpanliuqin[index].innerText = qisha;
+                        break;
+                    case '乙':
+                        tianpanliuqin[index].innerText = zhengguan;
+                        break;
+                    case '丙':
+                        tianpanliuqin[index].innerText = pianyin;
+                        break;
+                    case '丁':
+                        tianpanliuqin[index].innerText = zhengyin;
+                        break;
+                    case '戊':
+                        tianpanliuqin[index].innerText = bijian;
+                        break;
+                    case '己':
+                        tianpanliuqin[index].innerText = jiecai;
+                        break;
+                    case '庚':
+                        tianpanliuqin[index].innerText = shishen;
+                        break;
+                    case '辛':
+                        tianpanliuqin[index].innerText = shangguan;
+                        break;
+                    case '壬':
+                        tianpanliuqin[index].innerText = piancai;
+                        break;
+                    case '癸':
+                        tianpanliuqin[index].innerText = zhengcai;
+                        break;
+                }
+                break;
+            case '己':
+                switch (element.innerText) {
+                    case '甲':
+                        tianpanliuqin[index].innerText = zhengguan;
+                        break;
+                    case '乙':
+                        tianpanliuqin[index].innerText = qisha;
+                        break;
+                    case '丙':
+                        tianpanliuqin[index].innerText = zhengyin;
+                        break;
+                    case '丁':
+                        tianpanliuqin[index].innerText = pianyin;
+                        break;
+                    case '戊':
+                        tianpanliuqin[index].innerText = jiecai;
+                        break;
+                    case '己':
+                        tianpanliuqin[index].innerText = bijian;
+                        break;
+                    case '庚':
+                        tianpanliuqin[index].innerText = shangguan;
+                        break;
+                    case '辛':
+                        tianpanliuqin[index].innerText = shishen;
+                        break;
+                    case '壬':
+                        tianpanliuqin[index].innerText = zhengcai;
+                        break;
+                    case '癸':
+                        tianpanliuqin[index].innerText = piancai;
+                        break;
+                }
+                break;
+            case '庚':
+                switch (element.innerText) {
+                    case '甲':
+                        tianpanliuqin[index].innerText = piancai;
+                        break;
+                    case '乙':
+                        tianpanliuqin[index].innerText = zhengcai;
+                        break;
+                    case '丙':
+                        tianpanliuqin[index].innerText = qisha;
+                        break;
+                    case '丁':
+                        tianpanliuqin[index].innerText = zhengguan;
+                        break;
+                    case '戊':
+                        tianpanliuqin[index].innerText = pianyin;
+                        break;
+                    case '己':
+                        tianpanliuqin[index].innerText = zhengyin;
+                        break;
+                    case '庚':
+                        tianpanliuqin[index].innerText = bijian;
+                        break;
+                    case '辛':
+                        tianpanliuqin[index].innerText = jiecai;
+                        break;
+                    case '壬':
+                        tianpanliuqin[index].innerText = shishen;
+                        break;
+                    case '癸':
+                        tianpanliuqin[index].innerText = shangguan;
+                        break;
+                }
+                break;
+            case '辛':
+                switch (element.innerText) {
+                    case '甲':
+                        tianpanliuqin[index].innerText = zhengcai;
+                        break;
+                    case '乙':
+                        tianpanliuqin[index].innerText = piancai;
+                        break;
+                    case '丙':
+                        tianpanliuqin[index].innerText = zhengguan;
+                        break;
+                    case '丁':
+                        tianpanliuqin[index].innerText = qisha;
+                        break;
+                    case '戊':
+                        tianpanliuqin[index].innerText = zhengyin;
+                        break;
+                    case '己':
+                        tianpanliuqin[index].innerText = pianyin;
+                        break;
+                    case '庚':
+                        tianpanliuqin[index].innerText = jiecai;
+                        break;
+                    case '辛':
+                        tianpanliuqin[index].innerText = bijian;
+                        break;
+                    case '壬':
+                        tianpanliuqin[index].innerText = shangguan;
+                        break;
+                    case '癸':
+                        tianpanliuqin[index].innerText = shishen;
+                        break;
+                }
+                break;
+            case '壬':
+                switch (element.innerText) {
+                    case '甲':
+                        tianpanliuqin[index].innerText = shishen;
+                        break;
+                    case '乙':
+                        tianpanliuqin[index].innerText = shangguan;
+                        break;
+                    case '丙':
+                        tianpanliuqin[index].innerText = piancai;
+                        break;
+                    case '丁':
+                        tianpanliuqin[index].innerText = zhengcai;
+                        break;
+                    case '戊':
+                        tianpanliuqin[index].innerText = qisha;
+                        break;
+                    case '己':
+                        tianpanliuqin[index].innerText = zhengguan;
+                        break;
+                    case '庚':
+                        tianpanliuqin[index].innerText = pianyin;
+                        break;
+                    case '辛':
+                        tianpanliuqin[index].innerText = zhengyin;
+                        break;
+                    case '壬':
+                        tianpanliuqin[index].innerText = bijian;
+                        break;
+                    case '癸':
+                        tianpanliuqin[index].innerText = jiecai;
+                        break;
+                }
+                break;
+            case '癸':
+                switch (element.innerText) {
+                    case '甲':
+                        tianpanliuqin[index].innerText = shangguan;
+                        break;
+                    case '乙':
+                        tianpanliuqin[index].innerText = shishen;
+                        break;
+                    case '丙':
+                        tianpanliuqin[index].innerText = zhengcai;
+                        break;
+                    case '丁':
+                        tianpanliuqin[index].innerText = piancai;
+                        break;
+                    case '戊':
+                        tianpanliuqin[index].innerText = zhengguan;
+                        break;
+                    case '己':
+                        tianpanliuqin[index].innerText = qisha;
+                        break;
+                    case '庚':
+                        tianpanliuqin[index].innerText = zhengyin;
+                        break;
+                    case '辛':
+                        tianpanliuqin[index].innerText = pianyin;
+                        break;
+                    case '壬':
+                        tianpanliuqin[index].innerText = jiecai;
+                        break;
+                    case '癸':
+                        tianpanliuqin[index].innerText = bijian;
+                        break;
+                }
+                break;
+        }
+    });
+    dipangan.forEach((element, index) => {
+        switch (shigan) {
+            case '甲':
+                switch (element.innerText) {
+                    case '甲':
+                        dipanliuqin[index].innerText = bijian;
+                        break;
+                    case '乙':
+                        dipanliuqin[index].innerText = jiecai;
+                        break;
+                    case '丙':
+                        dipanliuqin[index].innerText = shishen;
+                        break;
+                    case '丁':
+                        dipanliuqin[index].innerText = shangguan;
+                        break;
+                    case '戊':
+                        dipanliuqin[index].innerText = piancai;
+                        break;
+                    case '己':
+                        dipanliuqin[index].innerText = zhengcai;
+                        break;
+                    case '庚':
+                        dipanliuqin[index].innerText = qisha;
+                        break;
+                    case '辛':
+                        dipanliuqin[index].innerText = zhengguan;
+                        break;
+                    case '壬':
+                        dipanliuqin[index].innerText = pianyin;
+                        break;
+                    case '癸':
+                        dipanliuqin[index].innerText = zhengyin;
+                        break;
+                }
+                break;
+            case '乙':
+                switch (element.innerText) {
+                    case '甲':
+                        dipanliuqin[index].innerText = jiecai;
+                        break;
+                    case '乙':
+                        dipanliuqin[index].innerText = bijian;
+                        break;
+                    case '丙':
+                        dipanliuqin[index].innerText = shangguan;
+                        break;
+                    case '丁':
+                        dipanliuqin[index].innerText = shishen;
+                        break;
+                    case '戊':
+                        dipanliuqin[index].innerText = zhengcai;
+                        break;
+                    case '己':
+                        dipanliuqin[index].innerText = piancai;
+                        break;
+                    case '庚':
+                        dipanliuqin[index].innerText = zhengguan;
+                        break;
+                    case '辛':
+                        dipanliuqin[index].innerText = qisha;
+                        break;
+                    case '壬':
+                        dipanliuqin[index].innerText = zhengyin;
+                        break;
+                    case '癸':
+                        dipanliuqin[index].innerText = pianyin;
+                        break;
+                }
+                break;
+            case '丙':
+                switch (element.innerText) {
+                    case '甲':
+                        dipanliuqin[index].innerText = pianyin;
+                        break;
+                    case '乙':
+                        dipanliuqin[index].innerText = zhengyin;
+                        break;
+                    case '丙':
+                        dipanliuqin[index].innerText = bijian;
+                        break;
+                    case '丁':
+                        dipanliuqin[index].innerText = jiecai;
+                        break;
+                    case '戊':
+                        dipanliuqin[index].innerText = shishen;
+                        break;
+                    case '己':
+                        dipanliuqin[index].innerText = shangguan;
+                        break;
+                    case '庚':
+                        dipanliuqin[index].innerText = piancai;
+                        break;
+                    case '辛':
+                        dipanliuqin[index].innerText = zhengcai;
+                        break;
+                    case '壬':
+                        dipanliuqin[index].innerText = qisha;
+                        break;
+                    case '癸':
+                        dipanliuqin[index].innerText = zhengguan;
+                        break;
+                }
+                break;
+            case '丁':
+                switch (element.innerText) {
+                    case '甲':
+                        dipanliuqin[index].innerText = zhengyin;
+                        break;
+                    case '乙':
+                        dipanliuqin[index].innerText = pianyin;
+                        break;
+                    case '丙':
+                        dipanliuqin[index].innerText = jiecai;
+                        break;
+                    case '丁':
+                        dipanliuqin[index].innerText = bijian;
+                        break;
+                    case '戊':
+                        dipanliuqin[index].innerText = shangguan;
+                        break;
+                    case '己':
+                        dipanliuqin[index].innerText = shishen;
+                        break;
+                    case '庚':
+                        dipanliuqin[index].innerText = piancai;
+                        break;
+                    case '辛':
+                        dipanliuqin[index].innerText = zhengcai;
+                        break;
+                    case '壬':
+                        dipanliuqin[index].innerText = zhengguan;
+                        break;
+                    case '癸':
+                        dipanliuqin[index].innerText = qisha;
+                        break;
+                }
+                break;
+            case '戊':
+                switch (element.innerText) {
+                    case '甲':
+                        dipanliuqin[index].innerText = qisha;
+                        break;
+                    case '乙':
+                        dipanliuqin[index].innerText = zhengguan;
+                        break;
+                    case '丙':
+                        dipanliuqin[index].innerText = pianyin;
+                        break;
+                    case '丁':
+                        dipanliuqin[index].innerText = zhengyin;
+                        break;
+                    case '戊':
+                        dipanliuqin[index].innerText = bijian;
+                        break;
+                    case '己':
+                        dipanliuqin[index].innerText = jiecai;
+                        break;
+                    case '庚':
+                        dipanliuqin[index].innerText = shishen;
+                        break;
+                    case '辛':
+                        dipanliuqin[index].innerText = shangguan;
+                        break;
+                    case '壬':
+                        dipanliuqin[index].innerText = piancai;
+                        break;
+                    case '癸':
+                        dipanliuqin[index].innerText = zhengcai;
+                        break;
+                }
+                break;
+            case '己':
+                switch (element.innerText) {
+                    case '甲':
+                        dipanliuqin[index].innerText = zhengguan;
+                        break;
+                    case '乙':
+                        dipanliuqin[index].innerText = qisha;
+                        break;
+                    case '丙':
+                        dipanliuqin[index].innerText = zhengyin;
+                        break;
+                    case '丁':
+                        dipanliuqin[index].innerText = pianyin;
+                        break;
+                    case '戊':
+                        dipanliuqin[index].innerText = jiecai;
+                        break;
+                    case '己':
+                        dipanliuqin[index].innerText = bijian;
+                        break;
+                    case '庚':
+                        dipanliuqin[index].innerText = shangguan;
+                        break;
+                    case '辛':
+                        dipanliuqin[index].innerText = shishen;
+                        break;
+                    case '壬':
+                        dipanliuqin[index].innerText = zhengcai;
+                        break;
+                    case '癸':
+                        dipanliuqin[index].innerText = piancai;
+                        break;
+                }
+                break;
+            case '庚':
+                switch (element.innerText) {
+                    case '甲':
+                        dipanliuqin[index].innerText = piancai;
+                        break;
+                    case '乙':
+                        dipanliuqin[index].innerText = zhengcai;
+                        break;
+                    case '丙':
+                        dipanliuqin[index].innerText = qisha;
+                        break;
+                    case '丁':
+                        dipanliuqin[index].innerText = zhengguan;
+                        break;
+                    case '戊':
+                        dipanliuqin[index].innerText = pianyin;
+                        break;
+                    case '己':
+                        dipanliuqin[index].innerText = zhengyin;
+                        break;
+                    case '庚':
+                        dipanliuqin[index].innerText = bijian;
+                        break;
+                    case '辛':
+                        dipanliuqin[index].innerText = jiecai;
+                        break;
+                    case '壬':
+                        dipanliuqin[index].innerText = shishen;
+                        break;
+                    case '癸':
+                        dipanliuqin[index].innerText = shangguan;
+                        break;
+                }
+                break;
+            case '辛':
+                switch (element.innerText) {
+                    case '甲':
+                        dipanliuqin[index].innerText = zhengcai;
+                        break;
+                    case '乙':
+                        dipanliuqin[index].innerText = piancai;
+                        break;
+                    case '丙':
+                        dipanliuqin[index].innerText = zhengguan;
+                        break;
+                    case '丁':
+                        dipanliuqin[index].innerText = qisha;
+                        break;
+                    case '戊':
+                        dipanliuqin[index].innerText = zhengyin;
+                        break;
+                    case '己':
+                        dipanliuqin[index].innerText = pianyin;
+                        break;
+                    case '庚':
+                        dipanliuqin[index].innerText = jiecai;
+                        break;
+                    case '辛':
+                        dipanliuqin[index].innerText = bijian;
+                        break;
+                    case '壬':
+                        dipanliuqin[index].innerText = shangguan;
+                        break;
+                    case '癸':
+                        dipanliuqin[index].innerText = shishen;
+                        break;
+                }
+                break;
+            case '壬':
+                switch (element.innerText) {
+                    case '甲':
+                        dipanliuqin[index].innerText = shishen;
+                        break;
+                    case '乙':
+                        dipanliuqin[index].innerText = shangguan;
+                        break;
+                    case '丙':
+                        dipanliuqin[index].innerText = piancai;
+                        break;
+                    case '丁':
+                        dipanliuqin[index].innerText = zhengcai;
+                        break;
+                    case '戊':
+                        dipanliuqin[index].innerText = qisha;
+                        break;
+                    case '己':
+                        dipanliuqin[index].innerText = zhengguan;
+                        break;
+                    case '庚':
+                        dipanliuqin[index].innerText = pianyin;
+                        break;
+                    case '辛':
+                        dipanliuqin[index].innerText = zhengyin;
+                        break;
+                    case '壬':
+                        dipanliuqin[index].innerText = bijian;
+                        break;
+                    case '癸':
+                        dipanliuqin[index].innerText = jiecai;
+                        break;
+                }
+                break;
+            case '癸':
+                switch (element.innerText) {
+                    case '甲':
+                        dipanliuqin[index].innerText = shangguan;
+                        break;
+                    case '乙':
+                        dipanliuqin[index].innerText = shishen;
+                        break;
+                    case '丙':
+                        dipanliuqin[index].innerText = zhengcai;
+                        break;
+                    case '丁':
+                        dipanliuqin[index].innerText = piancai;
+                        break;
+                    case '戊':
+                        dipanliuqin[index].innerText = zhengguan;
+                        break;
+                    case '己':
+                        dipanliuqin[index].innerText = qisha;
+                        break;
+                    case '庚':
+                        dipanliuqin[index].innerText = zhengyin;
+                        break;
+                    case '辛':
+                        dipanliuqin[index].innerText = pianyin;
+                        break;
+                    case '壬':
+                        dipanliuqin[index].innerText = jiecai;
+                        break;
+                    case '癸':
+                        dipanliuqin[index].innerText = bijian;
+                        break;
+                }
+                break;
         }
     });
     tianpanliuqin.forEach((element) => {

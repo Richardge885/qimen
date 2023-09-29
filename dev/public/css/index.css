@@ -1191,20 +1191,20 @@ video {
   position: absolute;
   top: 32px;
   left: 119px;
-  font-weight: 300;
+  font-weight: 400;
   font-size: 14px;
-  color: #666666;
-  /* color: black; */
+  /*color: #666666;*/
+  color: black;
 }
 
 .dipanliuqin {
   position: absolute;
   top: 117px;
   left: 119px;
-  font-weight: 300;
+  font-weight: 400;
   font-size: 14px;
-  color: #666666;
-  /* color: black; */
+  /*color: #666666;*/
+  color: black;
 }
 
 .simplified-liuqin {

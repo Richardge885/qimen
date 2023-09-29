@@ -47,10 +47,6 @@
 
         <!-- submenu list -->
         <div id="menu" class="menu bg-[#eeeeee] w-[50%] flex flex-col justify-center gap-[30px] items-center z-[40]">
-            <!-- <div id="home-show-saved-data"
-                class="text-xl text-center hover:text-btn hover:underline cursor-pointer font-pingfang w-[275px]">
-                查阅记录
-            </div> -->
             <div class="bg-[#d1d1d1d5] h-[2px] w-[265px]"></div>
             <select id="theme" class="font-pingfang text-xl font-normal text-center w-[201px]" size="1">
                 <option value="默认">默认主题</option>
@@ -60,13 +56,16 @@
             <label class="text-xl font-pingfang">繁体盘面
                 <input type="checkbox" id="classic-chinese" class="w-[15px] h-[15px] font-pingfang" />
             </label>
+
             <div class="bg-[#d1d1d1d5] h-[2px] w-[265px]"></div>
-            <label class="text-xl font-pingfang">飞盘六亲
-                <input type="checkbox" id="liuqin-toggle" class="w-[15px] h-[15px] font-pingfang" />
-            </label>
-            <label class="text-xl font-pingfang">飞盘六亲简化
-                <input type="checkbox" id="liuqin-toggle-simplified" class="w-[15px] h-[15px] font-pingfang" />
-            </label>
+            <div class='text-xl font-pingfang'>飞盘六亲</div>
+            <select id="liuqin" class="font-pingfang text-lg font-normal text-center w-[201px]" size="1">
+                <option value="不显示">不显示</option>
+                <option value="六亲">六亲</option>
+                <option value="六亲简化">六亲简化</option>
+                <option value="十神">十神</option>
+                <option value="十神简化">十神简化</option>
+            </select>
             <div class="bg-[#d1d1d1d5] h-[2px] w-[265px]"></div>
             <div id="home-guanyu"
                 class="text-xl text-center hover:text-btn hover:underline cursor-pointer font-pingfang w-[275px]">

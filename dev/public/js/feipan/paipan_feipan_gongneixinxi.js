@@ -2378,146 +2378,907 @@ function feipan_info(info) {
     }
     function getLiuQin(tiangan, gongwei) {
         const shigan = document.getElementById('shi').innerText.charAt(0);
-        const xiongdi = '（兄弟）';
-        const guangui = '（官鬼）';
-        const fumu = '（父母）';
-        const qicai = '（妻财）';
-        const zisun = '（子孙）';
-        if (shigan == '甲' || shigan == '乙') {
-            if (tiangan == '甲' || tiangan == '乙') {
-                if (gongwei == '震' || gongwei == '巽') {
-                    return '<span style="color: red">' + xiongdi + '</span>';
+        switch (shigan) {
+            case '甲':
+                switch (tiangan) {
+                    case '甲':
+                        switch (gongwei) {
+                            case '震':
+                                return '<span style="color: red">（比肩）</span>';
+                            case '巽':
+                                return '<span style="color: red">（比肩）</span>';
+                            default:
+                                return '(比肩)';
+                        }
+                    case '乙':
+                        switch (gongwei) {
+                            case '震':
+                                return '<span style="color: red">（劫财）</span>';
+                            case '巽':
+                                return '<span style="color: red">（劫财）</span>';
+                            default:
+                                return '（劫财）';
+                        }
+                    case '丙':
+                        switch (gongwei) {
+                            case '离':
+                                return '<span style="color: red">（食神）</span>';
+                            default:
+                                return '（食神）';
+                        }
+                    case '丁':
+                        switch (gongwei) {
+                            case '离':
+                                return '<span style="color: red">（伤官）</span>';
+                            default:
+                                return '（伤官）';
+                        }
+                    case '戊':
+                        switch (gongwei) {
+                            case '坤':
+                                return '<span style="color: red">（偏财）</span>';
+                            case '中':
+                                return '<span style="color: red">（偏财）</span>';
+                            case '艮':
+                                return '<span style="color: red">（偏财）</span>';
+                            default:
+                                return '（偏财）';
+                        }
+                    case '己':
+                        switch (gongwei) {
+                            case '坤':
+                                return '<span style="color: red">（正财）</span>';
+                            case '中':
+                                return '<span style="color: red">（正财）</span>';
+                            case '艮':
+                                return '<span style="color: red">（正财）</span>';
+                            default:
+                                return '（正财）';
+                        }
+                    case '庚':
+                        switch (gongwei) {
+                            case '乾':
+                                return '<span style="color: red">（七杀）</span>';
+                            case '兑':
+                                return '<span style="color: red">（七杀）</span>';
+                            default:
+                                return '（七杀）';
+                        }
+                    case '辛':
+                        switch (gongwei) {
+                            case '乾':
+                                return '<span style="color: red">（正官）</span>';
+                            case '兑':
+                                return '<span style="color: red">（正官）</span>';
+                            default:
+                                return '（正官）';
+                        }
+                    case '壬':
+                        switch (gongwei) {
+                            case '坎':
+                                return '<span style="color: red">（偏印）</span>';
+                            default:
+                                return '（偏印）';
+                        }
+                    case '癸':
+                        switch (gongwei) {
+                            case '坎':
+                                return '<span style="color: red">（正印）</span>';
+                            default:
+                                return '（正印）';
+                        }
                 }
-                return xiongdi;
-            } else if (tiangan == '丙' || tiangan == '丁') {
-                if (gongwei == '离') {
-                    return '<span style="color: red">' + zisun + '</span>';
+                break;
+            case '乙':
+                switch (tiangan) {
+                    case '甲':
+                        switch (gongwei) {
+                            case '震':
+                                return '<span style="color: red">（劫财）</span>';
+                            case '巽':
+                                return '<span style="color: red">（劫财）</span>';
+                            default:
+                                return '（劫财）';
+                        }
+                    case '乙':
+                        switch (gongwei) {
+                            case '震':
+                                return '<span style="color: red">（比肩）</span>';
+                            case '巽':
+                                return '<span style="color: red">（比肩）</span>';
+                            default:
+                                return '（比肩）';
+                        }
+                    case '丙':
+                        switch (gongwei) {
+                            case '离':
+                                return '<span style="color: red">（伤官）</span>';
+                            default:
+                                return '（伤官）';
+                        }
+                    case '丁':
+                        switch (gongwei) {
+                            case '离':
+                                return '<span style="color: red">（食神）</span>';
+                            default:
+                                return '（食神）';
+                        }
+                    case '戊':
+                        switch (gongwei) {
+                            case '坤':
+                                return '<span style="color: red">（正财）</span>';
+                            case '中':
+                                return '<span style="color: red">（正财）</span>';
+                            case '艮':
+                                return '<span style="color: red">（正财）</span>';
+                            default:
+                                return '（正财）';
+                        }
+                    case '己':
+                        switch (gongwei) {
+                            case '坤':
+                                return '<span style="color: red">（偏财）</span>';
+                            case '中':
+                                return '<span style="color: red">（偏财）</span>';
+                            case '艮':
+                                return '<span style="color: red">（偏财）</span>';
+                            default:
+                                return '（偏财）';
+                        }
+                    case '庚':
+                        switch (gongwei) {
+                            case '乾':
+                                return '<span style="color: red">（正官）</span>';
+                            case '兑':
+                                return '<span style="color: red">（正官）</span>';
+                            default:
+                                return '（正官）';
+                        }
+                    case '辛':
+                        switch (gongwei) {
+                            case '乾':
+                                return '<span style="color: red">（七杀）</span>';
+                            case '兑':
+                                return '<span style="color: red">（七杀）</span>';
+                            default:
+                                return '（七杀）';
+                        }
+                    case '壬':
+                        switch (gongwei) {
+                            case '坎':
+                                return '<span style="color: red">（正印）</span>';
+                            default:
+                                return '（正印）';
+                        }
+                    case '癸':
+                        switch (gongwei) {
+                            case '坎':
+                                return '<span style="color: red">（偏印）</span>';
+                            default:
+                                return '（偏印）';
+                        }
                 }
-                return zisun;
-            } else if (tiangan == '戊' || tiangan == '己') {
-                if (gongwei == '坤' || gongwei == '中' || gongwei == '艮') {
-                    return '<span style="color: red">' + qicai + '</span>';
+                break;
+            case '丙':
+                switch (tiangan) {
+                    case '甲':
+                        switch (gongwei) {
+                            case '震':
+                                return '<span style="color: red">（偏印）</span>';
+                            case '巽':
+                                return '<span style="color: red">（偏印）</span>';
+                            default:
+                                return '（偏印）';
+                        }
+                    case '乙':
+                        switch (gongwei) {
+                            case '震':
+                                return '<span style="color: red">（正印）</span>';
+                            case '巽':
+                                return '<span style="color: red">（正印）</span>';
+                            default:
+                                return '（正印）';
+                        }
+                    case '丙':
+                        switch (gongwei) {
+                            case '离':
+                                return '<span style="color: red">（比肩）</span>';
+                            default:
+                                return '（比肩）';
+                        }
+                    case '丁':
+                        switch (gongwei) {
+                            case '离':
+                                return '<span style="color: red">（劫财）</span>';
+                            default:
+                                return '（劫财）';
+                        }
+                    case '戊':
+                        switch (gongwei) {
+                            case '坤':
+                                return '<span style="color: red">（食神）</span>';
+                            case '中':
+                                return '<span style="color: red">（食神）</span>';
+                            case '艮':
+                                return '<span style="color: red">（食神）</span>';
+                            default:
+                                return '（食神）';
+                        }
+                    case '己':
+                        switch (gongwei) {
+                            case '坤':
+                                return '<span style="color: red">（伤官）</span>';
+                            case '中':
+                                return '<span style="color: red">（伤官）</span>';
+                            case '艮':
+                                return '<span style="color: red">（伤官）</span>';
+                            default:
+                                return '（伤官）';
+                        }
+                    case '庚':
+                        switch (gongwei) {
+                            case '乾':
+                                return '<span style="color: red">（偏财）</span>';
+                            case '兑':
+                                return '<span style="color: red">（偏财）</span>';
+                            default:
+                                return '（偏财）';
+                        }
+                    case '辛':
+                        switch (gongwei) {
+                            case '乾':
+                                return '<span style="color: red">（正财）</span>';
+                            case '兑':
+                                return '<span style="color: red">（正财）</span>';
+                            default:
+                                return '（正财）';
+                        }
+                    case '壬':
+                        switch (gongwei) {
+                            case '坎':
+                                return '<span style="color: red">（七杀）</span>';
+                            default:
+                                return '（七杀）';
+                        }
+                    case '癸':
+                        switch (gongwei) {
+                            case '坎':
+                                return '<span style="color: red">（正官）</span>';
+                            default:
+                                return '（正官）';
+                        }
                 }
-                return qicai;
-            } else if (tiangan == '庚' || tiangan == '辛') {
-                if (gongwei == '乾' || gongwei == '兑') {
-                    return '<span style="color: red">' + guangui + '</span>';
+                break;
+            case '丁':
+                switch (tiangan) {
+                    case '甲':
+                        switch (gongwei) {
+                            case '震':
+                                return '<span style="color: red">（正印）</span>';
+                            case '巽':
+                                return '<span style="color: red">（正印）</span>';
+                            default:
+                                return '（正印）';
+                        }
+                    case '乙':
+                        switch (gongwei) {
+                            case '震':
+                                return '<span style="color: red">（偏印）</span>';
+                            case '巽':
+                                return '<span style="color: red">（偏印）</span>';
+                            default:
+                                return '（偏印）';
+                        }
+                    case '丙':
+                        switch (gongwei) {
+                            case '离':
+                                return '<span style="color: red">（劫财）</span>';
+                            default:
+                                return '（劫财）';
+                        }
+                    case '丁':
+                        switch (gongwei) {
+                            case '离':
+                                return '<span style="color: red">（比肩）</span>';
+                            default:
+                                return '（比肩）';
+                        }
+                    case '戊':
+                        switch (gongwei) {
+                            case '坤':
+                                return '<span style="color: red">（伤官）</span>';
+                            case '中':
+                                return '<span style="color: red">（伤官）</span>';
+                            case '艮':
+                                return '<span style="color: red">（伤官）</span>';
+                            default:
+                                return '（伤官）';
+                        }
+                    case '己':
+                        switch (gongwei) {
+                            case '坤':
+                                return '<span style="color: red">（食神）</span>';
+                            case '中':
+                                return '<span style="color: red">（食神）</span>';
+                            case '艮':
+                                return '<span style="color: red">（食神）</span>';
+                            default:
+                                return '（食神）';
+                        }
+                    case '庚':
+                        switch (gongwei) {
+                            case '乾':
+                                return '<span style="color: red">（正财）</span>';
+                            case '兑':
+                                return '<span style="color: red">（正财）</span>';
+                            default:
+                                return '（正财）';
+                        }
+                    case '辛':
+                        switch (gongwei) {
+                            case '乾':
+                                return '<span style="color: red">（偏财）</span>';
+                            case '兑':
+                                return '<span style="color: red">（偏财）</span>';
+                            default:
+                                return '（偏财）';
+                        }
+                    case '壬':
+                        switch (gongwei) {
+                            case '坎':
+                                return '<span style="color: red">（正官）</span>';
+                            default:
+                                return '（正官）';
+                        }
+                    case '癸':
+                        switch (gongwei) {
+                            case '坎':
+                                return '<span style="color: red">（七杀）</span>';
+                            default:
+                                return '（七杀）';
+                        }
                 }
-                return guangui;
-            } else if (tiangan == '壬' || tiangan == '癸') {
-                if (gongwei == '坎') {
-                    return '<span style="color: red">' + fumu + '</span>';
+                break;
+            case '戊':
+                switch (tiangan) {
+                    case '甲':
+                        switch (gongwei) {
+                            case '震':
+                                return '<span style="color: red">（七杀）</span>';
+                            case '巽':
+                                return '<span style="color: red">（七杀）</span>';
+                            default:
+                                return '（七杀）';
+                        }
+                    case '乙':
+                        switch (gongwei) {
+                            case '震':
+                                return '<span style="color: red">（正官）</span>';
+                            case '巽':
+                                return '<span style="color: red">（正官）</span>';
+                            default:
+                                return '（正官）';
+                        }
+                    case '丙':
+                        switch (gongwei) {
+                            case '离':
+                                return '<span style="color: red">（偏印）</span>';
+                            default:
+                                return '（偏印）';
+                        }
+                    case '丁':
+                        switch (gongwei) {
+                            case '离':
+                                return '<span style="color: red">（正印）</span>';
+                            default:
+                                return '（正印）';
+                        }
+                    case '戊':
+                        switch (gongwei) {
+                            case '坤':
+                                return '<span style="color: red">（比肩）</span>';
+                            case '中':
+                                return '<span style="color: red">（比肩）</span>';
+                            case '艮':
+                                return '<span style="color: red">（比肩）</span>';
+                            default:
+                                return '（比肩）';
+                        }
+                    case '己':
+                        switch (gongwei) {
+                            case '坤':
+                                return '<span style="color: red">（劫财）</span>';
+                            case '中':
+                                return '<span style="color: red">（劫财）</span>';
+                            case '艮':
+                                return '<span style="color: red">（劫财）</span>';
+                            default:
+                                return '（劫财）';
+                        }
+                    case '庚':
+                        switch (gongwei) {
+                            case '乾':
+                                return '<span style="color: red">（食神）</span>';
+                            case '兑':
+                                return '<span style="color: red">（食神）</span>';
+                            default:
+                                return '（食神）';
+                        }
+                    case '辛':
+                        switch (gongwei) {
+                            case '乾':
+                                return '<span style="color: red">（伤官）</span>';
+                            case '兑':
+                                return '<span style="color: red">（伤官）</span>';
+                            default:
+                                return '（伤官）';
+                        }
+                    case '壬':
+                        switch (gongwei) {
+                            case '坎':
+                                return '<span style="color: red">（偏财）</span>';
+                            default:
+                                return '（偏财）';
+                        }
+                    case '癸':
+                        switch (gongwei) {
+                            case '坎':
+                                return '<span style="color: red">（正财）</span>';
+                            default:
+                                return '（正财）';
+                        }
                 }
-                return fumu;
-            }
-        } else if (shigan == '丙' || shigan == '丁') {
-            if (tiangan == '甲' || tiangan == '乙') {
-                if (gongwei == '震' || gongwei == '巽') {
-                    return '<span style="color: red">' + fumu + '</span>';
+                break;
+            case '己':
+                switch (tiangan) {
+                    case '甲':
+                        switch (gongwei) {
+                            case '震':
+                                return '<span style="color: red">（正官）</span>';
+                            case '巽':
+                                return '<span style="color: red">（正官）</span>';
+                            default:
+                                return '（正官）';
+                        }
+                    case '乙':
+                        switch (gongwei) {
+                            case '震':
+                                return '<span style="color: red">（七杀）</span>';
+                            case '巽':
+                                return '<span style="color: red">（七杀）</span>';
+                            default:
+                                return '（七杀）';
+                        }
+                    case '丙':
+                        switch (gongwei) {
+                            case '离':
+                                return '<span style="color: red">（正印）</span>';
+                            default:
+                                return '（正印）';
+                        }
+                    case '丁':
+                        switch (gongwei) {
+                            case '离':
+                                return '<span style="color: red">（偏印）</span>';
+                            default:
+                                return '（偏印）';
+                        }
+                    case '戊':
+                        switch (gongwei) {
+                            case '坤':
+                                return '<span style="color: red">（劫财）</span>';
+                            case '中':
+                                return '<span style="color: red">（劫财）</span>';
+                            case '艮':
+                                return '<span style="color: red">（劫财）</span>';
+                            default:
+                                return '（劫财）';
+                        }
+                    case '己':
+                        switch (gongwei) {
+                            case '坤':
+                                return '<span style="color: red">（比肩）</span>';
+                            case '中':
+                                return '<span style="color: red">（比肩）</span>';
+                            case '艮':
+                                return '<span style="color: red">（比肩）</span>';
+                            default:
+                                return '（比肩）';
+                        }
+                    case '庚':
+                        switch (gongwei) {
+                            case '乾':
+                                return '<span style="color: red">（伤官）</span>';
+                            case '兑':
+                                return '<span style="color: red">（伤官）</span>';
+                            default:
+                                return '（伤官）';
+                        }
+                    case '辛':
+                        switch (gongwei) {
+                            case '乾':
+                                return '<span style="color: red">（食神）</span>';
+                            case '兑':
+                                return '<span style="color: red">（食神）</span>';
+                            default:
+                                return '（食神）';
+                        }
+                    case '壬':
+                        switch (gongwei) {
+                            case '坎':
+                                return '<span style="color: red">（正财）</span>';
+                            default:
+                                return '（正财）';
+                        }
+                    case '癸':
+                        switch (gongwei) {
+                            case '坎':
+                                return '<span style="color: red">（偏财）</span>';
+                            default:
+                                return '（偏财）';
+                        }
                 }
-                return fumu;
-            } else if (tiangan == '丙' || tiangan == '丁') {
-                if (gongwei == '离') {
-                    return '<span style="color: red">' + xiongdi + '</span>';
+                break;
+            case '庚':
+                switch (tiangan) {
+                    case '甲':
+                        switch (gongwei) {
+                            case '震':
+                                return '<span style="color: red">（偏财）</span>';
+                            case '巽':
+                                return '<span style="color: red">（偏财）</span>';
+                            default:
+                                return '（偏财）';
+                        }
+                    case '乙':
+                        switch (gongwei) {
+                            case '震':
+                                return '<span style="color: red">（正财）</span>';
+                            case '巽':
+                                return '<span style="color: red">（正财）</span>';
+                            default:
+                                return '（正财）';
+                        }
+                    case '丙':
+                        switch (gongwei) {
+                            case '离':
+                                return '<span style="color: red">（七杀）</span>';
+                            default:
+                                return '（七杀）';
+                        }
+                    case '丁':
+                        switch (gongwei) {
+                            case '离':
+                                return '<span style="color: red">（正官）</span>';
+                            default:
+                                return '（正官）';
+                        }
+                    case '戊':
+                        switch (gongwei) {
+                            case '坤':
+                                return '<span style="color: red">（偏印）</span>';
+                            case '中':
+                                return '<span style="color: red">（偏印）</span>';
+                            case '艮':
+                                return '<span style="color: red">（偏印）</span>';
+                            default:
+                                return '（偏印）';
+                        }
+                    case '己':
+                        switch (gongwei) {
+                            case '坤':
+                                return '<span style="color: red">（正印）</span>';
+                            case '中':
+                                return '<span style="color: red">（正印）</span>';
+                            case '艮':
+                                return '<span style="color: red">（正印）</span>';
+                            default:
+                                return '（正印）';
+                        }
+                    case '庚':
+                        switch (gongwei) {
+                            case '乾':
+                                return '<span style="color: red">（比肩）</span>';
+                            case '兑':
+                                return '<span style="color: red">（比肩）</span>';
+                            default:
+                                return '（比肩）';
+                        }
+                    case '辛':
+                        switch (gongwei) {
+                            case '乾':
+                                return '<span style="color: red">（劫财）</span>';
+                            case '兑':
+                                return '<span style="color: red">（劫财）</span>';
+                            default:
+                                return '（劫财）';
+                        }
+                    case '壬':
+                        switch (gongwei) {
+                            case '坎':
+                                return '<span style="color: red">（劫财）</span>';
+                            default:
+                                return '（劫财）';
+                        }
+                    case '癸':
+                        switch (gongwei) {
+                            case '坎':
+                                return '<span style="color: red">（伤官）</span>';
+                            default:
+                                return '（伤官）';
+                        }
                 }
-                return xiongdi;
-            } else if (tiangan == '戊' || tiangan == '己') {
-                if (gongwei == '坤' || gongwei == '中' || gongwei == '艮') {
-                    return '<span style="color: red">' + zisun + '</span>';
+                break;
+            case '辛':
+                switch (tiangan) {
+                    case '甲':
+                        switch (gongwei) {
+                            case '震':
+                                return '<span style="color: red">（正财）</span>';
+                            case '巽':
+                                return '<span style="color: red">（正财）</span>';
+                            default:
+                                return '（正财）';
+                        }
+                    case '乙':
+                        switch (gongwei) {
+                            case '震':
+                                return '<span style="color: red">（偏财）</span>';
+                            case '巽':
+                                return '<span style="color: red">（偏财）</span>';
+                            default:
+                                return '（偏财）';
+                        }
+                    case '丙':
+                        switch (gongwei) {
+                            case '离':
+                                return '<span style="color: red">（正官）</span>';
+                            default:
+                                return '（正官）';
+                        }
+                    case '丁':
+                        switch (gongwei) {
+                            case '离':
+                                return '<span style="color: red">（七杀）</span>';
+                            default:
+                                return '（七杀）';
+                        }
+                    case '戊':
+                        switch (gongwei) {
+                            case '坤':
+                                return '<span style="color: red">（正印）</span>';
+                            case '中':
+                                return '<span style="color: red">（正印）</span>';
+                            case '艮':
+                                return '<span style="color: red">（正印）</span>';
+                            default:
+                                return '（正印）';
+                        }
+                    case '己':
+                        switch (gongwei) {
+                            case '坤':
+                                return '<span style="color: red">（偏印）</span>';
+                            case '中':
+                                return '<span style="color: red">（偏印）</span>';
+                            case '艮':
+                                return '<span style="color: red">（偏印）</span>';
+                            default:
+                                return '（偏印）';
+                        }
+                    case '庚':
+                        switch (gongwei) {
+                            case '乾':
+                                return '<span style="color: red">（劫财）</span>';
+                            case '兑':
+                                return '<span style="color: red">（劫财）</span>';
+                            default:
+                                return '（劫财）';
+                        }
+                    case '辛':
+                        switch (gongwei) {
+                            case '乾':
+                                return '<span style="color: red">（比肩）</span>';
+                            case '兑':
+                                return '<span style="color: red">（比肩）</span>';
+                            default:
+                                return '（比肩）';
+                        }
+                    case '壬':
+                        switch (gongwei) {
+                            case '坎':
+                                return '<span style="color: red">（伤官）</span>';
+                            default:
+                                return '（伤官）';
+                        }
+                    case '癸':
+                        switch (gongwei) {
+                            case '坎':
+                                return '<span style="color: red">（食神）</span>';
+                            default:
+                                return '（食神）';
+                        }
                 }
-                return zisun;
-            } else if (tiangan == '庚' || tiangan == '辛') {
-                if (gongwei == '乾' || gongwei == '兑') {
-                    return '<span style="color: red">' + qicai + '</span>';
+                break;
+            case '壬':
+                switch (tiangan) {
+                    case '甲':
+                        switch (gongwei) {
+                            case '震':
+                                return '<span style="color: red">（食神）</span>';
+                            case '巽':
+                                return '<span style="color: red">（食神）</span>';
+                            default:
+                                return '（食神）';
+                        }
+                    case '乙':
+                        switch (gongwei) {
+                            case '震':
+                                return '<span style="color: red">（伤官）</span>';
+                            case '巽':
+                                return '<span style="color: red">（伤官）</span>';
+                            default:
+                                return '（伤官）';
+                        }
+                    case '丙':
+                        switch (gongwei) {
+                            case '离':
+                                return '<span style="color: red">（偏财）</span>';
+                            default:
+                                return '（偏财）';
+                        }
+                    case '丁':
+                        switch (gongwei) {
+                            case '离':
+                                return '<span style="color: red">（正财）</span>';
+                            default:
+                                return '（正财）';
+                        }
+                    case '戊':
+                        switch (gongwei) {
+                            case '坤':
+                                return '<span style="color: red">（七杀）</span>';
+                            case '中':
+                                return '<span style="color: red">（七杀）</span>';
+                            case '艮':
+                                return '<span style="color: red">（七杀）</span>';
+                            default:
+                                return '（七杀）';
+                        }
+                    case '己':
+                        switch (gongwei) {
+                            case '坤':
+                                return '<span style="color: red">（正官）</span>';
+                            case '中':
+                                return '<span style="color: red">（正官）</span>';
+                            case '艮':
+                                return '<span style="color: red">（正官）</span>';
+                            default:
+                                return '（正官）';
+                        }
+                    case '庚':
+                        switch (gongwei) {
+                            case '乾':
+                                return '<span style="color: red">（偏印）</span>';
+                            case '兑':
+                                return '<span style="color: red">（偏印）</span>';
+                            default:
+                                return '（偏印）';
+                        }
+                    case '辛':
+                        switch (gongwei) {
+                            case '乾':
+                                return '<span style="color: red">（正印）</span>';
+                            case '兑':
+                                return '<span style="color: red">（正印）</span>';
+                            default:
+                                return '（正印）';
+                        }
+                    case '壬':
+                        switch (gongwei) {
+                            case '坎':
+                                return '<span style="color: red">（比肩）</span>';
+                            default:
+                                return '（比肩）';
+                        }
+                    case '癸':
+                        switch (gongwei) {
+                            case '坎':
+                                return '<span style="color: red">（劫财）</span>';
+                            default:
+                                return '（劫财）';
+                        }
                 }
-                return qicai;
-            } else if (tiangan == '壬' || tiangan == '癸') {
-                if (gongwei == '坎') {
-                    return '<span style="color: red">' + guangui + '</span>';
+                break;
+            case '癸':
+                switch (tiangan) {
+                    case '甲':
+                        switch (gongwei) {
+                            case '震':
+                                return '<span style="color: red">（伤官）</span>';
+                            case '巽':
+                                return '<span style="color: red">（伤官）</span>';
+                            default:
+                                return '（伤官）';
+                        }
+                    case '乙':
+                        switch (gongwei) {
+                            case '震':
+                                return '<span style="color: red">（食神）</span>';
+                            case '巽':
+                                return '<span style="color: red">（食神）</span>';
+                            default:
+                                return '（食神）';
+                        }
+                    case '丙':
+                        switch (gongwei) {
+                            case '离':
+                                return '<span style="color: red">（正财）</span>';
+                            default:
+                                return '（正财）';
+                        }
+                    case '丁':
+                        switch (gongwei) {
+                            case '离':
+                                return '<span style="color: red">（偏财）</span>';
+                            default:
+                                return '（偏财）';
+                        }
+                    case '戊':
+                        switch (gongwei) {
+                            case '坤':
+                                return '<span style="color: red">（正官）</span>';
+                            case '中':
+                                return '<span style="color: red">（正官）</span>';
+                            case '艮':
+                                return '<span style="color: red">（正官）</span>';
+                            default:
+                                return '（正官）';
+                        }
+                    case '己':
+                        switch (gongwei) {
+                            case '坤':
+                                return '<span style="color: red">（七杀）</span>';
+                            case '中':
+                                return '<span style="color: red">（七杀）</span>';
+                            case '艮':
+                                return '<span style="color: red">（七杀）</span>';
+                            default:
+                                return '（七杀）';
+                        }
+                    case '庚':
+                        switch (gongwei) {
+                            case '乾':
+                                return '<span style="color: red">（正印）</span>';
+                            case '兑':
+                                return '<span style="color: red">（正印）</span>';
+                            default:
+                                return '（正印）';
+                        }
+                    case '辛':
+                        switch (gongwei) {
+                            case '乾':
+                                return '<span style="color: red">（偏印）</span>';
+                            case '兑':
+                                return '<span style="color: red">（偏印）</span>';
+                            default:
+                                return '（偏印）';
+                        }
+                    case '壬':
+                        switch (gongwei) {
+                            case '坎':
+                                return '<span style="color: red">（劫财）</span>';
+                            default:
+                                return '（劫财）';
+                        }
+                    case '癸':
+                        switch (gongwei) {
+                            case '坎':
+                                return '<span style="color: red">（比肩）</span>';
+                            default:
+                                return '（比肩）';
+                        }
                 }
-                return guangui;
-            }
-        } else if (shigan == '戊' || shigan == '己') {
-            if (tiangan == '甲' || tiangan == '乙') {
-                if (gongwei == '震' || gongwei == '巽') {
-                    return '<span style="color: red">' + guangui + '</span>';
-                }
-                return guangui;
-            } else if (tiangan == '丙' || tiangan == '丁') {
-                if (gongwei == '离') {
-                    return '<span style="color: red">' + fumu + '</span>';
-                }
-                return fumu;
-            } else if (tiangan == '戊' || tiangan == '己') {
-                if (gongwei == '坤' || gongwei == '中' || gongwei == '艮') {
-                    return '<span style="color: red">' + xiongdi + '</span>';
-                }
-                return xiongdi;
-            } else if (tiangan == '庚' || tiangan == '辛') {
-                if (gongwei == '乾' || gongwei == '兑') {
-                    return '<span style="color: red">' + zisun + '</span>';
-                }
-                return zisun;
-            } else if (tiangan == '壬' || tiangan == '癸') {
-                if (gongwei == '坎') {
-                    return '<span style="color: red">' + qicai + '</span>';
-                }
-                return qicai;
-            }
-        } else if (shigan == '庚' || shigan == '辛') {
-            if (tiangan == '甲' || tiangan == '乙') {
-                if (gongwei == '震' || gongwei == '巽') {
-                    return '<span style="color: red">' + qicai + '</span>';
-                }
-                return qicai;
-            } else if (tiangan == '丙' || tiangan == '丁') {
-                if (gongwei == '离') {
-                    return '<span style="color: red">' + guangui + '</span>';
-                }
-                return guangui;
-            } else if (tiangan == '戊' || tiangan == '己') {
-                if (gongwei == '坤' || gongwei == '中' || gongwei == '艮') {
-                    return '<span style="color: red">' + fumu + '</span>';
-                }
-                return fumu;
-            } else if (tiangan == '庚' || tiangan == '辛') {
-                if (gongwei == '乾' || gongwei == '兑') {
-                    return '<span style="color: red">' + xiongdi + '</span>';
-                }
-                return xiongdi;
-            } else if (tiangan == '壬' || tiangan == '癸') {
-                if (gongwei == '坎') {
-                    return '<span style="color: red">' + zisun + '</span>';
-                }
-                return zisun;
-            }
-        } else if (shigan == '壬' || shigan == '癸') {
-            if (tiangan == '甲' || tiangan == '乙') {
-                if (gongwei == '震' || gongwei == '巽') {
-                    return '<span style="color: red">' + zisun + '</span>';
-                }
-                return zisun;
-            } else if (tiangan == '丙' || tiangan == '丁') {
-                if (gongwei == '离') {
-                    return '<span style="color: red">' + qicai + '</span>';
-                }
-                return qicai;
-            } else if (tiangan == '戊' || tiangan == '己') {
-                if (gongwei == '坤' || gongwei == '中' || gongwei == '艮') {
-                    return '<span style="color: red">' + guangui + '</span>';
-                }
-                return guangui;
-            } else if (tiangan == '庚' || tiangan == '辛') {
-                if (gongwei == '乾' || gongwei == '兑') {
-                    return '<span style="color: red">' + fumu + '</span>';
-                }
-                return fumu;
-            } else if (tiangan == '壬' || tiangan == '癸') {
-                if (gongwei == '坎') {
-                    return '<span style="color: red">' + xiongdi + '</span>';
-                }
-                return xiongdi;
-            }
+                break;
         }
     }
     function menDongYing(men) {
