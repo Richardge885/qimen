@@ -1399,7 +1399,7 @@ function shishen(shigan) {
     const tianpanliuqin = document.querySelectorAll('[data-tianpanliuqin]');
     const dipanliuqin = document.querySelectorAll('[data-dipanliuqin]');
     const zhengyin = '正印';
-    const pianyin = '枭神';
+    const pianyin = '偏印';
     const zhengguan = '正官';
     const qisha = '七杀';
     const zhengcai = '正财';
@@ -1533,10 +1533,10 @@ function shishen(shigan) {
                         tianpanliuqin[index].innerText = shishen;
                         break;
                     case '庚':
-                        tianpanliuqin[index].innerText = piancai;
+                        tianpanliuqin[index].innerText = zhengcai;
                         break;
                     case '辛':
-                        tianpanliuqin[index].innerText = zhengcai;
+                        tianpanliuqin[index].innerText = piancai;
                         break;
                     case '壬':
                         tianpanliuqin[index].innerText = zhengguan;
@@ -1877,10 +1877,10 @@ function shishen(shigan) {
                         dipanliuqin[index].innerText = shishen;
                         break;
                     case '庚':
-                        dipanliuqin[index].innerText = piancai;
+                        dipanliuqin[index].innerText = zhengcai;
                         break;
                     case '辛':
-                        dipanliuqin[index].innerText = zhengcai;
+                        dipanliuqin[index].innerText = piancai;
                         break;
                     case '壬':
                         dipanliuqin[index].innerText = zhengguan;
