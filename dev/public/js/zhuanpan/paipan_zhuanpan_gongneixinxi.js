@@ -2290,343 +2290,657 @@ function zhuanpan_info(info, paifa) {
             case '休门':
                 switch (gong) {
                     case '乾':
-                        return yi;
+                        return (
+                            yi +
+                            '<span style="color:#0079FE">休加开：</span>主开张店铺及见贵，求财等事大吉。<br>'
+                        );
                     case '坎':
-                        return fuyin;
+                        return (
+                            fuyin +
+                            '<span style="color:#0079FE">休加休：</span>求才进人口，谒贵吉，朝见上官，修造大利。<br>'
+                        );
                     case '艮':
-                        return shouzhi;
+                        return (
+                            shouzhi +
+                            '<span style="color:#0079FE">休加生：</span>得阴人财物；于贵谋望，虽迟应吉。<br>'
+                        );
                     case '震':
-                        return he;
+                        return (
+                            he +
+                            '<span style="color:#0079FE">休加伤：</span>上官主喜庆；求财则不易得；其它分产、变动等事亦不吉。<br>'
+                        );
                     case '巽':
-                        return he;
+                        return (
+                            he + '<span style="color:#0079FE">休加杜：</span>主破财、失物难寻。<br>'
+                        );
                     case '离':
-                        return fanyin;
+                        return (
+                            fanyin +
+                            '<span style="color:#0079FE">休加景：</span>主谋望文书印信等事不成，反招口舌。<br>'
+                        );
                     case '坤':
-                        return shouzhi;
+                        return (
+                            shouzhi +
+                            '<span style="color:#0079FE">休加死：</span>主文印官事不吉，远行，僧道事不吉，占病凶。<br>'
+                        );
                     case '兑':
-                        return he;
-                    case '中':
-                        return shouzhi;
+                        return (
+                            he +
+                            '<span style="color:#0079FE">休加惊：</span>主损财、招非并疾病惊恐事。<br>'
+                        );
                 }
             case '生门':
                 switch (gong) {
                     case '乾':
-                        return he;
+                        return (
+                            he +
+                            '<span style="color:#0079FE">生加开：</span>主见贵人，求财大发。<br>'
+                        );
                     case '坎':
-                        return menpo;
+                        return (
+                            menpo +
+                            '<span style="color:#0079FE">生加休：</span>主阴人处，谋财利。<br>'
+                        );
                     case '艮':
-                        return fuyin;
+                        return (
+                            fuyin +
+                            '<span style="color:#0079FE">生加生：</span>主远行，求财，吉。<br>'
+                        );
                     case '震':
-                        return shouzhi;
+                        return (
+                            shouzhi +
+                            '<span style="color:#0079FE">生加伤：</span>主亲友变动，道路不吉。<br>'
+                        );
                     case '巽':
-                        return shouzhi;
+                        return (
+                            shouzhi +
+                            '<span style="color:#0079FE">生加杜：</span>主阴谋、阴人损财，不利。<br>'
+                        );
                     case '离':
-                        return yi;
+                        return (
+                            yi +
+                            '<span style="color:#0079FE">生加景：</span>主阴人、小口不宁及文书事。<br>'
+                        );
                     case '坤':
-                        return fanyin;
+                        return (
+                            fanyin +
+                            '<span style="color:#0079FE">生加死：</span>主田宅官司，病则主难救。<br>'
+                        );
                     case '兑':
-                        return he;
-                    case '中':
-                        return fanyin;
+                        return (
+                            he +
+                            '<span style="color:#0079FE">生加惊：</span>主尊长财产、词讼，病迟愈，吉。<br>'
+                        );
                 }
             case '伤门':
                 switch (gong) {
                     case '乾':
-                        return shouzhi;
+                        return (
+                            shouzhi +
+                            '<span style="color:#0079FE">伤加开：</span>主见贵人、开张、走失、变动等事不利。<br>'
+                        );
                     case '坎':
-                        return yi;
+                        return (
+                            yi +
+                            '<span style="color:#0079FE">伤加休：</span>主男人变动或托人谋事，财名不利。<br>'
+                        );
                     case '艮':
-                        return menpo;
+                        return (
+                            menpo +
+                            '<span style="color:#0079FE">伤加生：</span>主房产、种植业等变动。<br>'
+                        );
                     case '震':
-                        return fuyin;
+                        return (
+                            fuyin +
+                            '<span style="color:#0079FE">伤加伤：</span>主变动、远行皆主折伤。<br>'
+                        );
                     case '巽':
-                        return '';
+                        return '<span style="color:#0079FE">伤加杜：</span>主变动、失聪、官司、刑狱、百事凶。<br>';
                     case '离':
-                        return he;
+                        return (
+                            he +
+                            '<span style="color:#0079FE">伤加景：</span>主文书、印信、口舌、惹是生非。<br>'
+                        );
                     case '坤':
-                        return menpo;
+                        return (
+                            menpo +
+                            '<span style="color:#0079FE">伤加死：</span>主官司、印信凶，出行大忌，占病凶。<br>'
+                        );
                     case '兑':
-                        return fanyin;
-                    case '中':
-                        return menpo;
+                        return (
+                            fanyin +
+                            '<span style="color:#0079FE">伤加惊：</span>主亲人疾病、惊忧，谋为不利，凶。<br>'
+                        );
                 }
             case '杜门':
                 switch (gong) {
                     case '乾':
-                        return fanyin;
+                        return (
+                            fanyin +
+                            '<span style="color:#0079FE">杜加开：</span>主见贵人、官长谋事，先破财后吉。<br>'
+                        );
                     case '坎':
-                        return yi;
+                        return yi + '<span style="color:#0079FE">杜加休：</span>主求财小益。<br>';
                     case '艮':
-                        return menpo;
+                        return (
+                            menpo +
+                            '<span style="color:#0079FE">杜加生：</span>主阳人小口破财，田宅求财不利。<br>'
+                        );
                     case '震':
-                        return '';
+                        return '<span style="color:#0079FE">杜加伤：</span>主兄弟田产破财。<br>';
                     case '巽':
-                        return fuyin;
+                        return (
+                            fuyin +
+                            '<span style="color:#0079FE">杜加杜：</span>主因父母疾病、田宅出脱事，凶。<br>'
+                        );
                     case '离':
-                        return he;
+                        return (
+                            he +
+                            '<span style="color:#0079FE">杜加景：</span>主文书、印信阻隔，阳人小口疾病。<br>'
+                        );
                     case '坤':
-                        return menpo;
+                        return (
+                            menpo +
+                            '<span style="color:#0079FE">杜加死：</span>主田宅、文书失落，官司破财小凶。<br>'
+                        );
                     case '兑':
-                        return shouzhi;
-                    case '中':
-                        return menpo;
+                        return (
+                            shouzhi +
+                            '<span style="color:#0079FE">杜加惊：</span>主门户内忧疑、惊恐、词讼事。<br>'
+                        );
                 }
             case '景门':
                 switch (gong) {
                     case '乾':
-                        return menpo;
+                        return (
+                            menpo +
+                            '<span style="color:#0079FE">景加开：</span>官人升迁，求文印事皆吉。<br>'
+                        );
                     case '坎':
-                        return fanyin;
+                        return (
+                            fanyin +
+                            '<span style="color:#0079FE">景加休：</span>主文书遗失，争讼不休。<br>'
+                        );
                     case '艮':
-                        return he;
+                        return (
+                            he +
+                            '<span style="color:#0079FE">景加生：</span>主阴人生产大喜，更主求财旺利，行人大吉。<br>'
+                        );
                     case '震':
-                        return yi;
+                        return (
+                            yi +
+                            '<span style="color:#0079FE">景加伤：</span>主亲眷口舌，败财后平。<br>'
+                        );
                     case '巽':
-                        return yi;
+                        return (
+                            yi +
+                            '<span style="color:#0079FE">景加杜：</span>主失脱文书，败财后平。<br>'
+                        );
                     case '离':
-                        return fuyin;
+                        return (
+                            fuyin +
+                            '<span style="color:#0079FE">景加景：</span>主文状未动，有预先见之意，内有阳人、小口忧患。<br>'
+                        );
                     case '坤':
-                        return he;
+                        return (
+                            he +
+                            '<span style="color:#0079FE">景加死：</span>主官讼，争田宅事，多啾唧。<br>'
+                        );
                     case '兑':
-                        return menpo;
-                    case '中':
-                        return he;
+                        return (
+                            menpo +
+                            '<span style="color:#0079FE">景加惊：</span>主官讼，女人小口疾病，凶。<br>'
+                        );
                 }
             case '死门':
                 switch (gong) {
                     case '乾':
-                        return he;
+                        return (
+                            he +
+                            '<span style="color:#0079FE">死加开：</span>见贵人求文书、印信事利。<br>'
+                        );
                     case '坎':
-                        return menpo;
+                        return (
+                            menpo +
+                            '<span style="color:#0079FE">死加休：</span>主求财物事不吉，向僧道求方吉。<br>'
+                        );
                     case '艮':
-                        return fanyin;
+                        return (
+                            fanyin +
+                            '<span style="color:#0079FE">死加生：</span>主丧事，求财则得，占病死者复生。<br>'
+                        );
                     case '震':
-                        return shouzhi;
+                        return (
+                            shouzhi +
+                            '<span style="color:#0079FE">死加伤：</span>官司变动遭刑杖凶。<br>'
+                        );
                     case '巽':
-                        return shouzhi;
+                        return (
+                            shouzhi +
+                            '<span style="color:#0079FE">死加杜：</span>破财，妇人风疾，腹肿。<br>'
+                        );
                     case '离':
-                        return yi;
+                        return (
+                            yi +
+                            '<span style="color:#0079FE">死加景：</span>因文信、书契、财产事见官，先怒后喜不凶。<br>'
+                        );
                     case '坤':
-                        return fuyin;
+                        return (
+                            fuyin +
+                            '<span style="color:#0079FE">死加死：</span>主官事，无气、凶。<br>'
+                        );
                     case '兑':
-                        return he;
-                    case '中':
-                        return fanyin;
+                        return (
+                            he +
+                            '<span style="color:#0079FE">死加惊：</span>因官司事不结，忧疑患病凶。<br>'
+                        );
                 }
             case '惊门':
                 switch (gong) {
                     case '乾':
-                        return '';
+                        return '<span style="color:#0079FE">惊加开：</span>主忧疑，官事惊恐，见喜贵则不凶。<br>';
                     case '坎':
-                        return he;
+                        return (
+                            he +
+                            '<span style="color:#0079FE">惊加休：</span>求财事或口舌事，迟吉。<br>'
+                        );
                     case '艮':
-                        return yi;
+                        return (
+                            yi +
+                            '<span style="color:#0079FE">惊加生：</span>主因妇人生产或求财而生惊忧，皆吉。<br>'
+                        );
                     case '震':
-                        return fanyin;
+                        return (
+                            fanyin +
+                            '<span style="color:#0079FE">惊加伤：</span>主因商议同谋害人事泄，惹讼凶。<br>'
+                        );
                     case '巽':
-                        return menpo;
+                        return (
+                            menpo +
+                            '<span style="color:#0079FE">惊加杜：</span>失脱破财事，惊恐，不凶。<br>'
+                        );
                     case '离':
-                        return shouzhi;
+                        return (
+                            shouzhi +
+                            '<span style="color:#0079FE">惊加景：</span>主讼词不息，小口疾病，凶。<br>'
+                        );
                     case '坤':
-                        return yi;
+                        return (
+                            yi +
+                            '<span style="color:#0079FE">惊加死：</span>因田宅中怪异而生是非，凶。<br>'
+                        );
                     case '兑':
-                        return fuyin;
-                    case '中':
-                        return yi;
+                        return (
+                            fuyin +
+                            '<span style="color:#0079FE">惊加惊：</span>主疾病、忧虑、惊疑、惊恐。<br>'
+                        );
                 }
             case '开门':
                 switch (gong) {
                     case '乾':
-                        return fuyin;
+                        return (
+                            fuyin +
+                            '<span style="color:#0079FE">开加开：</span>主贵人、宝物、财喜、官运、事业皆吉。<br>'
+                        );
                     case '坎':
-                        return he;
+                        return (
+                            he +
+                            '<span style="color:#0079FE">开加休：</span>主见贵人、财喜、开张店铺、贸易大利。<br>'
+                        );
                     case '艮':
-                        return yi;
+                        return (
+                            yi +
+                            '<span style="color:#0079FE">开加生；</span>见贵人，谋望所求遂意。<br>'
+                        );
                     case '震':
-                        return menpo;
+                        return (
+                            menpo +
+                            '<span style="color:#0079FE">开加伤：</span>主变动、更改、移徙等事，皆不吉。<br>'
+                        );
                     case '巽':
-                        return fanyin;
+                        return (
+                            fanyin +
+                            '<span style="color:#0079FE">开加杜：</span>主失脱文印、书契等，小凶。<br>'
+                        );
                     case '离':
-                        return shouzhi;
+                        return (
+                            shouzhi +
+                            '<span style="color:#0079FE">开加景：</span>见贵人，因文书事不利。<br>'
+                        );
                     case '坤':
-                        return yi;
+                        return (
+                            yi +
+                            '<span style="color:#0079FE">开加死：</span>官司、惊忧、恶事，先忧后喜。<br>'
+                        );
                     case '兑':
-                        return '';
-                    case '中':
-                        return yi;
+                        return '<span style="color:#0079FE">开加惊：</span>词讼、惊疑之事。<br>';
                 }
-            case '中门':
-                return '';
+
             case '休門':
                 switch (gong) {
                     case '乾':
-                        return yi;
+                        return (
+                            yi +
+                            '<span style="color:#0079FE">休加开：</span>主开张店铺及见贵，求财等事大吉。<br>'
+                        );
                     case '坎':
-                        return fuyin;
+                        return (
+                            fuyin +
+                            '<span style="color:#0079FE">休加休：</span>求才进人口，谒贵吉，朝见上官，修造大利。<br>'
+                        );
                     case '艮':
-                        return shouzhi;
+                        return (
+                            shouzhi +
+                            '<span style="color:#0079FE">休加生：</span>得阴人财物；于贵谋望，虽迟应吉。<br>'
+                        );
                     case '震':
-                        return he;
+                        return (
+                            he +
+                            '<span style="color:#0079FE">休加伤：</span>上官主喜庆；求财则不易得；其它分产、变动等事亦不吉。<br>'
+                        );
                     case '巽':
-                        return he;
+                        return (
+                            he + '<span style="color:#0079FE">休加杜：</span>主破财、失物难寻。<br>'
+                        );
                     case '离':
-                        return fanyin;
+                        return (
+                            fanyin +
+                            '<span style="color:#0079FE">休加景：</span>主谋望文书印信等事不成，反招口舌。<br>'
+                        );
                     case '坤':
-                        return shouzhi;
+                        return (
+                            shouzhi +
+                            '<span style="color:#0079FE">休加死：</span>主文印官事不吉，远行，僧道事不吉，占病凶。<br>'
+                        );
                     case '兑':
-                        return he;
-                    case '中':
-                        return shouzhi;
+                        return (
+                            he +
+                            '<span style="color:#0079FE">休加惊：</span>主损财、招非并疾病惊恐事。<br>'
+                        );
                 }
             case '生門':
                 switch (gong) {
                     case '乾':
-                        return he;
+                        return (
+                            he +
+                            '<span style="color:#0079FE">生加开：</span>主见贵人，求财大发。<br>'
+                        );
                     case '坎':
-                        return menpo;
+                        return (
+                            menpo +
+                            '<span style="color:#0079FE">生加休：</span>主阴人处，谋财利。<br>'
+                        );
                     case '艮':
-                        return fuyin;
+                        return (
+                            fuyin +
+                            '<span style="color:#0079FE">生加生：</span>主远行，求财，吉。<br>'
+                        );
                     case '震':
-                        return shouzhi;
+                        return (
+                            shouzhi +
+                            '<span style="color:#0079FE">生加伤：</span>主亲友变动，道路不吉。<br>'
+                        );
                     case '巽':
-                        return shouzhi;
+                        return (
+                            shouzhi +
+                            '<span style="color:#0079FE">生加杜：</span>主阴谋、阴人损财，不利。<br>'
+                        );
                     case '离':
-                        return yi;
+                        return (
+                            yi +
+                            '<span style="color:#0079FE">生加景：</span>主阴人、小口不宁及文书事。<br>'
+                        );
                     case '坤':
-                        return fanyin;
+                        return (
+                            fanyin +
+                            '<span style="color:#0079FE">生加死：</span>主田宅官司，病则主难救。<br>'
+                        );
                     case '兑':
-                        return he;
-                    case '中':
-                        return fanyin;
+                        return (
+                            he +
+                            '<span style="color:#0079FE">生加惊：</span>主尊长财产、词讼，病迟愈，吉。<br>'
+                        );
                 }
             case '傷門':
                 switch (gong) {
                     case '乾':
-                        return shouzhi;
+                        return (
+                            shouzhi +
+                            '<span style="color:#0079FE">伤加开：</span>主见贵人、开张、走失、变动等事不利。<br>'
+                        );
                     case '坎':
-                        return yi;
+                        return (
+                            yi +
+                            '<span style="color:#0079FE">伤加休：</span>主男人变动或托人谋事，财名不利。<br>'
+                        );
                     case '艮':
-                        return menpo;
+                        return (
+                            menpo +
+                            '<span style="color:#0079FE">伤加生：</span>主房产、种植业等变动。<br>'
+                        );
                     case '震':
-                        return fuyin;
+                        return (
+                            fuyin +
+                            '<span style="color:#0079FE">伤加伤：</span>主变动、远行皆主折伤。<br>'
+                        );
                     case '巽':
-                        return '';
+                        return '<span style="color:#0079FE">伤加杜：</span>主变动、失聪、官司、刑狱、百事凶。<br>';
                     case '离':
-                        return he;
+                        return (
+                            he +
+                            '<span style="color:#0079FE">伤加景：</span>主文书、印信、口舌、惹是生非。<br>'
+                        );
                     case '坤':
-                        return menpo;
+                        return (
+                            menpo +
+                            '<span style="color:#0079FE">伤加死：</span>主官司、印信凶，出行大忌，占病凶。<br>'
+                        );
                     case '兑':
-                        return fanyin;
-                    case '中':
-                        return menpo;
+                        return (
+                            fanyin +
+                            '<span style="color:#0079FE">伤加惊：</span>主亲人疾病、惊忧，谋为不利，凶。<br>'
+                        );
                 }
             case '杜門':
                 switch (gong) {
                     case '乾':
-                        return fanyin;
+                        return (
+                            fanyin +
+                            '<span style="color:#0079FE">杜加开：</span>主见贵人、官长谋事，先破财后吉。<br>'
+                        );
                     case '坎':
-                        return yi;
+                        return yi + '<span style="color:#0079FE">杜加休：</span>主求财小益。<br>';
                     case '艮':
-                        return menpo;
+                        return (
+                            menpo +
+                            '<span style="color:#0079FE">杜加生：</span>主阳人小口破财，田宅求财不利。<br>'
+                        );
                     case '震':
-                        return '';
+                        return '<span style="color:#0079FE">杜加伤：</span>主兄弟田产破财。<br>';
                     case '巽':
-                        return fuyin;
+                        return (
+                            fuyin +
+                            '<span style="color:#0079FE">杜加杜：</span>主因父母疾病、田宅出脱事，凶。<br>'
+                        );
                     case '离':
-                        return he;
+                        return (
+                            he +
+                            '<span style="color:#0079FE">杜加景：</span>主文书、印信阻隔，阳人小口疾病。<br>'
+                        );
                     case '坤':
-                        return menpo;
+                        return (
+                            menpo +
+                            '<span style="color:#0079FE">杜加死：</span>主田宅、文书失落，官司破财小凶。<br>'
+                        );
                     case '兑':
-                        return shouzhi;
-                    case '中':
-                        return menpo;
+                        return (
+                            shouzhi +
+                            '<span style="color:#0079FE">杜加惊：</span>主门户内忧疑、惊恐、词讼事。<br>'
+                        );
                 }
             case '景門':
                 switch (gong) {
                     case '乾':
-                        return menpo;
+                        return (
+                            menpo +
+                            '<span style="color:#0079FE">景加开：</span>官人升迁，求文印事皆吉。<br>'
+                        );
                     case '坎':
-                        return fanyin;
+                        return (
+                            fanyin +
+                            '<span style="color:#0079FE">景加休：</span>主文书遗失，争讼不休。<br>'
+                        );
                     case '艮':
-                        return he;
+                        return (
+                            he +
+                            '<span style="color:#0079FE">景加生：</span>主阴人生产大喜，更主求财旺利，行人大吉。<br>'
+                        );
                     case '震':
-                        return yi;
+                        return (
+                            yi +
+                            '<span style="color:#0079FE">景加伤：</span>主亲眷口舌，败财后平。<br>'
+                        );
                     case '巽':
-                        return yi;
+                        return (
+                            yi +
+                            '<span style="color:#0079FE">景加杜：</span>主失脱文书，败财后平。<br>'
+                        );
                     case '离':
-                        return fuyin;
+                        return (
+                            fuyin +
+                            '<span style="color:#0079FE">景加景：</span>主文状未动，有预先见之意，内有阳人、小口忧患。<br>'
+                        );
                     case '坤':
-                        return he;
+                        return (
+                            he +
+                            '<span style="color:#0079FE">景加死：</span>主官讼，争田宅事，多啾唧。<br>'
+                        );
                     case '兑':
-                        return menpo;
-                    case '中':
-                        return he;
+                        return (
+                            menpo +
+                            '<span style="color:#0079FE">景加惊：</span>主官讼，女人小口疾病，凶。<br>'
+                        );
                 }
             case '死門':
                 switch (gong) {
                     case '乾':
-                        return he;
+                        return (
+                            he +
+                            '<span style="color:#0079FE">死加开：</span>见贵人求文书、印信事利。<br>'
+                        );
                     case '坎':
-                        return menpo;
+                        return (
+                            menpo +
+                            '<span style="color:#0079FE">死加休：</span>主求财物事不吉，向僧道求方吉。<br>'
+                        );
                     case '艮':
-                        return fanyin;
+                        return (
+                            fanyin +
+                            '<span style="color:#0079FE">死加生：</span>主丧事，求财则得，占病死者复生。<br>'
+                        );
                     case '震':
-                        return shouzhi;
+                        return (
+                            shouzhi +
+                            '<span style="color:#0079FE">死加伤：</span>官司变动遭刑杖凶。<br>'
+                        );
                     case '巽':
-                        return shouzhi;
+                        return (
+                            shouzhi +
+                            '<span style="color:#0079FE">死加杜：</span>破财，妇人风疾，腹肿。<br>'
+                        );
                     case '离':
-                        return yi;
+                        return (
+                            yi +
+                            '<span style="color:#0079FE">死加景：</span>因文信、书契、财产事见官，先怒后喜不凶。<br>'
+                        );
                     case '坤':
-                        return fuyin;
+                        return (
+                            fuyin +
+                            '<span style="color:#0079FE">死加死：</span>主官事，无气、凶。<br>'
+                        );
                     case '兑':
-                        return he;
-                    case '中':
-                        return fanyin;
+                        return '<span style="color:#0079FE">死加惊：</span>因官司事不结，忧疑患病凶。<br>';
                 }
             case '驚門':
                 switch (gong) {
                     case '乾':
-                        return '';
+                        return '<span style="color:#0079FE">惊加开：</span>主忧疑，官事惊恐，见喜贵则不凶。<br>';
                     case '坎':
-                        return he;
+                        return (
+                            he +
+                            '<span style="color:#0079FE">惊加休：</span>求财事或口舌事，迟吉。<br>'
+                        );
                     case '艮':
-                        return yi;
+                        return (
+                            yi +
+                            '<span style="color:#0079FE">惊加生：</span>主因妇人生产或求财而生惊忧，皆吉。<br>'
+                        );
                     case '震':
-                        return fanyin;
+                        return (
+                            fanyin +
+                            '<span style="color:#0079FE">惊加伤：</span>主因商议同谋害人事泄，惹讼凶。<br>'
+                        );
                     case '巽':
-                        return menpo;
+                        return (
+                            menpo +
+                            '<span style="color:#0079FE">惊加杜：</span>失脱破财事，惊恐，不凶。<br>'
+                        );
                     case '离':
-                        return shouzhi;
+                        return (
+                            shouzhi +
+                            '<span style="color:#0079FE">惊加景：</span>主讼词不息，小口疾病，凶。<br>'
+                        );
                     case '坤':
-                        return yi;
+                        return (
+                            yi +
+                            '<span style="color:#0079FE">惊加死：</span>因田宅中怪异而生是非，凶。<br>'
+                        );
                     case '兑':
-                        return fuyin;
-                    case '中':
-                        return yi;
+                        return (
+                            fuyin +
+                            '<span style="color:#0079FE">惊加惊：</span>主疾病、忧虑、惊疑、惊恐。<br>'
+                        );
                 }
             case '開門':
                 switch (gong) {
                     case '乾':
-                        return fuyin;
+                        return (
+                            fuyin +
+                            '<span style="color:#0079FE">开加开：</span>主贵人、宝物、财喜、官运、事业皆吉。<br>'
+                        );
                     case '坎':
-                        return he;
+                        return (
+                            he +
+                            '<span style="color:#0079FE">开加休：</span>主见贵人、财喜、开张店铺、贸易大利。<br>'
+                        );
                     case '艮':
-                        return yi;
+                        return (
+                            yi +
+                            '<span style="color:#0079FE">开加生；</span>见贵人，谋望所求遂意。<br>'
+                        );
                     case '震':
-                        return menpo;
+                        return (
+                            menpo +
+                            '<span style="color:#0079FE">开加伤：</span>主变动、更改、移徙等事，皆不吉。<br>'
+                        );
                     case '巽':
-                        return fanyin;
+                        return (
+                            fanyin +
+                            '<span style="color:#0079FE">开加杜：</span>主失脱文印、书契等，小凶。<br>'
+                        );
                     case '离':
-                        return shouzhi;
+                        return (
+                            shouzhi +
+                            '<span style="color:#0079FE">开加景：</span>见贵人，因文书事不利。<br>'
+                        );
                     case '坤':
-                        return yi;
+                        return (
+                            yi +
+                            '<span style="color:#0079FE">开加死：</span>官司、惊忧、恶事，先忧后喜。<br>'
+                        );
                     case '兑':
-                        return '';
-                    case '中':
-                        return yi;
+                        return '<span style="color:#0079FE">开加惊：</span>词讼、惊疑之事。<br>';
                 }
-            case '中門':
-                return '';
         }
     }
 }
