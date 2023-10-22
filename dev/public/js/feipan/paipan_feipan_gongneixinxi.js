@@ -9,13 +9,9 @@ function feipan_info(info) {
                 document.querySelectorAll('[data-dipanshen]')[index].innerHTML == '值符'
             ) {
                 document.getElementById('paipan-jiamu-info').classList.remove('hidden');
-                document
-                    .getElementById('paipan-gongwei-info')
-                    .classList.remove('rounded-bl-[15px]');
-                document
-                    .getElementById('paipan-gongwei-info')
-                    .classList.add('gongwei-info-on-bottom');
-                getCurrentGongweiInfo(index); // 提取被点击的宫位信息并且把宫内信息加载到侧边栏中
+                document.getElementById('paipan-gongwei-info').classList.remove('rounded-bl-[15px]');
+                document.getElementById('paipan-gongwei-info').classList.add('gongwei-info-on-bottom');
+                getCurrentGongweiInfo(index);
                 changeFocusItem(
                     'geju',
                     true,
@@ -27,12 +23,8 @@ function feipan_info(info) {
                 openInfoWindow();
             } else if (document.querySelectorAll('[data-tianpanshen]')[index].innerHTML == '值符') {
                 document.getElementById('paipan-jiamu-info').classList.remove('hidden');
-                document
-                    .getElementById('paipan-gongwei-info')
-                    .classList.remove('rounded-bl-[15px]');
-                document
-                    .getElementById('paipan-gongwei-info')
-                    .classList.add('gongwei-info-on-bottom');
+                document.getElementById('paipan-gongwei-info').classList.remove('rounded-bl-[15px]');
+                document.getElementById('paipan-gongwei-info').classList.add('gongwei-info-on-bottom');
                 getCurrentGongweiInfo(index); // 提取被点击的宫位信息并且把宫内信息加载到侧边栏中
                 changeFocusItem(
                     'geju',
@@ -45,12 +37,8 @@ function feipan_info(info) {
                 openInfoWindow();
             } else if (document.querySelectorAll('[data-dipanshen]')[index].innerHTML == '值符') {
                 document.getElementById('paipan-jiamu-info').classList.remove('hidden');
-                document
-                    .getElementById('paipan-gongwei-info')
-                    .classList.remove('rounded-bl-[15px]');
-                document
-                    .getElementById('paipan-gongwei-info')
-                    .classList.add('gongwei-info-on-bottom');
+                document.getElementById('paipan-gongwei-info').classList.remove('rounded-bl-[15px]');
+                document.getElementById('paipan-gongwei-info').classList.add('gongwei-info-on-bottom');
                 getCurrentGongweiInfo(index); // 提取被点击的宫位信息并且把宫内信息加载到侧边栏中
                 changeFocusItem(
                     'geju',
@@ -64,9 +52,7 @@ function feipan_info(info) {
             } else {
                 document.getElementById('paipan-jiamu-info').classList.add('hidden');
                 document.getElementById('paipan-gongwei-info').classList.add('rounded-bl-[15px]');
-                document
-                    .getElementById('paipan-gongwei-info')
-                    .classList.remove('gongwei-info-on-bottom');
+                document.getElementById('paipan-gongwei-info').classList.remove('gongwei-info-on-bottom');
                 getCurrentGongweiInfo(index); // 提取被点击的宫位信息并且把宫内信息加载到侧边栏中
                 changeFocusItem(
                     'geju',
@@ -530,16 +516,7 @@ function feipan_info(info) {
                 break;
         }
     }
-    function updateGejuInfo(
-        tianpangan,
-        dipangan,
-        gong,
-        tianpanjia = false,
-        dipanjia = false,
-        tianpanshen,
-        xing,
-        men,
-    ) {
+    function updateGejuInfo(tianpangan, dipangan, gong, tianpanjia = false, dipanjia = false, tianpanshen, xing, men) {
         let result = '';
         if (tianpanjia == true || dipanjia == true) {
             result =
@@ -563,10 +540,7 @@ function feipan_info(info) {
                     '<br><br>' +
                     getFuGe('甲', gong) +
                     '<br><br><hr><br>' +
-                    getShenSha(
-                        document.querySelectorAll('[data-anganzhi]')[whichGong].innerText,
-                        gong,
-                    );
+                    getShenSha(document.querySelectorAll('[data-anganzhi]')[whichGong].innerText, gong);
             } else if (tianpanjia == true) {
                 result =
                     result +
@@ -579,10 +553,7 @@ function feipan_info(info) {
                     '<br><br>' +
                     getFuGe('甲', gong) +
                     '<br><br><hr><br>' +
-                    getShenSha(
-                        document.querySelectorAll('[data-anganzhi]')[whichGong].innerText,
-                        gong,
-                    );
+                    getShenSha(document.querySelectorAll('[data-anganzhi]')[whichGong].innerText, gong);
             } else if (dipanjia == true) {
                 result =
                     result +
@@ -595,10 +566,7 @@ function feipan_info(info) {
                     '<br><br>' +
                     getFuGe('甲', gong) +
                     '<br><br><hr><br>' +
-                    getShenSha(
-                        document.querySelectorAll('[data-anganzhi]')[whichGong].innerText,
-                        gong,
-                    );
+                    getShenSha(document.querySelectorAll('[data-anganzhi]')[whichGong].innerText, gong);
             }
         } else {
             result =
@@ -632,43 +600,26 @@ function feipan_info(info) {
             '<span style="color:#0079FE">耗气格：</span>我之财务不周全。主我帮助他人，而伤了我的骨血，脱耗我的精华<br>';
         const jiaoyinge =
             '<span style="color:#0079FE">交阴格：</span>利于妇女阴邪之事，并有隐匿隐私之象，有阴谋有害与我<br>';
-        const jiaoyangge =
-            '<span style="color:#0079FE">交阳格：</span>事虽在进，但未免有伤我经血，有阴谋有害与我<br>';
-        const shanghege =
-            '<span style="color:#0079FE">上合格：</span>上亲下之象，领导，长辈关心下属，晚辈<br>';
-        const xiahege =
-            '<span style="color:#0079FE">下合格：</span>下敬上之象，下属，晚辈主动向在上者表示恭敬<br>';
-        const huofuge =
-            '<span style="color:#0079FE">获父格：</span>有椿萱并茂之象，主有长上之人恩重于我<br>';
-        const demuge =
-            '<span style="color:#0079FE">得母格：</span>有椿萱并茂之象，主有长上之人恩重于我<br>';
-        const chengquange =
-            '<span style="color:#0079FE">乘权格：</span>主他人尽力帮助于我，而获其资助、增我神气<br>';
+        const jiaoyangge = '<span style="color:#0079FE">交阳格：</span>事虽在进，但未免有伤我经血，有阴谋有害与我<br>';
+        const shanghege = '<span style="color:#0079FE">上合格：</span>上亲下之象，领导，长辈关心下属，晚辈<br>';
+        const xiahege = '<span style="color:#0079FE">下合格：</span>下敬上之象，下属，晚辈主动向在上者表示恭敬<br>';
+        const huofuge = '<span style="color:#0079FE">获父格：</span>有椿萱并茂之象，主有长上之人恩重于我<br>';
+        const demuge = '<span style="color:#0079FE">得母格：</span>有椿萱并茂之象，主有长上之人恩重于我<br>';
+        const chengquange = '<span style="color:#0079FE">乘权格：</span>主他人尽力帮助于我，而获其资助、增我神气<br>';
         const duoquange =
             '<span style="color:#0079FE">夺权格：</span>我之财务不周全。主我帮助他人，而伤了我的骨血，脱耗我的精华，也有财务，权利等被夺之象<br>';
-        const yishige =
-            '<span style="color:#0079FE">倚势格：</span>主他人尽力帮助于我，而获其资助、增我神气<br>';
-        const beichongge =
-            '<span style="color:#0079FE">背冲格：</span>背地受损，损伤多从内部来<br>';
+        const yishige = '<span style="color:#0079FE">倚势格：</span>主他人尽力帮助于我，而获其资助、增我神气<br>';
+        const beichongge = '<span style="color:#0079FE">背冲格：</span>背地受损，损伤多从内部来<br>';
         const zhengchongge = '<span style="color:#0079FE">正冲格：</span>正面冲突<br>';
-        const zhipoge =
-            '<span style="color:#0079FE">支破格：</span>支破无成灾祸息，谋为难就有冲突<br>';
-        const waihaige =
-            '<span style="color:#0079FE">外害格：</span>主事从外入，需防外人欺凌，外人主动来找我。<br>';
-        const neihaige =
-            '<span style="color:#0079FE">内害格：</span>主事从内起，需防内人刑害，为我主动去找人<br>';
-        const wailuange =
-            '<span style="color:#0079FE">外乱格：</span>主事从外入，需防外人欺凌，外人主动来找我。<br>';
-        const neiluange =
-            '<span style="color:#0079FE">内乱格：</span>主事从内起，需防内人刑害，为我主动去找人<br>';
-        const waizhige =
-            '<span style="color:#0079FE">外制格：</span>主事从外入，需防外人欺凌，外人主动来找我。<br>';
-        const neizhige =
-            '<span style="color:#0079FE">内制格：</span>主事从内起，需防内人刑害，为我主动去找人<br>';
-        const waiqinge =
-            '<span style="color:#0079FE">外侵格：</span>主事从外入，需防外人欺凌，外人主动来找我<br>';
-        const neiqinge =
-            '<span style="color:#0079FE">内侵格：</span>主事从内起，需防内人刑害，为我主动去找人<br>';
+        const zhipoge = '<span style="color:#0079FE">支破格：</span>支破无成灾祸息，谋为难就有冲突<br>';
+        const waihaige = '<span style="color:#0079FE">外害格：</span>主事从外入，需防外人欺凌，外人主动来找我。<br>';
+        const neihaige = '<span style="color:#0079FE">内害格：</span>主事从内起，需防内人刑害，为我主动去找人<br>';
+        const wailuange = '<span style="color:#0079FE">外乱格：</span>主事从外入，需防外人欺凌，外人主动来找我。<br>';
+        const neiluange = '<span style="color:#0079FE">内乱格：</span>主事从内起，需防内人刑害，为我主动去找人<br>';
+        const waizhige = '<span style="color:#0079FE">外制格：</span>主事从外入，需防外人欺凌，外人主动来找我。<br>';
+        const neizhige = '<span style="color:#0079FE">内制格：</span>主事从内起，需防内人刑害，为我主动去找人<br>';
+        const waiqinge = '<span style="color:#0079FE">外侵格：</span>主事从外入，需防外人欺凌，外人主动来找我<br>';
+        const neiqinge = '<span style="color:#0079FE">内侵格：</span>主事从内起，需防内人刑害，为我主动去找人<br>';
         const jinmu = '<span style="color:#0079FE">金木相加：</span>主官事，口舌斗争。<br>';
         const shuihuo = '<span style="color:#0079FE">水火相乘：</span>主惊恐，妇女不安。<br>';
         const tushui = '<span style="color:#0079FE">土水相克：</span>主遗财患病，争竞家园。<br>';
@@ -794,10 +745,7 @@ function feipan_info(info) {
                 break;
             case '丙乙':
                 output =
-                    output +
-                    tuiruge +
-                    demuge +
-                    '<span style="color:#0079FE">日月并行：</span>公谋私为皆为吉。<br>';
+                    output + tuiruge + demuge + '<span style="color:#0079FE">日月并行：</span>公谋私为皆为吉。<br>';
                 break;
             case '丙丙':
                 output =
@@ -809,9 +757,7 @@ function feipan_info(info) {
                 break;
             case '丙丁':
                 output =
-                    output +
-                    jinruge +
-                    '<span style="color:#0079FE">星奇朱雀：</span>贵人文书吉利，常人平静安乐。<br>';
+                    output + jinruge + '<span style="color:#0079FE">星奇朱雀：</span>贵人文书吉利，常人平静安乐。<br>';
                 break;
             case '丙戊':
                 output =
@@ -963,10 +909,7 @@ function feipan_info(info) {
                     '<span style="color:#0079FE">伏吟：</span>凡事不利，道路闭塞，以守为好。<br>';
                 break;
             case '戊己':
-                output =
-                    output +
-                    jinruge +
-                    '<span style="color:#0079FE">贵人入狱：</span>公私皆不利。<br>';
+                output = output + jinruge + '<span style="color:#0079FE">贵人入狱：</span>公私皆不利。<br>';
                 break;
             case '戊庚':
                 output =
@@ -1015,9 +958,7 @@ function feipan_info(info) {
                 break;
             case '己丙':
                 output =
-                    output +
-                    huofuge +
-                    '<span style="color:#0079FE">火悖地户：</span>男人冤冤相害；女人必致淫污。<br>';
+                    output + huofuge + '<span style="color:#0079FE">火悖地户：</span>男人冤冤相害；女人必致淫污。<br>';
                 break;
             case '己丁':
                 output =
@@ -1218,10 +1159,7 @@ function feipan_info(info) {
                 output = output + qianjiange + haoqige;
                 break;
             case '壬乙':
-                output =
-                    output +
-                    jiaoyinge +
-                    '<span style="color:#0079FE">小蛇得势：</span>女人柔顺，男人通达。<br>';
+                output = output + jiaoyinge + '<span style="color:#0079FE">小蛇得势：</span>女人柔顺，男人通达。<br>';
                 break;
             case '壬丙':
                 output =
@@ -1265,10 +1203,7 @@ function feipan_info(info) {
                 break;
             case '壬辛':
                 output =
-                    output +
-                    tuiruge +
-                    demuge +
-                    '<span style="color:#0079FE">腾蛇相缠：</span>纵得吉门，亦不能安。<br>';
+                    output + tuiruge + demuge + '<span style="color:#0079FE">腾蛇相缠：</span>纵得吉门，亦不能安。<br>';
                 break;
             case '壬壬':
                 output =
@@ -1366,64 +1301,39 @@ function feipan_info(info) {
         const pojing = '主凡事必须辅佐他人，保护同伴而始能有成，不然则要破财伤身';
 
         // 甲乙
-        const quzhi =
-            '<span style="color:#0079FE">曲直格：</span>大利军家施号令，探听敌弊合经营。又为仁寿格。';
-        const taixi =
-            '<span style="color:#0079FE">胎息格：</span>谋为从兹当进步，君子欣扶事有成。又为发生格。';
-        const lifa =
-            '<span style="color:#0079FE">罹伐格：</span>此格不利出军去，谋作交兵定震惊。主斗争惊恐。';
-        const fenlin =
-            '<span style="color:#0079FE">焚林格：</span>守日为宜固本美，毋须前进并争锋。宜防火。';
-        const xingchuang =
-            '<span style="color:#0079FE">兴创格：</span>最佳造作与修筑，主客交锋不称情。宜持衡。';
+        const quzhi = '<span style="color:#0079FE">曲直格：</span>大利军家施号令，探听敌弊合经营。又为仁寿格。';
+        const taixi = '<span style="color:#0079FE">胎息格：</span>谋为从兹当进步，君子欣扶事有成。又为发生格。';
+        const lifa = '<span style="color:#0079FE">罹伐格：</span>此格不利出军去，谋作交兵定震惊。主斗争惊恐。';
+        const fenlin = '<span style="color:#0079FE">焚林格：</span>守日为宜固本美，毋须前进并争锋。宜防火。';
+        const xingchuang = '<span style="color:#0079FE">兴创格：</span>最佳造作与修筑，主客交锋不称情。宜持衡。';
 
         // 丙丁
-        const yanshang =
-            '<span style="color:#0079FE">炎上格：</span>文书献策为最吉，用火乘风可进功。为虚冲，宜文治。';
-        const zenghui =
-            '<span style="color:#0079FE">增辉格：</span>文章显达功名进，举火出军勃然兴。利于飞黄腾达。';
-        const yanmu =
-            '<span style="color:#0079FE">掩目格：</span>掩目灭光为其号，溺身死地犯狱刑。主阴暗隐蔽。';
-        const shiguang =
-            '<span style="color:#0079FE">失光格：</span>前进必然招脱耗，破财破产坏元精。莫登程。';
-        const douli =
-            '<span style="color:#0079FE">斗力格：</span>口舌兴词概因此，逢之迅速退步停。事难宁。';
+        const yanshang = '<span style="color:#0079FE">炎上格：</span>文书献策为最吉，用火乘风可进功。为虚冲，宜文治。';
+        const zenghui = '<span style="color:#0079FE">增辉格：</span>文章显达功名进，举火出军勃然兴。利于飞黄腾达。';
+        const yanmu = '<span style="color:#0079FE">掩目格：</span>掩目灭光为其号，溺身死地犯狱刑。主阴暗隐蔽。';
+        const shiguang = '<span style="color:#0079FE">失光格：</span>前进必然招脱耗，破财破产坏元精。莫登程。';
+        const douli = '<span style="color:#0079FE">斗力格：</span>口舌兴词概因此，逢之迅速退步停。事难宁。';
 
         // 戊己
-        const jiase =
-            '<span style="color:#0079FE">稼穑格：</span>大力守边井下寨，安营乐业与雕薨。宣耕耘造作。';
-        const bianxiang =
-            '<span style="color:#0079FE">变象格：</span>资生万物而成器，进步元亨万里程，宜窑灶破瓦。';
-        const huaiti =
-            '<span style="color:#0079FE">坏体格：</span>伤身损命犹劳力，退守为宜毋进兵。主禁锢，利坚贞。';
-        const juejing =
-            '<span style="color:#0079FE">绝精格：</span>耗散元阳失本面，诸般谋作一场空。事不通。';
-        const poshui =
-            '<span style="color:#0079FE">迫水格：</span>田园致讼终耗力，交战出军损兵丁。慎官刑。';
+        const jiase = '<span style="color:#0079FE">稼穑格：</span>大力守边井下寨，安营乐业与雕薨。宣耕耘造作。';
+        const bianxiang = '<span style="color:#0079FE">变象格：</span>资生万物而成器，进步元亨万里程，宜窑灶破瓦。';
+        const huaiti = '<span style="color:#0079FE">坏体格：</span>伤身损命犹劳力，退守为宜毋进兵。主禁锢，利坚贞。';
+        const juejing = '<span style="color:#0079FE">绝精格：</span>耗散元阳失本面，诸般谋作一场空。事不通。';
+        const poshui = '<span style="color:#0079FE">迫水格：</span>田园致讼终耗力，交战出军损兵丁。慎官刑。';
 
         // 庚辛
-        const congge =
-            '<span style="color:#0079FE">从革格：</span>教军演队宜操矛，劫敌发兵功最优。为肃杀，宜武功。';
-        const yangwei =
-            '<span style="color:#0079FE">杨威格：</span>兴兵练阵皆其吉，乐道采丹向此修。利建侯称霸。';
-        const bikou =
-            '<span style="color:#0079FE">闭口格：</span>他人闪赚伤于我，途道绝粮切勿谋。主冤仇血光。';
-        const xiejin =
-            '<span style="color:#0079FE">泄津格：</span>此象须防人陷我，钱财败损又添忧。怕消沉。';
-        const fegnren =
-            '<span style="color:#0079FE">逢刃格：</span>伤其体兮败其形，口舌争斗命残朽。有凶咎';
+        const congge = '<span style="color:#0079FE">从革格：</span>教军演队宜操矛，劫敌发兵功最优。为肃杀，宜武功。';
+        const yangwei = '<span style="color:#0079FE">杨威格：</span>兴兵练阵皆其吉，乐道采丹向此修。利建侯称霸。';
+        const bikou = '<span style="color:#0079FE">闭口格：</span>他人闪赚伤于我，途道绝粮切勿谋。主冤仇血光。';
+        const xiejin = '<span style="color:#0079FE">泄津格：</span>此象须防人陷我，钱财败损又添忧。怕消沉。';
+        const fegnren = '<span style="color:#0079FE">逢刃格：</span>伤其体兮败其形，口舌争斗命残朽。有凶咎';
 
         // 壬癸
-        const runxia =
-            '<span style="color:#0079FE">润下格：</span>调河治水兼水战，斗智乘船向此游。又为含羞格。';
-        const tongguan =
-            '<span style="color:#0079FE">通关格：</span>迎锋见阵皆为吉，财利功名任所求。利筹策水利。';
-        const jueji =
-            '<span style="color:#0079FE">绝迹格：</span>伤其形质坏其身，疾病官灾一时陡。主疾病牵缠。';
-        const baiyuan =
-            '<span style="color:#0079FE">败源格：</span>诸般谋作皆费力，归去空空似浮舟。有忧愁。';
-        const mierun =
-            '<span style="color:#0079FE">灭润格：</span>利于淫邪私情事，非灾即祸将身因。乃无荣';
+        const runxia = '<span style="color:#0079FE">润下格：</span>调河治水兼水战，斗智乘船向此游。又为含羞格。';
+        const tongguan = '<span style="color:#0079FE">通关格：</span>迎锋见阵皆为吉，财利功名任所求。利筹策水利。';
+        const jueji = '<span style="color:#0079FE">绝迹格：</span>伤其形质坏其身，疾病官灾一时陡。主疾病牵缠。';
+        const baiyuan = '<span style="color:#0079FE">败源格：</span>诸般谋作皆费力，归去空空似浮舟。有忧愁。';
+        const mierun = '<span style="color:#0079FE">灭润格：</span>利于淫邪私情事，非灾即祸将身因。乃无荣';
 
         if (tiangan == '甲' || tiangan == '乙') {
             switch (gong) {
@@ -1990,32 +1900,19 @@ function feipan_info(info) {
             case '甲':
                 switch (gongwei) {
                     case '乾':
-                        result =
-                            '甲' +
-                            getLiuQin('甲', originalGongWei) +
-                            '：' +
-                            yang +
-                            '，' +
-                            zhangsheng;
+                        result = '甲' + getLiuQin('甲', originalGongWei) + '：' + yang + '，' + zhangsheng;
                         break;
                     case '坎':
                         result = '甲' + getLiuQin('甲', originalGongWei) + '：' + muyu;
                         break;
                     case '艮':
-                        result =
-                            '甲' +
-                            getLiuQin('甲', originalGongWei) +
-                            '：' +
-                            guandai +
-                            '，' +
-                            linguan;
+                        result = '甲' + getLiuQin('甲', originalGongWei) + '：' + guandai + '，' + linguan;
                         break;
                     case '震':
                         result = '甲' + getLiuQin('甲', originalGongWei) + '：' + diwang;
                         break;
                     case '巽':
-                        result =
-                            '甲' + getLiuQin('甲', originalGongWei) + '：' + shuai + '，' + bing;
+                        result = '甲' + getLiuQin('甲', originalGongWei) + '：' + shuai + '，' + bing;
                         break;
                     case '离':
                         result = '甲' + getLiuQin('甲', originalGongWei) + '：' + si;
@@ -2031,40 +1928,40 @@ function feipan_info(info) {
             case '乙':
                 switch (gongwei) {
                     case '乾':
-                        result = '乙' + getLiuQin('乙', originalGongWei) + '：' + si + '，' + mu;
+                        result = '乙' + getLiuQin('乙', originalGongWei) + '：' + si + '，' + mu + '  ' + '（仲甲）';
                         break;
                     case '坎':
-                        result = '乙' + getLiuQin('乙', originalGongWei) + '：' + bing;
+                        result = '乙' + getLiuQin('乙', originalGongWei) + '仲甲' + '：' + bing + '  ' + '（仲甲）';
                         break;
                     case '艮':
                         result =
-                            '乙' + getLiuQin('乙', originalGongWei) + '：' + diwang + '，' + shuai;
+                            '乙' + getLiuQin('乙', originalGongWei) + '：' + diwang + '，' + shuai + '  ' + '（仲甲）';
                         break;
                     case '震':
-                        result = '乙' + getLiuQin('乙', originalGongWei) + '：' + linguan;
+                        result = '乙' + getLiuQin('乙', originalGongWei) + '：' + linguan + '  ' + '（仲甲）';
                         break;
                     case '巽':
                         result =
-                            '乙' + getLiuQin('乙', originalGongWei) + '：' + muyu + '，' + guandai;
+                            '乙' + getLiuQin('乙', originalGongWei) + '：' + muyu + '，' + guandai + '  ' + '（仲甲）';
                         break;
                     case '离':
-                        result = '乙' + getLiuQin('乙', originalGongWei) + '：' + zhangsheng;
+                        result = '乙' + getLiuQin('乙', originalGongWei) + '：' + zhangsheng + '  ' + '（仲甲）';
                         break;
                     case '坤':
-                        result = '乙' + getLiuQin('乙', originalGongWei) + '：' + tai + '，' + yang;
+                        result = '乙' + getLiuQin('乙', originalGongWei) + '：' + tai + '，' + yang + '  ' + '（仲甲）';
                         break;
                     case '兑':
-                        result = '乙' + getLiuQin('乙', originalGongWei) + '：' + jue;
+                        result = '乙' + getLiuQin('乙', originalGongWei) + '：' + jue + '  ' + '（仲甲）';
                         break;
                 }
                 break;
             case '丙':
                 switch (gongwei) {
                     case '乾':
-                        result = '丙' + getLiuQin('丙', originalGongWei) + '：' + mu + '，' + jue;
+                        result = '丙' + getLiuQin('丙', originalGongWei) + '：' + mu + '，' + jue + '  ' + '（孟甲）';
                         break;
                     case '坎':
-                        result = '丙' + getLiuQin('丙', originalGongWei) + '：' + tai;
+                        result = '丙' + getLiuQin('丙', originalGongWei) + '：' + tai + '  ' + '（孟甲）';
                         break;
                     case '艮':
                         result =
@@ -2073,10 +1970,12 @@ function feipan_info(info) {
                             '：' +
                             yang +
                             '，' +
-                            zhangsheng;
+                            zhangsheng +
+                            '  ' +
+                            '（孟甲）';
                         break;
                     case '震':
-                        result = '丙' + getLiuQin('丙', originalGongWei) + '：' + muyu;
+                        result = '丙' + getLiuQin('丙', originalGongWei) + '：' + muyu + '  ' + '（孟甲）';
                         break;
                     case '巽':
                         result =
@@ -2085,57 +1984,59 @@ function feipan_info(info) {
                             '：' +
                             guandai +
                             '，' +
-                            linguan;
+                            linguan +
+                            '  ' +
+                            '（孟甲）';
                         break;
                     case '离':
-                        result = '丙' + getLiuQin('丙', originalGongWei) + '：' + diwang;
+                        result = '丙' + getLiuQin('丙', originalGongWei) + '：' + diwang + '  ' + '（孟甲）';
                         break;
                     case '坤':
                         result =
-                            '丙' + getLiuQin('丙', originalGongWei) + '：' + shuai + '，' + bing;
+                            '丙' + getLiuQin('丙', originalGongWei) + '：' + shuai + '，' + bing + '  ' + '（孟甲）';
                         break;
                     case '兑':
-                        result = '丙' + getLiuQin('丙', originalGongWei) + '：' + si;
+                        result = '丙' + getLiuQin('丙', originalGongWei) + '：' + si + '  ' + '（孟甲）';
                         break;
                 }
                 break;
             case '丁':
                 switch (gongwei) {
                     case '乾':
-                        result = '丁' + getLiuQin('丁', originalGongWei) + '：' + tai + '，' + yang;
+                        result = '丁' + getLiuQin('丁', originalGongWei) + '：' + tai + '，' + yang + '  ' + '（季甲）';
                         break;
                     case '坎':
-                        result = '丁' + getLiuQin('丁', originalGongWei) + '：' + jue;
+                        result = '丁' + getLiuQin('丁', originalGongWei) + '：' + jue + '  ' + '（季甲）';
                         break;
                     case '艮':
-                        result = '丁' + getLiuQin('丁', originalGongWei) + '：' + si + '，' + mu;
+                        result = '丁' + getLiuQin('丁', originalGongWei) + '：' + si + '，' + mu + '  ' + '（季甲）';
                         break;
                     case '震':
-                        result = '丁' + getLiuQin('丁', originalGongWei) + '：' + bing;
+                        result = '丁' + getLiuQin('丁', originalGongWei) + '：' + bing + '  ' + '（季甲）';
                         break;
                     case '巽':
                         result =
-                            '丁' + getLiuQin('丁', originalGongWei) + '：' + diwang + '，' + shuai;
+                            '丁' + getLiuQin('丁', originalGongWei) + '：' + diwang + '，' + shuai + '  ' + '（季甲）';
                         break;
                     case '离':
-                        result = '丁' + getLiuQin('丁', originalGongWei) + '：' + linguan;
+                        result = '丁' + getLiuQin('丁', originalGongWei) + '：' + linguan + '  ' + '（季甲）';
                         break;
                     case '坤':
                         result =
-                            '丁' + getLiuQin('丁', originalGongWei) + '：' + muyu + '，' + guandai;
+                            '丁' + getLiuQin('丁', originalGongWei) + '：' + muyu + '，' + guandai + '  ' + '（季甲）';
                         break;
                     case '兑':
-                        result = '丁' + getLiuQin('丁', originalGongWei) + '：' + zhangsheng;
+                        result = '丁' + getLiuQin('丁', originalGongWei) + '：' + zhangsheng + '  ' + '（季甲）';
                         break;
                 }
                 break;
             case '戊':
                 switch (gongwei) {
                     case '乾':
-                        result = '戊' + getLiuQin('戊', originalGongWei) + '：' + mu + '，' + jue;
+                        result = '戊' + getLiuQin('戊', originalGongWei) + '：' + mu + '，' + jue + '  ' + '（仲甲）';
                         break;
                     case '坎':
-                        result = '戊' + getLiuQin('戊', originalGongWei) + '：' + tai;
+                        result = '戊' + getLiuQin('戊', originalGongWei) + '：' + tai + '  ' + '（仲甲）';
                         break;
                     case '艮':
                         result =
@@ -2144,14 +2045,18 @@ function feipan_info(info) {
                             '：' +
                             yang +
                             '，' +
-                            zhangsheng;
+                            zhangsheng +
+                            '  ' +
+                            '（仲甲）';
                         break;
                     case '震':
                         result =
                             '<span style="color:#0079FE">戊</span>' +
                             getLiuQin('戊', originalGongWei) +
                             '：' +
-                            muyu;
+                            muyu +
+                            '  ' +
+                            '（仲甲）';
                         break;
                     case '巽':
                         result =
@@ -2160,40 +2065,42 @@ function feipan_info(info) {
                             '：' +
                             guandai +
                             '，' +
-                            linguan;
+                            linguan +
+                            '  ' +
+                            '（仲甲）';
                         break;
                     case '离':
-                        result = '戊' + getLiuQin('戊', originalGongWei) + '：' + diwang;
+                        result = '戊' + getLiuQin('戊', originalGongWei) + '：' + diwang + '  ' + '（仲甲）';
                         break;
                     case '坤':
                         result =
-                            '戊' + getLiuQin('戊', originalGongWei) + '：' + shuai + '，' + bing;
+                            '戊' + getLiuQin('戊', originalGongWei) + '：' + shuai + '，' + bing + '  ' + '（仲甲）';
                         break;
                     case '兑':
-                        result = '戊' + getLiuQin('戊', originalGongWei) + '：' + si;
+                        result = '戊' + getLiuQin('戊', originalGongWei) + '：' + si + '  ' + '（仲甲）';
                         break;
                 }
                 break;
             case '己':
                 switch (gongwei) {
                     case '乾':
-                        result = '己' + getLiuQin('己', originalGongWei) + '：' + tai + '，' + yang;
+                        result = '己' + getLiuQin('己', originalGongWei) + '：' + tai + '，' + yang + '  ' + '（季甲）';
                         break;
                     case '坎':
-                        result = '己' + getLiuQin('己', originalGongWei) + '：' + jue;
+                        result = '己' + getLiuQin('己', originalGongWei) + '：' + jue + '  ' + '（季甲）';
                         break;
                     case '艮':
-                        result = '己' + getLiuQin('己', originalGongWei) + '：' + si + '，' + mu;
+                        result = '己' + getLiuQin('己', originalGongWei) + '：' + si + '，' + mu + '  ' + '（季甲）';
                         break;
                     case '震':
-                        result = '己' + getLiuQin('己', originalGongWei) + '：' + bing;
+                        result = '己' + getLiuQin('己', originalGongWei) + '：' + bing + '  ' + '（季甲）';
                         break;
                     case '巽':
                         result =
-                            '己' + getLiuQin('己', originalGongWei) + '：' + diwang + '，' + shuai;
+                            '己' + getLiuQin('己', originalGongWei) + '：' + diwang + '，' + shuai + '  ' + '（季甲）';
                         break;
                     case '离':
-                        result = '己' + getLiuQin('己', originalGongWei) + '：' + linguan;
+                        result = '己' + getLiuQin('己', originalGongWei) + '：' + linguan + '  ' + '（季甲）';
                         break;
                     case '坤':
                         result =
@@ -2202,10 +2109,12 @@ function feipan_info(info) {
                             '：' +
                             muyu +
                             '，' +
-                            guandai;
+                            guandai +
+                            '  ' +
+                            '（季甲）';
                         break;
                     case '兑':
-                        result = '己' + getLiuQin('己', originalGongWei) + '：' + zhangsheng;
+                        result = '己' + getLiuQin('己', originalGongWei) + '：' + zhangsheng + '  ' + '（季甲）';
                         break;
                 }
                 break;
@@ -2213,10 +2122,10 @@ function feipan_info(info) {
                 switch (gongwei) {
                     case '乾':
                         result =
-                            '庚' + getLiuQin('庚', originalGongWei) + '：' + shuai + '，' + bing;
+                            '庚' + getLiuQin('庚', originalGongWei) + '：' + shuai + '，' + bing + '  ' + '（孟甲）';
                         break;
                     case '坎':
-                        result = '庚' + getLiuQin('庚', originalGongWei) + '：' + si;
+                        result = '庚' + getLiuQin('庚', originalGongWei) + '：' + si + '  ' + '（孟甲）';
                         break;
                     case '艮':
                         result =
@@ -2225,10 +2134,12 @@ function feipan_info(info) {
                             '：' +
                             mu +
                             '，' +
-                            jue;
+                            jue +
+                            '  ' +
+                            '（孟甲）';
                         break;
                     case '震':
-                        result = '庚' + getLiuQin('庚', originalGongWei) + '：' + tai;
+                        result = '庚' + getLiuQin('庚', originalGongWei) + '：' + tai + '  ' + '（孟甲）';
                         break;
                     case '巽':
                         result =
@@ -2237,10 +2148,12 @@ function feipan_info(info) {
                             '：' +
                             yang +
                             '，' +
-                            zhangsheng;
+                            zhangsheng +
+                            '  ' +
+                            '（孟甲）';
                         break;
                     case '离':
-                        result = '庚' + getLiuQin('庚', originalGongWei) + '：' + muyu;
+                        result = '庚' + getLiuQin('庚', originalGongWei) + '：' + muyu + '  ' + '（孟甲）';
                         break;
                     case '坤':
                         result =
@@ -2249,10 +2162,12 @@ function feipan_info(info) {
                             '：' +
                             guandai +
                             '，' +
-                            linguan;
+                            linguan +
+                            '  ' +
+                            '（孟甲）';
                         break;
                     case '兑':
-                        result = '庚' + getLiuQin('庚', originalGongWei) + '：' + diwang;
+                        result = '庚' + getLiuQin('庚', originalGongWei) + '：' + diwang + '  ' + '（孟甲）';
                         break;
                 }
                 break;
@@ -2260,33 +2175,35 @@ function feipan_info(info) {
                 switch (gongwei) {
                     case '乾':
                         result =
-                            '辛' + getLiuQin('辛', originalGongWei) + '：' + muyu + '，' + guandai;
+                            '辛' + getLiuQin('辛', originalGongWei) + '：' + muyu + '，' + guandai + '  ' + '（仲甲）';
                         break;
                     case '坎':
-                        result = '辛' + getLiuQin('辛', originalGongWei) + '：' + zhangsheng;
+                        result = '辛' + getLiuQin('辛', originalGongWei) + '：' + zhangsheng + '  ' + '（仲甲）';
                         break;
                     case '艮':
-                        result = '辛' + getLiuQin('辛', originalGongWei) + '：' + tai + '，' + yang;
+                        result = '辛' + getLiuQin('辛', originalGongWei) + '：' + tai + '，' + yang + '  ' + '（仲甲）';
                         break;
                     case '震':
-                        result = '辛' + getLiuQin('辛', originalGongWei) + '：' + jue;
+                        result = '辛' + getLiuQin('辛', originalGongWei) + '：' + jue + '  ' + '（仲甲）';
                         break;
                     case '巽':
-                        result = '辛' + getLiuQin('辛', originalGongWei) + '：' + si + '，' + mu;
+                        result = '辛' + getLiuQin('辛', originalGongWei) + '：' + si + '，' + mu + '  ' + '（仲甲）';
                         break;
                     case '离':
                         result =
                             '<span style="color:#0079FE">辛</span>' +
                             getLiuQin('辛', originalGongWei) +
                             '：' +
-                            bing;
+                            bing +
+                            '  ' +
+                            '（仲甲）';
                         break;
                     case '坤':
                         result =
-                            '辛' + getLiuQin('辛', originalGongWei) + '：' + diwang + '，' + shuai;
+                            '辛' + getLiuQin('辛', originalGongWei) + '：' + diwang + '，' + shuai + '  ' + '（仲甲）';
                         break;
                     case '兑':
-                        result = '辛' + getLiuQin('辛', originalGongWei) + '：' + linguan;
+                        result = '辛' + getLiuQin('辛', originalGongWei) + '：' + linguan + '  ' + '（仲甲）';
                         break;
                 }
                 break;
@@ -2299,17 +2216,19 @@ function feipan_info(info) {
                             '：' +
                             guandai +
                             '，' +
-                            linguan;
+                            linguan +
+                            '  ' +
+                            '（季甲）';
                         break;
                     case '坎':
-                        result = '壬' + getLiuQin('壬', originalGongWei) + '：' + diwang;
+                        result = '壬' + getLiuQin('壬', originalGongWei) + '：' + diwang + '  ' + '（季甲）';
                         break;
                     case '艮':
                         result =
-                            '壬' + getLiuQin('壬', originalGongWei) + '：' + shuai + '，' + bing;
+                            '壬' + getLiuQin('壬', originalGongWei) + '：' + shuai + '，' + bing + '  ' + '（季甲）';
                         break;
                     case '震':
-                        result = '壬' + getLiuQin('壬', originalGongWei) + '：' + si;
+                        result = '壬' + getLiuQin('壬', originalGongWei) + '：' + si + '  ' + '（季甲）';
                         break;
                     case '巽':
                         result =
@@ -2318,10 +2237,12 @@ function feipan_info(info) {
                             '：' +
                             mu +
                             '，' +
-                            jue;
+                            jue +
+                            '  ' +
+                            '（季甲）';
                         break;
                     case '离':
-                        result = '壬' + getLiuQin('壬', originalGongWei) + '：' + tai;
+                        result = '壬' + getLiuQin('壬', originalGongWei) + '：' + tai + '  ' + '（季甲）';
                         break;
                     case '坤':
                         result =
@@ -2330,10 +2251,12 @@ function feipan_info(info) {
                             '：' +
                             yang +
                             '，' +
-                            zhangsheng;
+                            zhangsheng +
+                            '  ' +
+                            '（季甲）';
                         break;
                     case '兑':
-                        result = '壬' + getLiuQin('壬', originalGongWei) + '：' + muyu;
+                        result = '壬' + getLiuQin('壬', originalGongWei) + '：' + muyu + '  ' + '（季甲）';
                         break;
                 }
                 break;
@@ -2341,17 +2264,17 @@ function feipan_info(info) {
                 switch (gongwei) {
                     case '乾':
                         result =
-                            '癸' + getLiuQin('癸', originalGongWei) + '：' + diwang + '，' + shuai;
+                            '癸' + getLiuQin('癸', originalGongWei) + '：' + diwang + '，' + shuai + '  ' + '（孟甲）';
                         break;
                     case '坎':
-                        result = '癸' + getLiuQin('癸', originalGongWei) + '：' + linguan;
+                        result = '癸' + getLiuQin('癸', originalGongWei) + '：' + linguan + '  ' + '（孟甲）';
                         break;
                     case '艮':
                         result =
-                            '癸' + getLiuQin('癸', originalGongWei) + '：' + muyu + '，' + guandai;
+                            '癸' + getLiuQin('癸', originalGongWei) + '：' + muyu + '，' + guandai + '  ' + '（孟甲）';
                         break;
                     case '震':
-                        result = '癸' + getLiuQin('癸', originalGongWei) + '：' + zhangsheng;
+                        result = '癸' + getLiuQin('癸', originalGongWei) + '：' + zhangsheng + '  ' + '（孟甲）';
                         break;
                     case '巽':
                         result =
@@ -2360,16 +2283,18 @@ function feipan_info(info) {
                             '：' +
                             tai +
                             '，' +
-                            yang;
+                            yang +
+                            '  ' +
+                            '（孟甲）';
                         break;
                     case '离':
-                        result = '癸' + getLiuQin('癸', originalGongWei) + '：' + jue;
+                        result = '癸' + getLiuQin('癸', originalGongWei) + '：' + jue + '  ' + '（孟甲）';
                         break;
                     case '坤':
-                        result = '癸' + getLiuQin('癸', originalGongWei) + '：' + si + '，' + mu;
+                        result = '癸' + getLiuQin('癸', originalGongWei) + '：' + si + '，' + mu + '  ' + '（孟甲）';
                         break;
                     case '兑':
-                        result = '癸' + getLiuQin('癸', originalGongWei) + '：' + bing;
+                        result = '癸' + getLiuQin('癸', originalGongWei) + '：' + bing + '  ' + '（孟甲）';
                         break;
                 }
                 break;
@@ -3723,9 +3648,7 @@ function feipan_info(info) {
             if (men == '景门') {
                 if (shen == '九天') {
                     if (dipangan == '戊') {
-                        result =
-                            result +
-                            '<span style="color:#0079FE">天假：</span>宜谒贵，上策，发令，结盟。<br><br>';
+                        result = result + '<span style="color:#0079FE">天假：</span>宜谒贵，上策，发令，结盟。<br><br>';
                     }
                 }
             }
@@ -3735,9 +3658,7 @@ function feipan_info(info) {
             if (men == '杜门') {
                 if (shen == '九地') {
                     if (dipangan == '己') {
-                        result =
-                            result +
-                            '<span style="color:#0079FE">地假：</span>宜藏伏，逃难，侦查。<br><br>';
+                        result = result + '<span style="color:#0079FE">地假：</span>宜藏伏，逃难，侦查。<br><br>';
                     }
                 }
             }
@@ -3747,9 +3668,7 @@ function feipan_info(info) {
             if (men == '杜门') {
                 if (shen == '太阴') {
                     if (dipangan == '己') {
-                        result =
-                            result +
-                            '<span style="color:#0079FE">物假：</span>宜埋葬，伏藏，交易。<br><br>';
+                        result = result + '<span style="color:#0079FE">物假：</span>宜埋葬，伏藏，交易。<br><br>';
                     }
                 }
             }
@@ -3759,9 +3678,7 @@ function feipan_info(info) {
             if (men == '惊门') {
                 if (shen == '螣蛇') {
                     if (gongwei == '坤') {
-                        result =
-                            result +
-                            '<span style="color:#0079FE">人假：</span>宜逋逃，搜隐。<br><br>';
+                        result = result + '<span style="color:#0079FE">人假：</span>宜逋逃，搜隐。<br><br>';
                     }
                 }
             }
@@ -3771,9 +3688,7 @@ function feipan_info(info) {
             if (men == '死门') {
                 if (shen == '朱雀' || shen == '玄武') {
                     if (gongwei == '艮') {
-                        result =
-                            result +
-                            '<span style="color:#0079FE">鬼假：</span>宜修坟，狩猎。<br><br>';
+                        result = result + '<span style="color:#0079FE">鬼假：</span>宜修坟，狩猎。<br><br>';
                     }
                 }
             }
@@ -3807,8 +3722,7 @@ function feipan_info(info) {
             if (men == '开门') {
                 if (dipangan == '己') {
                     result =
-                        result +
-                        '<span style="color:#0079FE">地遁：</span>宜安营，藏兵，修造，出阵，求财。<br><br>';
+                        result + '<span style="color:#0079FE">地遁：</span>宜安营，藏兵，修造，出阵，求财。<br><br>';
                 }
             }
         }
@@ -3817,8 +3731,7 @@ function feipan_info(info) {
             if (men == '休门') {
                 if (shen == '太阴') {
                     result =
-                        result +
-                        '<span style="color:#0079FE">人遁：</span>宜攻虚，开路，塞河，造像，教化。<br><br>';
+                        result + '<span style="color:#0079FE">人遁：</span>宜攻虚，开路，塞河，造像，教化。<br><br>';
                 }
             }
         }
@@ -3826,9 +3739,7 @@ function feipan_info(info) {
         if (tianpangan == '丙') {
             if (men == '生门') {
                 if (shen == '九天') {
-                    result =
-                        result +
-                        '<span style="color:#0079FE">神遁：</span>大利功名，开创，宣扬等事。<br><br>';
+                    result = result + '<span style="color:#0079FE">神遁：</span>大利功名，开创，宣扬等事。<br><br>';
                 }
             }
         }
@@ -3837,8 +3748,7 @@ function feipan_info(info) {
             if (men == '开门' || men == '生门' || dipangan == '丁') {
                 if (shen == '九地') {
                     result =
-                        result +
-                        '<span style="color:#0079FE">鬼遁：</span>宜安营，藏兵，修造，出阵，求财。<br><br>';
+                        result + '<span style="color:#0079FE">鬼遁：</span>宜安营，藏兵，修造，出阵，求财。<br><br>';
                 }
             }
         }
@@ -3846,9 +3756,7 @@ function feipan_info(info) {
         if (tianpangan == '辛') {
             if (men == '休门') {
                 if (gongwei == '巽') {
-                    result =
-                        result +
-                        '<span style="color:#0079FE">风遁：</span>宜烧营截寨，焚粮草，顺风响应。<br><br>';
+                    result = result + '<span style="color:#0079FE">风遁：</span>宜烧营截寨，焚粮草，顺风响应。<br><br>';
                 }
             }
         }
@@ -3857,8 +3765,7 @@ function feipan_info(info) {
             if (men == '休门') {
                 if (gongwei == '震') {
                     result =
-                        result +
-                        '<span style="color:#0079FE">云遁：</span>宜伏藏变化，兴云致雾，利于出兵。<br><br>';
+                        result + '<span style="color:#0079FE">云遁：</span>宜伏藏变化，兴云致雾，利于出兵。<br><br>';
                 }
             }
         }
@@ -3877,9 +3784,7 @@ function feipan_info(info) {
             if (tianpangan == '乙') {
                 if (men == '休门') {
                     if (dipangan == '辛') {
-                        result =
-                            result +
-                            '<span style="color:#0079FE">虎遁：</span>宜立营，招降，设伏，修造。<br><br>';
+                        result = result + '<span style="color:#0079FE">虎遁：</span>宜立营，招降，设伏，修造。<br><br>';
                     }
                 }
             }
@@ -3888,9 +3793,7 @@ function feipan_info(info) {
         if (tianpangan == '乙') {
             if (men == '生门') {
                 if (dipangan == '丁') {
-                    result =
-                        result +
-                        '<span style="color:#0079FE">文遁：</span>大利文书，谋划等事。<br><br>';
+                    result = result + '<span style="color:#0079FE">文遁：</span>大利文书，谋划等事。<br><br>';
                 }
             }
         }
@@ -3898,8 +3801,7 @@ function feipan_info(info) {
         if (tianpangan == '丙') {
             if (men == '开门') {
                 if (dipangan == '辛') {
-                    result =
-                        result + '<span style="color:#0079FE">武遁：</span>大利武威等事 。<br><br>';
+                    result = result + '<span style="color:#0079FE">武遁：</span>大利武威等事 。<br><br>';
                 }
             }
         }
@@ -3957,10 +3859,7 @@ function feipan_info(info) {
                             '<span style="color:#0079FE">休加伤：</span>上官主喜庆；求财则不易得；其它分产、变动等事亦不吉。<br><br><hr><br>'
                         );
                     case '巽':
-                        return (
-                            he +
-                            '<span style="color:#0079FE">休加杜：</span>主破财、失物难寻。<br><br><hr><br>'
-                        );
+                        return he + '<span style="color:#0079FE">休加杜：</span>主破财、失物难寻。<br><br><hr><br>';
                     case '离':
                         return (
                             fanyin +
@@ -3973,8 +3872,7 @@ function feipan_info(info) {
                         );
                     case '兑':
                         return (
-                            he +
-                            '<span style="color:#0079FE">休加惊：</span>主损财、招非并疾病惊恐事。<br><br><hr><br>'
+                            he + '<span style="color:#0079FE">休加惊：</span>主损财、招非并疾病惊恐事。<br><br><hr><br>'
                         );
                     case '中':
                         return shouzhi + '<br><hr><br>';
@@ -3982,20 +3880,11 @@ function feipan_info(info) {
             case '生门':
                 switch (gong) {
                     case '乾':
-                        return (
-                            he +
-                            '<span style="color:#0079FE">生加开：</span>主见贵人，求财大发。<br><br><hr><br>'
-                        );
+                        return he + '<span style="color:#0079FE">生加开：</span>主见贵人，求财大发。<br><br><hr><br>';
                     case '坎':
-                        return (
-                            menpo +
-                            '<span style="color:#0079FE">生加休：</span>主阴人处，谋财利。<br><br><hr><br>'
-                        );
+                        return menpo + '<span style="color:#0079FE">生加休：</span>主阴人处，谋财利。<br><br><hr><br>';
                     case '艮':
-                        return (
-                            fuyin +
-                            '<span style="color:#0079FE">生加生：</span>主远行，求财，吉。<br><br><hr><br>'
-                        );
+                        return fuyin + '<span style="color:#0079FE">生加生：</span>主远行，求财，吉。<br><br><hr><br>';
                     case '震':
                         return (
                             shouzhi +
@@ -4008,8 +3897,7 @@ function feipan_info(info) {
                         );
                     case '离':
                         return (
-                            yi +
-                            '<span style="color:#0079FE">生加景：</span>主阴人、小口不宁及文书事。<br><br><hr><br>'
+                            yi + '<span style="color:#0079FE">生加景：</span>主阴人、小口不宁及文书事。<br><br><hr><br>'
                         );
                     case '坤':
                         return (
@@ -4038,13 +3926,11 @@ function feipan_info(info) {
                         );
                     case '艮':
                         return (
-                            menpo +
-                            '<span style="color:#0079FE">伤加生：</span>主房产、种植业等变动。<br><br><hr><br>'
+                            menpo + '<span style="color:#0079FE">伤加生：</span>主房产、种植业等变动。<br><br><hr><br>'
                         );
                     case '震':
                         return (
-                            fuyin +
-                            '<span style="color:#0079FE">伤加伤：</span>主变动、远行皆主折伤。<br><br><hr><br>'
+                            fuyin + '<span style="color:#0079FE">伤加伤：</span>主变动、远行皆主折伤。<br><br><hr><br>'
                         );
                     case '巽':
                         return '<span style="color:#0079FE">伤加杜：</span>主变动、失聪、官司、刑狱、百事凶。<br><br><hr><br>';
@@ -4074,10 +3960,7 @@ function feipan_info(info) {
                             '<span style="color:#0079FE">杜加开：</span>主见贵人、官长谋事，先破财后吉。<br><br><hr><br>'
                         );
                     case '坎':
-                        return (
-                            yi +
-                            '<span style="color:#0079FE">杜加休：</span>主求财小益。<br><br><hr><br>'
-                        );
+                        return yi + '<span style="color:#0079FE">杜加休：</span>主求财小益。<br><br><hr><br>';
                     case '艮':
                         return (
                             menpo +
@@ -4117,8 +4000,7 @@ function feipan_info(info) {
                         );
                     case '坎':
                         return (
-                            fanyin +
-                            '<span style="color:#0079FE">景加休：</span>主文书遗失，争讼不休。<br><br><hr><br>'
+                            fanyin + '<span style="color:#0079FE">景加休：</span>主文书遗失，争讼不休。<br><br><hr><br>'
                         );
                     case '艮':
                         return (
@@ -4126,15 +4008,9 @@ function feipan_info(info) {
                             '<span style="color:#0079FE">景加生：</span>主阴人生产大喜，更主求财旺利，行人大吉。<br><br><hr><br>'
                         );
                     case '震':
-                        return (
-                            yi +
-                            '<span style="color:#0079FE">景加伤：</span>主亲眷口舌，败财后平。<br><br><hr><br>'
-                        );
+                        return yi + '<span style="color:#0079FE">景加伤：</span>主亲眷口舌，败财后平。<br><br><hr><br>';
                     case '巽':
-                        return (
-                            yi +
-                            '<span style="color:#0079FE">景加杜：</span>主失脱文书，败财后平。<br><br><hr><br>'
-                        );
+                        return yi + '<span style="color:#0079FE">景加杜：</span>主失脱文书，败财后平。<br><br><hr><br>';
                     case '离':
                         return (
                             fuyin +
@@ -4142,8 +4018,7 @@ function feipan_info(info) {
                         );
                     case '坤':
                         return (
-                            he +
-                            '<span style="color:#0079FE">景加死：</span>主官讼，争田宅事，多啾唧。<br><br><hr><br>'
+                            he + '<span style="color:#0079FE">景加死：</span>主官讼，争田宅事，多啾唧。<br><br><hr><br>'
                         );
                     case '兑':
                         return (
@@ -4157,8 +4032,7 @@ function feipan_info(info) {
                 switch (gong) {
                     case '乾':
                         return (
-                            he +
-                            '<span style="color:#0079FE">死加开：</span>见贵人求文书、印信事利。<br><br><hr><br>'
+                            he + '<span style="color:#0079FE">死加开：</span>见贵人求文书、印信事利。<br><br><hr><br>'
                         );
                     case '坎':
                         return (
@@ -4172,8 +4046,7 @@ function feipan_info(info) {
                         );
                     case '震':
                         return (
-                            shouzhi +
-                            '<span style="color:#0079FE">死加伤：</span>官司变动遭刑杖凶。<br><br><hr><br>'
+                            shouzhi + '<span style="color:#0079FE">死加伤：</span>官司变动遭刑杖凶。<br><br><hr><br>'
                         );
                     case '巽':
                         return (
@@ -4186,14 +4059,10 @@ function feipan_info(info) {
                             '<span style="color:#0079FE">死加景：</span>因文信、书契、财产事见官，先怒后喜不凶。<br><br><hr><br>'
                         );
                     case '坤':
-                        return (
-                            fuyin +
-                            '<span style="color:#0079FE">死加死：</span>主官事，无气、凶。<br><br><hr><br>'
-                        );
+                        return fuyin + '<span style="color:#0079FE">死加死：</span>主官事，无气、凶。<br><br><hr><br>';
                     case '兑':
                         return (
-                            he +
-                            '<span style="color:#0079FE">死加惊：</span>因官司事不结，忧疑患病凶。<br><br><hr><br>'
+                            he + '<span style="color:#0079FE">死加惊：</span>因官司事不结，忧疑患病凶。<br><br><hr><br>'
                         );
                     case '中':
                         return fanyin + '<br><hr><br>';
@@ -4203,10 +4072,7 @@ function feipan_info(info) {
                     case '乾':
                         return '<span style="color:#0079FE">惊加开：</span>主忧疑，官事惊恐，见喜贵则不凶。<br><br><hr><br>';
                     case '坎':
-                        return (
-                            he +
-                            '<span style="color:#0079FE">惊加休：</span>求财事或口舌事，迟吉。<br><br><hr><br>'
-                        );
+                        return he + '<span style="color:#0079FE">惊加休：</span>求财事或口舌事，迟吉。<br><br><hr><br>';
                     case '艮':
                         return (
                             yi +
@@ -4229,8 +4095,7 @@ function feipan_info(info) {
                         );
                     case '坤':
                         return (
-                            yi +
-                            '<span style="color:#0079FE">惊加死：</span>因田宅中怪异而生是非，凶。<br><br><hr><br>'
+                            yi + '<span style="color:#0079FE">惊加死：</span>因田宅中怪异而生是非，凶。<br><br><hr><br>'
                         );
                     case '兑':
                         return (
@@ -4253,10 +4118,7 @@ function feipan_info(info) {
                             '<span style="color:#0079FE">开加休：</span>主见贵人、财喜、开张店铺、贸易大利。<br><br><hr><br>'
                         );
                     case '艮':
-                        return (
-                            yi +
-                            '<span style="color:#0079FE">开加生；</span>见贵人，谋望所求遂意。<br><br><hr><br>'
-                        );
+                        return yi + '<span style="color:#0079FE">开加生；</span>见贵人，谋望所求遂意。<br><br><hr><br>';
                     case '震':
                         return (
                             menpo +
@@ -4308,10 +4170,7 @@ function feipan_info(info) {
                             '<span style="color:#0079FE">休加伤：</span>上官主喜庆；求财则不易得；其它分产、变动等事亦不吉。<br><br><hr><br>'
                         );
                     case '巽':
-                        return (
-                            he +
-                            '<span style="color:#0079FE">休加杜：</span>主破财、失物难寻。<br><br><hr><br>'
-                        );
+                        return he + '<span style="color:#0079FE">休加杜：</span>主破财、失物难寻。<br><br><hr><br>';
                     case '离':
                         return (
                             fanyin +
@@ -4324,8 +4183,7 @@ function feipan_info(info) {
                         );
                     case '兑':
                         return (
-                            he +
-                            '<span style="color:#0079FE">休加惊：</span>主损财、招非并疾病惊恐事。<br><br><hr><br>'
+                            he + '<span style="color:#0079FE">休加惊：</span>主损财、招非并疾病惊恐事。<br><br><hr><br>'
                         );
                     case '中':
                         return shouzhi + '<br><hr><br>';
@@ -4333,20 +4191,11 @@ function feipan_info(info) {
             case '生門':
                 switch (gong) {
                     case '乾':
-                        return (
-                            he +
-                            '<span style="color:#0079FE">生加开：</span>主见贵人，求财大发。<br><br><hr><br>'
-                        );
+                        return he + '<span style="color:#0079FE">生加开：</span>主见贵人，求财大发。<br><br><hr><br>';
                     case '坎':
-                        return (
-                            menpo +
-                            '<span style="color:#0079FE">生加休：</span>主阴人处，谋财利。<br><br><hr><br>'
-                        );
+                        return menpo + '<span style="color:#0079FE">生加休：</span>主阴人处，谋财利。<br><br><hr><br>';
                     case '艮':
-                        return (
-                            fuyin +
-                            '<span style="color:#0079FE">生加生：</span>主远行，求财，吉。<br><br><hr><br>'
-                        );
+                        return fuyin + '<span style="color:#0079FE">生加生：</span>主远行，求财，吉。<br><br><hr><br>';
                     case '震':
                         return (
                             shouzhi +
@@ -4359,8 +4208,7 @@ function feipan_info(info) {
                         );
                     case '离':
                         return (
-                            yi +
-                            '<span style="color:#0079FE">生加景：</span>主阴人、小口不宁及文书事。<br><br><hr><br>'
+                            yi + '<span style="color:#0079FE">生加景：</span>主阴人、小口不宁及文书事。<br><br><hr><br>'
                         );
                     case '坤':
                         return (
@@ -4389,13 +4237,11 @@ function feipan_info(info) {
                         );
                     case '艮':
                         return (
-                            menpo +
-                            '<span style="color:#0079FE">伤加生：</span>主房产、种植业等变动。<br><br><hr><br>'
+                            menpo + '<span style="color:#0079FE">伤加生：</span>主房产、种植业等变动。<br><br><hr><br>'
                         );
                     case '震':
                         return (
-                            fuyin +
-                            '<span style="color:#0079FE">伤加伤：</span>主变动、远行皆主折伤。<br><br><hr><br>'
+                            fuyin + '<span style="color:#0079FE">伤加伤：</span>主变动、远行皆主折伤。<br><br><hr><br>'
                         );
                     case '巽':
                         return '<span style="color:#0079FE">伤加杜：</span>主变动、失聪、官司、刑狱、百事凶。<br><br><hr><br>';
@@ -4425,10 +4271,7 @@ function feipan_info(info) {
                             '<span style="color:#0079FE">杜加开：</span>主见贵人、官长谋事，先破财后吉。<br><br><hr><br>'
                         );
                     case '坎':
-                        return (
-                            yi +
-                            '<span style="color:#0079FE">杜加休：</span>主求财小益。<br><br><hr><br>'
-                        );
+                        return yi + '<span style="color:#0079FE">杜加休：</span>主求财小益。<br><br><hr><br>';
                     case '艮':
                         return (
                             menpo +
@@ -4468,8 +4311,7 @@ function feipan_info(info) {
                         );
                     case '坎':
                         return (
-                            fanyin +
-                            '<span style="color:#0079FE">景加休：</span>主文书遗失，争讼不休。<br><br><hr><br>'
+                            fanyin + '<span style="color:#0079FE">景加休：</span>主文书遗失，争讼不休。<br><br><hr><br>'
                         );
                     case '艮':
                         return (
@@ -4477,15 +4319,9 @@ function feipan_info(info) {
                             '<span style="color:#0079FE">景加生：</span>主阴人生产大喜，更主求财旺利，行人大吉。<br><br><hr><br>'
                         );
                     case '震':
-                        return (
-                            yi +
-                            '<span style="color:#0079FE">景加伤：</span>主亲眷口舌，败财后平。<br><br><hr><br>'
-                        );
+                        return yi + '<span style="color:#0079FE">景加伤：</span>主亲眷口舌，败财后平。<br><br><hr><br>';
                     case '巽':
-                        return (
-                            yi +
-                            '<span style="color:#0079FE">景加杜：</span>主失脱文书，败财后平。<br><br><hr><br>'
-                        );
+                        return yi + '<span style="color:#0079FE">景加杜：</span>主失脱文书，败财后平。<br><br><hr><br>';
                     case '离':
                         return (
                             fuyin +
@@ -4493,8 +4329,7 @@ function feipan_info(info) {
                         );
                     case '坤':
                         return (
-                            he +
-                            '<span style="color:#0079FE">景加死：</span>主官讼，争田宅事，多啾唧。<br><br><hr><br>'
+                            he + '<span style="color:#0079FE">景加死：</span>主官讼，争田宅事，多啾唧。<br><br><hr><br>'
                         );
                     case '兑':
                         return (
@@ -4508,8 +4343,7 @@ function feipan_info(info) {
                 switch (gong) {
                     case '乾':
                         return (
-                            he +
-                            '<span style="color:#0079FE">死加开：</span>见贵人求文书、印信事利。<br><br><hr><br>'
+                            he + '<span style="color:#0079FE">死加开：</span>见贵人求文书、印信事利。<br><br><hr><br>'
                         );
                     case '坎':
                         return (
@@ -4523,8 +4357,7 @@ function feipan_info(info) {
                         );
                     case '震':
                         return (
-                            shouzhi +
-                            '<span style="color:#0079FE">死加伤：</span>官司变动遭刑杖凶。<br><br><hr><br>'
+                            shouzhi + '<span style="color:#0079FE">死加伤：</span>官司变动遭刑杖凶。<br><br><hr><br>'
                         );
                     case '巽':
                         return (
@@ -4537,14 +4370,10 @@ function feipan_info(info) {
                             '<span style="color:#0079FE">死加景：</span>因文信、书契、财产事见官，先怒后喜不凶。<br><br><hr><br>'
                         );
                     case '坤':
-                        return (
-                            fuyin +
-                            '<span style="color:#0079FE">死加死：</span>主官事，无气、凶。<br><br><hr><br>'
-                        );
+                        return fuyin + '<span style="color:#0079FE">死加死：</span>主官事，无气、凶。<br><br><hr><br>';
                     case '兑':
                         return (
-                            he +
-                            '<span style="color:#0079FE">死加惊：</span>因官司事不结，忧疑患病凶。<br><br><hr><br>'
+                            he + '<span style="color:#0079FE">死加惊：</span>因官司事不结，忧疑患病凶。<br><br><hr><br>'
                         );
                     case '中':
                         return fanyin + '<br><hr><br>';
@@ -4554,10 +4383,7 @@ function feipan_info(info) {
                     case '乾':
                         return '<span style="color:#0079FE">惊加开：</span>主忧疑，官事惊恐，见喜贵则不凶。<br><br><hr><br>';
                     case '坎':
-                        return (
-                            he +
-                            '<span style="color:#0079FE">惊加休：</span>求财事或口舌事，迟吉。<br><br><hr><br>'
-                        );
+                        return he + '<span style="color:#0079FE">惊加休：</span>求财事或口舌事，迟吉。<br><br><hr><br>';
                     case '艮':
                         return (
                             yi +
@@ -4580,8 +4406,7 @@ function feipan_info(info) {
                         );
                     case '坤':
                         return (
-                            yi +
-                            '<span style="color:#0079FE">惊加死：</span>因田宅中怪异而生是非，凶。<br><br><hr><br>'
+                            yi + '<span style="color:#0079FE">惊加死：</span>因田宅中怪异而生是非，凶。<br><br><hr><br>'
                         );
                     case '兑':
                         return (
@@ -4604,10 +4429,7 @@ function feipan_info(info) {
                             '<span style="color:#0079FE">开加休：</span>主见贵人、财喜、开张店铺、贸易大利。<br><br><hr><br>'
                         );
                     case '艮':
-                        return (
-                            yi +
-                            '<span style="color:#0079FE">开加生；</span>见贵人，谋望所求遂意。<br><br><hr><br>'
-                        );
+                        return yi + '<span style="color:#0079FE">开加生；</span>见贵人，谋望所求遂意。<br><br><hr><br>';
                     case '震':
                         return (
                             menpo +
@@ -5160,8 +4982,7 @@ function feipan_info(info) {
             '<span style="color:#0079FE">天马：</span>主迁动、出行之事。廷求事迅速，游行皆利，逃避远去，走失难寻，其余皆利<br>';
         const tianyi = '<span style="color:#0079FE">天医：</span>主与医药有关，利求医<br>';
         const yueyan = '<span style="color:red">月厌：</span>主鬼神相扰，被人诅咒，不利婚姻<br>';
-        const shengqi =
-            '<span style="color:#0079FE">生气：</span>主难中有救，绝处逢生，所为皆美<br>';
+        const shengqi = '<span style="color:#0079FE">生气：</span>主难中有救，绝处逢生，所为皆美<br>';
         const siqi = '<span style="color:red">死气：</span>主死表之事，病讼、孕产皆忌<br>';
         const sishen = '<span style="color:red">死神：</span>主死丧疾病，占病凶<br>';
         const tiangui = '<span style="color:red">天鬼：</span>主流行性疾病，家有怪异<br>';
@@ -5171,9 +4992,7 @@ function feipan_info(info) {
         switch (document.getElementById('yue').innerText.charAt(1)) {
             case '子':
                 if (gongwei == '巽') {
-                    result =
-                        result +
-                        '<span style="color:#0079FE">天德：</span>主消除忧祸，逢凶化吉，化险为夷<br>';
+                    result = result + '<span style="color:#0079FE">天德：</span>主消除忧祸，逢凶化吉，化险为夷<br>';
                 }
                 if (anzhi == '亥') {
                     result = result + yuede;
@@ -5211,9 +5030,7 @@ function feipan_info(info) {
                 break;
             case '丑':
                 if (gongwei == '兑') {
-                    result =
-                        result +
-                        '<span style="color:#0079FE">天德：</span>主消除忧祸，逢凶化吉，化险为夷<br>';
+                    result = result + '<span style="color:#0079FE">天德：</span>主消除忧祸，逢凶化吉，化险为夷<br>';
                 }
                 if (anzhi == '申') {
                     result = result + yuede;
@@ -5251,9 +5068,7 @@ function feipan_info(info) {
                 break;
             case '寅':
                 if (gongwei == '离') {
-                    result =
-                        result +
-                        '<span style="color:#0079FE">天德：</span>主消除忧祸，逢凶化吉，化险为夷<br>';
+                    result = result + '<span style="color:#0079FE">天德：</span>主消除忧祸，逢凶化吉，化险为夷<br>';
                 }
                 if (anzhi == '巳') {
                     result = result + yuede;
@@ -5291,9 +5106,7 @@ function feipan_info(info) {
                 break;
             case '卯':
                 if (gongwei == '坤') {
-                    result =
-                        result +
-                        '<span style="color:#0079FE">天德：</span>主消除忧祸，逢凶化吉，化险为夷<br>';
+                    result = result + '<span style="color:#0079FE">天德：</span>主消除忧祸，逢凶化吉，化险为夷<br>';
                 }
                 if (anzhi == '寅') {
                     result = result + yuede;
@@ -5331,9 +5144,7 @@ function feipan_info(info) {
                 break;
             case '辰':
                 if (gongwei == '坎') {
-                    result =
-                        result +
-                        '<span style="color:#0079FE">天德：</span>主消除忧祸，逢凶化吉，化险为夷<br>';
+                    result = result + '<span style="color:#0079FE">天德：</span>主消除忧祸，逢凶化吉，化险为夷<br>';
                 }
                 if (anzhi == '亥') {
                     result = result + yuede;
@@ -5371,9 +5182,7 @@ function feipan_info(info) {
                 break;
             case '巳':
                 if (gongwei == '兑') {
-                    result =
-                        result +
-                        '<span style="color:#0079FE">天德：</span>主消除忧祸，逢凶化吉，化险为夷<br>';
+                    result = result + '<span style="color:#0079FE">天德：</span>主消除忧祸，逢凶化吉，化险为夷<br>';
                 }
                 if (anzhi == '申') {
                     result = result + yuede;
@@ -5411,9 +5220,7 @@ function feipan_info(info) {
                 break;
             case '午':
                 if (gongwei == '乾') {
-                    result =
-                        result +
-                        '<span style="color:#0079FE">天德：</span>主消除忧祸，逢凶化吉，化险为夷<br>';
+                    result = result + '<span style="color:#0079FE">天德：</span>主消除忧祸，逢凶化吉，化险为夷<br>';
                 }
                 if (anzhi == '巳') {
                     result = result + yuede;
@@ -5451,9 +5258,7 @@ function feipan_info(info) {
                 break;
             case '未':
                 if (gongwei == '震') {
-                    result =
-                        result +
-                        '<span style="color:#0079FE">天德：</span>主消除忧祸，逢凶化吉，化险为夷<br>';
+                    result = result + '<span style="color:#0079FE">天德：</span>主消除忧祸，逢凶化吉，化险为夷<br>';
                 }
                 if (anzhi == '寅') {
                     result = result + yuede;
@@ -5491,9 +5296,7 @@ function feipan_info(info) {
                 break;
             case '申':
                 if (gongwei == '坎') {
-                    result =
-                        result +
-                        '<span style="color:#0079FE">天德：</span>主消除忧祸，逢凶化吉，化险为夷<br>';
+                    result = result + '<span style="color:#0079FE">天德：</span>主消除忧祸，逢凶化吉，化险为夷<br>';
                 }
                 if (anzhi == '亥') {
                     result = result + yuede;
@@ -5531,9 +5334,7 @@ function feipan_info(info) {
                 break;
             case '酉':
                 if (gongwei == '艮') {
-                    result =
-                        result +
-                        '<span style="color:#0079FE">天德：</span>主消除忧祸，逢凶化吉，化险为夷<br>';
+                    result = result + '<span style="color:#0079FE">天德：</span>主消除忧祸，逢凶化吉，化险为夷<br>';
                 }
                 if (anzhi == '申') {
                     result = result + yuede;
@@ -5571,9 +5372,7 @@ function feipan_info(info) {
                 break;
             case '戌':
                 if (gongwei == '离') {
-                    result =
-                        result +
-                        '<span style="color:#0079FE">天德：</span>主消除忧祸，逢凶化吉，化险为夷<br>';
+                    result = result + '<span style="color:#0079FE">天德：</span>主消除忧祸，逢凶化吉，化险为夷<br>';
                 }
                 if (anzhi == '巳') {
                     result = result + yuede;
@@ -5611,9 +5410,7 @@ function feipan_info(info) {
                 break;
             case '亥':
                 if (gongwei == '震') {
-                    result =
-                        result +
-                        '<span style="color:#0079FE">天德：</span>主消除忧祸，逢凶化吉，化险为夷<br>';
+                    result = result + '<span style="color:#0079FE">天德：</span>主消除忧祸，逢凶化吉，化险为夷<br>';
                 }
                 if (anzhi == '寅') {
                     result = result + yuede;

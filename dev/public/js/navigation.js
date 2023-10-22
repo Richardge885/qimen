@@ -25,21 +25,21 @@ ipcRenderer.on('back to home page', (e) => {
     }
 });
 
-function changeBaoshuRadioInput() {
-    if (document.getElementById('home-paipanfangshi').value == '飞盘') {
-        document.getElementById('jushu').setAttribute('checked', '');
-    } else if (
-        document.getElementById('home-paipanfangshi').value == '传统转盘' ||
-        document.getElementById('home-paipanfangshi').value == '符使转盘'
-    ) {
-        document.getElementById('shichen').setAttribute('checked', '');
-    }
-}
+// function changeBaoshuRadioInput() {
+//     if (document.getElementById('home-paipanfangshi').value == '飞盘') {
+//         document.getElementById('jushu').setAttribute('checked', '');
+//     } else if (
+//         document.getElementById('home-paipanfangshi').value == '传统转盘' ||
+//         document.getElementById('home-paipanfangshi').value == '符使转盘'
+//     ) {
+//         document.getElementById('shichen').setAttribute('checked', '');
+//     }
+// }
 
 // 正时排盘按键跳转功能
 document.getElementById('zhengshi').addEventListener('click', () => {
     updateDefaultInformation();
-    changeBaoshuRadioInput();
+    // changeBaoshuRadioInput();
     // clearPanJu(); // 清空盘面
     let choosenTime = formatDateTime(document.getElementById('date-time').value);
     const data = {
@@ -57,12 +57,9 @@ document.getElementById('zhengshi').addEventListener('click', () => {
 });
 
 document.getElementById('modal-btn').addEventListener('click', () => {
-    if (
-        document.getElementById('shuzi').value != '' &&
-        document.getElementById('shuzi').value > 0
-    ) {
+    if (document.getElementById('shuzi').value != '' && document.getElementById('shuzi').value > 0) {
         updateDefaultInformation();
-        changeBaoshuRadioInput();
+        // changeBaoshuRadioInput();
         // clearPanJu(); // 清空盘面
         let choosenTime = formatDateTime(document.getElementById('date-time').value);
         let data = {
@@ -90,14 +87,21 @@ document.getElementById('modal-btn').addEventListener('click', () => {
     }
 });
 
+document.getElementById('jushu').addEventListener('click', () => {
+    document.getElementById('shuzi').focus();
+});
+document.getElementById('shichen').addEventListener('click', () => {
+    document.getElementById('shuzi').focus();
+});
+document.getElementById('zhichou').addEventListener('click', () => {
+    document.getElementById('shuzi').focus();
+});
+
 document.getElementById('shuzi').addEventListener('keypress', (e) => {
     if (e.key === 'Enter') {
-        if (
-            document.getElementById('shuzi').value != '' &&
-            document.getElementById('shuzi').value > 0
-        ) {
+        if (document.getElementById('shuzi').value != '' && document.getElementById('shuzi').value > 0) {
             updateDefaultInformation();
-            changeBaoshuRadioInput();
+            // changeBaoshuRadioInput();
             // clearPanJu();
             let choosenTime = formatDateTime(document.getElementById('date-time').value);
             let data = {
@@ -163,7 +167,15 @@ function updateDefaultInformation() {
         theme: document.getElementById('theme').value,
         feipanliuqin: document.getElementById('liuqin').value,
         classicChinese: document.getElementById('classic-chinese').checked,
+        baoshuMethod: '',
     };
+    if (document.getElementById('shichen').checked) {
+        updateInfo.baoshuMethod = 'shichen';
+    } else if (document.getElementById('jushu').checked) {
+        updateInfo.baoshuMethod = 'jushu';
+    } else {
+        updateInfo.baoshuMethod = 'zhichou';
+    }
     localStorage.setItem('defaultInfo', JSON.stringify(updateInfo));
 }
 

@@ -330,8 +330,7 @@ function paiTianPanGan() {
                 break;
             case '天芮':
                 tianpangan[i].innerHTML = dipangan[1].innerHTML;
-                document.querySelectorAll('[data-tianpanyikong]')[i].innerHTML =
-                    dipangan[4].innerHTML;
+                document.querySelectorAll('[data-tianpanyikong]')[i].innerHTML = dipangan[4].innerHTML;
                 break;
             case '天柱':
                 tianpangan[i].innerHTML = dipangan[6].innerHTML;

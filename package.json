@@ -1,14 +1,12 @@
 {
     "name": "qimen",
-    "version": "5.0.1",
+    "version": "5.1.1",
     "description": "奇门遁甲排盘",
     "main": "./dev/main.js",
     "scripts": {
         "start": "electron .",
-        "tswatch": "tsc -w",
         "twwatch": "tailwindcss -i ./dev/public/input.css -o ./dev/public/css/index.css --watch",
         "twbuild": "tailwindcss -i ./dev/public/input.css -o ./dev/public/css/index.css",
-        "dev": "nodemon --exec electron .",
         "build-win": "electron-builder --w",
         "build-mac": "electron-builder --m"
     },

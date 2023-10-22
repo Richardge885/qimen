@@ -4,6 +4,7 @@ if (localStorage.getItem('defaultInfo') == null) {
         theme: '默认',
         feipanliuqin: '无',
         classicChinese: false,
+        baoshuMethod: 'shichen',
     };
     localStorage.setItem('defaultInfo', JSON.stringify(defaultInfo));
     document.getElementById('home-paipanfangshi').value = defaultInfo.paipanMethod;
@@ -21,13 +22,16 @@ if (localStorage.getItem('defaultInfo') == null) {
 }
 
 function changeBaoshuRadioInput() {
-    if (document.getElementById('home-paipanfangshi').value == '飞盘') {
-        document.getElementById('jushu').setAttribute('checked', '');
-    } else if (
-        document.getElementById('home-paipanfangshi').value == '转盘' ||
-        document.getElementById('home-paipanfangshi').value == '星飞门转'
-    ) {
-        document.getElementById('shichen').setAttribute('checked', '');
+    switch (JSON.parse(localStorage.getItem('defaultInfo')).baoshuMethod) {
+        case 'jushu':
+            document.getElementById('jushu').setAttribute('checked', '');
+            break;
+        case 'shichen':
+            document.getElementById('shichen').setAttribute('checked', '');
+            break;
+        case 'zhichou':
+            document.getElementById('zhichou').setAttribute('checked', '');
+            break;
     }
 }
 

@@ -1,4 +1,5 @@
 const { ipcRenderer } = require('electron');
+
 ipcRenderer.on('飞盘排盘', (e, data) => {
     const [year, month, day] = data.time.yangli.split('/').map((str) => parseInt(str));
     updateTimeInfo(data, year, month, day, data.hour);
