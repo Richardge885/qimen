@@ -1,32 +1,27 @@
 function zhuanpan_info(info, paifa) {
+    // todo reformat this file for memory management
     let whichGong;
+    let storedZhuanpanListeners = [];
     document.querySelectorAll('[data-gongwei-overlay]').forEach((overlay, index) => {
-        if (index !== 4) {
-            overlay.addEventListener('click', () => {
-                whichGong = index;
-                document.getElementById('paipan-jiamu-info').classList.add('hidden');
-                document.getElementById('paipan-gongwei-info').classList.add('rounded-bl-[15px]');
-                getCurrentGongweiInfo(index); // 提取被点击的宫位信息并且把宫内信息加载到侧边栏中
-                changeFocusItem('geju');
-                openInfoWindow();
-            });
-        } else {
-            overlay.addEventListener('click', () => {
-                document.getElementById('paipan-overlay').classList.remove('active');
-                document.getElementById('paipan-info-modal').classList.remove('active');
-            });
-        }
+        const clickHandler = createGongweiOverlayListener(index);
+        overlay.addEventListener('click', clickHandler);
+        storedZhuanpanListeners.push({ element: overlay, handler: clickHandler });
     });
 
-    document.getElementById('paipan-geju-info').addEventListener('click', () => {
+    document.getElementById('paipan-geju-info').addEventListener('click', gejuListener);
+    function gejuListener() {
         changeFocusItem('geju');
-    });
-    document.getElementById('paipan-tianpanshen-info').addEventListener('click', () => {
+    }
+    document
+        .getElementById('paipan-tianpanshen-info')
+        .addEventListener('click', tianpanshenListener);
+    function tianpanshenListener() {
         changeFocusItem('tianpanshen');
-    });
-    document.getElementById('paipan-xing-info').addEventListener('click', () => {
+    }
+    document.getElementById('paipan-xing-info').addEventListener('click', xingListener);
+    function xingListener() {
         changeFocusItem('xing');
-    });
+    }
     document.getElementById('paipan-men-info').addEventListener('click', () => {
         changeFocusItem('men');
     });
@@ -2943,4 +2938,30 @@ function zhuanpan_info(info, paifa) {
                 }
         }
     }
+
+    // overlay listener function reference
+    function createGongweiOverlayListener(index) {
+        return function handleClick() {
+            if (index !== 4) {
+                handleNonSpecialCase(index);
+            } else {
+                handleSpecialCase();
+            }
+        };
+
+        function handleNonSpecialCase(index) {
+            whichGong = index;
+            document.getElementById('paipan-jiamu-info').classList.add('hidden');
+            document.getElementById('paipan-gongwei-info').classList.add('rounded-bl-[15px]');
+            getCurrentGongweiInfo(index);
+            changeFocusItem('geju');
+            openInfoWindow();
+        }
+
+        function handleSpecialCase() {
+            document.getElementById('paipan-overlay').classList.remove('active');
+            document.getElementById('paipan-info-modal').classList.remove('active');
+        }
+    }
+    return storedZhuanpanListeners;
 }

@@ -23,6 +23,19 @@ menuBtn.addEventListener('click', () => {
 
 // 主页: 报数弹窗开关
 baoshu.addEventListener('click', openBaoshuModal);
+window.addEventListener('keydown', (event) => {
+    if (event.key.toLowerCase() === 'u' && (event.ctrlKey || event.metaKey)) {
+        openBaoshuModal();
+    }
+});
+
+window.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' || event.key === 'Esc') {
+        closeModal();
+        closeSideMenu();
+    }
+});
+
 overlay.addEventListener('click', () => {
     closeModal();
     closeSideMenu();

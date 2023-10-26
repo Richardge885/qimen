@@ -14,6 +14,7 @@ let localData = JSON.parse(localStorage.getItem('savedData')); // 每次运行�
 let dataList = document.getElementById('saved-data-list'); // 可视数据列表
 let currentPanju;
 let panjuIndex;
+let storedEventListeners = [];
 
 // menu navigation
 gotoSavedInfoSectionBtn.addEventListener('click', () => {
@@ -112,6 +113,7 @@ document.getElementById('import-saved-data-btn').addEventListener('click', () =>
 
 async function renderData(data) {
     clearRenderList();
+    document.getElementById('saved-data-number-of-data').innerHTML = numberOfDataShowed(data);
     let list = '';
     for (let i = data.length - 1; i >= 0; i--) {
         const lineBreakPosition = getReturnPosition(data[i].info);
@@ -135,72 +137,60 @@ async function renderData(data) {
 
     // 点击卡片排盘按键
     document.querySelectorAll('[data-dataPaipan-btn]').forEach((item, index) => {
-        item.addEventListener('click', () => {
-            isFromData = true;
-            panjuIndex = index;
-            for (let i = localData.length - 1; i >= 0; i--) {
-                if (
-                    data[index].info == localData[i].info &&
-                    data[index].timeInfo.date == localData[i].timeInfo.date &&
-                    data[index].choosenMethod == localData[i].choosenMethod &&
-                    data[index].choosenNumber == localData[i].choosenNumber
-                ) {
-                    panjuIndex = i;
-                }
-            }
-            sendDataToBackEnd(localData[panjuIndex]);
-            document.getElementById('paipan-pizhu').value = data[index].info;
-        });
+        const clickHandler = handleDataPaipanClick(index, data);
+        item.addEventListener('click', clickHandler);
+        storedEventListeners.push({ element: item, handler: clickHandler });
     });
 
     // 卡片删除案件
     document.querySelectorAll('[data-delete-btn]').forEach((item, index) => {
-        item.addEventListener('click', () => {
-            deleteItem(data, index);
-            if (document.getElementById('search-data').value != '') {
-                const searchTerm = document.getElementById('search-data').value;
-                let newList = [];
-                for (let i = localData.length - 1; i >= 0; i--) {
-                    if (localData[i].info.includes(searchTerm)) {
-                        newList.unshift(localData[i]);
-                    }
-                }
-                renderData(newList);
-            } else {
-                renderData(localData);
-            }
-        });
+        const deleteHandler = () => handleDataDeleteClick(index, data);
+        item.addEventListener('click', deleteHandler);
+        storedEventListeners.push({ element: item, handler: deleteHandler });
     });
 }
 
 function clearRenderList() {
     // 清空已存在的列表
-    document.querySelectorAll('[data-dataPaipan-btn]').forEach((item, index) => {
-        item.removeEventListener('click', () => {
-            isFromData = true;
-            panjuIndex = index;
-            sendDataToBackEnd(localData[index]);
-            document.getElementById('paipan-pizhu').value = localData[index].info;
-        });
+    storedEventListeners.forEach(({ element, handler }) => {
+        element.removeEventListener('click', handler);
     });
-    document.querySelectorAll('[data-delete-btn]').forEach((item, index) => {
-        item.removeEventListener('click', () => {
-            deleteItem(data, index);
-            if (document.getElementById('search-data').value != '') {
-                const searchTerm = document.getElementById('search-data').value;
-                let newList = [];
-                for (let i = localData.length - 1; i >= 0; i--) {
-                    if (localData[i].info.includes(searchTerm)) {
-                        newList.unshift(localData[i]);
-                    }
-                }
-                renderData(newList);
-            } else {
-                renderData(localData);
-            }
-        });
-    });
+    storedEventListeners.length = 0;
     dataList.innerHTML = '';
+}
+
+function handleDataPaipanClick(index, data) {
+    return function () {
+        isFromData = true;
+        panjuIndex = index;
+        for (let i = localData.length - 1; i >= 0; i--) {
+            if (
+                data[index].info == localData[i].info &&
+                data[index].timeInfo.date == localData[i].timeInfo.date &&
+                data[index].choosenMethod == localData[i].choosenMethod &&
+                data[index].choosenNumber == localData[i].choosenNumber
+            ) {
+                panjuIndex = i;
+            }
+        }
+        sendDataToBackEnd(localData[panjuIndex]);
+        document.getElementById('paipan-pizhu').value = data[index].info;
+    };
+}
+function handleDataDeleteClick(index, data) {
+    deleteItem(data, index);
+    if (document.getElementById('search-data').value != '') {
+        const searchTerm = document.getElementById('search-data').value;
+        let newList = [];
+        for (let i = localData.length - 1; i >= 0; i--) {
+            if (localData[i].info.includes(searchTerm)) {
+                newList.unshift(localData[i]);
+            }
+        }
+        renderData(newList);
+    } else {
+        renderData(localData);
+    }
 }
 
 function sendDataToBackEnd(data) {
@@ -498,6 +488,10 @@ function closeSideMenu() {
     document.getElementById('menu').classList.remove('active');
     document.getElementById('overlay').classList.remove('active'); // 主页: 包数弹窗背景
     menuState = false;
+}
+
+function numberOfDataShowed(data) {
+    return data.length + '个案例存档';
 }
 
 ipcRenderer.on('import data to render process', (e, data) => {

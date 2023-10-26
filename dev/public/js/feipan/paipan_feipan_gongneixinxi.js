@@ -1,84 +1,11 @@
 function feipan_info(info) {
+    // todo reformat this file for memory management
     let whichGong;
+    let storedFeipanListeners = [];
     document.querySelectorAll('[data-gongwei-overlay]').forEach((overlay, index) => {
-        overlay.addEventListener('click', () => {
-            document.getElementById('paipan-jigong-info').classList.add('hidden');
-            whichGong = index;
-            if (
-                document.querySelectorAll('[data-tianpanshen]')[index].innerHTML == '值符' &&
-                document.querySelectorAll('[data-dipanshen]')[index].innerHTML == '值符'
-            ) {
-                document.getElementById('paipan-jiamu-info').classList.remove('hidden');
-                document
-                    .getElementById('paipan-gongwei-info')
-                    .classList.remove('rounded-bl-[15px]');
-                document
-                    .getElementById('paipan-gongwei-info')
-                    .classList.add('gongwei-info-on-bottom');
-                getCurrentGongweiInfo(index);
-                changeFocusItem(
-                    'geju',
-                    true,
-                    true,
-                    document.querySelectorAll('[data-tianpanshen]')[index].innerText,
-                    document.querySelectorAll('[data-xing]')[index].innerText,
-                    document.querySelectorAll('[data-men]')[index].innerText,
-                );
-                openInfoWindow();
-            } else if (document.querySelectorAll('[data-tianpanshen]')[index].innerHTML == '值符') {
-                document.getElementById('paipan-jiamu-info').classList.remove('hidden');
-                document
-                    .getElementById('paipan-gongwei-info')
-                    .classList.remove('rounded-bl-[15px]');
-                document
-                    .getElementById('paipan-gongwei-info')
-                    .classList.add('gongwei-info-on-bottom');
-                getCurrentGongweiInfo(index); // 提取被点击的宫位信息并且把宫内信息加载到侧边栏中
-                changeFocusItem(
-                    'geju',
-                    true,
-                    false,
-                    document.querySelectorAll('[data-tianpanshen]')[index].innerText,
-                    document.querySelectorAll('[data-xing]')[index].innerText,
-                    document.querySelectorAll('[data-men]')[index].innerText,
-                );
-                openInfoWindow();
-            } else if (document.querySelectorAll('[data-dipanshen]')[index].innerHTML == '值符') {
-                document.getElementById('paipan-jiamu-info').classList.remove('hidden');
-                document
-                    .getElementById('paipan-gongwei-info')
-                    .classList.remove('rounded-bl-[15px]');
-                document
-                    .getElementById('paipan-gongwei-info')
-                    .classList.add('gongwei-info-on-bottom');
-                getCurrentGongweiInfo(index); // 提取被点击的宫位信息并且把宫内信息加载到侧边栏中
-                changeFocusItem(
-                    'geju',
-                    false,
-                    true,
-                    document.querySelectorAll('[data-tianpanshen]')[index].innerText,
-                    document.querySelectorAll('[data-xing]')[index].innerText,
-                    document.querySelectorAll('[data-men]')[index].innerText,
-                );
-                openInfoWindow();
-            } else {
-                document.getElementById('paipan-jiamu-info').classList.add('hidden');
-                document.getElementById('paipan-gongwei-info').classList.add('rounded-bl-[15px]');
-                document
-                    .getElementById('paipan-gongwei-info')
-                    .classList.remove('gongwei-info-on-bottom');
-                getCurrentGongweiInfo(index); // 提取被点击的宫位信息并且把宫内信息加载到侧边栏中
-                changeFocusItem(
-                    'geju',
-                    false,
-                    false,
-                    document.querySelectorAll('[data-tianpanshen]')[index].innerText,
-                    document.querySelectorAll('[data-xing]')[index].innerText,
-                    document.querySelectorAll('[data-men]')[index].innerText,
-                );
-                openInfoWindow();
-            }
-        });
+        const clickHandler = createGongweiOverlayListener(overlay, index);
+        overlay.addEventListener('click', clickHandler);
+        storedFeipanListeners.push({ element: overlay, handler: clickHandler });
     });
     document.getElementById('paipan-geju-info').addEventListener('click', () => {
         if (
@@ -6530,4 +6457,48 @@ function feipan_info(info) {
             return result;
         }
     }
+
+    // overlay listener function
+    function createGongweiOverlayListener(overlay, index) {
+        return function handleClick() {
+            document.getElementById('paipan-jigong-info').classList.add('hidden');
+            whichGong = index;
+
+            const tianpanshenValue =
+                document.querySelectorAll('[data-tianpanshen]')[index].innerText;
+            const dipanshenValue = document.querySelectorAll('[data-dipanshen]')[index].innerText;
+
+            if (tianpanshenValue === '值符' && dipanshenValue === '值符') {
+                handleCommonCase(true, true, index);
+            } else if (tianpanshenValue === '值符') {
+                handleCommonCase(true, false, index);
+            } else if (dipanshenValue === '值符') {
+                handleCommonCase(false, true, index);
+            } else {
+                handleCommonCase(false, false, index);
+            }
+        };
+
+        function handleCommonCase(hasTianpanshen, hasDipanshen, index) {
+            const jiamuInfoElement = document.getElementById('paipan-jiamu-info');
+            const gongweiInfoElement = document.getElementById('paipan-gongwei-info');
+
+            jiamuInfoElement.classList.remove('hidden');
+            gongweiInfoElement.classList.remove('rounded-bl-[15px]');
+            gongweiInfoElement.classList.add('gongwei-info-on-bottom');
+
+            getCurrentGongweiInfo(index);
+            changeFocusItem(
+                'geju',
+                hasTianpanshen,
+                hasDipanshen,
+                document.querySelectorAll('[data-tianpanshen]')[index].innerText,
+                document.querySelectorAll('[data-xing]')[index].innerText,
+                document.querySelectorAll('[data-men]')[index].innerText,
+            );
+
+            openInfoWindow();
+        }
+    }
+    return storedFeipanListeners;
 }

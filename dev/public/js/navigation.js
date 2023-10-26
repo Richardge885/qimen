@@ -2,9 +2,6 @@ const { ipcRenderer, webFrame } = require('electron');
 
 // 排盘页内容
 const paipan = document.getElementById('paipan'); // 排盘页
-const returnBtn = document.getElementById('return'); // 排盘: 页返回按钮
-
-returnBtn.addEventListener('click', toggleHomeAndPaipan); // 排盘: 页面返回主页按钮
 
 webFrame.setZoomLevel(0.5);
 
@@ -14,7 +11,6 @@ ipcRenderer.on('back to home page', (e) => {
         document.getElementById('saved-info-section').classList.contains('hidden')
     ) {
     } else {
-        clearPanJu();
         home.classList.remove('hidden');
         paipan.classList.add('hidden');
         paipan.classList.remove('flex');
@@ -25,22 +21,9 @@ ipcRenderer.on('back to home page', (e) => {
     }
 });
 
-// function changeBaoshuRadioInput() {
-//     if (document.getElementById('home-paipanfangshi').value == '飞盘') {
-//         document.getElementById('jushu').setAttribute('checked', '');
-//     } else if (
-//         document.getElementById('home-paipanfangshi').value == '传统转盘' ||
-//         document.getElementById('home-paipanfangshi').value == '符使转盘'
-//     ) {
-//         document.getElementById('shichen').setAttribute('checked', '');
-//     }
-// }
-
 // 正时排盘按键跳转功能
 document.getElementById('zhengshi').addEventListener('click', () => {
     updateDefaultInformation();
-    // changeBaoshuRadioInput();
-    // clearPanJu(); // 清空盘面
     let choosenTime = formatDateTime(document.getElementById('date-time').value);
     const data = {
         paipanMethod: document.getElementById('home-paipanfangshi').value, // 排盘方式（飞盘，传统转盘，符使转盘）
@@ -57,10 +40,11 @@ document.getElementById('zhengshi').addEventListener('click', () => {
 });
 
 document.getElementById('modal-btn').addEventListener('click', () => {
-    if (document.getElementById('shuzi').value != '' && document.getElementById('shuzi').value > 0) {
+    if (
+        document.getElementById('shuzi').value != '' &&
+        document.getElementById('shuzi').value > 0
+    ) {
         updateDefaultInformation();
-        // changeBaoshuRadioInput();
-        // clearPanJu(); // 清空盘面
         let choosenTime = formatDateTime(document.getElementById('date-time').value);
         let data = {
             paipanMethod: document.getElementById('home-paipanfangshi').value, // 排盘方式（飞盘，传统转盘，符使转盘）
@@ -99,10 +83,11 @@ document.getElementById('zhichou').addEventListener('click', () => {
 
 document.getElementById('shuzi').addEventListener('keypress', (e) => {
     if (e.key === 'Enter') {
-        if (document.getElementById('shuzi').value != '' && document.getElementById('shuzi').value > 0) {
+        if (
+            document.getElementById('shuzi').value != '' &&
+            document.getElementById('shuzi').value > 0
+        ) {
             updateDefaultInformation();
-            // changeBaoshuRadioInput();
-            // clearPanJu();
             let choosenTime = formatDateTime(document.getElementById('date-time').value);
             let data = {
                 paipanMethod: document.getElementById('home-paipanfangshi').value, // 排盘方式（飞盘，传统转盘，符使转盘）
@@ -136,7 +121,6 @@ function toggleHomeAndPaipan() {
     home.classList.toggle('hidden');
     paipan.classList.toggle('hidden');
     paipan.classList.toggle('flex');
-    clearPanJu();
 }
 
 /**
@@ -177,144 +161,6 @@ function updateDefaultInformation() {
         updateInfo.baoshuMethod = 'zhichou';
     }
     localStorage.setItem('defaultInfo', JSON.stringify(updateInfo));
-}
-
-function clearPanJu() {
-    const jiuxing = document.querySelectorAll('[data-xing]');
-    const bamen = document.querySelectorAll('[data-men]');
-    const tianpanshen = document.querySelectorAll('[data-tianpanshen]');
-    const dipanshen = document.querySelectorAll('[data-dipanshen]');
-    const tianpangan = document.querySelectorAll('[data-tianpangan]');
-    const dipangan = document.querySelectorAll('[data-dipangan]');
-    const wangshuai = document.querySelectorAll('[data-wangshuai]');
-    const kongwang = document.querySelectorAll('[data-kongwang]');
-    const maxing = document.querySelectorAll('[data-maxing]');
-    const anganzhi = document.querySelectorAll('[data-anganzhi]');
-    const tianpanyikong = document.querySelectorAll('[data-tianpanyikong]');
-    const dipanyikong = document.querySelectorAll('[data-dipanyikong]');
-    const textarea = document.getElementById('paipan-pizhu');
-    const wubuyushi = document.getElementById('paipan-wubuyushi');
-    const tianpanliuqin = document.querySelectorAll('[data-tianpanliuqin]');
-    const dipanliuqin = document.querySelectorAll('[data-dipanliuqin]');
-    wubuyushi.innerHTML = '';
-    textarea.value = '';
-    jiuxing.forEach((element) => {
-        element.innerHTML = '';
-        element.classList.remove('important');
-        element.classList.remove('highlight');
-        element.classList.remove('jin');
-        element.classList.remove('mu');
-        element.classList.remove('shui');
-        element.classList.remove('huo');
-        element.classList.remove('tu');
-    });
-    bamen.forEach((element) => {
-        element.innerHTML = '';
-        element.classList.remove('important');
-        element.classList.remove('highlight');
-        element.classList.remove('jin');
-        element.classList.remove('mu');
-        element.classList.remove('shui');
-        element.classList.remove('huo');
-        element.classList.remove('tu');
-    });
-    tianpanshen.forEach((element) => {
-        element.innerHTML = '';
-        element.classList.remove('important');
-        element.classList.remove('highlight');
-        element.classList.remove('jin');
-        element.classList.remove('mu');
-        element.classList.remove('shui');
-        element.classList.remove('huo');
-        element.classList.remove('tu');
-    });
-    dipanshen.forEach((element) => {
-        element.innerHTML = '';
-        element.classList.remove('important');
-        element.classList.remove('highlight');
-        element.classList.remove('jin');
-        element.classList.remove('mu');
-        element.classList.remove('shui');
-        element.classList.remove('huo');
-        element.classList.remove('tu');
-    });
-    tianpangan.forEach((element) => {
-        element.innerHTML = '';
-        element.classList.remove('important');
-        element.classList.remove('rigan');
-        element.classList.remove('highlight');
-        element.classList.remove('highlight-rigan');
-        element.classList.remove('jin');
-        element.classList.remove('mu');
-        element.classList.remove('shui');
-        element.classList.remove('huo');
-        element.classList.remove('tu');
-    });
-    dipangan.forEach((element) => {
-        element.innerHTML = '';
-        element.classList.remove('important');
-        element.classList.remove('rigan');
-        element.classList.remove('highlight');
-        element.classList.remove('highlight-rigan');
-        element.classList.remove('jin');
-        element.classList.remove('mu');
-        element.classList.remove('shui');
-        element.classList.remove('huo');
-        element.classList.remove('tu');
-    });
-    wangshuai.forEach((element) => {
-        element.innerHTML = '';
-        element.classList.remove('important');
-    });
-    kongwang.forEach((element) => {
-        element.innerHTML = '';
-        element.classList.remove('important');
-    });
-    maxing.forEach((element) => {
-        element.innerHTML = '';
-        element.classList.remove('important');
-    });
-    anganzhi.forEach((element) => {
-        element.innerHTML = '';
-        element.classList.remove('important');
-        element.classList.remove('anganzhi-color');
-    });
-    tianpanyikong.forEach((element) => {
-        element.innerHTML = '';
-        element.classList.remove('important');
-        element.classList.remove('rigan');
-        element.classList.remove('highlight');
-        element.classList.remove('highlight-rigan');
-        element.classList.remove('jin');
-        element.classList.remove('mu');
-        element.classList.remove('shui');
-        element.classList.remove('huo');
-        element.classList.remove('tu');
-    });
-    dipanyikong.forEach((element) => {
-        element.innerHTML = '';
-        element.classList.remove('important');
-        element.classList.remove('rigan');
-        element.classList.remove('highlight');
-        element.classList.remove('highlight-rigan');
-        element.classList.remove('jin');
-        element.classList.remove('mu');
-        element.classList.remove('shui');
-        element.classList.remove('huo');
-        element.classList.remove('tu');
-    });
-    tianpanliuqin.forEach((element) => {
-        element.innerHTML = '';
-        element.classList.remove('simplified-liuqin');
-    });
-    dipanliuqin.forEach((element) => {
-        element.innerHTML = '';
-        element.classList.remove('simplified-liuqin');
-    });
-    document.getElementById('nian').innerHTML = '';
-    document.getElementById('yue').innerHTML = '';
-    document.getElementById('ri').innerHTML = '';
-    document.getElementById('shi').innerHTML = '';
 }
 
 function closeSideMenu() {
