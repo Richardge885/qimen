@@ -121,7 +121,7 @@ async function renderData(data) {
         if (lineBreakPosition != 0) {
             question = data[i].info.slice(0, lineBreakPosition);
         } else {
-            question = data[e].info;
+            question = data[i].info;
         }
         if (data[i].choosenTime) {
             list =
