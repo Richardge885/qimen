@@ -485,10 +485,10 @@ export function feipan_info(info) {
                     '<br>' +
                     getZhengGe('甲', dipangan) +
                     '<br><hr><br>' +
-                    mengong(men, gong) +
                     getFuGe(tianpangan, dipangan, gong) +
                     getFuGe('甲', dipangan, gong) +
                     getFuGe(tianpangan, '甲', gong) +
+                    mengong(men, gong) +
                     getShenSha(
                         document.querySelectorAll('[data-anganzhi]')[whichGong].innerText,
                         gong,
@@ -498,9 +498,9 @@ export function feipan_info(info) {
                     result +
                     getZhengGe('甲', dipangan) +
                     '<br><hr><br>' +
-                    mengong(men, gong) +
                     getFuGe(tianpangan, dipangan, gong) +
                     getFuGe('甲', dipangan, gong) +
+                    mengong(men, gong) +
                     getShenSha(
                         document.querySelectorAll('[data-anganzhi]')[whichGong].innerText,
                         gong,
@@ -510,9 +510,9 @@ export function feipan_info(info) {
                     result +
                     getZhengGe(tianpangan, '甲') +
                     '<br><hr><br>' +
-                    mengong(men, gong) +
                     getFuGe(tianpangan, dipangan, gong) +
                     getFuGe(tianpangan, '甲', gong) +
+                    mengong(men, gong) +
                     getShenSha(
                         document.querySelectorAll('[data-anganzhi]')[whichGong].innerText,
                         gong,
@@ -525,8 +525,8 @@ export function feipan_info(info) {
                 '<br><hr><br>' +
                 getZhengGe(tianpangan, dipangan) +
                 '<br><hr><br>' +
-                mengong(men, gong) +
                 getFuGe(tianpangan, dipangan, gong) +
+                mengong(men, gong) +
                 getShenSha(document.querySelectorAll('[data-anganzhi]')[whichGong].innerText, gong);
         }
         result = result + getJiGe(tianpangan, dipangan, men, tianpanshen, gong);
