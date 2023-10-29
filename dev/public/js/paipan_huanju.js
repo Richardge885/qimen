@@ -20,6 +20,7 @@ function next() {
         timeInfo: addTime(year, month, date, hour),
         paipanMethod: document.getElementById('home-paipanfangshi').value,
     };
+    clearAllGongweiListeners();
     ipcRenderer.send('正时起局', data);
     clearPanJu();
 }
@@ -35,6 +36,7 @@ function prev() {
         timeInfo: minusTime(year, month, date, hour),
         paipanMethod: document.getElementById('home-paipanfangshi').value,
     };
+    clearAllGongweiListeners();
     ipcRenderer.send('正时起局', data);
     clearPanJu();
 }
@@ -235,4 +237,19 @@ function clearPanJu() {
     document.getElementById('yue').innerHTML = '';
     document.getElementById('ri').innerHTML = '';
     document.getElementById('shi').innerHTML = '';
+}
+
+function clearAllGongweiListeners() {
+    const elements = document.querySelectorAll('[data-gongwei-overlay]');
+
+    elements.forEach((originalElement) => {
+        const clonedElement = originalElement.cloneNode(true);
+
+        // Replace the original element with the cloned element
+        originalElement.parentNode.replaceChild(clonedElement, originalElement);
+
+        // Remove all event listeners from the cloned element
+        const clonedElementClone = clonedElement.cloneNode(true);
+        clonedElement.parentNode.replaceChild(clonedElementClone, clonedElement);
+    });
 }

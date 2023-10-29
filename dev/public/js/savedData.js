@@ -121,7 +121,7 @@ async function renderData(data) {
         if (lineBreakPosition != 0) {
             question = data[i].info.slice(0, lineBreakPosition);
         } else {
-            question = data[i].info;
+            question = data[e].info;
         }
         if (data[i].choosenTime) {
             list =
@@ -502,3 +502,5 @@ ipcRenderer.on('import data to render process', (e, data) => {
     localData = JSON.parse(localStorage.getItem('savedData'));
     renderData(localData);
 });
+
+// 清空所有 eventListener

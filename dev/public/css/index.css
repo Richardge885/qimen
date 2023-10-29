@@ -658,6 +658,10 @@ video {
   z-index: 8;
 }
 
+.mb-0 {
+  margin-bottom: 0px;
+}
+
 .ml-\[10px\] {
   margin-left: 10px;
 }
@@ -670,24 +674,8 @@ video {
   margin-top: 15px;
 }
 
-.mt-\[35px\] {
-  margin-top: 35px;
-}
-
-.mt-\[12px\] {
-  margin-top: 12px;
-}
-
-.mt-\[20px\] {
-  margin-top: 20px;
-}
-
 .mt-\[25px\] {
   margin-top: 25px;
-}
-
-.mb-0 {
-  margin-bottom: 0px;
 }
 
 .mt-\[5px\] {
@@ -746,8 +734,8 @@ video {
   height: 55px;
 }
 
-.h-\[750px\] {
-  height: 750px;
+.h-\[720px\] {
+  height: 720px;
 }
 
 .h-\[80px\] {
@@ -764,10 +752,6 @@ video {
 
 .h-screen {
   height: 100vh;
-}
-
-.h-\[720px\] {
-  height: 720px;
 }
 
 .w-\[100px\] {
@@ -922,14 +906,6 @@ video {
 
 .rounded-\[7px\] {
   border-radius: 7px;
-}
-
-.rounded-\[20px\] {
-  border-radius: 20px;
-}
-
-.rounded-\[25px\] {
-  border-radius: 25px;
 }
 
 .rounded-bl-\[15px\] {
@@ -1737,6 +1713,15 @@ hr {
 
 .anganzhi-color {
   color: #666666;
+}
+
+.gongwei-overlay {
+  z-index: 8;
+  cursor: pointer;
+  border-radius: 15px;
+  width: 165px;
+  height: 165px;
+  background-color: rgba(255, 255, 255, 0.8);
 }
 
 .hover\:bg-white:hover {
