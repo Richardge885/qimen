@@ -1,4 +1,4 @@
-function zhuanpan_info(info, paifa) {
+export function zhuanpan_info(info, paifa) {
     // todo reformat this file for memory management
     let whichGong;
     let storedZhuanpanListeners = [];

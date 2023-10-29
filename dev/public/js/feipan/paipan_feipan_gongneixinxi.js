@@ -1,4 +1,4 @@
-function feipan_info(info) {
+export function feipan_info(info) {
     // todo reformat this file for memory management
     let whichGong;
     let storedFeipanListeners = [];
@@ -475,7 +475,7 @@ function feipan_info(info) {
                 getZhangSheng('甲', gong) +
                 '<br><hr><br>' +
                 getZhengGe(tianpangan, dipangan) +
-                '<br>';
+                '<br><hr><br>';
             if (tianpanjia == true && dipanjia == true) {
                 result =
                     result +
@@ -486,10 +486,9 @@ function feipan_info(info) {
                     getZhengGe('甲', dipangan) +
                     '<br><hr><br>' +
                     mengong(men, gong) +
-                    getFuGe(tianpangan, gong) +
-                    '<br><br>' +
-                    getFuGe('甲', gong) +
-                    '<br><br><hr><br>' +
+                    getFuGe(tianpangan, dipangan, gong) +
+                    getFuGe('甲', dipangan, gong) +
+                    getFuGe(tianpangan, '甲', gong) +
                     getShenSha(
                         document.querySelectorAll('[data-anganzhi]')[whichGong].innerText,
                         gong,
@@ -500,12 +499,8 @@ function feipan_info(info) {
                     getZhengGe('甲', dipangan) +
                     '<br><hr><br>' +
                     mengong(men, gong) +
-                    getFuGe(tianpangan, gong) +
-                    '<br><br>' +
-                    getFuGe(dipangan, gong) +
-                    '<br><br>' +
-                    getFuGe('甲', gong) +
-                    '<br><br><hr><br>' +
+                    getFuGe(tianpangan, dipangan, gong) +
+                    getFuGe('甲', dipangan, gong) +
                     getShenSha(
                         document.querySelectorAll('[data-anganzhi]')[whichGong].innerText,
                         gong,
@@ -516,12 +511,8 @@ function feipan_info(info) {
                     getZhengGe(tianpangan, '甲') +
                     '<br><hr><br>' +
                     mengong(men, gong) +
-                    getFuGe(tianpangan, gong) +
-                    '<br><br>' +
-                    getFuGe(dipangan, gong) +
-                    '<br><br>' +
-                    getFuGe('甲', gong) +
-                    '<br><br><hr><br>' +
+                    getFuGe(tianpangan, dipangan, gong) +
+                    getFuGe(tianpangan, '甲', gong) +
                     getShenSha(
                         document.querySelectorAll('[data-anganzhi]')[whichGong].innerText,
                         gong,
@@ -535,10 +526,7 @@ function feipan_info(info) {
                 getZhengGe(tianpangan, dipangan) +
                 '<br><hr><br>' +
                 mengong(men, gong) +
-                getFuGe(tianpangan, gong) +
-                '<br><br>' +
-                getFuGe(dipangan, gong) +
-                '<br><br><hr><br>' +
+                getFuGe(tianpangan, dipangan, gong) +
                 getShenSha(document.querySelectorAll('[data-anganzhi]')[whichGong].innerText, gong);
         }
         result = result + getJiGe(tianpangan, dipangan, men, tianpanshen, gong);
@@ -1285,7 +1273,7 @@ function feipan_info(info) {
         }
         return output;
     }
-    function getFuGe(tiangan, gong) {
+    function getFuGe(tianpangan, dipangan, gong) {
         const jiedang = '凡事必须聚伙成群而始能有成，不然则需要等待时机';
         const deli = '凡事必须得他人周济而始能有成，不然也需要等待时机';
         const shili = '凡事必须耗我心力，威服他人而始能有成，不然则有伤害于他人';
@@ -1352,517 +1340,399 @@ function feipan_info(info) {
         const mierun =
             '<span style="color:#0079FE">灭润格：</span>利于淫邪私情事，非灾即祸将身因。乃无荣';
 
-        if (tiangan == '甲' || tiangan == '乙') {
+        let result = '';
+        if ((tianpangan == '甲' && dipangan == '乙') || (dipangan == '甲' && tianpangan == '乙')) {
             switch (gong) {
                 case '乾':
-                    return (
-                        tiangan +
-                        '在' +
-                        gong +
-                        '<br>' +
+                    result =
+                        result +
                         lifa +
                         '<br>' +
                         '<span style="color:#0079FE">摧残格：</span>' +
                         cuican +
-                        '<br>'
-                    );
+                        '<br>';
+                    break;
                 case '兑':
-                    return (
-                        tiangan +
-                        '在' +
-                        gong +
-                        '<br>' +
+                    result =
+                        result +
                         lifa +
                         '<br>' +
                         '<span style="color:#0079FE">摧残格：</span>' +
-                        cuican
-                    );
+                        cuican;
+                    break;
                 case '坎':
-                    return (
-                        tiangan +
-                        '在' +
-                        gong +
-                        '<br>' +
+                    result =
+                        result +
                         taixi +
                         '<br>' +
                         '<span style="color:#0079FE">得力格：</span>' +
-                        deli
-                    );
+                        deli;
+                    break;
                 case '离':
-                    return (
-                        tiangan +
-                        '在' +
-                        gong +
-                        '<br>' +
+                    result =
+                        result +
                         fenlin +
                         '<br>' +
                         '<span style="color:#0079FE">破精格：</span>' +
-                        pojing
-                    );
+                        pojing;
+                    break;
                 case '震':
-                    return (
-                        tiangan +
-                        '在' +
-                        gong +
-                        '<br>' +
+                    result =
+                        result +
                         quzhi +
                         '<br>' +
                         '<span style="color:#0079FE">结党格：</span>' +
-                        jiedang
-                    );
+                        jiedang;
+                    break;
                 case '巽':
-                    return (
-                        tiangan +
-                        '在' +
-                        gong +
-                        '<br>' +
+                    result =
+                        result +
                         quzhi +
                         '<br>' +
                         '<span style="color:#0079FE">结党格：</span>' +
-                        jiedang
-                    );
+                        jiedang;
+                    break;
                 case '坤':
-                    return (
-                        tiangan +
-                        '在' +
-                        gong +
-                        '<br>' +
+                    result =
+                        result +
                         xingchuang +
                         '<br>' +
                         '<span style="color:#0079FE">失利格：</span>' +
-                        shili
-                    );
+                        shili;
+                    break;
                 case '艮':
-                    return (
-                        tiangan +
-                        '在' +
-                        gong +
-                        '<br>' +
+                    result =
+                        result +
                         xingchuang +
                         '<br>' +
                         '<span style="color:#0079FE">失利格：</span>' +
-                        shili
-                    );
+                        shili;
+                    break;
                 case '中':
-                    return (
-                        tiangan +
-                        '在' +
-                        gong +
-                        '<br>' +
+                    result =
+                        result +
                         xingchuang +
                         '<br>' +
                         '<span style="color:#0079FE">失利格：</span>' +
-                        shili
-                    );
+                        shili;
+                    break;
             }
-        } else if (tiangan == '丙' || tiangan == '丁') {
+        } else if (
+            (tianpangan == '丙' && dipangan == '丁') ||
+            (dipangan == '丙' && tianpangan == '丁')
+        ) {
             switch (gong) {
                 case '乾':
-                    return (
-                        tiangan +
-                        '在' +
-                        gong +
-                        '<br>' +
+                    result =
+                        result +
                         douli +
                         '<br>' +
                         '<span style="color:#0079FE">失利格：</span>' +
-                        shili
-                    );
+                        shili;
+                    break;
                 case '兑':
-                    return (
-                        tiangan +
-                        '在' +
-                        gong +
-                        '<br>' +
+                    result =
+                        result +
                         douli +
                         '<br>' +
                         '<span style="color:#0079FE">失利格：</span>' +
-                        shili
-                    );
+                        shili;
                 case '坎':
-                    return (
-                        tiangan +
-                        '在' +
-                        gong +
-                        '<br>' +
+                    result =
+                        result +
                         yanmu +
                         '<br>' +
                         '<span style="color:#0079FE">摧残格：</span>' +
-                        cuican
-                    );
+                        cuican;
+                    break;
                 case '离':
-                    return (
-                        tiangan +
-                        '在' +
-                        gong +
-                        '<br>' +
+                    result =
+                        result +
                         yanshang +
                         '<br>' +
                         '<span style="color:#0079FE">结党格：</span>' +
-                        jiedang
-                    );
+                        jiedang;
+                    break;
                 case '震':
-                    return (
-                        tiangan +
-                        '在' +
-                        gong +
-                        '<br>' +
+                    result =
+                        result +
                         zenghui +
                         '<br>' +
                         '<span style="color:#0079FE">得力格：</span>' +
-                        deli
-                    );
+                        deli;
+                    break;
                 case '巽':
-                    return (
-                        tiangan +
-                        '在' +
-                        gong +
-                        '<br>' +
+                    result =
+                        result +
                         zenghui +
                         '<br>' +
                         '<span style="color:#0079FE">得力格：</span>' +
-                        deli
-                    );
+                        deli;
+                    break;
                 case '坤':
-                    return (
-                        tiangan +
-                        '在' +
-                        gong +
-                        '<br>' +
+                    result =
+                        result +
                         shiguang +
                         '<br>' +
                         '<span style="color:#0079FE">破精格：</span>' +
-                        pojing
-                    );
+                        pojing;
+                    break;
                 case '艮':
-                    return (
-                        tiangan +
-                        '在' +
-                        gong +
-                        '<br>' +
+                    result =
+                        result +
                         shiguang +
                         '<br>' +
                         '<span style="color:#0079FE">破精格：</span>' +
-                        pojing
-                    );
+                        pojing;
+                    break;
                 case '中':
-                    return (
-                        tiangan +
-                        '在' +
-                        gong +
-                        '<br>' +
+                    result =
+                        result +
                         shiguang +
                         '<br>' +
                         '<span style="color:#0079FE">破精格：</span>' +
-                        pojing
-                    );
+                        pojing;
+                    break;
             }
-        } else if (tiangan == '戊' || tiangan == '己') {
+        } else if (
+            (tianpangan == '戊' && dipangan == '己') ||
+            (dipangan == '戊' && tianpangan == '己')
+        ) {
             switch (gong) {
                 case '乾':
-                    return (
-                        tiangan +
-                        '在' +
-                        gong +
-                        '<br>' +
+                    result =
+                        result +
                         juejing +
                         '<br>' +
                         '<span style="color:#0079FE">破精格：</span>' +
-                        pojing
-                    );
+                        pojing;
+                    break;
                 case '兑':
-                    return (
-                        tiangan +
-                        '在' +
-                        gong +
-                        '<br>' +
+                    result =
+                        result +
                         juejing +
                         '<br>' +
                         '<span style="color:#0079FE">破精格：</span>' +
-                        pojing
-                    );
+                        pojing;
+                    break;
                 case '坎':
-                    return (
-                        tiangan +
-                        '在' +
-                        gong +
-                        '<br>' +
+                    result =
+                        result +
                         poshui +
                         '<br>' +
                         '<span style="color:#0079FE">失利格：</span>' +
-                        shili
-                    );
+                        shili;
+                    break;
                 case '离':
-                    return (
-                        tiangan +
-                        '在' +
-                        gong +
-                        '<br>' +
+                    result =
+                        result +
                         bianxiang +
                         '<br>' +
                         '<span style="color:#0079FE">得力格：</span>' +
-                        deli
-                    );
+                        deli;
+                    break;
                 case '震':
-                    return (
-                        tiangan +
-                        '在' +
-                        gong +
-                        '<br>' +
+                    result =
+                        result +
                         huaiti +
                         '<br>' +
                         '<span style="color:#0079FE">摧残格：</span>' +
-                        cuican
-                    );
+                        cuican;
+                    break;
                 case '巽':
-                    return (
-                        tiangan +
-                        '在' +
-                        gong +
-                        '<br>' +
+                    result =
+                        result +
                         huaiti +
                         '<br>' +
                         '<span style="color:#0079FE">摧残格：</span>' +
-                        cuican
-                    );
+                        cuican;
+                    break;
                 case '坤':
-                    return (
-                        tiangan +
-                        '在' +
-                        gong +
-                        '<br>' +
+                    result =
+                        result +
                         jiase +
                         '<br>' +
                         '<span style="color:#0079FE">结党格：</span>' +
-                        jiedang
-                    );
+                        jiedang;
+                    break;
                 case '艮':
-                    return (
-                        tiangan +
-                        '在' +
-                        gong +
-                        '<br>' +
+                    result =
+                        result +
                         jiase +
                         '<br>' +
                         '<span style="color:#0079FE">结党格：</span>' +
-                        jiedang
-                    );
+                        jiedang;
+                    break;
                 case '中':
-                    return (
-                        tiangan +
-                        '在' +
-                        gong +
-                        '<br>' +
+                    result =
+                        result +
                         jiase +
                         '<br>' +
                         '<span style="color:#0079FE">结党格：</span>' +
-                        jiedang
-                    );
+                        jiedang;
+                    break;
             }
-        } else if (tiangan == '庚' || tiangan == '辛') {
+        } else if (
+            (tianpangan == '庚' && dipangan == '辛') ||
+            (dipangan == '庚' && tianpangan == '辛')
+        ) {
             switch (gong) {
                 case '乾':
-                    return (
-                        tiangan +
-                        '在' +
-                        gong +
-                        '<br>' +
+                    result =
+                        result +
                         congge +
                         '<br>' +
                         '<span style="color:#0079FE">结党格：</span>' +
-                        jiedang
-                    );
+                        jiedang;
+                    break;
                 case '兑':
-                    return (
-                        tiangan +
-                        '在' +
-                        gong +
-                        '<br>' +
+                    result =
+                        result +
                         congge +
                         '<br>' +
                         '<span style="color:#0079FE">结党格：</span>' +
-                        jiedang
-                    );
+                        jiedang;
+                    break;
                 case '坎':
-                    return (
-                        tiangan +
-                        '在' +
-                        gong +
-                        '<br>' +
+                    result =
+                        result +
                         xiejin +
                         '<br>' +
                         '<span style="color:#0079FE">破精格：</span>' +
-                        pojing
-                    );
+                        pojing;
+                    break;
                 case '离':
-                    return (
-                        tiangan +
-                        '在' +
-                        gong +
-                        '<br>' +
+                    result =
+                        result +
                         bikou +
                         '<br>' +
                         '<span style="color:#0079FE">摧残格：</span>' +
-                        cuican
-                    );
+                        cuican;
+                    break;
                 case '震':
-                    return (
-                        tiangan +
-                        '在' +
-                        gong +
-                        '<br>' +
+                    result =
+                        result +
                         fegnren +
                         '<br>' +
                         '<span style="color:#0079FE">失利格：</span>' +
-                        shili
-                    );
+                        shili;
+                    break;
                 case '巽':
-                    return (
-                        tiangan +
-                        '在' +
-                        gong +
-                        '<br>' +
+                    result =
+                        result +
                         fegnren +
                         '<br>' +
                         '<span style="color:#0079FE">失利格：</span>' +
-                        shili
-                    );
+                        shili;
+                    break;
                 case '坤':
-                    return (
-                        tiangan +
-                        '在' +
-                        gong +
-                        '<br>' +
+                    result =
+                        result +
                         yangwei +
                         '<br>' +
                         '<span style="color:#0079FE">得力格：</span>' +
-                        deli
-                    );
+                        deli;
+                    break;
                 case '艮':
-                    return (
-                        tiangan +
-                        '在' +
-                        gong +
-                        '<br>' +
+                    result =
+                        result +
                         yangwei +
                         '<br>' +
                         '<span style="color:#0079FE">得力格：</span>' +
-                        deli
-                    );
+                        deli;
+                    break;
                 case '中':
-                    return (
-                        tiangan +
-                        '在' +
-                        gong +
-                        '<br>' +
+                    result =
+                        result +
                         yangwei +
                         '<br>' +
                         '<span style="color:#0079FE">得力格：</span>' +
-                        deli
-                    );
+                        deli;
+                    break;
             }
-        } else if (tiangan == '壬' || tiangan == '癸') {
+        } else if (
+            (tianpangan == '壬' && dipangan == '癸') ||
+            (dipangan == '壬' && tianpangan == '癸')
+        ) {
             switch (gong) {
                 case '乾':
-                    return (
-                        tiangan +
-                        '在' +
-                        gong +
-                        '<br>' +
+                    result =
+                        result +
                         tongguan +
                         '<br>' +
                         '<span style="color:#0079FE">得力格：</span>' +
-                        deli
-                    );
+                        deli;
+                    break;
                 case '兑':
-                    return (
-                        tiangan +
-                        '在' +
-                        gong +
-                        '<br>' +
+                    result =
+                        result +
                         tongguan +
                         '<br>' +
                         '<span style="color:#0079FE">得力格：</span>' +
-                        deli
-                    );
+                        deli;
+                    break;
                 case '坎':
-                    return (
-                        tiangan +
-                        '在' +
-                        gong +
-                        '<br>' +
+                    result =
+                        result +
                         runxia +
                         '<br>' +
                         '<span style="color:#0079FE">结党格：</span>' +
-                        jiedang
-                    );
+                        jiedang;
+                    break;
                 case '离':
-                    return (
-                        tiangan +
-                        '在' +
-                        gong +
-                        '<br>' +
+                    result =
+                        result +
                         mierun +
                         '<br>' +
                         '<span style="color:#0079FE">失利格：</span>' +
-                        shili
-                    );
+                        shili;
+                    break;
                 case '震':
-                    return (
-                        tiangan +
-                        '在' +
-                        gong +
-                        '<br>' +
+                    result =
+                        result +
                         baiyuan +
                         '<br>' +
                         '<span style="color:#0079FE">破精格：</span>' +
-                        pojing
-                    );
+                        pojing;
+                    break;
                 case '巽':
-                    return (
-                        tiangan +
-                        '在' +
-                        gong +
-                        '<br>' +
+                    result =
+                        result +
                         baiyuan +
                         '<br>' +
                         '<span style="color:#0079FE">破精格：</span>' +
-                        pojing
-                    );
+                        pojing;
+                    break;
                 case '坤':
-                    return (
-                        tiangan +
-                        '在' +
-                        gong +
-                        '<br>' +
+                    result =
+                        result +
                         jueji +
                         '<br>' +
                         '<span style="color:#0079FE">摧残格：</span>' +
-                        cuican
-                    );
+                        cuican;
+                    break;
                 case '艮':
-                    return (
-                        tiangan +
-                        '在' +
-                        gong +
-                        '<br>' +
+                    result =
+                        result +
                         jueji +
                         '<br>' +
                         '<span style="color:#0079FE">摧残格：</span>' +
-                        cuican
-                    );
+                        cuican;
+                    break;
                 case '中':
-                    return (
-                        tiangan +
-                        '在' +
-                        gong +
-                        '<br>' +
+                    result =
+                        result +
                         jueji +
                         '<br>' +
                         '<span style="color:#0079FE">摧残格：</span>' +
-                        cuican
-                    );
+                        cuican;
+                    break;
             }
+        }
+        if (result != '') {
+            return result + '<br><br><hr><br>';
+        } else {
+            return '';
         }
     }
     function getZhangSheng(tiangan, gongwei) {
@@ -4960,7 +4830,7 @@ function feipan_info(info) {
         const anzhi = anganzhi.charAt(1);
         let result = '神煞：<br>';
         const ri = document.getElementById('ri').innerText;
-        shichen = document.getElementById('shi').innerText.charAt(1);
+        const shichen = document.getElementById('shi').innerText.charAt(1);
         const guiren = '<span style="color:#0079FE">贵人：</span>主逢凶化吉，有贵人帮扶<br>';
         const deshen = '<span style="color:#0079FE">德神：</span>主财利福德，助吉抑凶<br>';
         const lushen = '<span style="color:#0079FE">禄神：</span>主钱财，福禄，工作，饮食等<br>';
@@ -6500,5 +6370,4 @@ function feipan_info(info) {
             openInfoWindow();
         }
     }
-    return storedFeipanListeners;
 }

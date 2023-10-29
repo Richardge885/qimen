@@ -1,4 +1,5 @@
 const { ipcRenderer } = require('electron');
+import { feipan_info } from './paipan_feipan_gongneixinxi.js';
 
 const returnBtn = document.getElementById('return'); // 排盘: 页返回按钮
 let storedFeipanListeners = [];
@@ -9,9 +10,11 @@ function toggleHomeAndPaipan() {
     home.classList.toggle('hidden');
     paipan.classList.toggle('hidden');
     paipan.classList.toggle('flex');
-    storedFeipanListeners.forEach(({ element, handler }) => {
-        element.removeEventListener('click', handler);
-    });
+    // storedFeipanListeners.forEach(({ element, handler }) => {
+    //     console.log('Before removal:', element);
+    //     element.removeEventListener('click', handler);
+    //     console.log('After removal:', element);
+    // });
     clearPanJu();
 }
 
@@ -78,7 +81,7 @@ ipcRenderer.on('飞盘排盘', (e, data) => {
         classicChinese();
     }
     // 用于宫位弹窗提示
-    storedFeipanListeners = feipan_info(info);
+    feipan_info(info);
     if (document.getElementById('paipan-pizhu').value == '') {
         isFromData = false;
     }
