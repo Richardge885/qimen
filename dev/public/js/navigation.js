@@ -25,6 +25,7 @@ ipcRenderer.on('back to home page', (e) => {
         document.getElementById('paipan-overlay').classList.remove('active');
         document.getElementById('paipan-info-modal').classList.remove('active');
         menuState = false;
+        clearPanJu();
     }
 });
 
@@ -182,6 +183,9 @@ function closeModal() {
     document.getElementById('home-about-modal').classList.remove('active');
 }
 
+/**
+ * 使用飞盘盘式
+ */
 function useFeipanStyle() {
     document.querySelectorAll('[data-tianpanshen]').forEach((element, index) => {
         element.classList.remove('zhuanpan-tianpanshen');
@@ -233,6 +237,9 @@ function useFeipanStyle() {
     });
 }
 
+/**
+ * 使用转盘盘式
+ */
 function useZhuanpanStyle() {
     document.querySelectorAll('[data-maxing]').forEach((element, index) => {
         element.classList.remove('maxing');
@@ -284,6 +291,9 @@ function useZhuanpanStyle() {
     });
 }
 
+/**
+ * 清空所有宫位天窗出发器
+ */
 function clearAllGongweiListeners() {
     const elements = document.querySelectorAll('[data-gongwei-overlay]');
 
@@ -299,6 +309,9 @@ function clearAllGongweiListeners() {
     });
 }
 
+/**
+ * 清空盘内信息
+ */
 function clearPanJu() {
     const jiuxing = document.querySelectorAll('[data-xing]');
     const bamen = document.querySelectorAll('[data-men]');

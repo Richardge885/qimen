@@ -1,11 +1,8 @@
 export function feipan_info(info) {
-    // todo reformat this file for memory management
     let whichGong;
-    let storedFeipanListeners = [];
     document.querySelectorAll('[data-gongwei-overlay]').forEach((overlay, index) => {
         const clickHandler = createGongweiOverlayListener(overlay, index);
         overlay.addEventListener('click', clickHandler);
-        storedFeipanListeners.push({ element: overlay, handler: clickHandler });
     });
     document.getElementById('paipan-geju-info').addEventListener('click', () => {
         if (
@@ -4168,6 +4165,7 @@ export function feipan_info(info) {
                     case '中':
                         return shouzhi + '<br><hr><br>';
                 }
+                break;
             case '生门':
                 switch (gong) {
                     case '乾':
@@ -4213,6 +4211,7 @@ export function feipan_info(info) {
                     case '中':
                         return fanyin + '<br><hr><br>';
                 }
+                break;
             case '伤门':
                 switch (gong) {
                     case '乾':
@@ -4255,6 +4254,7 @@ export function feipan_info(info) {
                     case '中':
                         return menpo + '<br><hr><br>';
                 }
+                break;
             case '杜门':
                 switch (gong) {
                     case '乾':
@@ -4297,6 +4297,7 @@ export function feipan_info(info) {
                     case '中':
                         return menpo + '<br><hr><br>';
                 }
+                break;
             case '景门':
                 switch (gong) {
                     case '乾':
@@ -4342,6 +4343,7 @@ export function feipan_info(info) {
                     case '中':
                         return he + '<br><hr><br>';
                 }
+                break;
             case '死门':
                 switch (gong) {
                     case '乾':
@@ -4387,6 +4389,7 @@ export function feipan_info(info) {
                     case '中':
                         return fanyin + '<br><hr><br>';
                 }
+                break;
             case '惊门':
                 switch (gong) {
                     case '乾':
@@ -4429,6 +4432,7 @@ export function feipan_info(info) {
                     case '中':
                         return yi + '<br><hr><br>';
                 }
+                break;
             case '开门':
                 switch (gong) {
                     case '乾':
@@ -4471,6 +4475,7 @@ export function feipan_info(info) {
                     case '中':
                         return yi + '<br><hr><br>';
                 }
+                break;
             case '中门':
                 return '';
 
@@ -4519,6 +4524,7 @@ export function feipan_info(info) {
                     case '中':
                         return shouzhi + '<br><hr><br>';
                 }
+                break;
             case '生門':
                 switch (gong) {
                     case '乾':
@@ -4564,6 +4570,7 @@ export function feipan_info(info) {
                     case '中':
                         return fanyin + '<br><hr><br>';
                 }
+                break;
             case '傷門':
                 switch (gong) {
                     case '乾':
@@ -4606,6 +4613,7 @@ export function feipan_info(info) {
                     case '中':
                         return menpo + '<br><hr><br>';
                 }
+                break;
             case '杜門':
                 switch (gong) {
                     case '乾':
@@ -4648,6 +4656,7 @@ export function feipan_info(info) {
                     case '中':
                         return menpo + '<br><hr><br>';
                 }
+                break;
             case '景門':
                 switch (gong) {
                     case '乾':
@@ -4738,6 +4747,7 @@ export function feipan_info(info) {
                     case '中':
                         return fanyin + '<br><hr><br>';
                 }
+                break;
             case '驚門':
                 switch (gong) {
                     case '乾':
@@ -4780,6 +4790,7 @@ export function feipan_info(info) {
                     case '中':
                         return yi + '<br><hr><br>';
                 }
+                break;
             case '開門':
                 switch (gong) {
                     case '乾':
@@ -4822,6 +4833,7 @@ export function feipan_info(info) {
                     case '中':
                         return yi + '<br><hr><br>';
                 }
+                break;
             case '中門':
                 return '';
         }
