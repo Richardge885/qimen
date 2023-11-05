@@ -1,17 +1,20 @@
 const { ipcRenderer, webFrame } = require('electron');
+import { clearPanJu } from './clearPanju.js';
+
+// 设置界面为0.5背大小
+webFrame.setZoomLevel(0.5); // todo 更改盘面方式以适应不同窗口大小
 
 // 排盘页内容
-const paipan = document.getElementById('paipan'); // 排盘页
-const returnBtn = document.getElementById('return'); // 排盘: 页返回按钮
+const paipan = document.getElementById('paipan');
 
-returnBtn.addEventListener('click', () => {
+// 排盘返回按钮功能
+document.getElementById('return').addEventListener('click', () => {
     toggleHomeAndPaipan();
     clearPanJu();
     clearAllGongweiListeners();
 });
 
-webFrame.setZoomLevel(0.5);
-
+// 快捷键返回主页功能
 ipcRenderer.on('back to home page', (e) => {
     if (
         paipan.classList.contains('hidden') &&
@@ -29,7 +32,7 @@ ipcRenderer.on('back to home page', (e) => {
     }
 });
 
-// 正时排盘按键跳转功能
+// 主页"正时排盘"按键跳转功能
 document.getElementById('zhengshi').addEventListener('click', () => {
     updateDefaultInformation();
     let choosenTime = formatDateTime(document.getElementById('date-time').value);
@@ -47,6 +50,7 @@ document.getElementById('zhengshi').addEventListener('click', () => {
     closeSideMenu();
 });
 
+// 报数起局按钮功能
 document.getElementById('modal-btn').addEventListener('click', () => {
     if (
         document.getElementById('shuzi').value != '' &&
@@ -79,16 +83,7 @@ document.getElementById('modal-btn').addEventListener('click', () => {
     }
 });
 
-document.getElementById('jushu').addEventListener('click', () => {
-    document.getElementById('shuzi').focus();
-});
-document.getElementById('shichen').addEventListener('click', () => {
-    document.getElementById('shuzi').focus();
-});
-document.getElementById('zhichou').addEventListener('click', () => {
-    document.getElementById('shuzi').focus();
-});
-
+// 报数数字回车排局功能
 document.getElementById('shuzi').addEventListener('keypress', (e) => {
     if (e.key === 'Enter') {
         if (
@@ -155,6 +150,7 @@ function formatDateTime(dateTimeString) {
  */
 function updateDefaultInformation() {
     const updateInfo = {
+        // 提取最新默认信息
         paipanMethod: document.getElementById('home-paipanfangshi').value,
         theme: document.getElementById('theme').value,
         feipanliuqin: document.getElementById('liuqin').value,
@@ -292,7 +288,7 @@ function useZhuanpanStyle() {
 }
 
 /**
- * 清空所有宫位天窗出发器
+ * 清空所有宫位弹窗出发器
  */
 function clearAllGongweiListeners() {
     const elements = document.querySelectorAll('[data-gongwei-overlay]');
@@ -307,145 +303,4 @@ function clearAllGongweiListeners() {
         const clonedElementClone = clonedElement.cloneNode(true);
         clonedElement.parentNode.replaceChild(clonedElementClone, clonedElement);
     });
-}
-
-/**
- * 清空盘内信息
- */
-function clearPanJu() {
-    const jiuxing = document.querySelectorAll('[data-xing]');
-    const bamen = document.querySelectorAll('[data-men]');
-    const tianpanshen = document.querySelectorAll('[data-tianpanshen]');
-    const dipanshen = document.querySelectorAll('[data-dipanshen]');
-    const tianpangan = document.querySelectorAll('[data-tianpangan]');
-    const dipangan = document.querySelectorAll('[data-dipangan]');
-    const wangshuai = document.querySelectorAll('[data-wangshuai]');
-    const kongwang = document.querySelectorAll('[data-kongwang]');
-    const maxing = document.querySelectorAll('[data-maxing]');
-    const anganzhi = document.querySelectorAll('[data-anganzhi]');
-    const tianpanyikong = document.querySelectorAll('[data-tianpanyikong]');
-    const dipanyikong = document.querySelectorAll('[data-dipanyikong]');
-    const textarea = document.getElementById('paipan-pizhu');
-    const wubuyushi = document.getElementById('paipan-wubuyushi');
-    const tianpanliuqin = document.querySelectorAll('[data-tianpanliuqin]');
-    const dipanliuqin = document.querySelectorAll('[data-dipanliuqin]');
-    wubuyushi.innerHTML = '';
-    textarea.value = '';
-    jiuxing.forEach((element) => {
-        element.innerHTML = '';
-        element.classList.remove('important');
-        element.classList.remove('highlight');
-        element.classList.remove('jin');
-        element.classList.remove('mu');
-        element.classList.remove('shui');
-        element.classList.remove('huo');
-        element.classList.remove('tu');
-    });
-    bamen.forEach((element) => {
-        element.innerHTML = '';
-        element.classList.remove('important');
-        element.classList.remove('highlight');
-        element.classList.remove('jin');
-        element.classList.remove('mu');
-        element.classList.remove('shui');
-        element.classList.remove('huo');
-        element.classList.remove('tu');
-    });
-    tianpanshen.forEach((element) => {
-        element.innerHTML = '';
-        element.classList.remove('important');
-        element.classList.remove('highlight');
-        element.classList.remove('jin');
-        element.classList.remove('mu');
-        element.classList.remove('shui');
-        element.classList.remove('huo');
-        element.classList.remove('tu');
-    });
-    dipanshen.forEach((element) => {
-        element.innerHTML = '';
-        element.classList.remove('important');
-        element.classList.remove('highlight');
-        element.classList.remove('jin');
-        element.classList.remove('mu');
-        element.classList.remove('shui');
-        element.classList.remove('huo');
-        element.classList.remove('tu');
-    });
-    tianpangan.forEach((element) => {
-        element.innerHTML = '';
-        element.classList.remove('important');
-        element.classList.remove('rigan');
-        element.classList.remove('highlight');
-        element.classList.remove('highlight-rigan');
-        element.classList.remove('jin');
-        element.classList.remove('mu');
-        element.classList.remove('shui');
-        element.classList.remove('huo');
-        element.classList.remove('tu');
-    });
-    dipangan.forEach((element) => {
-        element.innerHTML = '';
-        element.classList.remove('important');
-        element.classList.remove('rigan');
-        element.classList.remove('highlight');
-        element.classList.remove('highlight-rigan');
-        element.classList.remove('jin');
-        element.classList.remove('mu');
-        element.classList.remove('shui');
-        element.classList.remove('huo');
-        element.classList.remove('tu');
-    });
-    wangshuai.forEach((element) => {
-        element.innerHTML = '';
-        element.classList.remove('important');
-    });
-    kongwang.forEach((element) => {
-        element.innerHTML = '';
-        element.classList.remove('important');
-    });
-    maxing.forEach((element) => {
-        element.innerHTML = '';
-        element.classList.remove('important');
-    });
-    anganzhi.forEach((element) => {
-        element.innerHTML = '';
-        element.classList.remove('important');
-        element.classList.remove('anganzhi-color');
-    });
-    tianpanyikong.forEach((element) => {
-        element.innerHTML = '';
-        element.classList.remove('important');
-        element.classList.remove('rigan');
-        element.classList.remove('highlight');
-        element.classList.remove('highlight-rigan');
-        element.classList.remove('jin');
-        element.classList.remove('mu');
-        element.classList.remove('shui');
-        element.classList.remove('huo');
-        element.classList.remove('tu');
-    });
-    dipanyikong.forEach((element) => {
-        element.innerHTML = '';
-        element.classList.remove('important');
-        element.classList.remove('rigan');
-        element.classList.remove('highlight');
-        element.classList.remove('highlight-rigan');
-        element.classList.remove('jin');
-        element.classList.remove('mu');
-        element.classList.remove('shui');
-        element.classList.remove('huo');
-        element.classList.remove('tu');
-    });
-    tianpanliuqin.forEach((element) => {
-        element.innerHTML = '';
-        element.classList.remove('simplified-liuqin');
-    });
-    dipanliuqin.forEach((element) => {
-        element.innerHTML = '';
-        element.classList.remove('simplified-liuqin');
-    });
-    document.getElementById('nian').innerHTML = '';
-    document.getElementById('yue').innerHTML = '';
-    document.getElementById('ri').innerHTML = '';
-    document.getElementById('shi').innerHTML = '';
 }

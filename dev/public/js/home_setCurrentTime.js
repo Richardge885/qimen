@@ -1,5 +1,3 @@
-const { ipcRenderer } = require('electron');
-
 document.getElementById('setCurrentTime').addEventListener('click', setCurrentTimeToTimeInput); // 软件启动时输入当前系统时间
 
 /**
@@ -15,7 +13,3 @@ function setCurrentTimeToTimeInput() {
 }
 
 setCurrentTimeToTimeInput();
-
-ipcRenderer.on('refresh current time', () => {
-    setCurrentTimeToTimeInput();
-});
