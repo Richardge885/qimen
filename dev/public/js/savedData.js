@@ -503,4 +503,26 @@ ipcRenderer.on('import data to render process', (e, data) => {
     renderData(localData);
 });
 
+// 根据滚动位置显示回到上方按钮
+document.getElementById('saved-data-list').onscroll = function () {
+    if (
+        document.getElementById('saved-data-list').scrollTop > 20 ||
+        document.documentElement.scrollTop > 20
+    ) {
+        document.getElementById('saved-date-back-to-top-btn').classList.remove('hidden');
+    } else {
+        document.getElementById('saved-date-back-to-top-btn').classList.add('hidden');
+    }
+};
+
+// 回到上方按钮功能
+document.getElementById('saved-date-back-to-top-btn').addEventListener('click', backToTop);
+
+/**
+ * back to top function
+ */
+function backToTop() {
+    document.getElementById('saved-data-list').scrollTop = 0;
+}
+
 // 清空所有 eventListener

@@ -228,8 +228,9 @@
 
 /* make scrollbar transparent */
 .hide-scrollbar::-webkit-scrollbar {
-    width: 0px;
-    background: transparent;
+    /* width: 0px;
+    background: transparent; */
+    display: none;
 }
 
 /* HAMBURGER MENU */

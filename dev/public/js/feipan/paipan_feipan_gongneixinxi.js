@@ -472,7 +472,8 @@ export function feipan_info(info) {
                 getZhangSheng('甲', gong) +
                 '<br><hr><br>' +
                 getZhengGe(tianpangan, dipangan) +
-                '<br><hr><br>';
+                '<br>';
+            // '<br><hr><br>';
             if (tianpanjia == true && dipanjia == true) {
                 result =
                     result +
@@ -639,35 +640,40 @@ export function feipan_info(info) {
                     fuyinge +
                     '木加木主非灾飞祸，争财竞禄，求谋难成。' +
                     '<br>' +
-                    '<span style="color:#0079FE">日奇伏吟：</span>不宜见上级领导、贵人；求名求利及进取事不可求，只宜安分守己。利主，宜静不宜动，宜守不宜进。<br>';
+                    '<br>' +
+                    '<span style="color:#0079FE">日奇伏吟：</span>有外地入侵，或发生内乱。<br>';
                 break;
             case '乙丙':
                 output =
                     output +
                     jinruge +
                     jiaoyangge +
-                    '<span style="color:#0079FE">奇仪顺遂：</span>吉星加官尽职，凶星夫妻反目离别。临吉星谋事多吉；临凶星求谋不顺，特别是不利于婚姻。<br>';
+                    '<br>' +
+                    '<span style="color:#0079FE">日月合明：</span>行事顺遂，但前进途中有参差。<br>';
                 break;
             case '乙丁':
                 output =
                     output +
                     qianjiange +
                     duoquange +
-                    '<span style="color:#0079FE">奇仪相佐：</span>最利文书、考试，百事可为。<br>';
+                    '<br>' +
+                    '<span style="color:#0079FE">奇仪相佐：</span>有进得速之妙，阴人帮扶之情，但小有消磨。<br>';
                 break;
             case '乙戊':
                 output =
                     output +
                     waihaige +
                     mutu +
-                    '<span style="color:#0079FE">阴害阳门：</span>利于阴人阴事，不利于阳人阳事。<br>';
+                    '<br>' +
+                    '<span style="color:#0079FE">日升天门：</span>利见大人，依尊附贵之情。门受制则利他人。<br>';
                 break;
             case '乙己':
                 output =
                     output +
                     wailuange +
                     mutu +
-                    '<span style="color:#0079FE">日奇入墓：</span>被土暗昧、门凶事必凶。<br>';
+                    '<br>' +
+                    '<span style="color:#0079FE">日入地户：</span>先明后暗，二人并力相争衡。<br>';
                 break;
             case '乙庚':
                 output =
@@ -676,7 +682,8 @@ export function feipan_info(info) {
                     neiqinge +
                     jinmu +
                     '<span style="color:#0079FE">合金格：</span>主宜钱财威武等事。<br>' +
-                    '<span style="color:#0079FE">日奇被刑：</span>有争讼，各怀私意。<br>';
+                    '<br>' +
+                    '<span style="color:#0079FE">日奇被刑：</span>以柔制刚乃事成，妇人聚集，婚姻和合吉。<br>';
                 break;
             case '乙辛':
                 output =
@@ -685,20 +692,23 @@ export function feipan_info(info) {
                     neiluange +
                     jinmu +
                     '<span style="color:#0079FE">木冲格：</span>宜用义宣扬，行谦下士，以及从林作伏、滚木作攻之事。<br>' +
-                    '<span style="color:#0079FE">青龙逃走：</span>人亡财破，奴仆拐带，六畜皆伤。<br>';
+                    '<br>' +
+                    '<span style="color:#0079FE">青龙逃走：</span>逃亡人口，丢失钱财，奴仆拐带，六畜皆伤。<br>';
                 break;
             case '乙壬':
                 output =
                     output +
                     huofuge +
-                    '<span style="color:#0079FE">日奇入天罗：</span>尊婢悖乱，官讼是非，有人谋害之事。<br>';
+                    '<br>' +
+                    '<span style="color:#0079FE">玄武捧日：</span>利招安，举大事，主家庭和睦，名声远扬。<br>';
                 break;
             case '乙癸':
                 output =
                     output +
                     houjiange +
                     yishige +
-                    '<span style="color:#0079FE">日奇入地网：</span>宜退不宜进，隐匿藏形，躲灾避难为吉，此格局不利于进 攻。<br>';
+                    '<br>' +
+                    '<span style="color:#0079FE">蛇神拱日：</span>利教化，创业，百事吉。<br>';
                 break;
 
             case '丙甲':
@@ -709,7 +719,9 @@ export function feipan_info(info) {
                     output +
                     tuiruge +
                     demuge +
-                    '<span style="color:#0079FE">日月并行：</span>公谋私为皆为吉。<br>';
+                    '<br>' +
+                    '<br>' +
+                    '<span style="color:#0079FE">月明云白：</span>文章显达，喜事临门，龙凤呈祥。<br>';
                 break;
             case '丙丙':
                 output =
@@ -717,33 +729,38 @@ export function feipan_info(info) {
                     fuyinge +
                     '火加火口舌飞祸，疾病相畏，凡事有始无终。' +
                     '<br>' +
-                    '<span style="color:#0079FE">月奇悖师：</span>文书逼迫，破耗遗失。<br>';
+                    '<br>' +
+                    '<span style="color:#0079FE">月奇悖师：</span>势利辉煌宜举火，但需稳步，官在口舌时霎降临。<br>';
                 break;
             case '丙丁':
                 output =
                     output +
                     jinruge +
-                    '<span style="color:#0079FE">星奇朱雀：</span>贵人文书吉利，常人平静安乐。<br>';
+                    '<br>' +
+                    '<span style="color:#0079FE">月奇朱雀：</span>贵人相助，功名得遇，例进步谋为。<br>';
                 break;
             case '丙戊':
                 output =
                     output +
                     qianjiange +
                     haoqige +
-                    '<span style="color:#0079FE">飞鸟跌穴：</span>事业可为，可谋大事，对好事大吉大利，如求婚、求财、考试、求官等，不用费多大力气，就能成功。求财遇此格，财来了，到财库了。<br>';
+                    '<br>' +
+                    '<span style="color:#0079FE">飞鸟跌穴：</span>宜尚书献策，求明谒贵，学道修身。<br>';
                 break;
             case '丙己':
                 output =
                     output +
                     jiaoyinge +
-                    '<span style="color:#0079FE">火悖入刑：</span>囚人刑杖，文书不行，吉门得吉，凶门转凶。<br>';
+                    '<br>' +
+                    '<span style="color:#0079FE">荧惑入户：</span>自犯虚惊，主军不吉客军吉，怨结恩消，灾祸降临。<br>';
                 break;
             case '丙庚':
                 output =
                     output +
                     waizhige +
                     huojin +
-                    '<span style="color:#0079FE">荧入太白：</span>賊必去。门户破败，盗贼耗失，事业亦凶。<br>';
+                    '<br>' +
+                    '<span style="color:#0079FE">荧入太白：</span>利出军交兵，除暴安良。但买卖经营不遂意，门户破败，盗贼耗失。若门宫吉，可某动。<br>';
                 break;
             case '丙辛':
                 output =
@@ -752,7 +769,8 @@ export function feipan_info(info) {
                     waiqinge +
                     huojin +
                     '<span style="color:#0079FE">合水格：</span>主宜飘荡淫邪等事。<br>' +
-                    '<span style="color:#0079FE">日月相会：</span>谋事成就，病人不凶。<br>';
+                    '<br>' +
+                    '<span style="color:#0079FE">荧惑相合：</span>占病沉重，状词得申，两恩互感，意气相投，气象一新。<br>';
                 break;
             case '丙壬':
                 output =
@@ -761,14 +779,16 @@ export function feipan_info(info) {
                     neizhige +
                     shuihuo +
                     '<span style="color:#0079FE">火冲格：</span>宜行文招士，立词安民，运筹谋划，欺诈火攻之事。<br>' +
-                    '<span style="color:#0079FE">火入天罗：</span>为客不利，是非颇多。<br>';
+                    '<br>' +
+                    '<span style="color:#0079FE">月覆天牢：</span>祸患频发，妇人招惹风情，口舌官非来袭。诸事虽吉，但防不实。<br>';
                 break;
             case '丙癸':
                 output =
                     output +
                     neihaige +
                     shuihuo +
-                    '<span style="color:#0079FE">月奇地网：</span>阴人害事，灾祸频生，凡事暗昧不明。<br>';
+                    '<br>' +
+                    '<span style="color:#0079FE">飞鸟入网：</span>祸事叠来，宜潜居退隐，不必营求。<br>';
                 break;
 
             case '丁甲':
@@ -779,13 +799,15 @@ export function feipan_info(info) {
                     output +
                     houjiange +
                     yishige +
-                    '<span style="color:#0079FE">玉女奇生：</span>也为人遁吉格，贵人加官进爵，常人婚姻财帛有喜<br>';
+                    '<br>' +
+                    '<span style="color:#0079FE">玉女乘云：</span>谋为吉利，贵人迁职高升，官司消亡,事事遂意。<br>';
                 break;
             case '丁丙':
                 output =
                     output +
                     tuiruge +
-                    '<span style="color:#0079FE">星随月转：</span>贵人越级高升，常人乐极生悲，要忍，不然因小的不忍，而引起大的不幸。<br>';
+                    '<br>' +
+                    '<span style="color:#0079FE">玉女游月：</span>宜缓缓施为，贵人扶持，受恩诏。<br>';
                 break;
             case '丁丁':
                 output =
@@ -793,35 +815,40 @@ export function feipan_info(info) {
                     fuyinge +
                     '火加火口舌飞祸，疾病相畏，凡事有始无终。' +
                     '<br>' +
-                    '<span style="color:#0079FE">星奇入太阴：</span>文书证件即至，喜事从心、万事如意。<br>';
+                    '<br>' +
+                    '<span style="color:#0079FE">朱雀叠来：</span>先举者利。若遇抢劫或劫持，主平安无恙，不必担心。<br>';
                 break;
             case '丁戊':
                 output =
                     output +
                     jinruge +
                     jiaoyangge +
-                    '<span style="color:#0079FE">青龙转光：</span>官人升迁，常人威昌。无论遇到多大困难，将来都会出现转机。<br>';
+                    '<br>' +
+                    '<span style="color:#0079FE">玉女乘龙：</span>官人加官进禄，立志清高，姓名登榜。<br>';
                 break;
             case '丁己':
                 output =
                     output +
                     qianjiange +
                     duoquange +
-                    '<span style="color:#0079FE">火入勾陈：</span>奸私仇怨，事因女人。<br>';
+                    '<br>' +
+                    '<span style="color:#0079FE">玉女启户：</span>女性自愿私奔，为情夫留门，留宿，官司口舌缠身。<br>';
                 break;
             case '丁庚':
                 output =
                     output +
                     waihaige +
                     huojin +
-                    '<span style="color:#0079FE">星奇受阻：</span>文书阻隔，行人必归。<br>';
+                    '<br>' +
+                    '<span style="color:#0079FE">玉女持锋：</span>小心过错，凡事难谋不称意，是非颠倒祸牵连。<br>';
                 break;
             case '丁辛':
                 output =
                     output +
                     wailuange +
                     huojin +
-                    '<span style="color:#0079FE">朱雀入狱：</span>罪人失囚，官人失位。<br>';
+                    '<br>' +
+                    '<span style="color:#0079FE">玉女骑虎：</span>求谋不利，防刑狱，谋事艰难又损人。<br>';
                 break;
             case '丁壬':
                 output =
@@ -830,7 +857,8 @@ export function feipan_info(info) {
                     neiqinge +
                     shuihuo +
                     '<span style="color:#0079FE">合木格：</span>主宜经营动作等事。<br>' +
-                    '<span style="color:#0079FE">奇仪相合：</span>贵人恩诏，诉狱公平。<br>';
+                    '<br>' +
+                    '<span style="color:#0079FE">玉女勾和：</span>万事得吉，百福来迎，贵人升迁，讼狱公平，私情和美。<br>';
                 break;
             case '丁癸':
                 output =
@@ -839,7 +867,8 @@ export function feipan_info(info) {
                     neiluange +
                     shuihuo +
                     '<span style="color:#0079FE">火冲格：</span>宜行文招士，立词安民，运筹谋划，欺诈火攻之事。<br>' +
-                    '<span style="color:#0079FE">朱雀投江：</span>文书口舌是非，经官动府、词诉不利，音信沉溺不到。<br>';
+                    '<br>' +
+                    '<span style="color:#0079FE">朱雀投江：</span>文书遗失难寻，彼此惊疑，心神不定，为敌所败。<br>';
                 break;
 
             case '戊甲':
@@ -850,21 +879,24 @@ export function feipan_info(info) {
                     output +
                     neihaige +
                     mutu +
-                    '<span style="color:#0079FE">青龙和会：</span>门吉事吉，门凶事也凶。<br>';
+                    '<br>' +
+                    '<span style="color:#0079FE">青龙入云：</span>有同人扶助，事得周全。但如果门宫迫制，则双方自招罪愆，陷入麻烦。<br>';
                 break;
             case '戊丙':
                 output =
                     output +
                     houjiange +
                     chengquange +
-                    '<span style="color:#0079FE">青龙返首：</span>，动作大吉，但若逢门迫、入墓、击刑，则吉事成凶。<br>';
+                    '<br>' +
+                    '<span style="color:#0079FE">青龙返首：</span>若门宫相生合，则大吉，文明显达，声名远扬，饶有利益；但若逢空或门宫迫制，不但不吉，反而堪忧。<br>';
                 break;
             case '戊丁':
                 output =
                     output +
                     tuiruge +
                     demuge +
-                    '<span style="color:#0079FE">青龙耀明：</span>宜见上级领导、贵人、求功名，为事吉利，若值墓迫，招惹是非。<br>';
+                    '<br>' +
+                    '<span style="color:#0079FE">青龙耀明：</span>主有贵人暗助；平安顺利。但只有门宫相生才为上吉，若逢迫制，事反难办，易招是非。<br>';
                 break;
             case '戊戊':
                 output =
@@ -872,34 +904,39 @@ export function feipan_info(info) {
                     fuyinge +
                     '土加土住居烦恼，又主行事迟缓，虽成而迟等。' +
                     '<br>' +
-                    '<span style="color:#0079FE">伏吟：</span>凡事不利，道路闭塞，以守为好。<br>';
+                    '<br>' +
+                    '<span style="color:#0079FE">青龙入地：</span>翻来辗转，心神不定，徘徊犹豫，胸中起波澜，或事情一波三折。<br>';
                 break;
             case '戊己':
                 output =
                     output +
                     jinruge +
-                    '<span style="color:#0079FE">贵人入狱：</span>公私皆不利。<br>';
+                    '<br>' +
+                    '<span style="color:#0079FE">青龙比合：</span>主婚姻之喜，有内外生扶，利家庭，家室。迫墓克制及凶门， 名贵人入狱，公私不利，主有震惊之事。<br>';
                 break;
             case '戊庚':
                 output =
                     output +
                     qianjiange +
                     haoqige +
-                    '<span style="color:#0079FE">值符飞宫：</span>吉事不吉，凶事更凶，求财没利益，测病也主凶。<br>';
+                    '<br>' +
+                    '<span style="color:#0079FE">青龙失利：</span>主谋事纷争，难立名。易出现伤损，血光，但利于军事。<br>';
                 break;
             case '戊辛':
                 output =
                     output +
                     jiaoyinge +
                     zhipoge +
-                    '<span style="color:#0079FE">青龙折足：</span>，吉门有生助，尚能谋事；若逢凶门，主招灾，失财或有足疾、折伤。<br>';
+                    '<br>' +
+                    '<span style="color:#0079FE">青龙折足：</span>吉门生助尚可谋为，若凶门迫制，主招灾，失财，足疾。当自守，不宜动作。<br>';
                 break;
             case '戊壬':
                 output =
                     output +
                     waizhige +
                     tushui +
-                    '<span style="color:#0079FE">青龙入天牢：</span>凡阴阳事皆不吉利。<br>';
+                    '<br>' +
+                    '<span style="color:#0079FE">龙入天牢：</span>主口舌纷争，耗散破财，祸害颇深。<br>';
                 break;
             case '戊癸':
                 output =
@@ -908,7 +945,8 @@ export function feipan_info(info) {
                     waiqinge +
                     tushui +
                     '<span style="color:#0079FE">合火格：</span>主宜文谋筹策消息等事。<br>' +
-                    '<span style="color:#0079FE">青龙华盖：</span>逢吉门为吉，可招福临门；逢凶门，事多不利，为凶。<br>';
+                    '<br>' +
+                    '<span style="color:#0079FE">青龙华盖：</span>主首尾相应，圆满喜庆，声名显赫。但若逢门宫迫制，反主奔波。<br>';
                 break;
 
             case '己甲':
@@ -923,26 +961,30 @@ export function feipan_info(info) {
                     output +
                     neiluange +
                     mutu +
-                    '<span style="color:#0079FE">墓神不明：</span>墓神不明，地户逢星，宜遁迹隐形为利。<br>';
+                    '<br>' +
+                    '<span style="color:#0079FE">地中掩日：</span>凡事暗昧不明，蹉跎空转，蒙蔽侵犯，宜安常守分，遁迹隐形，不利动作。<br>';
                 break;
             case '己丙':
                 output =
                     output +
                     huofuge +
-                    '<span style="color:#0079FE">火悖地户：</span>男人冤冤相害；女人必致淫污。<br>';
+                    '<br>' +
+                    '<span style="color:#0079FE">地户埋光：</span>外不明而内明，别有洞天，利于创业，兴工。但容易恩中成怨，凡事阻屈难中。<br>';
                 break;
             case '己丁':
                 output =
                     output +
                     houjiange +
                     yishige +
-                    '<span style="color:#0079FE">朱雀入狱：</span>文书词讼，先曲后直<br>';
+                    '<br>' +
+                    '<span style="color:#0079FE">地户星辉：</span>词讼先曲后直，诸事暗中生扶，利经营，祈祷神灵<br>';
                 break;
             case '己戊':
                 output =
                     output +
                     tuiruge +
-                    '<span style="color:#0079FE">犬遇青龙：</span>门吉为谋望遂意，上人见喜。若门凶，枉费心机。<br>';
+                    '<br>' +
+                    '<span style="color:#0079FE">比和安通：</span>明事不宜暗事宜，主男女私情。<br>';
                 break;
             case '己己':
                 output =
@@ -950,35 +992,40 @@ export function feipan_info(info) {
                     fuyinge +
                     '土加土住居烦恼，又主行事迟缓，虽成而迟等。' +
                     '<br>' +
-                    '<span style="color:#0079FE">地户逢鬼：</span>病者发凶或必死，百事不遂，暂不谋为，谋为则凶。<br>';
+                    '<br>' +
+                    '<span style="color:#0079FE">地户逢鬼：</span>主有忧愁，不满，进退两难。病者必死，百事不遂。凡事屈曲难明，宜守分奈常。<br>';
                 break;
             case '己庚':
                 output =
                     output +
                     jinruge +
                     jiaoyangge +
-                    '<span style="color:#0079FE">刑格返名：</span>词讼先动者不利，如临阴星（凶星）则有谋害之情。<br>';
+                    '<br>' +
+                    '<span style="color:#0079FE">地户伏白：</span>主事情驳杂，诸事似益终不益，有隐情不可不查。词讼先动不利，门凶有阴私谋害之情。<br>';
                 break;
             case '己辛':
                 output =
                     output +
                     qianjiange +
                     duoquange +
-                    '<span style="color:#0079FE">游魂入墓：</span>易招阴邪鬼魅作祟。<br>';
+                    '<br>' +
+                    '<span style="color:#0079FE">虎困穴中：</span>主争斗，伤财惹气，大人鬼魅相侵，小人家先为祟。<br>';
                 break;
             case '己壬':
                 output =
                     output +
                     waihaige +
                     tushui +
-                    '<span style="color:#0079FE">地网高张：</span>狡童佚女，奸情伤杀，凡事不吉，谋为不利。<br>';
+                    '<br>' +
+                    '<span style="color:#0079FE">地牢冲破：</span>诸事无成有小侵，所谋之事多变，百事无成，参商各别，意即相隔甚远，或意见相左。狡童佚女，奸情杀伤。须查门宫生旺墓败，生命者可称心。<br>';
                 break;
             case '己癸':
                 output =
                     output +
                     wailuange +
                     tushui +
-                    '<span style="color:#0079FE">地刑玄武：</span>男女疾病垂危，有囚狱词讼之灾。<br>';
+                    '<br>' +
+                    '<span style="color:#0079FE">地户张罗：</span>主男女疾病垂危，词讼有困狱之灾，望喜，求财皆不利，反而需防琐碎，死丧。<br>';
                 break;
 
             case '庚甲':
@@ -996,35 +1043,40 @@ export function feipan_info(info) {
                     waiqinge +
                     jinmu +
                     '<span style="color:#0079FE">合金格：</span>主宜钱财威武等事。<br>' +
-                    '<span style="color:#0079FE">太白逢星：</span>退吉进凶，谋为不利。<br>';
+                    '<br>' +
+                    '<span style="color:#0079FE">太白贪合：</span>诸事大吉，所为皆顺，太白逢星，进退吉凶。<br>';
                 break;
             case '庚丙':
                 output =
                     output +
                     neizhige +
                     huojin +
-                    '<span style="color:#0079FE">太白入荧：</span>贼必来，为客进利，为主破财。<br>';
+                    '<br>' +
+                    '<span style="color:#0079FE">太白入荧：</span>主官刑，口舌，被人欺，事情变动，反复不定，破财，贼来入室行窃。<br>';
                 break;
             case '庚丁':
                 output =
                     output +
                     neiqinge +
                     huojin +
-                    '<span style="color:#0079FE">亭亭之格：</span>因私匿或男女关系起官司是非，门吉有救；门凶，事必凶。<br>';
+                    '<br>' +
+                    '<span style="color:#0079FE">太白入阴：</span>有私情，女性搅扰，漂浮不定，始终无益，应息事宁人。<br>';
                 break;
             case '庚戊':
                 output =
                     output +
                     houjiange +
                     chengquange +
-                    '<span style="color:#0079FE">天乙伏宫：</span>百事不可谋，大凶。<br>';
+                    '<br>' +
+                    '<span style="color:#0079FE">太白乘龙：</span>主追捕逃亡，两军对阵，征讨凶顽之事。<br>';
                 break;
             case '庚己':
                 output =
                     output +
                     tuiruge +
                     demuge +
-                    '<span style="color:#0079FE">官府刑格：</span>主有官司口舌，因官讼被判刑，住牢狱更凶，百事不利。<br>';
+                    '<br>' +
+                    '<span style="color:#0079FE">太白经地：</span>有刀兵之乱，小为虽吉但宜安静，退步方能获宠荣。<br>';
                 break;
             case '庚庚':
                 output =
@@ -1032,27 +1084,31 @@ export function feipan_info(info) {
                     fuyinge +
                     '金加金主道途分异，斗伤呻吟，凡事不顺。' +
                     '<br>' +
-                    '<span style="color:#0079FE">太白同宫：</span>官灾横祸。<br>';
+                    '<br>' +
+                    '<span style="color:#0079FE">太白重现：</span>主官灾横祸，兄弟雷攻，自相残杀。<br>';
                 break;
             case '庚辛':
                 output =
                     output +
                     jinruge +
-                    '<span style="color:#0079FE">白虎干格：</span>不宜远行，远行车折马伤，求财更为大凶，诸事有灾殃，时间越长越凶。<br>';
+                    '<br>' +
+                    '<span style="color:#0079FE">太白束虎：</span>正义战胜邪恶，但远行车折马死。<br>';
                 break;
             case '庚壬':
                 output =
                     output +
                     qianjiange +
                     haoqige +
-                    '<span style="color:#0079FE">太白退位：</span>也为小格，金化水流，主远行迷失道路，男女音信难 通、变动、外出。<br>';
+                    '<br>' +
+                    '<span style="color:#0079FE">太白入牢：</span>凡事多疑。只宜敛迹。远行失迷道路，男女音信嗟呀。<br>';
                 break;
             case '庚癸':
                 output =
                     output +
                     jiaoyinge +
                     zhipoge +
-                    '<span style="color:#0079FE">太白冲刑：</span>也为大格，主车祸，行人不至，官事不止，生育母子俱伤，大凶。<br>';
+                    '<br>' +
+                    '<span style="color:#0079FE">太白投罗：</span>诸事不顺，人情悖逆，难逃罗网，需方小人。<br>';
                 break;
 
             case '辛甲':
@@ -1065,7 +1121,8 @@ export function feipan_info(info) {
                     wailuange +
                     jinmu +
                     '<span style="color:#0079FE">金冲格：</span>宜扬威振武，演阵将兵，年战斗杀之事。<br>' +
-                    '<span style="color:#0079FE">白虎猖狂：</span>家败人亡（分家、婚散、破产），出行有惊恐，远行多灾殃，尊长不喜，车船俱伤。<br>';
+                    '<br>' +
+                    '<span style="color:#0079FE">白虎猖狂：</span>主破财，灾殃，功名不遂，出军失败，远行不利，官非，灾祸。<br>';
                 break;
             case '辛丙':
                 output =
@@ -1074,34 +1131,39 @@ export function feipan_info(info) {
                     neiqinge +
                     huojin +
                     '<span style="color:#0079FE">合水格：</span>主宜飘荡淫邪等事。<br>' +
-                    '<span style="color:#0079FE">干合悖师：</span>荧惑出现，占雨无，占晴旱，占事必因财致讼。<br>';
+                    '<br>' +
+                    '<span style="color:#0079FE">白虎逢朋：</span>利讨债，催收欠款。<br>';
                 break;
             case '辛丁':
                 output =
                     output +
                     neiluange +
                     huojin +
-                    '<span style="color:#0079FE">狱神得奇：</span>经商求财获利倍增，囚人逢天赦释免，办其他事，也会有意外的收获。<br>';
+                    '<br>' +
+                    '<span style="color:#0079FE">白虎受伤：</span>有始无终，事情乖张，家中耗散，内部纷争前程不妙。<br>';
                 break;
             case '辛戊':
                 output =
                     output +
                     huofuge +
                     zhipoge +
-                    '<span style="color:#0079FE">困龙被伤：</span>主官司破财，屈抑守分尚可，妄动则带来祸殃。<br>';
+                    '<br>' +
+                    '<span style="color:#0079FE">龙虎两争：</span>诸事不合，奇谋不通，争斗多事。但利兴威举武。<br>';
                 break;
             case '辛己':
                 output =
                     output +
                     houjiange +
                     yishige +
-                    '<span style="color:#0079FE">入狱自刑：</span>故为入狱自刑，主奴仆背主，有苦诉讼难伸。<br>';
+                    '<br>' +
+                    '<span style="color:#0079FE">虎卧穴中：</span>诸事隆吉，费力方成。利聚集粮草，军事训练。<br>';
                 break;
             case '辛庚':
                 output =
                     output +
                     tuiruge +
-                    '<span style="color:#0079FE">白虎出力：</span>刀刃相交，主客相残，逊让退步则安，强进血溅衣衫。<br>';
+                    '<br>' +
+                    '<span style="color:#0079FE">虎逢太白：</span>主反复争论，惊疑反复，革职丢官。<br>';
                 break;
             case '辛辛':
                 output =
@@ -1109,21 +1171,24 @@ export function feipan_info(info) {
                     fuyinge +
                     '金加金主道途分异，斗伤呻吟，凡事不顺。' +
                     '<br>' +
-                    '<span style="color:#0079FE">伏吟天庭：</span>公废私就，讼狱自羅罪名。<br>';
+                    '<br>' +
+                    '<span style="color:#0079FE">二虎相争：</span>凡事自败，有势难成，狐疑颠倒，难得实情。<br>';
                 break;
             case '辛壬':
                 output =
                     output +
                     jinruge +
                     jiaoyangge +
-                    '<span style="color:#0079FE">凶蛇入狱：</span>两男争女，一货售两 家、讼狱不息，先动失理，利主不利客。<br>';
+                    '<br>' +
+                    '<span style="color:#0079FE">虎入牢笼：</span>凡事不利，所某难成，兴师不利，隐味忧心，需防诡诈，淫邪不端，两男争女，先讼失理。<br>';
                 break;
             case '辛癸':
                 output =
                     output +
                     qianjiange +
                     duoquange +
-                    '<span style="color:#0079FE">天牢华盖：</span>日月失明，误入天网，动止乖张。<br>';
+                    '<br>' +
+                    '<span style="color:#0079FE">虎入罗网：</span>灾祸降临，宜安分守己，隐匿山林，等待时机。<br>';
                 break;
 
             case '壬甲':
@@ -1133,7 +1198,8 @@ export function feipan_info(info) {
                 output =
                     output +
                     jiaoyinge +
-                    '<span style="color:#0079FE">小蛇得势：</span>女人柔顺，男人通达。<br>';
+                    '<br>' +
+                    '<span style="color:#0079FE">天牢囚贵：</span>谋事有惊，占孕生子，动作营求起口舌，女人归来。<br>';
                 break;
             case '壬丙':
                 output =
@@ -1142,7 +1208,8 @@ export function feipan_info(info) {
                     waizhige +
                     shuihuo +
                     '<span style="color:#0079FE">水冲格：</span>宜用智行诱，酒食宴乐，调河开渠，水战水攻之事。<br>' +
-                    '<span style="color:#0079FE">水蛇入火：</span>两败俱伤，为客不利。<br>';
+                    '<br>' +
+                    '<span style="color:#0079FE">玄武入狱：</span>招惹官非词讼，有贼人擅入。<br>';
                 break;
             case '壬丁':
                 output =
@@ -1151,14 +1218,16 @@ export function feipan_info(info) {
                     waiqinge +
                     shuihuo +
                     '<span style="color:#0079FE">合木格：</span>主宜经营动作等事。<br>' +
-                    '<span style="color:#0079FE">干合蛇刑：</span>文书牵连，贵人匆匆，男吉女凶。<br>';
+                    '<br>' +
+                    '<span style="color:#0079FE">玄武谒贵：</span>主谒贵，求贤，招聘，有贵人相帮，利阴私之事，布阵埋兵需行诡诈。<br>';
                 break;
             case '壬戊':
                 output =
                     output +
                     neizhige +
                     tushui +
-                    '<span style="color:#0079FE">小蛇化龙：</span>男人发达，女产婴童，做事要防耗散。<br>';
+                    '<br>' +
+                    '<span style="color:#0079FE">玄武化龙：</span>利官讼，求名，演队，交兵，建设，有始无终。<br>';
                 break;
             case '壬己':
                 output =
@@ -1166,21 +1235,24 @@ export function feipan_info(info) {
                     zhipoge +
                     neihaige +
                     tushui +
-                    '<span style="color:#0079FE">反吟蛇刑：</span>主官司败诉，大祸将至，顺守为吉，妄动必凶。<br>';
+                    '<br>' +
+                    '<span style="color:#0079FE">玄武入穴：</span>夫妇不合，盗贼入室。<br>';
                 break;
             case '壬庚':
                 output =
                     output +
                     houjiange +
                     chengquange +
-                    '<span style="color:#0079FE">太白擒蛇：</span>刑狱公平，立判邪正，这是对于词讼之类来讲的。<br>';
+                    '<br>' +
+                    '<span style="color:#0079FE">玄武倚势：</span>内里惊慌，反复多磨，利攻势。官司息讼，刑狱公平，利剖邪正。<br>';
                 break;
             case '壬辛':
                 output =
                     output +
                     tuiruge +
                     demuge +
-                    '<span style="color:#0079FE">腾蛇相缠：</span>纵得吉门，亦不能安。<br>';
+                    '<br>' +
+                    '<span style="color:#0079FE">玄武乘虎：</span>利交战，学武，求名，主加官进禄，得荣耀。<br>';
                 break;
             case '壬壬':
                 output =
@@ -1188,13 +1260,15 @@ export function feipan_info(info) {
                     fuyinge +
                     '水加水口舌盗贼，阴私相侵，凡事因窘。' +
                     '<br>' +
-                    '<span style="color:#0079FE">天狱自刑/蛇入地罗：</span>求谋无成，祸患起于内部，诸事主破败，外人缠绕，内事索索。<br>';
+                    '<br>' +
+                    '<span style="color:#0079FE">玄武聚会：</span>主有破败之事，谋事不成，若要和平，需女人费力。<br>';
                 break;
             case '壬癸':
                 output =
                     output +
                     jinruge +
-                    '<span style="color:#0079FE">幼女奸淫：</span>主有家丑外扬之事发生；门吉星凶，反福为祸。<br>';
+                    '<br>' +
+                    '<span style="color:#0079FE">玄武结义：</span>家中安乐人情顺，图谋不遂，事业有成。但若门凶迫制，则主幼女奸淫，家有丑声。凡事不宜图谋，计劳之象。<br>';
                 break;
 
             case '癸甲':
@@ -1205,14 +1279,16 @@ export function feipan_info(info) {
                     output +
                     qianjiange +
                     duoquange +
-                    '<span style="color:#0079FE">华盖逢星：</span>贵人禄位，常人平安。<br>';
+                    '<br>' +
+                    '<span style="color:#0079FE">天罗蔽日：</span>主有灾祸起，交战双方俱凶，中途防盗窃。吉门生助，诸事有益，阳贵相扶，常人平安。<br>';
                 break;
             case '癸丙':
                 output =
                     output +
                     waihaige +
                     shuihuo +
-                    '<span style="color:#0079FE">华盖悖师：</span>贵贱逢之皆不利，唯上人见喜。<br>';
+                    '<br>' +
+                    '<span style="color:#0079FE">腾蛇侵月：</span>大盗蜂起，口舌牵连，家风败坏。但若逢吉门和义，诸事称遂，贵贱逢之，上人见喜。<br>';
                 break;
             case '癸丁':
                 output =
@@ -1221,7 +1297,8 @@ export function feipan_info(info) {
                     wailuange +
                     shuihuo +
                     '<span style="color:#0079FE">水冲格：</span>宜用智行诱，酒食宴乐，调河开渠，水战水攻之事。<br>' +
-                    '<span style="color:#0079FE">腾蛇夭矫：</span>文书官司，火焚也逃不掉，虚惊不宁。<br>';
+                    '<br>' +
+                    '<span style="color:#0079FE">腾蛇夭矫：</span>百事不吉反凶，无主意，文书官灾，破财，家中不宁，火灾，邪魔鬼祟。<br>';
                 break;
             case '癸戊':
                 output =
@@ -1230,34 +1307,39 @@ export function feipan_info(info) {
                     waiqinge +
                     tushui +
                     '<span style="color:#0079FE">合火格：</span>主宜文谋筹策消息等事。<br>' +
-                    '<span style="color:#0079FE">天乙合会：</span>吉门宜求财，婚姻喜美，吉人赞助成合。<br>';
+                    '<br>' +
+                    '<span style="color:#0079FE">螣蛇交龙：</span>财喜婚姻，吉人赞助成合，利私和，暗中谋划。伏兵动作要持火方吉。若门凶迫制，未免官非恩怨。<br>';
                 break;
             case '癸己':
                 output =
                     output +
                     neiluange +
                     tushui +
-                    '<span style="color:#0079FE">华盖地户：</span>男女测之，音信皆阻，躲灾避难方为吉。<br>';
+                    '<br>' +
+                    '<span style="color:#0079FE">螣蛇入穴：</span>求谋不遂，虽吉亦不无耗散，宜守旧安常。音信皆阻，躲在避难吉。<br>';
                 break;
             case '癸庚':
                 output =
                     output +
                     huofuge +
                     zhipoge +
-                    '<span style="color:#0079FE">太白入网：</span>以暴力争讼，自邏罪责。<br>';
+                    '<br>' +
+                    '<span style="color:#0079FE">网罗太白：</span>先易后难，求谋无益，作事刑害，以暴争讼力平。<br>';
                 break;
             case '癸辛':
                 output =
                     output +
                     houjiange +
                     yishige +
-                    '<span style="color:#0079FE">网盖天牢：</span>官司败诉，死罪难逃。<br>';
+                    '<br>' +
+                    '<span style="color:#0079FE">蛇神乘狐：</span>诸事遂心，安乐，灾祸消弭。<br>';
                 break;
             case '癸壬':
                 output =
                     output +
                     tuiruge +
-                    '<span style="color:#0079FE">复见腾蛇：</span>嫁娶重婚，后嫁无子，不保年华。<br>';
+                    '<br>' +
+                    '<span style="color:#0079FE">腾蛇入牢：</span>凡谋不利，上下蒙蔽，暗昧不明，退守为吉。占罪莫逃，妻死续弦，出行折返。<br>';
                 break;
             case '癸癸':
                 output =
@@ -1265,12 +1347,14 @@ export function feipan_info(info) {
                     fuyinge +
                     '水加水口舌盗贼，阴私相侵，凡事因窘。' +
                     '<br>' +
-                    '<span style="color:#0079FE">天网四张：</span>主行人失伴，病讼皆伤。<br>';
+                    '<br>' +
+                    '<span style="color:#0079FE">天网四张：</span>重重关隘，难以冲破，隐蔽私通，进退狐疑，徘徊无定。<br>';
                 break;
         }
         return output;
     }
     function getFuGe(tianpangan, dipangan, gong) {
+        // 自带分割线
         const jiedang = '凡事必须聚伙成群而始能有成，不然则需要等待时机';
         const deli = '凡事必须得他人周济而始能有成，不然也需要等待时机';
         const shili = '凡事必须耗我心力，威服他人而始能有成，不然则有伤害于他人';
@@ -3840,7 +3924,10 @@ export function feipan_info(info) {
                 }
         }
     }
+
+    // TODO 确保吉凶格局符合飞盘设定
     function getJiGe(tianpangan, dipangan, men, shen, gongwei) {
+        // 转化繁体至简体
         switch (men) {
             case '休門':
                 men = '休门';
@@ -4106,6 +4193,7 @@ export function feipan_info(info) {
         }
     }
     function mengong(men, gong) {
+        // 自带分割线
         const menpo =
             '门+宫：<br><span style="color:red">门迫：</span>主祸从外来。我居宫室之内，并不欲招非于他，他突然来克我，不知有何关碍，迫来之事最为迅速，要多堤防。<br>';
         const shouzhi =
@@ -6381,5 +6469,9 @@ export function feipan_info(info) {
 
             openInfoWindow();
         }
+    }
+
+    function zhouyou(tiangan, gongwei) {
+        let resutl = '<br><hr><br>';
     }
 }
