@@ -465,6 +465,7 @@ export function feipan_info(info) {
         men,
     ) {
         let result = '';
+        let zhishi = isZhiShi(men);
         if (tianpanjia == true || dipanjia == true) {
             result =
                 getZhangSheng(tianpangan, gong) +
@@ -527,7 +528,7 @@ export function feipan_info(info) {
                 mengong(men, gong) +
                 getShenSha(document.querySelectorAll('[data-anganzhi]')[whichGong].innerText, gong);
         }
-        result = result + getJiGe(tianpangan, dipangan, men, tianpanshen, gong);
+        result = result + getJiGe(tianpangan, dipangan, men, tianpanshen, gong, zhishi);
         return result;
     }
     function getZhengGe(tianpangan, dipangan) {
@@ -3926,7 +3927,7 @@ export function feipan_info(info) {
     }
 
     // TODO 确保吉凶格局符合飞盘设定
-    function getJiGe(tianpangan, dipangan, men, shen, gongwei) {
+    function getJiGe(tianpangan, dipangan, men, shen, gongwei, zhishi) {
         // 转化繁体至简体
         switch (men) {
             case '休門':
@@ -3966,10 +3967,80 @@ export function feipan_info(info) {
                 break;
         }
         let result = '<br><hr><br>';
-        // todo 却天三门，地四户，地私门
-        // 天三门
-        // 地四户
-        // 地私门
+
+        if (zhishi) {
+            switch (dipangan) {
+                case '丁':
+                    result =
+                        result +
+                        '<span style="color:#0079FE">玉女守门：</span>主宜阴私和合之事，多有阴贵人相助。<br><br>';
+                    break;
+                case '乙':
+                    result =
+                        result +
+                        '<span style="color:#0079FE">日照当们：</span>主谋为多有贵人相助，能逢凶化吉。<br><br>';
+                    break;
+                case '丙':
+                    result =
+                        result +
+                        '<span style="color:#0079FE">月拱福门：</span>凡事也是有贵人帮助，家中女人胜男人。<br><br>';
+                    break;
+                case '己':
+                    result =
+                        result +
+                        '<span style="color:#0079FE">地户蔽门：</span>凡事利于隐藏。如果旁边有庙宇，更为不利，当有灾殃。<br><br>';
+                    break;
+                case '庚':
+                    result =
+                        result +
+                        '<span style="color:#0079FE">太白刑门：</span>凡事多阻碍，必然见纷争。<br><br>';
+                    break;
+                case '辛':
+                    result =
+                        result +
+                        '<span style="color:#0079FE">天庭抵户：</span>凡事有艰难，半途之中难以进退。<br><br>';
+                    break;
+                case '壬':
+                    result =
+                        result +
+                        '<span style="color:#0079FE">使入天牢：</span>凡事多变动，必然难有成功。<br><br>';
+                    break;
+                case '癸':
+                    result =
+                        result +
+                        '<span style="color:#0079FE">天网华盖：</span>旺相为华盖，多主荣显，衰休为天网，多主艰难。<br><br>';
+                    break;
+            }
+        }
+
+        // 三奇得使
+        if (shen == '值符') {
+            if (tianpangan == '乙') {
+                if (dipangan == '己' || dipangan == '辛') {
+                    result =
+                        result +
+                        '<span style="color:#0079FE">三奇得使：</span>利于纳婢续弦，以及隐私暧昧等事。<br><br>';
+                }
+            }
+        }
+        if (shen == '值符') {
+            if (tianpangan == '丙') {
+                if (dipangan == '戊' || dipangan == '庚') {
+                    result =
+                        result +
+                        '<span style="color:#0079FE">三奇得使：</span>利于纳婢续弦，以及隐私暧昧等事。<br><br>';
+                }
+            }
+        }
+        if (shen == '值符') {
+            if (tianpangan == '丁') {
+                if (dipangan == '壬' || dipangan == '癸') {
+                    result =
+                        result +
+                        '<span style="color:#0079FE">三奇得使：</span>利于纳婢续弦，以及隐私暧昧等事。<br><br>';
+                }
+            }
+        }
 
         // 三诈
         if (tianpangan == '乙' || tianpangan == '丙' || tianpangan == '丁') {
@@ -4015,22 +4086,10 @@ export function feipan_info(info) {
                 }
             }
         }
-        // 物假
-        if (tianpangan == '丁') {
-            if (men == '杜门') {
-                if (shen == '太阴') {
-                    if (dipangan == '己') {
-                        result =
-                            result +
-                            '<span style="color:#0079FE">物假：</span>宜埋葬，伏藏，交易。<br><br>';
-                    }
-                }
-            }
-        }
         // 人假
         if (tianpangan == '壬') {
             if (men == '惊门') {
-                if (shen == '螣蛇') {
+                if (shen == '六合') {
                     if (gongwei == '坤') {
                         result =
                             result +
@@ -4040,25 +4099,25 @@ export function feipan_info(info) {
             }
         }
         // 鬼假
-        if (tianpangan == '己') {
+        if (tianpangan == '己' || tianpangan == '丁' || tianpangan == '癸') {
             if (men == '死门') {
-                if (shen == '朱雀' || shen == '玄武') {
+                if (shen == '六合' || shen == '太阴' || shen == '九地') {
                     if (gongwei == '艮') {
                         result =
                             result +
-                            '<span style="color:#0079FE">鬼假：</span>宜修坟，狩猎。<br><br>';
+                            '<span style="color:#0079FE">鬼假：</span>利宰杀掩埋。<br><br>';
                     }
                 }
             }
         }
         // 神假
-        if (tianpangan == '庚') {
+        if (tianpangan == '己' || tianpangan == '丁' || tianpangan == '癸') {
             if (men == '伤门') {
-                if (shen == '白虎') {
+                if (shen == '六合' || shen == '太阴' || shen == '九地') {
                     if (gongwei == '巽') {
                         result =
                             result +
-                            '<span style="color:#0079FE">神假：</span>宜埋葬，捕捉，诈亡，嫁娶，贸易等。<br><br>';
+                            '<span style="color:#0079FE">神假：</span>利于储蓄收纳。<br><br>';
                     }
                 }
             }
@@ -4068,10 +4127,10 @@ export function feipan_info(info) {
         // 天遁
         if (tianpangan == '丙') {
             if (men == '生门') {
-                if (dipangan == '丁') {
+                if (dipangan == '丁' || dipangan == '戊') {
                     result =
                         result +
-                        '<span style="color:#0079FE">天遁：</span>宜征战，上书，求官，除恶，结婚，贸易，百事生旺。<br><br>';
+                        '<span style="color:#0079FE">天遁：</span>大利功名，开创，显扬等事。<br><br>';
                 }
             }
         }
@@ -4081,7 +4140,7 @@ export function feipan_info(info) {
                 if (dipangan == '己') {
                     result =
                         result +
-                        '<span style="color:#0079FE">地遁：</span>宜安营，藏兵，修造，出阵，求财。<br><br>';
+                        '<span style="color:#0079FE">地遁：</span>大利收纳，建造，稳固等事。<br><br>';
                 }
             }
         }
@@ -4091,7 +4150,7 @@ export function feipan_info(info) {
                 if (shen == '太阴') {
                     result =
                         result +
-                        '<span style="color:#0079FE">人遁：</span>宜攻虚，开路，塞河，造像，教化。<br><br>';
+                        '<span style="color:#0079FE">人遁：</span>大利财禄，谒贵等事。<br><br>';
                 }
             }
         }
@@ -4101,24 +4160,24 @@ export function feipan_info(info) {
                 if (shen == '九天') {
                     result =
                         result +
-                        '<span style="color:#0079FE">神遁：</span>大利功名，开创，宣扬等事。<br><br>';
+                        '<span style="color:#0079FE">神遁：</span>大利功名，开创，显扬等事。<br><br>';
                 }
             }
         }
         // 鬼遁
         if (tianpangan == '乙') {
-            if (men == '开门' || men == '生门' || dipangan == '丁') {
+            if (men == '开门') {
                 if (shen == '九地') {
                     result =
                         result +
-                        '<span style="color:#0079FE">鬼遁：</span>宜安营，藏兵，修造，出阵，求财。<br><br>';
+                        '<span style="color:#0079FE">鬼遁：</span>大利收纳，建造，稳固等事。<br><br>';
                 }
             }
         }
         // 风遁
-        if (tianpangan == '辛') {
-            if (men == '休门') {
-                if (gongwei == '巽') {
+        if (tianpangan == '辛' || tianpangan == '乙') {
+            if (men == '休门' || men == '生门' || men == '开门') {
+                if (gongwei == '巽' || dipangan == '乙') {
                     result =
                         result +
                         '<span style="color:#0079FE">风遁：</span>宜烧营截寨，焚粮草，顺风响应。<br><br>';
@@ -4127,8 +4186,8 @@ export function feipan_info(info) {
         }
         // 云遁
         if (tianpangan == '乙') {
-            if (men == '休门') {
-                if (gongwei == '震') {
+            if (men == '休门' || men == '生门' || men == '开门') {
+                if (gongwei == '震' || dipangan == '辛') {
                     result =
                         result +
                         '<span style="color:#0079FE">云遁：</span>宜伏藏变化，兴云致雾，利于出兵。<br><br>';
@@ -4146,14 +4205,12 @@ export function feipan_info(info) {
             }
         }
         // 虎遁
-        if (gongwei == '艮') {
-            if (tianpangan == '乙') {
-                if (men == '休门') {
-                    if (dipangan == '辛') {
-                        result =
-                            result +
-                            '<span style="color:#0079FE">虎遁：</span>宜立营，招降，设伏，修造。<br><br>';
-                    }
+        if (tianpangan == '乙') {
+            if (men == '生门' || men == '开门') {
+                if (dipangan == '辛' || gongwei == '艮' || gongwei == '兑') {
+                    result =
+                        result +
+                        '<span style="color:#0079FE">虎遁：</span>宜立营，招降，设伏，修造。<br><br>';
                 }
             }
         }
@@ -6471,7 +6528,45 @@ export function feipan_info(info) {
         }
     }
 
+    // 周游格局
     function zhouyou(tiangan, gongwei) {
         let resutl = '<br><hr><br>';
+    }
+
+    function isZhiShi(men) {
+        // 转化繁体至简体
+        switch (men) {
+            case '休門':
+                men = '休门';
+                break;
+            case '生門':
+                men = '生门';
+                break;
+            case '傷門':
+                men = '伤门';
+                break;
+            case '杜門':
+                men = '杜门';
+                break;
+            case '景門':
+                men = '景门';
+                break;
+            case '死門':
+                men = '死门';
+                break;
+            case '驚門':
+                men = '惊门';
+                break;
+            case '開門':
+                men = '开门';
+                break;
+            case '中門':
+                men = '中门';
+                break;
+        }
+        if (men == document.getElementById('paipan-zhishi').innerText) {
+            return true;
+        }
+        return false;
     }
 }

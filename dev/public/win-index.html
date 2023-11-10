@@ -27,12 +27,15 @@
                 导出
             </button>
             <button id="info-return-btn"
-                class="h-[55px] w-[55px] bg-btn text-white rounded-[12px] hover:bg-white hover:text-black duration-150 default-shadow ">
-                返回
+                class="h-[55px] w-[55px] bg-btn text-white text-3xl pt-2 rounded-[12px] hover:bg-white hover:text-black duration-150 default-shadow ">
+                &#8617
             </button>
         </div>
         <div id='saved-data-number-of-data' class='flex flex-row items-center justify-center mt-[25px] mb-0'></div>
-        <div id='saved-data-list' class='h-[720px] mt-[5px] overflow-y-auto'>
+        <div id='saved-data-list' class='h-[720px] mt-[5px] overflow-y-auto hide-scrollbar'></div>
+        <div id='saved-date-back-to-top-btn'
+            class='h-[45px] w-[45px] bg-btn pt-[6px] text-white text-2xl text-center rounded-[12px] hover:bg-white hover:text-black duration-150 default-shadow absolute right-[10px] bottom-[41.5px] hidden'>
+            &#8593
         </div>
     </div>
 
@@ -417,7 +420,16 @@
 
         <!-- 下方信息取 -->
         <textarea id="paipan-pizhu"
-            class="absolute top-[703px] left-[20px] resize-none text-xl border-[1px] rounded-[15px] h-[122px] w-[430px] text-md p-4 default-shadow font-pingfang"></textarea>
+            class="absolute top-[703px] left-[20px] resize-none text-xl border-[1px] rounded-[15px] h-[122px] w-[430px] text-md p-4 default-shadow font-pingfang hide-scrollbar"></textarea>
+        <!-- for mac -->
+        <!-- <button id="screenshot-btn"
+            class="absolute top-[703px] left-[475px] h-[55px] w-[55px] bg-btn text-white rounded-[12px] hover:bg-white hover:text-black duration-150 default-shadow">
+            截图
+        </button>
+        <button id="return"
+            class="absolute top-[770px] left-[475px] h-[55px] w-[55px] bg-btn text-white text-3xl pt-2 rounded-[12px] hover:bg-white hover:text-black duration-150 default-shadow">
+            &#8617
+        </button> -->
 
         <!-- Win 按键 -->
         <button id="return"
@@ -437,7 +449,7 @@
     <script type="module" src="js/navigation.js"></script>
 
     <!-- 排盘页 js 文件 -->
-    <script type='moduel' src="js/paipan_huanju.js"></script>
+    <script src="js/paipan_huanju.js"></script>
     <script type="module" src='js/feipan/feipanIpc.js'></script>
     <script type="module" src='js/zhuanpan/zhuanpanIpc.js'></script>
     <script type="module" src='js/xingfeimenzhuan/xignfeimenzhuanIpc.js'></script>
