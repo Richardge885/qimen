@@ -124,7 +124,7 @@ ipcMain.on('报数起局', (e, data) => {
         const paiPanResult = {
             time: time,
             paipan: paipan,
-            hour: data.timeInfo.hour,
+            hour: time.hour,
         };
         e.reply('current panju data', data);
         e.reply('飞盘排盘', paiPanResult);

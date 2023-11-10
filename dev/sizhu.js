@@ -158,6 +158,7 @@ function timeInfo(date, hour, method = 'none', number = 0) {
                 ri: riganzhi,
                 shi: shiganzhi,
                 jieqi: jieqi.season,
+                hour: hour,
             };
         }
         i++;
