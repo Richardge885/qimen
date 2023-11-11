@@ -529,6 +529,10 @@ export function feipan_info(info) {
                 getShenSha(document.querySelectorAll('[data-anganzhi]')[whichGong].innerText, gong);
         }
         result = result + getJiGe(tianpangan, dipangan, men, tianpanshen, gong, zhishi);
+        result = result + '<hr><br>';
+        result = result + zhouyou(tianpangan, gong);
+        result = result + '<br><br>';
+        result = result + zhouyou(dipangan, gong);
         return result;
     }
     function getZhengGe(tianpangan, dipangan) {
@@ -6481,7 +6485,7 @@ export function feipan_info(info) {
         if (result == '神煞：<br>') {
             return '';
         } else {
-            return result;
+            return result + '<br>';
         }
     }
 
@@ -6528,11 +6532,6 @@ export function feipan_info(info) {
         }
     }
 
-    // 周游格局
-    function zhouyou(tiangan, gongwei) {
-        let resutl = '<br><hr><br>';
-    }
-
     function isZhiShi(men) {
         // 转化繁体至简体
         switch (men) {
@@ -6568,5 +6567,292 @@ export function feipan_info(info) {
             return true;
         }
         return false;
+    }
+
+    // 周游格局
+    function zhouyou(tiangan, gong) {
+        let result = '';
+        switch (tiangan) {
+            case '乙':
+                switch (gong) {
+                    case '坎':
+                        result = result + `乙在${gong}宫周游：反阳天，进步谋为名利全。`;
+                        break;
+                    case '坤':
+                        result = result + `乙在${gong}宫周游：灭辉，多悔吝。`;
+                        break;
+                    case '震':
+                        result = result + `乙在${gong}宫周游：升殿，必高迁。`;
+                        break;
+                    case '巽':
+                        result = result + `乙在${gong}宫周游：全阳，光辉普照`;
+                        break;
+                    case '中':
+                        result = result + `乙在${gong}宫周游：养心，利安眠。`;
+                        break;
+                    case '乾':
+                        result = result + `乙在${gong}宫周游：分尸，有大险。`;
+                        break;
+                    case '兑':
+                        result = result + `乙在${gong}宫周游：日奇灭光，受阴缠。`;
+                        break;
+                    case '艮':
+                        result = result + `乙在${gong}宫周游：现仪，小吉。`;
+                        break;
+                    case '离':
+                        result = result + `乙在${gong}宫周游：腾辉，宜招贤。`;
+                        break;
+                }
+                break;
+            case '丙':
+                switch (gong) {
+                    case '坎':
+                        result = result + `丙在${gong}宫周游：月奇灭光。`;
+                        break;
+                    case '坤':
+                        result = result + `丙在${gong}宫周游：值晦，有忧亡。`;
+                        break;
+                    case '震':
+                        result = result + `丙在${gong}宫周游：月奇东升，圆体。`;
+                        break;
+                    case '巽':
+                        result = result + `丙在${gong}宫周游：阴胜，吉祥。`;
+                        break;
+                    case '中':
+                        result = result + `丙在${gong}宫周游：守穴，守穴方可免失光。`;
+                        break;
+                    case '乾':
+                        result = result + `丙在${gong}宫周游：月奇入墓，有祸殃。`;
+                        break;
+                    case '兑':
+                        result = result + `丙在${gong}宫周游：亏气，防伤损。`;
+                        break;
+                    case '艮':
+                        result = result + `丙在${gong}宫周游：脱弦，小吉昌。`;
+                        break;
+                    case '离':
+                        result = result + `丙在${gong}宫周游：明照八方。`;
+                        break;
+                }
+                break;
+            case '丁':
+                switch (gong) {
+                    case '坎':
+                        result = result + `丁在${gong}宫周游：星奇投江。`;
+                        break;
+                    case '坤':
+                        result = result + `丁在${gong}宫周游：履地，欠安康。`;
+                        break;
+                    case '震':
+                        result = result + `丁在${gong}宫周游：星奇雷霆，宜谋起。`;
+                        break;
+                    case '巽':
+                        result = result + `丁在${gong}宫周游：御风，火辉煌。`;
+                        break;
+                    case '中':
+                        result = result + `丁在${gong}宫周游：星奇入狱，其观乐。`;
+                        break;
+                    case '乾':
+                        result = result + `丁在${gong}宫周游：亡命，失家。`;
+                        break;
+                    case '兑':
+                        result = result + `丁在${gong}宫周游：偷私，有灾害。`;
+                        break;
+                    case '艮':
+                        result = result + `丁在${gong}宫周游：登山，当宝藏。`;
+                        break;
+                    case '离':
+                        result = result + `丁在${gong}宫周游：耀明，可名扬。`;
+                        break;
+                }
+                break;
+            case '戊':
+                switch (gong) {
+                    case '坎':
+                        result = result + `戊在${gong}宫周游：青龙归海，谋为守旧亦悠哉。`;
+                        break;
+                    case '坤':
+                        result = result + `戊在${gong}宫周游：见田，多不吉。`;
+                        break;
+                    case '震':
+                        result = result + `戊在${gong}宫周游：登殿，登高位。`;
+                        break;
+                    case '巽':
+                        result = result + `戊在${gong}宫周游：乘风，得功名仲英魁。`;
+                        break;
+                    case '中':
+                        result = result + `戊在${gong}宫周游：居都，不利外出。`;
+                        break;
+                    case '乾':
+                        result = result + `戊在${gong}宫周游：受困，有灾祸。`;
+                        break;
+                    case '兑':
+                        result = result + `戊在${gong}宫周游：剥鳞，凶灾立至。`;
+                        break;
+                    case '艮':
+                        result = result + `戊在${gong}宫周游：化蛟，进山。`;
+                        break;
+                    case '离':
+                        result = result + `戊在${gong}宫周游：逢火，需脱骨，改面谋为是宏才。`;
+                        break;
+                }
+                break;
+            case '己':
+                switch (gong) {
+                    case '坎':
+                        result = result + `己在${gong}宫周游：地户渐开，乘机耐业福天来。`;
+                        break;
+                    case '坤':
+                        result = result + `己在${gong}宫周游：渐闭，诸事不顺。`;
+                        break;
+                    case '震':
+                        result = result + `己在${gong}宫周游：破门，起祸端。`;
+                        break;
+                    case '巽':
+                        result = result + `己在${gong}宫周游：交冲，需防病。`;
+                        break;
+                    case '中':
+                        result = result + `己在${gong}宫周游：静守，宜求谋。`;
+                        break;
+                    case '乾':
+                        result = result + `己在${gong}宫周游：封户，当收闭。`;
+                        break;
+                    case '兑':
+                        result = result + `己在${gong}宫周游：敛户，聚宝财。`;
+                        break;
+                    case '艮':
+                        result = result + `己在${gong}宫周游：开户，多茂盛，进步谋为趁春栽。`;
+                        break;
+                    case '离':
+                        result = result + `己在${gong}宫周游：通畅，进退屈伸任徘徊。`;
+                        break;
+                }
+                break;
+            case '庚':
+                switch (gong) {
+                    case '坎':
+                        result = result + `庚在${gong}宫周游：不芒，诸事宜潜藏。`;
+                        break;
+                    case '坤':
+                        result = result + `庚在${gong}宫周游：渐明，稍可进。`;
+                        break;
+                    case '震':
+                        result = result + `庚在${gong}宫周游：无辉宜忖量。`;
+                        break;
+                    case '巽':
+                        result = result + `庚在${gong}宫周游：渐晦，何求利。`;
+                        break;
+                    case '中':
+                        result = result + `庚在${gong}宫周游：守晦，不可扬。`;
+                        break;
+                    case '乾':
+                        result = result + `庚在${gong}宫周游：经天，兴军武。`;
+                        break;
+                    case '兑':
+                        result = result + `庚在${gong}宫周游：芒角，进步良。`;
+                        break;
+                    case '艮':
+                        result = result + `庚在${gong}宫周游：样宝，石中玉。`;
+                        break;
+                    case '离':
+                        result = result + `庚在${gong}宫周游：灭光，凶更张。`;
+                        break;
+                }
+                break;
+            case '辛':
+                switch (gong) {
+                    case '坎':
+                        result = result + `辛在${gong}宫周游：白虎耐饥。`;
+                        break;
+                    case '坤':
+                        result = result + `辛在${gong}宫周游：伸爪，伏雄姿。`;
+                        break;
+                    case '震':
+                        result = result + `辛在${gong}宫周游：食素，合演吉。`;
+                        break;
+                    case '巽':
+                        result = result + `辛在${gong}宫周游：咳齐，可耐时。`;
+                        break;
+                    case '中':
+                        result = result + `辛在${gong}宫周游：伏穴，高卧。`;
+                        break;
+                    case '乾':
+                        result = result + `辛在${gong}宫周游：金毛，有威仪。`;
+                        break;
+                    case '兑':
+                        result = result + `辛在${gong}宫周游：得鹿，扬神威。`;
+                        break;
+                    case '艮':
+                        result = result + `辛在${gong}宫周游：窜山，跳涧驰。`;
+                        break;
+                    case '离':
+                        result = result + `辛在${gong}宫周游：脱落，回身静守澘林宜。`;
+                        break;
+                }
+                break;
+            case '壬':
+                switch (gong) {
+                    case '坎':
+                        result = result + `壬在${gong}宫周游：结群，谋为进步要修文。`;
+                        break;
+                    case '坤':
+                        result = result + `壬在${gong}宫周游：蔽难。`;
+                        break;
+                    case '震':
+                        result = result + `壬在${gong}宫周游：散伙，星分。`;
+                        break;
+                    case '巽':
+                        result = result + `壬在${gong}宫周游：变民，需固守。`;
+                        break;
+                    case '中':
+                        result = result + `壬在${gong}宫周游：深藏，要耕耘。`;
+                        break;
+                    case '乾':
+                        result = result + `壬在${gong}宫周游：撤马，当前进。`;
+                        break;
+                    case '兑':
+                        result = result + `壬在${gong}宫周游：练武，统大军。`;
+                        break;
+                    case '艮':
+                        result = result + `壬在${gong}宫周游：被击，遭官累。`;
+                        break;
+                    case '离':
+                        result = result + `壬在${gong}宫周游：焚身，灾在温。`;
+                        break;
+                }
+                break;
+            case '癸':
+                switch (gong) {
+                    case '坎':
+                        result = result + `癸在${gong}宫周游：变龙，雄起之象。`;
+                        break;
+                    case '坤':
+                        result = result + `癸在${gong}宫周游：脱角，少威风。`;
+                        break;
+                    case '震':
+                        result = result + `癸在${gong}宫周游：惊动，少安稳。`;
+                        break;
+                    case '巽':
+                        result = result + `癸在${gong}宫周游：藏草，失洞。`;
+                        break;
+                    case '中':
+                        result = result + `癸在${gong}宫周游：穴内忍饥饿。`;
+                        break;
+                    case '乾':
+                        result = result + `癸在${gong}宫周游：足食，色泽荣。`;
+                        break;
+                    case '兑':
+                        result = result + `癸在${gong}宫周游：腾蛇跃起，多欢扬。`;
+                        break;
+                    case '艮':
+                        result = result + `癸在${gong}宫周游：受困，固穷。`;
+                        break;
+                    case '离':
+                        result = result + `癸在${gong}宫周游：形灭，迅速归来要守中。`;
+                        break;
+                }
+                break;
+        }
+        return result;
     }
 }
