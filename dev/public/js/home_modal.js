@@ -23,25 +23,13 @@ menuBtn.addEventListener('click', () => {
 
 // 主页: 报数弹窗开关
 baoshu.addEventListener('click', openBaoshuModal);
-window.addEventListener('keydown', (event) => {
-    if (event.key.toLowerCase() === 'u' && (event.ctrlKey || event.metaKey)) {
-        openBaoshuModal();
-    }
-});
-
-window.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape' || event.key === 'Esc') {
-        closeModal();
-        closeSideMenu();
-    }
-});
 
 overlay.addEventListener('click', () => {
     closeModal();
     closeSideMenu();
 });
 
-function closeSideMenu() {
+export function closeSideMenu() {
     document.getElementById('home-hamburger-menu').classList.remove('active');
     document.getElementById('menu').classList.remove('active');
     document.getElementById('overlay').classList.remove('active'); // 主页: 包数弹窗背景
@@ -51,7 +39,7 @@ function closeSideMenu() {
 /**
  * 主页报数弹窗开关
  */
-function closeModal() {
+export function closeModal() {
     homeModal.classList.remove('active');
     aboutModal.classList.remove('active');
     menuBtn.classList.remove('active');
@@ -59,7 +47,7 @@ function closeModal() {
     overlay.classList.remove('active');
 }
 
-function openBaoshuModal() {
+export function openBaoshuModal() {
     document.getElementById('shuzi').value = '';
     homeModal.classList.add('active');
     overlay.classList.add('active');

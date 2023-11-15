@@ -17,7 +17,9 @@ let panjuIndex;
 let storedEventListeners = [];
 
 // menu navigation
-gotoSavedInfoSectionBtn.addEventListener('click', () => {
+gotoSavedInfoSectionBtn.addEventListener('click', navigateToDataPage);
+
+export function navigateToDataPage() {
     renderData(localData);
     home.classList.add('hidden');
     savedInfoSection.classList.remove('hidden');
@@ -25,7 +27,7 @@ gotoSavedInfoSectionBtn.addEventListener('click', () => {
     closeSideMenu();
     menuState = false;
     document.getElementById('search-data').value = '';
-});
+}
 
 fromInfosectionToHomeBtm.addEventListener('click', () => {
     savedInfoSection.classList.add('hidden');
@@ -524,5 +526,4 @@ document.getElementById('saved-date-back-to-top-btn').addEventListener('click', 
 function backToTop() {
     document.getElementById('saved-data-list').scrollTop = 0;
 }
-
 // 清空所有 eventListener

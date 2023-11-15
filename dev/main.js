@@ -64,10 +64,7 @@ app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') {
         app.quit();
     } else {
-        electronLocalshortcut.unregister(mainWindow, 'Cmd+S');
-        electronLocalshortcut.unregister(mainWindow, 'Ctrl+S');
-        electronLocalshortcut.unregister(mainWindow, 'Cmd+[');
-        electronLocalshortcut.unregister(mainWindow, 'Ctrl+[');
+        electronLocalshortcut.disableAll(mainWindow);
         mainWindow = null;
     }
 });
