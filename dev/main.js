@@ -14,6 +14,7 @@ const { timeInfo } = require('./sizhu');
 const { paiFeiPan } = require('./feipan');
 const { paiZhuanPan } = require('./zhuanpan');
 const { xingfeiMenzhuan } = require('./xingfeiMenZhuan');
+const { fushipan } = require('./fuShiPan');
 
 const isDev = process.env.NODE_ENV !== 'production' ? true : false;
 
@@ -102,25 +103,23 @@ ipcMain.on('正时起局', (e, data) => {
         };
         e.reply('current panju data', data);
         e.reply('星飞门转', paiPanResult);
+    } else if (data.paipanMethod == '符使法') {
+        const paipan = fushipan(time.jieqi, time.ri, time.shi);
+        const paiPanResult = {
+            time: time,
+            paipan: paipan,
+            hour: data.timeInfo.hour,
+        };
+        e.reply('current panju data', data);
+        e.reply('符使法', paiPanResult);
     }
 });
 
 ipcMain.on('报数起局', (e, data) => {
     currentPanjuData = data;
-    const time = timeInfo(
-        data.timeInfo.date,
-        data.timeInfo.hour,
-        data.choosenMethod,
-        data.choosenNumber,
-    );
+    const time = timeInfo(data.timeInfo.date, data.timeInfo.hour, data.choosenMethod, data.choosenNumber);
     if (data.paipanMethod == '飞盘') {
-        const paipan = paiFeiPan(
-            time.jieqi,
-            time.ri,
-            time.shi,
-            data.choosenNumber,
-            data.choosenMethod,
-        );
+        const paipan = paiFeiPan(time.jieqi, time.ri, time.shi, data.choosenNumber, data.choosenMethod);
         const paiPanResult = {
             time: time,
             paipan: paipan,
@@ -129,13 +128,7 @@ ipcMain.on('报数起局', (e, data) => {
         e.reply('current panju data', data);
         e.reply('飞盘排盘', paiPanResult);
     } else if (data.paipanMethod == '转盘') {
-        const paipan = paiZhuanPan(
-            time.jieqi,
-            time.ri,
-            time.shi,
-            data.choosenNumber,
-            data.choosenMethod,
-        );
+        const paipan = paiZhuanPan(time.jieqi, time.ri, time.shi, data.choosenNumber, data.choosenMethod);
         const paiPanResult = {
             time: time,
             paipan: paipan,
@@ -144,13 +137,7 @@ ipcMain.on('报数起局', (e, data) => {
         e.reply('current panju data', data);
         e.reply('传统转盘排盘', paiPanResult);
     } else if (data.paipanMethod == '星飞门转') {
-        const paipan = xingfeiMenzhuan(
-            time.jieqi,
-            time.ri,
-            time.shi,
-            data.choosenNumber,
-            data.choosenMethod,
-        );
+        const paipan = xingfeiMenzhuan(time.jieqi, time.ri, time.shi, data.choosenNumber, data.choosenMethod);
         const paiPanResult = {
             time: time,
             paipan: paipan,
