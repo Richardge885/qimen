@@ -117,8 +117,9 @@
             <select id="home-paipanfangshi" size="1"
                 class="font-pingfang text-lg font-normal border-[1px] border-[#e0e0e0] rounded-[7px] text-center">
                 <option value="飞盘">飞盘</option>
-                <option value="转盘">转盘（寄坤宫）</option>
-                <option value="星飞门转">星飞门转（寄坤宫）</option>
+                <option value="转盘">转盘</option>
+                <option value="符使法">符使法</option>
+                <option value="星飞门转">星飞门转</option>
             </select>
             <div class="flex w-[248px] justify-between">
                 <input id="date-time" type="datetime-local"
@@ -151,7 +152,8 @@
     <div id="paipan" class="w-screen h-screen hidden bg-[#eeeeee]">
         <!-- info modal -->
         <div id="paipan-info-modal" class="hide-scrollbar">
-            <div id="paipan-modal-info-section" class="overflow-scroll text-lg mt-[15px] w-[320px] hide-scrollbar">
+            <div id="paipan-modal-info-section"
+                class="overflow-scroll text-lg mt-[15px] w-[320px] hide-scrollbar pb-[20px]">
             </div>
             <div id="paipan-gongwei-info-items" class="flex flex-col text-lg pl-[5px]">
                 <div class="paipan-gongwei-info-items rounded-tr-[15px]" id="paipan-geju-info">
@@ -421,16 +423,6 @@
         <!-- 下方信息取 -->
         <textarea id="paipan-pizhu"
             class="absolute top-[703px] left-[20px] resize-none text-xl border-[1px] rounded-[15px] h-[122px] w-[430px] text-md p-4 default-shadow font-pingfang hide-scrollbar"></textarea>
-        <!-- for mac -->
-        <!-- <button id="screenshot-btn"
-            class="absolute top-[703px] left-[475px] h-[55px] w-[55px] bg-btn text-white rounded-[12px] hover:bg-white hover:text-black duration-150 default-shadow">
-            截图
-        </button>
-        <button id="return"
-            class="absolute top-[770px] left-[475px] h-[55px] w-[55px] bg-btn text-white text-3xl pt-2 rounded-[12px] hover:bg-white hover:text-black duration-150 default-shadow">
-            &#8617
-        </button> -->
-
         <!-- Win 按键 -->
         <button id="return"
             class="absolute top-[704px] left-[475px] h-[122px] w-[55px] bg-btn text-white rounded-[12px] hover:bg-white hover:text-black duration-150 default-shadow">
@@ -452,9 +444,11 @@
     <script src="js/paipan_huanju.js"></script>
     <script type="module" src='js/feipan/feipanIpc.js'></script>
     <script type="module" src='js/zhuanpan/zhuanpanIpc.js'></script>
+    <script type="module" src='js/fushiPan/fushiPanIpc.js'></script>
     <script type="module" src='js/xingfeimenzhuan/xignfeimenzhuanIpc.js'></script>
     <script src="js/info.js"></script>
 
+    <script type="module" src="js/short_cuts.js"></script>
     <!-- mac only scripts -->
     <script type="module" src="js/paipan_screenshot.js"></script>
 

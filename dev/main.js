@@ -145,6 +145,15 @@ ipcMain.on('报数起局', (e, data) => {
         };
         e.reply('current panju data', data);
         e.reply('星飞门转', paiPanResult);
+    } else if (data.paipanMethod == '符使法') {
+        const paipan = fushipan(time.jieqi, time.ri, time.shi, data.choosenNumber, data.choosenMethod);
+        const paiPanResult = {
+            time: time,
+            paipan: paipan,
+            hour: data.timeInfo.hour,
+        };
+        e.reply('current panju data', data);
+        e.reply('符使法', paiPanResult);
     }
 });
 

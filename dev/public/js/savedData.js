@@ -162,7 +162,7 @@ function clearRenderList() {
 }
 
 function handleDataPaipanClick(index, data) {
-    return function() {
+    return function () {
         isFromData = true;
         panjuIndex = index;
         for (let i = localData.length - 1; i >= 0; i--) {
@@ -208,6 +208,16 @@ function sendDataToBackEnd(data) {
             ipcRenderer.send('正时起局', currentData);
             useZhuanpanStyle();
             fromDataPageToPaipanPage();
+        } else if (currentData.paipanMethod == '符使法') {
+            clearPanJu();
+            ipcRenderer.send('正时起局', currentData);
+            useZhuanpanStyle();
+            fromDataPageToPaipanPage();
+        } else if (currentData.paipanMethod == '星飞门转') {
+            clearPanJu();
+            ipcRenderer.send('正时起局', currentData);
+            useZhuanpanStyle();
+            fromDataPageToPaipanPage();
         }
     } else {
         if (currentData.paipanMethod == '飞盘') {
@@ -216,6 +226,16 @@ function sendDataToBackEnd(data) {
             useFeipanStyle();
             fromDataPageToPaipanPage();
         } else if (currentData.paipanMethod == '转盘') {
+            clearPanJu();
+            ipcRenderer.send('报数起局', currentData);
+            useZhuanpanStyle();
+            fromDataPageToPaipanPage();
+        } else if (currentData.paipanMethod == '符使法') {
+            clearPanJu();
+            ipcRenderer.send('报数起局', currentData);
+            useZhuanpanStyle();
+            fromDataPageToPaipanPage();
+        } else if (currentData.paipanMethod == '星飞门转') {
             clearPanJu();
             ipcRenderer.send('报数起局', currentData);
             useZhuanpanStyle();
@@ -506,7 +526,7 @@ ipcRenderer.on('import data to render process', (e, data) => {
 });
 
 // 根据滚动位置显示回到上方按钮
-document.getElementById('saved-data-list').onscroll = function() {
+document.getElementById('saved-data-list').onscroll = function () {
     if (document.getElementById('saved-data-list').scrollTop > 20 || document.documentElement.scrollTop > 20) {
         document.getElementById('saved-date-back-to-top-btn').classList.remove('hidden');
     } else {
