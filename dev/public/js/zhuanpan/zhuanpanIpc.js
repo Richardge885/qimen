@@ -331,8 +331,7 @@ function paiTianPanGan() {
                 break;
             case '天芮':
                 tianpangan[i].innerHTML = dipangan[1].innerHTML;
-                document.querySelectorAll('[data-tianpanyikong]')[i].innerHTML =
-                    dipangan[4].innerHTML;
+                document.querySelectorAll('[data-tianpanyikong]')[i].innerHTML = dipangan[4].innerHTML;
                 break;
             case '天柱':
                 tianpangan[i].innerHTML = dipangan[6].innerHTML;
@@ -366,7 +365,7 @@ function paiTianPanShen(dun, shigan) {
         shigan = shigan.charAt(0);
     }
     if (dun == '阳') {
-        shen = ['值符', '螣蛇', '太阴', '六合', '勾陈', '朱雀', '九地', '九天'];
+        shen = ['值符', '螣蛇', '太阴', '六合', '白虎', '玄武', '九地', '九天'];
         for (let i = 0; i < 9; i++) {
             if (position[i].innerHTML == shigan) {
                 start = i;
@@ -460,7 +459,7 @@ function paiDiPanShen(dun) {
         }
     }
     if (dun == '阳') {
-        const shen = ['符', '蛇', '阴', '合', '勾', '雀', '地', '天'];
+        const shen = ['符', '蛇', '阴', '合', '虎', '玄', '地', '天'];
         switch (start) {
             case 0:
                 shunxu = [0, 7, 2, 3, 8, 1, 6, 5];
@@ -901,12 +900,6 @@ function renderWuXingColor(zhishi, shi, ri) {
             case '九天':
                 element.classList.add('jin');
                 break;
-            case '朱雀':
-                element.classList.add('huo');
-                break;
-            case '勾陈':
-                element.classList.add('tu');
-                break;
         }
     });
     document.querySelectorAll('[data-dipanshen]').forEach((element, index) => {
@@ -934,12 +927,6 @@ function renderWuXingColor(zhishi, shi, ri) {
                 break;
             case '天':
                 element.classList.add('jin');
-                break;
-            case '雀':
-                element.classList.add('huo');
-                break;
-            case '勾':
-                element.classList.add('tu');
                 break;
         }
     });
